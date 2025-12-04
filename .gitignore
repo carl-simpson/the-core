@@ -1,0 +1,57 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Environment
+.env
+
+# Data and cache
+data/*.json
+data/*.xml
+
+# Exception: Keep critical Magento_Sales graph data
+!data/Magento_Sales-graph.json
+diagrams/*.png
+diagrams/*.svg
+
+# Logs
+*.log
+logs/
+
+# Docker volumes and data (CRITICAL: These are backed up via snapshots)
+docker-data/
+docker/neo4j/
+
+# Snapshots (large backup archives - exclude from git, include on external drive)
+snapshots/*.tar.gz
+backups/
+
+# OS files
+.DS_Store
+Thumbs.db
+._*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Test coverage
+coverage/
+
+# Build outputs
+dist/
+build/
+
+# Temp files
+tmp/
+temp/
+
+# Keep directory structure
+!data/.gitkeep
+!diagrams/.gitkeep
+!annotations/**/.gitkeep
+!snapshots/.gitkeep
+!backups/.gitkeep
+!docker-data/.gitkeep
