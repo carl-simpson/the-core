@@ -1,0 +1,14 @@
+Magento Core Analyzer - Snapshot
+Created: 20251203_222046
+Hostname: ukmeds
+OS: Darwin
+Docker: Docker version 28.4.0, build d8eb465
+
+Contents:
+- neo4j-data.tar.gz    : Neo4j graph database
+- parsed-data.tar.gz   : Parsed Magento data
+- diagrams.tar.gz      : Generated diagrams
+- .env                 : Environment configuration
+
+To restore:
+  ./scripts/snapshot-restore.sh snapshots/20251203_222046

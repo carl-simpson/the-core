@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plugins &amp; Observers - Magento_Eav Module</title>
+    <style>
+        :root {
+            --orange: #F26423;
+            --yellow: #F1BC1B;
+            --charcoal: #2C2C2C;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: var(--light-gray);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 2rem;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--orange) 0%, var(--orange) 50%, var(--yellow) 50%, var(--yellow) 100%);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+        }
+
+        .breadcrumb a {
+            color: var(--yellow);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: var(--light-gray);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            background-color: var(--white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section h2 {
+            color: var(--charcoal);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--orange);
+            display: inline-block;
+        }
+
+        .section h3 {
+            color: var(--charcoal);
+            font-size: 1.25rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .section p {
+            margin-bottom: 1rem;
+            color: #444;
+        }
+
+        .preference-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        .preference-table th {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 0.75rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .preference-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #E0E0E0;
+            font-size: 0.875rem;
+        }
+
+        .preference-table tr:hover {
+            background-color: var(--light-gray);
+        }
+
+        .interface-name {
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+            color: var(--orange);
+            font-weight: 600;
+        }
+
+        .class-name {
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+            color: var(--charcoal);
+        }
+
+        .plugin-card {
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid var(--orange);
+        }
+
+        .plugin-card:nth-child(even) {
+            border-left-color: var(--yellow);
+        }
+
+        .plugin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .plugin-name {
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+
+        .plugin-type {
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+            font-size: 0.875rem;
+            color: #666;
+        }
+
+        .plugin-target {
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+            font-size: 0.875rem;
+            background-color: var(--white);
+            padding: 0.25rem 0.5rem;
+            color: var(--charcoal);
+        }
+
+        .plugin-methods {
+            margin-top: 1rem;
+        }
+
+        .method-item {
+            padding: 0.5rem 0;
+            border-top: 1px solid #DDD;
+        }
+
+        .method-name {
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+            font-weight: 600;
+            color: var(--orange);
+        }
+
+        .method-desc {
+            font-size: 0.875rem;
+            color: #666;
+            margin-top: 0.25rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.125rem 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge.after {
+            background-color: var(--orange);
+            color: var(--white);
+        }
+
+        .code-block {
+            background-color: var(--charcoal);
+            color: #E0E0E0;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        .code-block .keyword {
+            color: var(--orange);
+        }
+
+        .code-block .tag {
+            color: var(--yellow);
+        }
+
+        .code-block .attr {
+            color: #8FD9A8;
+        }
+
+        .code-block .string {
+            color: #FFD180;
+        }
+
+        .code-block .comment {
+            color: #888;
+        }
+
+        .virtual-type-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .virtual-type-card {
+            background-color: var(--light-gray);
+            padding: 1rem;
+            border-left: 4px solid var(--charcoal);
+        }
+
+        .virtual-type-name {
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .virtual-type-base {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .model-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .model-card {
+            background-color: var(--light-gray);
+            padding: 1rem;
+            border-top: 3px solid var(--orange);
+        }
+
+        .model-card:nth-child(2) {
+            border-top-color: var(--yellow);
+        }
+
+        .model-card:nth-child(3) {
+            border-top-color: var(--charcoal);
+        }
+
+        .model-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .model-list {
+            font-size: 0.8rem;
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+        }
+
+        .model-list li {
+            margin-bottom: 0.25rem;
+            list-style: none;
+        }
+
+        .footer {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer a {
+            color: var(--yellow);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .virtual-type-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .preference-table {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <nav class="breadcrumb">
+                <a href="../../../index.html">Documentation</a>
+                <span> / </span>
+                <a href="index.html">Magento_Eav</a>
+                <span> / </span>
+                <span>Plugins &amp; Observers</span>
+            </nav>
+            <h1>Plugins &amp; Observers</h1>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="section">
+            <h2>DI Preferences</h2>
+            <p>
+                The EAV module defines preferences to bind interfaces to concrete implementations
+                for the attribute system.
+            </p>
+
+            <h3>API Interface Bindings</h3>
+            <table class="preference-table">
+                <thead>
+                    <tr>
+                        <th>Interface</th>
+                        <th>Implementation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="interface-name">AttributeRepositoryInterface</span></td>
+                        <td><span class="class-name">Magento\Eav\Model\AttributeRepository</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="interface-name">AttributeSetRepositoryInterface</span></td>
+                        <td><span class="class-name">Magento\Eav\Model\AttributeSetRepository</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="interface-name">AttributeSetManagementInterface</span></td>
+                        <td><span class="class-name">Magento\Eav\Model\AttributeSetManagement</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="interface-name">AttributeGroupRepositoryInterface</span></td>
+                        <td><span class="class-name">Magento\Eav\Model\Attribute\GroupRepository</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="interface-name">AttributeManagementInterface</span></td>
+                        <td><span class="class-name">Magento\Eav\Model\AttributeManagement</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="interface-name">AttributeOptionManagementInterface</span></td>
+                        <td><span class="class-name">Magento\Eav\Model\Entity\Attribute\OptionManagement</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="interface-name">AttributeOptionUpdateInterface</span></td>
+                        <td><span class="class-name">Magento\Eav\Model\Entity\Attribute\OptionManagement</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Data Interface Bindings</h3>
+            <table class="preference-table">
+                <thead>
+                    <tr>
+                        <th>Interface</th>
+                        <th>Implementation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="interface-name">Data\AttributeInterface</span></td>
+                        <td><span class="class-name">Magento\Eav\Model\Entity\Attribute</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="interface-name">Data\AttributeSetInterface</span></td>
+                        <td><span class="class-name">Magento\Eav\Model\Entity\Attribute\Set</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="interface-name">Data\AttributeGroupInterface</span></td>
+                        <td><span class="class-name">Magento\Eav\Model\Entity\Attribute\Group</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="interface-name">Data\AttributeOptionInterface</span></td>
+                        <td><span class="class-name">Magento\Eav\Model\Entity\Attribute\Option</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="interface-name">Data\AttributeOptionLabelInterface</span></td>
+                        <td><span class="class-name">Magento\Eav\Model\Entity\Attribute\OptionLabel</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="interface-name">Data\AttributeFrontendLabelInterface</span></td>
+                        <td><span class="class-name">Magento\Eav\Model\Entity\Attribute\FrontendLabel</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Internal Bindings</h3>
+            <table class="preference-table">
+                <thead>
+                    <tr>
+                        <th>Interface</th>
+                        <th>Implementation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="interface-name">PropertyMapperInterface</span></td>
+                        <td><span class="class-name">Magento\Eav\Model\Entity\Setup\PropertyMapper\Composite</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="interface-name">AttributeLoaderInterface</span></td>
+                        <td><span class="class-name">Magento\Eav\Model\Entity\AttributeLoader</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="interface-name">UniqueValidationInterface</span></td>
+                        <td><span class="class-name">Magento\Eav\Model\Entity\Attribute\UniqueValidator</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="interface-name">ReservedAttributeCheckerInterface</span></td>
+                        <td><span class="class-name">Magento\Eav\Model\ReservedAttributeChecker</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="interface-name">CustomAttributeTypeLocatorInterface</span></td>
+                        <td><span class="class-name">Magento\Eav\Model\TypeLocator</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section">
+            <h2>Plugins</h2>
+            <p>
+                The EAV module defines plugins for caching and cache invalidation.
+            </p>
+
+            <div class="plugin-card">
+                <div class="plugin-header">
+                    <div>
+                        <div class="plugin-name">storeLabelCaching</div>
+                        <div class="plugin-type">Magento\Eav\Plugin\Model\ResourceModel\Entity\Attribute</div>
+                    </div>
+                    <div class="plugin-target">Magento\Eav\Model\ResourceModel\Entity\Attribute</div>
+                </div>
+                <div class="plugin-methods">
+                    <div class="method-item">
+                        <span class="badge after">after</span>
+                        <span class="method-name">afterGetStoreLabelsByAttributeId</span>
+                        <div class="method-desc">
+                            Caches store-scoped attribute labels after loading to avoid repeated database queries.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="plugin-card">
+                <div class="plugin-header">
+                    <div>
+                        <div class="plugin-name">clean_cache</div>
+                        <div class="plugin-type">Magento\Framework\App\Cache\FlushCacheByTags</div>
+                    </div>
+                    <div class="plugin-target">Magento\Eav\Model\Entity\AbstractEntity</div>
+                </div>
+                <div class="plugin-methods">
+                    <div class="method-item">
+                        <span class="badge after">after</span>
+                        <span class="method-name">afterSave / afterDelete</span>
+                        <div class="method-desc">
+                            Invalidates cache tags when EAV entities are saved or deleted to ensure
+                            cache consistency.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Virtual Types</h2>
+            <p>
+                EAV defines virtual types for search criteria processing and collection filtering.
+            </p>
+
+            <div class="virtual-type-grid">
+                <div class="virtual-type-card">
+                    <div class="virtual-type-name">Eav\Model\Api\SearchCriteria\CollectionProcessor</div>
+                    <div class="virtual-type-base">
+                        Processors: FilterProcessor, SortingProcessor, PaginationProcessor
+                    </div>
+                </div>
+
+                <div class="virtual-type-card">
+                    <div class="virtual-type-name">AttributeCollectionProcessor</div>
+                    <div class="virtual-type-base">
+                        Specialized collection processor for attribute repositories
+                    </div>
+                </div>
+
+                <div class="virtual-type-card">
+                    <div class="virtual-type-name">AttributeSetCollectionProcessor</div>
+                    <div class="virtual-type-base">
+                        Collection processor with entity_type_code filter support
+                    </div>
+                </div>
+
+                <div class="virtual-type-card">
+                    <div class="virtual-type-name">AttributeGroupCollectionProcessor</div>
+                    <div class="virtual-type-base">
+                        Collection processor for attribute groups with default sort order
+                    </div>
+                </div>
+
+                <div class="virtual-type-card">
+                    <div class="virtual-type-name">configured_eav_cache</div>
+                    <div class="virtual-type-base">
+                        Cache instance with identifier 'eav' for EAV configuration caching
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Backend/Frontend/Source Model Patterns</h2>
+            <p>
+                EAV attributes use model patterns for validation, display, and option handling.
+            </p>
+
+            <div class="model-grid">
+                <div class="model-card">
+                    <div class="model-title">Backend Models</div>
+                    <ul class="model-list">
+                        <li>Backend\DefaultBackend - Base backend</li>
+                        <li>Backend\ArrayBackend - Multiselect handling</li>
+                        <li>Backend\Datetime - Date formatting</li>
+                        <li>Backend\Increment - Auto-increment</li>
+                        <li>Backend\Serialized - Array serialization</li>
+                    </ul>
+                </div>
+
+                <div class="model-card">
+                    <div class="model-title">Frontend Models</div>
+                    <ul class="model-list">
+                        <li>Frontend\DefaultFrontend - Base frontend</li>
+                        <li>Frontend\Datetime - Date display</li>
+                    </ul>
+                </div>
+
+                <div class="model-card">
+                    <div class="model-title">Source Models</div>
+                    <ul class="model-list">
+                        <li>Source\Table - Database options</li>
+                        <li>Source\Boolean - Yes/No options</li>
+                        <li>Source\Config - Config-based options</li>
+                        <li>Source\Store - Store options</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>EntityManager Extensions</h2>
+            <p>
+                EAV integrates with the EntityManager framework for CRUD operations.
+            </p>
+
+            <div class="code-block">
+<span class="comment">// EntityManager AttributePool extension for EAV handling</span>
+<span class="tag">&lt;type</span> <span class="attr">name</span>=<span class="string">"Magento\Framework\EntityManager\Operation\AttributePool"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;arguments&gt;</span>
+        <span class="tag">&lt;argument</span> <span class="attr">name</span>=<span class="string">"extensionActions"</span> <span class="attr">xsi:type</span>=<span class="string">"array"</span><span class="tag">&gt;</span>
+            <span class="tag">&lt;item</span> <span class="attr">name</span>=<span class="string">"eav"</span> <span class="attr">xsi:type</span>=<span class="string">"array"</span><span class="tag">&gt;</span>
+                <span class="tag">&lt;item</span> <span class="attr">name</span>=<span class="string">"default"</span> <span class="attr">xsi:type</span>=<span class="string">"array"</span><span class="tag">&gt;</span>
+                    <span class="tag">&lt;item</span> <span class="attr">name</span>=<span class="string">"read"</span><span class="tag">&gt;</span>
+                        Magento\Eav\Model\ResourceModel\ReadHandler
+                    <span class="tag">&lt;/item&gt;</span>
+                    <span class="tag">&lt;item</span> <span class="attr">name</span>=<span class="string">"create"</span><span class="tag">&gt;</span>
+                        Magento\Eav\Model\ResourceModel\CreateHandler
+                    <span class="tag">&lt;/item&gt;</span>
+                    <span class="tag">&lt;item</span> <span class="attr">name</span>=<span class="string">"update"</span><span class="tag">&gt;</span>
+                        Magento\Eav\Model\ResourceModel\UpdateHandler
+                    <span class="tag">&lt;/item&gt;</span>
+                <span class="tag">&lt;/item&gt;</span>
+            <span class="tag">&lt;/item&gt;</span>
+        <span class="tag">&lt;/argument&gt;</span>
+    <span class="tag">&lt;/arguments&gt;</span>
+<span class="tag">&lt;/type&gt;</span>
+
+<span class="comment">// These handlers manage EAV attribute values during entity CRUD</span>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p><a href="index.html">Back to Magento_Eav Overview</a></p>
+        <p><a href="../../../index.html">Documentation Index</a></p>
+    </footer>
+</body>
+</html>

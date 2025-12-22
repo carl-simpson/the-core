@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magento_ConfigurableProduct - Integrations</title>
+    <style>
+        :root {
+            --orange: #F26423;
+            --yellow: #F1BC1B;
+            --charcoal: #2C2C2C;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+            --code-bg: #1E1E1E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: var(--light-gray);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--charcoal);
+            padding: 2rem;
+            border-bottom: 4px solid var(--orange);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            color: #999;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--yellow);
+            text-decoration: none;
+        }
+
+        h1 {
+            color: var(--white);
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        h1 span {
+            color: var(--orange);
+        }
+
+        .subtitle {
+            color: #999;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        nav {
+            background-color: var(--white);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            max-width: 1400px;
+            margin: 0 auto;
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            border-bottom-color: var(--orange);
+        }
+
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: var(--charcoal);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--orange);
+            display: inline-block;
+        }
+
+        h3 {
+            color: var(--charcoal);
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #444;
+        }
+
+        .integration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .integration-card {
+            background: var(--light-gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--orange);
+        }
+
+        .integration-card.dependency {
+            border-left-color: var(--yellow);
+        }
+
+        .integration-card h4 {
+            color: var(--charcoal);
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .integration-card p {
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .integration-card ul {
+            margin-left: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .integration-card li {
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .code-block {
+            background-color: var(--code-bg);
+            color: #D4D4D4;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Fira Code', 'Consolas', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 1rem 0;
+        }
+
+        .code-block .comment { color: #6A9955; }
+        .code-block .keyword { color: #569CD6; }
+        .code-block .string { color: #CE9178; }
+        .code-block .class { color: #4EC9B0; }
+        .code-block .method { color: #DCDCAA; }
+        .code-block .variable { color: #9CDCFE; }
+
+        .flow-diagram {
+            background: var(--light-gray);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        .flow-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .flow-box {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            min-width: 150px;
+        }
+
+        .flow-box.primary {
+            background: var(--orange);
+        }
+
+        .flow-box.secondary {
+            background: var(--yellow);
+            color: var(--charcoal);
+        }
+
+        .flow-arrow {
+            color: var(--charcoal);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .flow-arrow.down {
+            display: block;
+            margin: 0.5rem auto;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .badge.dependency {
+            background: var(--yellow);
+            color: var(--charcoal);
+        }
+
+        .badge.integration {
+            background: var(--orange);
+            color: var(--white);
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .data-table th {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .data-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #E0E0E0;
+            vertical-align: top;
+        }
+
+        .data-table tr:nth-child(even) {
+            background: var(--light-gray);
+        }
+
+        .data-table code {
+            background: var(--charcoal);
+            color: var(--yellow);
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.85rem;
+        }
+
+        footer {
+            background: var(--charcoal);
+            color: #999;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--yellow);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .integration-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="breadcrumb">
+                <a href="../../index.html">Modules</a> /
+                <a href="index.html">Magento_ConfigurableProduct</a> /
+                Integrations
+            </div>
+            <h1>Module <span>Integrations</span></h1>
+            <p class="subtitle">Dependencies and cross-module integration patterns</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Overview</a></li>
+            <li><a href="architecture.html">Architecture</a></li>
+            <li><a href="execution-flows.html">Execution Flows</a></li>
+            <li><a href="plugins-observers.html">Plugins & Observers</a></li>
+            <li><a href="integrations.html" class="active">Integrations</a></li>
+            <li><a href="known-issues.html">Known Issues</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Integration Overview -->
+        <section class="section">
+            <h2>Integration Overview</h2>
+            <p>Magento_ConfigurableProduct integrates deeply with the catalog, pricing, inventory, and checkout systems. It depends on 6 core modules and provides integration points for swatches, search, and GraphQL.</p>
+
+            <div class="flow-diagram">
+                <div class="flow-row">
+                    <div class="flow-box">Magento_Catalog</div>
+                    <div class="flow-box">Magento_Quote</div>
+                    <div class="flow-box">Magento_Sales</div>
+                </div>
+                <div class="flow-arrow down">&darr;</div>
+                <div class="flow-box primary">Magento_ConfigurableProduct</div>
+                <div class="flow-arrow down">&darr;</div>
+                <div class="flow-row">
+                    <div class="flow-box secondary">Magento_Swatches</div>
+                    <div class="flow-box secondary">Magento_CatalogSearch</div>
+                    <div class="flow-box secondary">ConfigurableProductGraphQl</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Module Dependencies -->
+        <section class="section">
+            <h2>Module Dependencies</h2>
+            <p>These modules must be loaded before ConfigurableProduct:</p>
+
+            <div class="integration-grid">
+                <div class="integration-card dependency">
+                    <h4><span class="badge dependency">Required</span> Magento_Catalog</h4>
+                    <p>Provides the core product entity, EAV attributes, and product types framework.</p>
+                    <ul>
+                        <li>Product entity and repository</li>
+                        <li>EAV attribute system for super attributes</li>
+                        <li>Product type abstract class</li>
+                        <li>Category and product linking</li>
+                    </ul>
+                </div>
+
+                <div class="integration-card dependency">
+                    <h4><span class="badge dependency">Required</span> Magento_Quote</h4>
+                    <p>Cart and quote management for configurable product items.</p>
+                    <ul>
+                        <li>Quote item processing</li>
+                        <li>Product option storage</li>
+                        <li>Parent-child quote item linking</li>
+                        <li>Custom option handling</li>
+                    </ul>
+                </div>
+
+                <div class="integration-card dependency">
+                    <h4><span class="badge dependency">Required</span> Magento_Sales</h4>
+                    <p>Order management and item processing.</p>
+                    <ul>
+                        <li>Order item conversion</li>
+                        <li>Product options in orders</li>
+                        <li>Invoice/shipment item handling</li>
+                        <li>Admin order item display</li>
+                    </ul>
+                </div>
+
+                <div class="integration-card dependency">
+                    <h4><span class="badge dependency">Required</span> Magento_CatalogInventory</h4>
+                    <p>Stock management for configurable and child products.</p>
+                    <ul>
+                        <li>Stock status aggregation</li>
+                        <li>Quantity validation</li>
+                        <li>Salability checks</li>
+                        <li>Stock indexer integration</li>
+                    </ul>
+                </div>
+
+                <div class="integration-card dependency">
+                    <h4><span class="badge dependency">Required</span> Magento_Checkout</h4>
+                    <p>Checkout process handling.</p>
+                    <ul>
+                        <li>Add to cart processing</li>
+                        <li>Cart page display</li>
+                        <li>Mini-cart integration</li>
+                        <li>Checkout validation</li>
+                    </ul>
+                </div>
+
+                <div class="integration-card dependency">
+                    <h4><span class="badge dependency">Required</span> Magento_Msrp</h4>
+                    <p>Manufacturer's suggested retail price support.</p>
+                    <ul>
+                        <li>MSRP display on configurable</li>
+                        <li>MAP pricing rules</li>
+                        <li>Price masking integration</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Integrations -->
+        <section class="section">
+            <h2>Key Module Integrations</h2>
+
+            <h3>Magento_Swatches Integration</h3>
+            <p>Visual attribute selection instead of dropdowns:</p>
+            <div class="integration-card">
+                <h4>Swatch Renderer</h4>
+                <p>When configurable options use swatch attributes (color, size), the frontend renders visual selectors instead of dropdowns. ConfigurableProduct provides the base option data structure that Swatches extends.</p>
+                <ul>
+                    <li>Color swatches with hex codes</li>
+                    <li>Image swatches for patterns</li>
+                    <li>Text swatches for sizes</li>
+                    <li>Image switching on option select</li>
+                </ul>
+            </div>
+
+            <div class="code-block">
+<span class="comment">// Swatches extends configurable JSON config</span>
+<span class="variable">$jsonConfig</span> = <span class="variable">$this</span>-><span class="method">getJsonConfig</span>();
+<span class="variable">$swatchConfig</span> = <span class="variable">$this</span>-><span class="method">getSwatchConfig</span>();
+
+<span class="comment">// Combined output for RequireJS</span>
+<span class="keyword">return</span> [
+    <span class="string">'Magento_ConfigurableProduct/js/configurable'</span> => <span class="variable">$jsonConfig</span>,
+    <span class="string">'Magento_Swatches/js/swatch-renderer'</span> => <span class="variable">$swatchConfig</span>
+];
+            </div>
+
+            <h3>Price Indexer Integration</h3>
+            <p>Configurable product prices are indexed based on their children:</p>
+            <div class="code-block">
+<span class="comment">// Configurable price indexer</span>
+<span class="comment">// catalog_product_index_price stores the minimum child price</span>
+
+<span class="keyword">INSERT INTO</span> catalog_product_index_price
+<span class="keyword">SELECT</span>
+    parent.entity_id,
+    MIN(child.min_price) <span class="keyword">AS</span> min_price,
+    MIN(child.final_price) <span class="keyword">AS</span> final_price,
+    MAX(child.max_price) <span class="keyword">AS</span> max_price
+<span class="keyword">FROM</span> catalog_product_entity parent
+<span class="keyword">JOIN</span> catalog_product_super_link link <span class="keyword">ON</span> parent.entity_id = link.parent_id
+<span class="keyword">JOIN</span> catalog_product_index_price child <span class="keyword">ON</span> link.product_id = child.entity_id
+<span class="keyword">WHERE</span> parent.type_id = <span class="string">'configurable'</span>
+<span class="keyword">GROUP BY</span> parent.entity_id
+            </div>
+
+            <h3>MSI (Multi-Source Inventory) Integration</h3>
+            <p>ConfigurableProduct works with MSI through stock status aggregation:</p>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Integration Point</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>InventoryConfigurableProduct</code></td>
+                        <td>Separate module that bridges ConfigurableProduct with MSI</td>
+                    </tr>
+                    <tr>
+                        <td>Stock aggregation</td>
+                        <td>Parent salable if any child has stock in any source</td>
+                    </tr>
+                    <tr>
+                        <td>Reservation system</td>
+                        <td>Reservations created against child product SKU</td>
+                    </tr>
+                    <tr>
+                        <td>Source selection</td>
+                        <td>Child product determines fulfillment source</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>GraphQL Integration</h3>
+            <p>ConfigurableProduct exposes schema extensions for headless:</p>
+            <div class="code-block">
+<span class="comment"># GraphQL schema extensions (ConfigurableProductGraphQl module)</span>
+
+<span class="keyword">type</span> <span class="class">ConfigurableProduct</span> <span class="keyword">implements</span> <span class="class">ProductInterface</span> {
+    <span class="variable">configurable_options</span>: [<span class="class">ConfigurableProductOptions</span>]
+    <span class="variable">variants</span>: [<span class="class">ConfigurableVariant</span>]
+}
+
+<span class="keyword">type</span> <span class="class">ConfigurableProductOptions</span> {
+    <span class="variable">id</span>: <span class="class">Int</span>
+    <span class="variable">attribute_id</span>: <span class="class">String</span>
+    <span class="variable">label</span>: <span class="class">String</span>
+    <span class="variable">values</span>: [<span class="class">ConfigurableProductOptionsValues</span>]
+}
+
+<span class="keyword">type</span> <span class="class">ConfigurableVariant</span> {
+    <span class="variable">product</span>: <span class="class">SimpleProduct</span>
+    <span class="variable">attributes</span>: [<span class="class">ConfigurableAttributeOption</span>]
+}
+            </div>
+
+            <h3>Elasticsearch/OpenSearch Integration</h3>
+            <p>Configurable products and their children are indexed for search:</p>
+            <div class="integration-card">
+                <h4>Search Indexing</h4>
+                <ul>
+                    <li>Parent configurable indexed with aggregated child data</li>
+                    <li>Filterable attributes include all child values</li>
+                    <li>Price range from min to max child price</li>
+                    <li>Stock status reflects child availability</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Cart/Checkout Integration -->
+        <section class="section">
+            <h2>Cart & Checkout Integration</h2>
+
+            <h3>Quote Item Structure</h3>
+            <p>When added to cart, configurable products create two linked quote items:</p>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Type</th>
+                        <th>Visible</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Parent Item</td>
+                        <td>configurable</td>
+                        <td>Yes</td>
+                        <td>Display in cart, show selected options</td>
+                    </tr>
+                    <tr>
+                        <td>Child Item</td>
+                        <td>simple</td>
+                        <td>No</td>
+                        <td>Actual product for pricing, inventory, fulfillment</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="code-block">
+<span class="comment">// Quote item relationship</span>
+<span class="variable">$parentItem</span>-><span class="method">getChildren</span>();  <span class="comment">// Returns [childItem]</span>
+<span class="variable">$childItem</span>-><span class="method">getParentItem</span>();  <span class="comment">// Returns parentItem</span>
+
+<span class="comment">// Child item flags</span>
+<span class="variable">$childItem</span>-><span class="method">isChildrenCalculated</span>(); <span class="comment">// true</span>
+<span class="variable">$parentItem</span>-><span class="method">isChildrenCalculated</span>(); <span class="comment">// true</span>
+
+<span class="comment">// Price comes from child</span>
+<span class="variable">$parentItem</span>-><span class="method">getPrice</span>(); <span class="comment">// Calculated from child</span>
+            </div>
+
+            <h3>CartItemProcessor</h3>
+            <p>Handles REST/GraphQL cart operations for configurable items:</p>
+            <div class="code-block">
+<span class="keyword">class</span> <span class="class">CartItemProcessor</span> <span class="keyword">implements</span> <span class="class">CartItemProcessorInterface</span>
+{
+    <span class="keyword">public function</span> <span class="method">convertToBuyRequest</span>(<span class="class">CartItemInterface</span> <span class="variable">$cartItem</span>)
+    {
+        <span class="variable">$productOption</span> = <span class="variable">$cartItem</span>-><span class="method">getProductOption</span>();
+        <span class="variable">$options</span> = <span class="variable">$productOption</span>-><span class="method">getExtensionAttributes</span>()
+            -><span class="method">getConfigurableItemOptions</span>();
+
+        <span class="variable">$superAttribute</span> = [];
+        <span class="keyword">foreach</span> (<span class="variable">$options</span> <span class="keyword">as</span> <span class="variable">$option</span>) {
+            <span class="variable">$superAttribute</span>[<span class="variable">$option</span>-><span class="method">getOptionId</span>()] = <span class="variable">$option</span>-><span class="method">getOptionValue</span>();
+        }
+
+        <span class="keyword">return</span> <span class="keyword">new</span> <span class="class">DataObject</span>([<span class="string">'super_attribute'</span> => <span class="variable">$superAttribute</span>]);
+    }
+}
+            </div>
+        </section>
+
+        <!-- Admin Integration -->
+        <section class="section">
+            <h2>Admin Integration</h2>
+
+            <h3>Product Edit Form</h3>
+            <p>Special UI components for configurable product management:</p>
+            <div class="integration-card">
+                <h4>Admin UI Components</h4>
+                <ul>
+                    <li><strong>Configurations tab</strong> - Manage super attributes and child products</li>
+                    <li><strong>Variation wizard</strong> - Create all combinations from attribute options</li>
+                    <li><strong>Associated products grid</strong> - Manage linked simple products</li>
+                    <li><strong>Bulk price/stock editing</strong> - Update all children at once</li>
+                </ul>
+            </div>
+
+            <h3>Import/Export</h3>
+            <p>Configurable products have special handling during import:</p>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Column</th>
+                        <th>Format</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>configurable_variations</code></td>
+                        <td>sku=CHILD1,color=Red,size=M|sku=CHILD2...</td>
+                        <td>Defines child products and their attribute values</td>
+                    </tr>
+                    <tr>
+                        <td><code>configurable_variation_labels</code></td>
+                        <td>Color=Colour,Size=Taille</td>
+                        <td>Store-specific attribute labels</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>Magento 2 ConfigurableProduct Module Documentation | Generated December 2024</p>
+        <p><a href="index.html">Back to Module Overview</a></p>
+    </footer>
+</body>
+</html>

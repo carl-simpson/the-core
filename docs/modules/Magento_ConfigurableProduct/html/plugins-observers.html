@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magento_ConfigurableProduct - Plugins & Observers</title>
+    <style>
+        :root {
+            --orange: #F26423;
+            --yellow: #F1BC1B;
+            --charcoal: #2C2C2C;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+            --code-bg: #1E1E1E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: var(--light-gray);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--charcoal);
+            padding: 2rem;
+            border-bottom: 4px solid var(--orange);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            color: #999;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--yellow);
+            text-decoration: none;
+        }
+
+        h1 {
+            color: var(--white);
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        h1 span {
+            color: var(--orange);
+        }
+
+        .subtitle {
+            color: #999;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        nav {
+            background-color: var(--white);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            max-width: 1400px;
+            margin: 0 auto;
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            border-bottom-color: var(--orange);
+        }
+
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: var(--charcoal);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--orange);
+            display: inline-block;
+        }
+
+        h3 {
+            color: var(--charcoal);
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #444;
+        }
+
+        .plugin-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        .plugin-table th {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .plugin-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #E0E0E0;
+            vertical-align: top;
+        }
+
+        .plugin-table tr:nth-child(even) {
+            background: var(--light-gray);
+        }
+
+        .plugin-table code {
+            background: var(--charcoal);
+            color: var(--yellow);
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            word-break: break-all;
+        }
+
+        .sort-order {
+            display: inline-block;
+            background: var(--orange);
+            color: var(--white);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .code-block {
+            background-color: var(--code-bg);
+            color: #D4D4D4;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Fira Code', 'Consolas', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 1rem 0;
+        }
+
+        .code-block .comment { color: #6A9955; }
+        .code-block .keyword { color: #569CD6; }
+        .code-block .string { color: #CE9178; }
+        .code-block .class { color: #4EC9B0; }
+        .code-block .method { color: #DCDCAA; }
+        .code-block .variable { color: #9CDCFE; }
+        .code-block .tag { color: #569CD6; }
+        .code-block .attr { color: #92C5F8; }
+        .code-block .value { color: #CE9178; }
+
+        .observer-card {
+            background: var(--light-gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid var(--yellow);
+        }
+
+        .observer-card h4 {
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .observer-card .event-name {
+            font-family: monospace;
+            background: var(--charcoal);
+            color: var(--yellow);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.85rem;
+        }
+
+        .preference-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .preference-table th {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .preference-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #E0E0E0;
+            font-family: monospace;
+            font-size: 0.85rem;
+        }
+
+        .preference-table tr:nth-child(even) {
+            background: var(--light-gray);
+        }
+
+        .category-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .category-badge.cart { background: #E3F2FD; color: #1565C0; }
+        .category-badge.catalog { background: #FFF3E0; color: #E65100; }
+        .category-badge.pricing { background: #E8F5E9; color: #2E7D32; }
+        .category-badge.sales { background: #FCE4EC; color: #C2185B; }
+        .category-badge.inventory { background: #F3E5F5; color: #7B1FA2; }
+
+        footer {
+            background: var(--charcoal);
+            color: #999;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--yellow);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .plugin-table {
+                font-size: 0.8rem;
+            }
+
+            .plugin-table th, .plugin-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="breadcrumb">
+                <a href="../../index.html">Modules</a> /
+                <a href="index.html">Magento_ConfigurableProduct</a> /
+                Plugins & Observers
+            </div>
+            <h1>Plugins & <span>Observers</span></h1>
+            <p class="subtitle">Interception points, DI preferences, and event observers</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Overview</a></li>
+            <li><a href="architecture.html">Architecture</a></li>
+            <li><a href="execution-flows.html">Execution Flows</a></li>
+            <li><a href="plugins-observers.html" class="active">Plugins & Observers</a></li>
+            <li><a href="integrations.html">Integrations</a></li>
+            <li><a href="known-issues.html">Known Issues</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Summary -->
+        <section class="section">
+            <h2>Overview</h2>
+            <p>Magento_ConfigurableProduct uses an extensive plugin architecture to integrate with the catalog, cart, checkout, sales, and inventory systems. The module registers 18 plugins and 1 observer to intercept key operations.</p>
+        </section>
+
+        <!-- DI Preferences -->
+        <section class="section">
+            <h2>DI Preferences (Interface Bindings)</h2>
+            <p>These preferences define the default implementations for configurable product service contracts:</p>
+
+            <table class="preference-table">
+                <thead>
+                    <tr>
+                        <th>Interface</th>
+                        <th>Implementation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ConfigurableProductManagementInterface</td>
+                        <td>Model\ConfigurableProductManagement</td>
+                    </tr>
+                    <tr>
+                        <td>LinkManagementInterface</td>
+                        <td>Model\LinkManagement</td>
+                    </tr>
+                    <tr>
+                        <td>OptionRepositoryInterface</td>
+                        <td>Model\OptionRepository</td>
+                    </tr>
+                    <tr>
+                        <td>Data\OptionInterface</td>
+                        <td>Model\Product\Type\Configurable\Attribute</td>
+                    </tr>
+                    <tr>
+                        <td>Data\OptionValueInterface</td>
+                        <td>Model\Product\Type\Configurable\OptionValue</td>
+                    </tr>
+                    <tr>
+                        <td>Data\ConfigurableItemOptionValueInterface</td>
+                        <td>Model\Quote\Item\ConfigurableItemOptionValue</td>
+                    </tr>
+                    <tr>
+                        <td>Pricing\Price\PriceResolverInterface</td>
+                        <td>Pricing\Price\ConfigurablePriceResolver</td>
+                    </tr>
+                    <tr>
+                        <td>Pricing\Price\ConfigurableOptionsProviderInterface</td>
+                        <td>Pricing\Price\ConfigurableOptionsProvider</td>
+                    </tr>
+                    <tr>
+                        <td>Pricing\Price\LowestPriceOptionsProviderInterface</td>
+                        <td>Pricing\Price\LowestPriceOptionsProvider</td>
+                    </tr>
+                    <tr>
+                        <td>Model\AttributeOptionProviderInterface</td>
+                        <td>Model\AttributeOptionProvider</td>
+                    </tr>
+                    <tr>
+                        <td>Pricing\Price\ConfigurableOptionsFilterInterface</td>
+                        <td>Pricing\Price\ConfigurableOptionsCompositeFilter</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Plugins -->
+        <section class="section">
+            <h2>Plugins (Interceptors)</h2>
+
+            <h3><span class="category-badge cart">Cart</span> Cart & Quote Plugins</h3>
+            <table class="plugin-table">
+                <thead>
+                    <tr>
+                        <th>Target Class</th>
+                        <th>Plugin Name</th>
+                        <th>Plugin Class</th>
+                        <th>Sort</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>CatalogInventory\Model\Quote\Item\QuantityValidator\Initializer\Option</code></td>
+                        <td>configurable_product</td>
+                        <td>Model\Quote\Item\QuantityValidator\Initializer\Option\Plugin\ConfigurableProduct</td>
+                        <td><span class="sort-order">50</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>Catalog\Model\Product\CartConfiguration</code></td>
+                        <td>configurable_product</td>
+                        <td>Model\Product\CartConfiguration\Plugin\Configurable</td>
+                        <td><span class="sort-order">50</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>Quote\Model\Quote\Item\Repository</code></td>
+                        <td>configurable</td>
+                        <td>Model\Quote\Item\CartItemProcessor (Proxy)</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3><span class="category-badge catalog">Catalog</span> Catalog & Product Plugins</h3>
+            <table class="plugin-table">
+                <thead>
+                    <tr>
+                        <th>Target Class</th>
+                        <th>Plugin Name</th>
+                        <th>Plugin Class</th>
+                        <th>Sort</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>Catalog\Api\ProductRepositoryInterface</code></td>
+                        <td>configurableProductSaveOptions</td>
+                        <td>Model\Plugin\ProductRepositorySave</td>
+                        <td><span class="sort-order">10</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>Catalog\Model\Product\Type</code></td>
+                        <td>configurable_output</td>
+                        <td>Model\Product\Type\Plugin</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td><code>Catalog\Model\Product\TypeTransitionManager</code></td>
+                        <td>configurable_product_transition</td>
+                        <td>Model\Product\TypeTransitionManager\Plugin\Configurable</td>
+                        <td><span class="sort-order">50</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>Catalog\Model\Entity\Product\Attribute\Group\AttributeMapperInterface</code></td>
+                        <td>configurable_product</td>
+                        <td>Model\Entity\Product\Attribute\Group\AttributeMapper\Plugin</td>
+                        <td><span class="sort-order">50</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>Catalog\Model\Product</code></td>
+                        <td>product_identities_extender</td>
+                        <td>Model\Plugin\ProductIdentitiesExtender</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td><code>Catalog\Helper\Product\Configuration</code></td>
+                        <td>configurable_product</td>
+                        <td>Helper\Product\Configuration\Plugin</td>
+                        <td><span class="sort-order">50</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>ProductVideo\Block\Product\View\Gallery</code></td>
+                        <td>product_video_gallery</td>
+                        <td>Block\Plugin\Product\Media\Gallery</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3><span class="category-badge pricing">Pricing</span> Price & Validation Plugins</h3>
+            <table class="plugin-table">
+                <thead>
+                    <tr>
+                        <th>Target Class</th>
+                        <th>Plugin Name</th>
+                        <th>Plugin Class</th>
+                        <th>Sort</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>Catalog\Model\Product\Attribute\Backend\Price</code></td>
+                        <td>configurable</td>
+                        <td>Model\Plugin\PriceBackend</td>
+                        <td><span class="sort-order">100</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>Eav\Model\Entity\Attribute\Backend\AbstractBackend</code></td>
+                        <td>ConfigurableProduct::skipValidation</td>
+                        <td>Plugin\Model\Attribute\Backend\AttributeValidation</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td><code>Catalog\Model\Product\Pricing\Renderer\SalableResolver</code></td>
+                        <td>configurable</td>
+                        <td>Plugin\Catalog\Model\Product\Pricing\Renderer\SalableResolver</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3><span class="category-badge sales">Sales</span> Sales & Order Plugins</h3>
+            <table class="plugin-table">
+                <thead>
+                    <tr>
+                        <th>Target Class</th>
+                        <th>Plugin Name</th>
+                        <th>Plugin Class</th>
+                        <th>Sort</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>Sales\Model\Order\Admin\Item</code></td>
+                        <td>configurable_product</td>
+                        <td>Model\Order\Admin\Item\Plugin\Configurable</td>
+                        <td><span class="sort-order">50</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>SalesRule\Model\Rule\Condition\Product</code></td>
+                        <td>apply_rule_on_configurable_children</td>
+                        <td>Plugin\SalesRule\Model\Rule\Condition\Product</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td><code>Tax\Model\Sales\Total\Quote\CommonTaxCollector</code></td>
+                        <td>apply_tax_class_id</td>
+                        <td>Plugin\Tax\Model\Sales\Total\Quote\CommonTaxCollector</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3><span class="category-badge inventory">Inventory</span> Stock & Inventory Plugins</h3>
+            <table class="plugin-table">
+                <thead>
+                    <tr>
+                        <th>Target Class</th>
+                        <th>Plugin Name</th>
+                        <th>Plugin Class</th>
+                        <th>Sort</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>CatalogInventory\Model\ResourceModel\Stock\Item</code></td>
+                        <td>updateStockChangedAuto</td>
+                        <td>Model\Plugin\UpdateStockChangedAuto</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Key Plugin Details -->
+        <section class="section">
+            <h2>Key Plugin Details</h2>
+
+            <h3>ProductRepositorySave (sortOrder: 10)</h3>
+            <p>Critical plugin that handles saving configurable product options and links:</p>
+            <div class="code-block">
+<span class="keyword">class</span> <span class="class">ProductRepositorySave</span>
+{
+    <span class="comment">/**
+     * Processes configurable_product_options and configurable_product_links
+     * extension attributes after product save
+     */</span>
+    <span class="keyword">public function</span> <span class="method">afterSave</span>(
+        <span class="class">ProductRepositoryInterface</span> <span class="variable">$subject</span>,
+        <span class="class">ProductInterface</span> <span class="variable">$product</span>
+    ) {
+        <span class="keyword">if</span> (<span class="variable">$product</span>-><span class="method">getTypeId</span>() !== <span class="class">Configurable</span>::TYPE_CODE) {
+            <span class="keyword">return</span> <span class="variable">$product</span>;
+        }
+
+        <span class="variable">$extensionAttributes</span> = <span class="variable">$product</span>-><span class="method">getExtensionAttributes</span>();
+
+        <span class="comment">// Save configurable options (super attributes)</span>
+        <span class="keyword">if</span> (<span class="variable">$extensionAttributes</span>-><span class="method">getConfigurableProductOptions</span>()) {
+            <span class="variable">$this</span>-><span class="method">saveOptions</span>(<span class="variable">$product</span>, <span class="variable">$extensionAttributes</span>);
+        }
+
+        <span class="comment">// Save product links (children)</span>
+        <span class="keyword">if</span> (<span class="variable">$extensionAttributes</span>-><span class="method">getConfigurableProductLinks</span>()) {
+            <span class="variable">$this</span>-><span class="method">saveLinks</span>(<span class="variable">$product</span>, <span class="variable">$extensionAttributes</span>);
+        }
+
+        <span class="keyword">return</span> <span class="variable">$product</span>;
+    }
+}
+            </div>
+
+            <h3>AttributeValidation (skipValidation)</h3>
+            <p>Skips EAV backend validation for child attributes on configurable products:</p>
+            <div class="code-block">
+<span class="keyword">class</span> <span class="class">AttributeValidation</span>
+{
+    <span class="comment">/**
+     * Skip validation for attributes that shouldn't be required on configurable products
+     * (e.g., price, weight - these come from children)
+     */</span>
+    <span class="keyword">public function</span> <span class="method">aroundValidate</span>(
+        <span class="class">AbstractBackend</span> <span class="variable">$subject</span>,
+        <span class="keyword">callable</span> <span class="variable">$proceed</span>,
+        <span class="class">DataObject</span> <span class="variable">$object</span>
+    ) {
+        <span class="keyword">if</span> (<span class="variable">$this</span>-><span class="method">shouldSkipValidation</span>(<span class="variable">$object</span>, <span class="variable">$subject</span>)) {
+            <span class="keyword">return</span> <span class="keyword">true</span>;
+        }
+        <span class="keyword">return</span> <span class="variable">$proceed</span>(<span class="variable">$object</span>);
+    }
+}
+            </div>
+
+            <h3>UpdateStockChangedAuto</h3>
+            <p>Triggers configurable parent reindex when child stock changes:</p>
+            <div class="code-block">
+<span class="keyword">class</span> <span class="class">UpdateStockChangedAuto</span>
+{
+    <span class="comment">/**
+     * When child product stock changes, parent configurable needs reindex
+     */</span>
+    <span class="keyword">public function</span> <span class="method">afterSave</span>(
+        <span class="class">StockItemResource</span> <span class="variable">$subject</span>,
+        <span class="class">StockItemResource</span> <span class="variable">$result</span>,
+        <span class="class">AbstractModel</span> <span class="variable">$stockItem</span>
+    ) {
+        <span class="variable">$productId</span> = <span class="variable">$stockItem</span>-><span class="method">getProductId</span>();
+        <span class="variable">$parentIds</span> = <span class="variable">$this</span>-><span class="variable">configurable</span>-><span class="method">getParentIdsByChild</span>(<span class="variable">$productId</span>);
+
+        <span class="keyword">foreach</span> (<span class="variable">$parentIds</span> <span class="keyword">as</span> <span class="variable">$parentId</span>) {
+            <span class="variable">$this</span>-><span class="variable">indexer</span>-><span class="method">reindexRow</span>(<span class="variable">$parentId</span>);
+        }
+
+        <span class="keyword">return</span> <span class="variable">$result</span>;
+    }
+}
+            </div>
+
+            <h3>SalesRule Condition Plugin</h3>
+            <p>Applies cart price rules to configurable children:</p>
+            <div class="code-block">
+<span class="keyword">class</span> <span class="class">Product</span>
+{
+    <span class="comment">/**
+     * When evaluating sales rules, check the simple child product's attributes
+     * not the configurable parent's attributes
+     */</span>
+    <span class="keyword">public function</span> <span class="method">beforeValidate</span>(
+        <span class="class">ProductCondition</span> <span class="variable">$subject</span>,
+        <span class="class">AbstractModel</span> <span class="variable">$model</span>
+    ) {
+        <span class="variable">$product</span> = <span class="variable">$model</span>-><span class="method">getProduct</span>();
+
+        <span class="keyword">if</span> (<span class="variable">$product</span>-><span class="method">getTypeId</span>() === <span class="class">Configurable</span>::TYPE_CODE) {
+            <span class="comment">// Get the actual child product for rule evaluation</span>
+            <span class="variable">$childProduct</span> = <span class="variable">$this</span>-><span class="method">getChildProduct</span>(<span class="variable">$model</span>);
+            <span class="variable">$model</span>-><span class="method">setProduct</span>(<span class="variable">$childProduct</span>);
+        }
+
+        <span class="keyword">return</span> [<span class="variable">$model</span>];
+    }
+}
+            </div>
+        </section>
+
+        <!-- Observers -->
+        <section class="section">
+            <h2>Event Observers</h2>
+            <p>Magento_ConfigurableProduct registers one observer for admin attribute form handling:</p>
+
+            <div class="observer-card">
+                <h4>HideUnsupportedAttributeTypes</h4>
+                <p><span class="event-name">product_attribute_form_build_main_tab</span></p>
+                <p>Hides attributes that cannot be used as super attributes (only 'select' type attributes with global scope can be configurable axes).</p>
+                <div class="code-block">
+<span class="keyword">class</span> <span class="class">HideUnsupportedAttributeTypes</span> <span class="keyword">implements</span> <span class="class">ObserverInterface</span>
+{
+    <span class="keyword">private</span> <span class="variable">$supportedTypes</span> = [<span class="string">'select'</span>];
+
+    <span class="keyword">public function</span> <span class="method">execute</span>(<span class="class">Observer</span> <span class="variable">$observer</span>)
+    {
+        <span class="variable">$form</span> = <span class="variable">$observer</span>-><span class="method">getForm</span>();
+        <span class="variable">$attribute</span> = <span class="variable">$observer</span>-><span class="method">getAttribute</span>();
+
+        <span class="keyword">if</span> (!<span class="keyword">in_array</span>(<span class="variable">$attribute</span>-><span class="method">getFrontendInput</span>(), <span class="variable">$this</span>-><span class="variable">supportedTypes</span>)) {
+            <span class="comment">// Hide "Use To Create Configurable Product" option</span>
+            <span class="variable">$configurableField</span> = <span class="variable">$form</span>-><span class="method">getElement</span>(<span class="string">'is_configurable'</span>);
+            <span class="keyword">if</span> (<span class="variable">$configurableField</span>) {
+                <span class="variable">$configurableField</span>-><span class="method">setDisabled</span>(<span class="keyword">true</span>);
+            }
+        }
+    }
+}
+                </div>
+            </div>
+        </section>
+
+        <!-- Virtual Types -->
+        <section class="section">
+            <h2>Virtual Types</h2>
+            <p>The module defines several virtual types for pricing resolution:</p>
+
+            <div class="code-block">
+<span class="comment">&lt;!-- Price Pool for Configurable Products --&gt;</span>
+<span class="tag">&lt;virtualType</span> <span class="attr">name</span>=<span class="value">"Magento\ConfigurableProduct\Pricing\Price\Pool"</span>
+             <span class="attr">type</span>=<span class="value">"Magento\Framework\Pricing\Price\Pool"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;arguments&gt;</span>
+        <span class="tag">&lt;argument</span> <span class="attr">name</span>=<span class="value">"prices"</span><span class="tag">&gt;</span>
+            <span class="tag">&lt;item</span> <span class="attr">name</span>=<span class="value">"regular_price"</span><span class="tag">&gt;</span>ConfigurableRegularPrice<span class="tag">&lt;/item&gt;</span>
+            <span class="tag">&lt;item</span> <span class="attr">name</span>=<span class="value">"final_price"</span><span class="tag">&gt;</span>FinalPrice<span class="tag">&lt;/item&gt;</span>
+        <span class="tag">&lt;/argument&gt;</span>
+        <span class="tag">&lt;argument</span> <span class="attr">name</span>=<span class="value">"target"</span><span class="tag">&gt;</span>Magento\Catalog\Pricing\Price\Pool<span class="tag">&lt;/argument&gt;</span>
+    <span class="tag">&lt;/arguments&gt;</span>
+<span class="tag">&lt;/virtualType&gt;</span>
+
+<span class="comment">&lt;!-- Final Price Resolver Chain --&gt;</span>
+<span class="tag">&lt;virtualType</span> <span class="attr">name</span>=<span class="value">"ConfigurableFinalPriceResolver"</span>
+             <span class="attr">type</span>=<span class="value">"ConfigurablePriceResolver"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;arguments&gt;</span>
+        <span class="tag">&lt;argument</span> <span class="attr">name</span>=<span class="value">"priceResolver"</span><span class="tag">&gt;</span>FinalPriceResolver<span class="tag">&lt;/argument&gt;</span>
+    <span class="tag">&lt;/arguments&gt;</span>
+<span class="tag">&lt;/virtualType&gt;</span>
+
+<span class="comment">&lt;!-- Regular Price Resolver Chain --&gt;</span>
+<span class="tag">&lt;virtualType</span> <span class="attr">name</span>=<span class="value">"ConfigurableRegularPriceResolver"</span>
+             <span class="attr">type</span>=<span class="value">"ConfigurablePriceResolver"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;arguments&gt;</span>
+        <span class="tag">&lt;argument</span> <span class="attr">name</span>=<span class="value">"priceResolver"</span><span class="tag">&gt;</span>RegularPriceResolver<span class="tag">&lt;/argument&gt;</span>
+    <span class="tag">&lt;/arguments&gt;</span>
+<span class="tag">&lt;/virtualType&gt;</span>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Magento 2 ConfigurableProduct Module Documentation | Generated December 2024</p>
+        <p><a href="index.html">Back to Module Overview</a></p>
+    </footer>
+</body>
+</html>

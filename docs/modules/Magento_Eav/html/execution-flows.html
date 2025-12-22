@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Execution Flows - Magento_Eav Module</title>
+    <style>
+        :root {
+            --orange: #F26423;
+            --yellow: #F1BC1B;
+            --charcoal: #2C2C2C;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: var(--light-gray);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 2rem;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--orange) 0%, var(--orange) 50%, var(--yellow) 50%, var(--yellow) 100%);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+        }
+
+        .breadcrumb a {
+            color: var(--yellow);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: var(--light-gray);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .flow-section {
+            background-color: var(--white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .flow-section h2 {
+            color: var(--charcoal);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .flow-badge {
+            display: inline-block;
+            background-color: var(--orange);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .flow-badge.critical {
+            background-color: var(--orange);
+        }
+
+        .flow-badge.important {
+            background-color: var(--yellow);
+            color: var(--charcoal);
+        }
+
+        .flow-section p {
+            margin-bottom: 1rem;
+            color: #444;
+        }
+
+        .flow-diagram {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+            font-size: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .flow-step {
+            padding: 0.25rem 0;
+        }
+
+        .step-number {
+            color: var(--orange);
+            font-weight: bold;
+        }
+
+        .step-arrow {
+            color: var(--yellow);
+        }
+
+        .step-class {
+            color: #8FD9A8;
+        }
+
+        .step-method {
+            color: var(--yellow);
+        }
+
+        .step-comment {
+            color: #888;
+        }
+
+        .code-block {
+            background-color: var(--charcoal);
+            color: #E0E0E0;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        .code-block .keyword {
+            color: var(--orange);
+        }
+
+        .code-block .class-name {
+            color: var(--yellow);
+        }
+
+        .code-block .string {
+            color: #8FD9A8;
+        }
+
+        .code-block .comment {
+            color: #888;
+        }
+
+        .callout {
+            background-color: #FFF3E0;
+            border-left: 4px solid var(--orange);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .callout.warning {
+            background-color: #FFF8E1;
+            border-left-color: var(--yellow);
+        }
+
+        .callout-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .sequence-list {
+            list-style: none;
+            counter-reset: step-counter;
+            margin: 1.5rem 0;
+        }
+
+        .sequence-list li {
+            counter-increment: step-counter;
+            padding: 1rem 1rem 1rem 3.5rem;
+            margin-bottom: 0.5rem;
+            background-color: var(--light-gray);
+            position: relative;
+        }
+
+        .sequence-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2.5rem;
+            background-color: var(--charcoal);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .sequence-list li:nth-child(even)::before {
+            background-color: var(--orange);
+        }
+
+        .method-signature {
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+
+        .method-desc {
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+            color: #666;
+        }
+
+        .footer {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer a {
+            color: var(--yellow);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .flow-diagram {
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <nav class="breadcrumb">
+                <a href="../../../index.html">Documentation</a>
+                <span> / </span>
+                <a href="index.html">Magento_Eav</a>
+                <span> / </span>
+                <span>Execution Flows</span>
+            </nav>
+            <h1>Execution Flows</h1>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="flow-section">
+            <span class="flow-badge critical">Critical Flow</span>
+            <h2>1. Entity Load with EAV Attributes</h2>
+            <p>
+                Loading an EAV entity requires joining multiple value tables to retrieve all attribute values.
+                This flow shows how a product or customer entity is loaded with its EAV data.
+            </p>
+
+            <div class="flow-diagram">
+<div class="flow-step"><span class="step-number">[1]</span> <span class="step-class">Repository</span>::<span class="step-method">getById</span>($entityId)</div>
+<div class="flow-step">    <span class="step-arrow">|</span></div>
+<div class="flow-step"><span class="step-number">[2]</span> <span class="step-class">AbstractEntity</span>::<span class="step-method">load</span>($object, $entityId)</div>
+<div class="flow-step">    <span class="step-arrow">|</span></div>
+<div class="flow-step"><span class="step-number">[3]</span> Load static attributes from entity table</div>
+<div class="flow-step">    <span class="step-arrow">|</span>  <span class="step-comment">SELECT * FROM catalog_product_entity WHERE entity_id = ?</span></div>
+<div class="flow-step">    <span class="step-arrow">|</span></div>
+<div class="flow-step"><span class="step-number">[4]</span> <span class="step-class">AttributeLoader</span>::<span class="step-method">loadAllAttributes</span>($entityType)</div>
+<div class="flow-step">    <span class="step-arrow">|</span>  <span class="step-comment">// Get all attributes for this entity type (cached)</span></div>
+<div class="flow-step">    <span class="step-arrow">|</span></div>
+<div class="flow-step"><span class="step-number">[5]</span> For each backend_type (varchar, int, decimal, text, datetime):</div>
+<div class="flow-step">    <span class="step-arrow">|</span></div>
+<div class="flow-step">    <span class="step-arrow">+--></span> <span class="step-class">AbstractEntity</span>::<span class="step-method">_getLoadAttributesSelect</span>()</div>
+<div class="flow-step">    <span class="step-arrow">|</span>      <span class="step-comment">SELECT attribute_id, store_id, value</span></div>
+<div class="flow-step">    <span class="step-arrow">|</span>      <span class="step-comment">FROM catalog_product_entity_varchar</span></div>
+<div class="flow-step">    <span class="step-arrow">|</span>      <span class="step-comment">WHERE entity_id = ? AND store_id IN (0, ?)</span></div>
+<div class="flow-step">    <span class="step-arrow">|</span></div>
+<div class="flow-step"><span class="step-number">[6]</span> Apply store scope fallback</div>
+<div class="flow-step">    <span class="step-arrow">|</span>  <span class="step-comment">// Store value overrides default (store_id=0) if exists</span></div>
+<div class="flow-step">    <span class="step-arrow">|</span></div>
+<div class="flow-step"><span class="step-number">[7]</span> Run <span class="step-class">Frontend Model</span>::<span class="step-method">getValue</span>() for formatting</div>
+<div class="flow-step">    <span class="step-arrow">|</span></div>
+<div class="flow-step"><span class="step-number">[8]</span> Return hydrated entity object</div>
+            </div>
+
+            <div class="callout warning">
+                <div class="callout-title">N+1 Query Warning</div>
+                <p>
+                    Loading multiple entities individually causes N+1 queries. Use collections with
+                    <code>addAttributeToSelect('*')</code> or specific attributes to batch-load values.
+                </p>
+            </div>
+        </section>
+
+        <section class="flow-section">
+            <span class="flow-badge critical">Critical Flow</span>
+            <h2>2. Entity Save with EAV Values</h2>
+            <p>
+                Saving an EAV entity writes to multiple tables: the entity table and all relevant
+                value tables based on which attributes have been modified.
+            </p>
+
+            <div class="flow-diagram">
+<div class="flow-step"><span class="step-number">[1]</span> <span class="step-class">Repository</span>::<span class="step-method">save</span>($entity)</div>
+<div class="flow-step">    <span class="step-arrow">|</span></div>
+<div class="flow-step"><span class="step-number">[2]</span> <span class="step-class">AbstractEntity</span>::<span class="step-method">save</span>($object)</div>
+<div class="flow-step">    <span class="step-arrow">|</span></div>
+<div class="flow-step"><span class="step-number">[3]</span> Run <span class="step-class">Backend Model</span>::<span class="step-method">validate</span>() for each attribute</div>
+<div class="flow-step">    <span class="step-arrow">|</span>  <span class="step-comment">// Throws exception if validation fails</span></div>
+<div class="flow-step">    <span class="step-arrow">|</span></div>
+<div class="flow-step"><span class="step-number">[4]</span> Run <span class="step-class">Backend Model</span>::<span class="step-method">beforeSave</span>() for each attribute</div>
+<div class="flow-step">    <span class="step-arrow">|</span>  <span class="step-comment">// Transform values (e.g., serialize arrays)</span></div>
+<div class="flow-step">    <span class="step-arrow">|</span></div>
+<div class="flow-step"><span class="step-number">[5]</span> Save static attributes to entity table</div>
+<div class="flow-step">    <span class="step-arrow">|</span>  <span class="step-comment">INSERT/UPDATE catalog_product_entity</span></div>
+<div class="flow-step">    <span class="step-arrow">|</span></div>
+<div class="flow-step"><span class="step-number">[6]</span> For each modified EAV attribute:</div>
+<div class="flow-step">    <span class="step-arrow">|</span></div>
+<div class="flow-step">    <span class="step-arrow">+--></span> Determine value table from backend_type</div>
+<div class="flow-step">    <span class="step-arrow">|</span></div>
+<div class="flow-step">    <span class="step-arrow">+--></span> If value is null: DELETE from value table</div>
+<div class="flow-step">    <span class="step-arrow">|</span></div>
+<div class="flow-step">    <span class="step-arrow">+--></span> If value exists: INSERT ... ON DUPLICATE KEY UPDATE</div>
+<div class="flow-step">    <span class="step-arrow">|</span></div>
+<div class="flow-step"><span class="step-number">[7]</span> Run <span class="step-class">Backend Model</span>::<span class="step-method">afterSave</span>() for each attribute</div>
+<div class="flow-step">    <span class="step-arrow">|</span></div>
+<div class="flow-step"><span class="step-number">[8]</span> Dispatch <span class="step-method">model_save_after</span> event</div>
+            </div>
+
+            <h3>Store Scope Handling</h3>
+            <div class="code-block">
+<span class="comment">// Saving a product with store-scoped attribute</span>
+$product->setStoreId(1); <span class="comment">// French store</span>
+$product->setName(<span class="string">'Produit Exemple'</span>);
+$productRepository->save($product);
+
+<span class="comment">// This creates TWO rows in catalog_product_entity_varchar:</span>
+<span class="comment">// 1. entity_id=X, attribute_id=Y, store_id=0, value='Default Name'</span>
+<span class="comment">// 2. entity_id=X, attribute_id=Y, store_id=1, value='Produit Exemple'</span>
+
+<span class="comment">// To use default value (delete store-specific):</span>
+$product->setName(<span class="keyword">false</span>); <span class="comment">// or $product->setData('name', false)</span>
+            </div>
+        </section>
+
+        <section class="flow-section">
+            <span class="flow-badge important">Important Flow</span>
+            <h2>3. Attribute Configuration Loading</h2>
+            <p>
+                The <code>Eav\Model\Config</code> class loads and caches all entity types and their
+                attributes. This happens once and is cached for subsequent requests.
+            </p>
+
+            <ol class="sequence-list">
+                <li>
+                    <div class="method-signature">Eav\Model\Config::getEntityType($entityType)</div>
+                    <div class="method-desc">Check cache for entity type configuration</div>
+                </li>
+                <li>
+                    <div class="method-signature">Load from eav_entity_type table</div>
+                    <div class="method-desc">Get entity model, attribute model, table names</div>
+                </li>
+                <li>
+                    <div class="method-signature">Eav\Model\Config::getAttributes($entityType)</div>
+                    <div class="method-desc">Load all attributes for entity type from cache or database</div>
+                </li>
+                <li>
+                    <div class="method-signature">Join eav_attribute + additional_attribute_table</div>
+                    <div class="method-desc">E.g., eav_attribute + catalog_eav_attribute for products</div>
+                </li>
+                <li>
+                    <div class="method-signature">Cache with tag 'eav'</div>
+                    <div class="method-desc">Stored in configured cache backend (Redis, file, etc.)</div>
+                </li>
+            </ol>
+
+            <div class="callout">
+                <div class="callout-title">Cache Invalidation</div>
+                <p>
+                    After adding/modifying attributes, flush the EAV cache:
+                    <code>bin/magento cache:flush eav</code>
+                </p>
+            </div>
+        </section>
+
+        <section class="flow-section">
+            <span class="flow-badge important">Important Flow</span>
+            <h2>4. Attribute Option Resolution</h2>
+            <p>
+                For select/multiselect attributes, option values are stored as IDs. The source model
+                resolves these IDs to human-readable labels.
+            </p>
+
+            <div class="flow-diagram">
+<div class="flow-step"><span class="step-number">[1]</span> Entity loaded with <span class="step-method">color = 45</span> <span class="step-comment">(option_id)</span></div>
+<div class="flow-step">    <span class="step-arrow">|</span></div>
+<div class="flow-step"><span class="step-number">[2]</span> Template calls <span class="step-class">$product</span>-><span class="step-method">getAttributeText</span>(<span class="step-method">'color'</span>)</div>
+<div class="flow-step">    <span class="step-arrow">|</span></div>
+<div class="flow-step"><span class="step-number">[3]</span> Get attribute by code from <span class="step-class">Eav\Model\Config</span></div>
+<div class="flow-step">    <span class="step-arrow">|</span></div>
+<div class="flow-step"><span class="step-number">[4]</span> Get <span class="step-class">Source Model</span> from attribute (e.g., Table source)</div>
+<div class="flow-step">    <span class="step-arrow">|</span></div>
+<div class="flow-step"><span class="step-number">[5]</span> <span class="step-class">Source\Table</span>::<span class="step-method">getOptionText</span>(45)</div>
+<div class="flow-step">    <span class="step-arrow">|</span></div>
+<div class="flow-step">    <span class="step-arrow">+--></span> Query eav_attribute_option_value</div>
+<div class="flow-step">    <span class="step-arrow">|</span>      <span class="step-comment">WHERE option_id = 45 AND store_id IN (0, current_store)</span></div>
+<div class="flow-step">    <span class="step-arrow">|</span></div>
+<div class="flow-step"><span class="step-number">[6]</span> Return label: <span class="step-method">"Blue"</span> <span class="step-comment">(or store-specific translation)</span></div>
+            </div>
+
+            <div class="code-block">
+<span class="comment">// Getting option text in code</span>
+$colorLabel = $product->getAttributeText(<span class="string">'color'</span>); <span class="comment">// "Blue"</span>
+
+<span class="comment">// Getting all options for an attribute</span>
+$attribute = $eavConfig->getAttribute(<span class="class-name">Product</span>::ENTITY, <span class="string">'color'</span>);
+$options = $attribute->getSource()->getAllOptions();
+<span class="comment">// Returns: [['value' => 45, 'label' => 'Blue'], ...]</span>
+
+<span class="comment">// Custom source model implementation</span>
+<span class="keyword">class</span> <span class="class-name">CustomSource</span> <span class="keyword">extends</span> <span class="class-name">AbstractSource</span>
+{
+    <span class="keyword">public function</span> <span class="class-name">getAllOptions</span>()
+    {
+        <span class="keyword">return</span> [
+            [<span class="string">'value'</span> => <span class="string">''</span>, <span class="string">'label'</span> => <span class="class-name">__</span>(<span class="string">'-- Select --'</span>)],
+            [<span class="string">'value'</span> => <span class="string">'option1'</span>, <span class="string">'label'</span> => <span class="class-name">__</span>(<span class="string">'Option 1'</span>)],
+            [<span class="string">'value'</span> => <span class="string">'option2'</span>, <span class="string">'label'</span> => <span class="class-name">__</span>(<span class="string">'Option 2'</span>)],
+        ];
+    }
+}
+            </div>
+        </section>
+
+        <section class="flow-section">
+            <span class="flow-badge">Standard Flow</span>
+            <h2>5. Attribute Set Assignment</h2>
+            <p>
+                When creating a new entity, it must be assigned an attribute set. This determines
+                which attributes are available and how they're organized in the admin form.
+            </p>
+
+            <div class="flow-diagram">
+<div class="flow-step"><span class="step-number">[1]</span> Admin creates new product</div>
+<div class="flow-step">    <span class="step-arrow">|</span></div>
+<div class="flow-step"><span class="step-number">[2]</span> Select attribute set (e.g., "Clothing")</div>
+<div class="flow-step">    <span class="step-arrow">|</span></div>
+<div class="flow-step"><span class="step-number">[3]</span> Load attribute set: <span class="step-class">AttributeSetRepository</span>::<span class="step-method">get</span>($setId)</div>
+<div class="flow-step">    <span class="step-arrow">|</span></div>
+<div class="flow-step"><span class="step-number">[4]</span> Load groups in set: <span class="step-class">eav_attribute_group</span></div>
+<div class="flow-step">    <span class="step-arrow">|</span>  <span class="step-comment">WHERE attribute_set_id = ? ORDER BY sort_order</span></div>
+<div class="flow-step">    <span class="step-arrow">|</span></div>
+<div class="flow-step"><span class="step-number">[5]</span> Load attributes per group: <span class="step-class">eav_entity_attribute</span></div>
+<div class="flow-step">    <span class="step-arrow">|</span>  <span class="step-comment">WHERE attribute_group_id = ? ORDER BY sort_order</span></div>
+<div class="flow-step">    <span class="step-arrow">|</span></div>
+<div class="flow-step"><span class="step-number">[6]</span> Render form tabs (groups) with fields (attributes)</div>
+<div class="flow-step">    <span class="step-arrow">|</span></div>
+<div class="flow-step"><span class="step-number">[7]</span> On save: set <span class="step-method">attribute_set_id</span> on entity</div>
+            </div>
+        </section>
+
+        <section class="flow-section">
+            <span class="flow-badge">Standard Flow</span>
+            <h2>6. Backend Model Validation</h2>
+            <p>
+                Backend models provide hooks for validation and data transformation during save operations.
+            </p>
+
+            <div class="code-block">
+<span class="comment">// Example: ArrayBackend for multiselect attributes</span>
+<span class="keyword">class</span> <span class="class-name">ArrayBackend</span> <span class="keyword">extends</span> <span class="class-name">AbstractBackend</span>
+{
+    <span class="keyword">public function</span> <span class="class-name">beforeSave</span>($object)
+    {
+        $attributeCode = $this->getAttribute()->getAttributeCode();
+        $data = $object->getData($attributeCode);
+
+        <span class="comment">// Convert array to comma-separated string for storage</span>
+        <span class="keyword">if</span> (is_array($data)) {
+            $object->setData($attributeCode, implode(<span class="string">','</span>, array_filter($data)));
+        }
+
+        <span class="keyword">return</span> $this;
+    }
+
+    <span class="keyword">public function</span> <span class="class-name">afterLoad</span>($object)
+    {
+        $attributeCode = $this->getAttribute()->getAttributeCode();
+        $data = $object->getData($attributeCode);
+
+        <span class="comment">// Convert back to array on load</span>
+        <span class="keyword">if</span> ($data && !is_array($data)) {
+            $object->setData($attributeCode, explode(<span class="string">','</span>, $data));
+        }
+
+        <span class="keyword">return</span> $this;
+    }
+}
+
+<span class="comment">// Validation example</span>
+<span class="keyword">public function</span> <span class="class-name">validate</span>($object)
+{
+    $value = $object->getData($this->getAttribute()->getAttributeCode());
+
+    <span class="keyword">if</span> ($this->getAttribute()->getIsRequired() && empty($value)) {
+        <span class="keyword">throw new</span> <span class="class-name">LocalizedException</span>(
+            <span class="class-name">__</span>(<span class="string">'"%1" is required.'</span>, $this->getAttribute()->getFrontendLabel())
+        );
+    }
+
+    <span class="keyword">return true</span>;
+}
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p><a href="index.html">Back to Magento_Eav Overview</a></p>
+        <p><a href="../../../index.html">Documentation Index</a></p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Demo - Module Accordion Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        orange: { DEFAULT: '#F26423', 50: '#fef5ee', 500: '#f26423', 600: '#e34613', 800: '#962a16' },
+                        yellow: { DEFAULT: '#F1BC1B', 50: '#fffdeb', 500: '#f1bc1b', 600: '#d5900a' },
+                        charcoal: { DEFAULT: '#2c2c2c', 500: '#2c2c2c', 600: '#262626' },
+                        'off-white': '#FAFAFA',
+                    },
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter Tight', system-ui, sans-serif; }
+    </style>
+</head>
+<body class="bg-off-white text-charcoal">
+
+    <div class="max-w-6xl mx-auto px-6 py-12">
+
+        <h1 class="text-3xl font-bold mb-2">Proposed Layout: Accordion + Compact Rows</h1>
+        <p class="text-gray-600 mb-8">Click each phase header to expand/collapse. Modules display as compact full-width rows.</p>
+
+        <!-- Accordion Container -->
+        <div class="space-y-4" x-data="{ openPhase: 1 }">
+
+            <!-- Phase 1: Core Commerce (Complete) -->
+            <div class="border border-gray-200 bg-white shadow-sm">
+                <!-- Phase Header - Clickable -->
+                <button
+                    @click="openPhase = openPhase === 1 ? null : 1"
+                    class="w-full flex items-center justify-between p-4 hover:bg-gray-50 transition-colors"
+                >
+                    <div class="flex items-center gap-4">
+                        <div class="w-2 h-12 bg-yellow-500"></div>
+                        <div class="text-left">
+                            <h2 class="text-xl font-bold text-charcoal">Phase 1: Core Commerce</h2>
+                            <p class="text-sm text-gray-600">9 modules | 4,860 components | <span class="text-yellow-600 font-semibold">100% Complete</span></p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="px-3 py-1 text-xs font-semibold bg-yellow-100 text-yellow-800">COMPLETE</span>
+                        <svg
+                            class="w-5 h-5 text-gray-500 transition-transform duration-200"
+                            :class="{ 'rotate-180': openPhase === 1 }"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        >
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </div>
+                </button>
+
+                <!-- Phase Content - Collapsible -->
+                <div x-show="openPhase === 1" x-collapse class="border-t border-gray-200">
+
+                    <!-- Module Row: Customer -->
+                    <a href="modules/Magento_Customer/html/index.html" class="flex items-center gap-4 p-4 hover:bg-orange-50 border-b border-gray-100 transition-colors group">
+                        <div class="w-10 h-10 bg-orange-500 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-3">
+                                <h3 class="font-bold text-charcoal group-hover:text-orange-600">Magento_Customer</h3>
+                                <span class="text-xs text-gray-500">Customer Management & Authentication</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6 text-sm">
+                            <div class="text-center">
+                                <span class="font-bold text-orange-500">499</span>
+                                <span class="text-gray-500 text-xs ml-1">components</span>
+                            </div>
+                            <div class="text-center">
+                                <span class="font-bold text-yellow-500">19</span>
+                                <span class="text-gray-500 text-xs ml-1">plugins</span>
+                            </div>
+                            <div class="text-center">
+                                <span class="font-bold text-charcoal">16</span>
+                                <span class="text-gray-500 text-xs ml-1">observers</span>
+                            </div>
+                        </div>
+                        <svg class="w-5 h-5 text-gray-400 group-hover:text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+
+                    <!-- Module Row: Sales -->
+                    <a href="modules/Magento_Sales/html/index.html" class="flex items-center gap-4 p-4 hover:bg-orange-50 border-b border-gray-100 transition-colors group">
+                        <div class="w-10 h-10 bg-yellow-500 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-3">
+                                <h3 class="font-bold text-charcoal group-hover:text-orange-600">Magento_Sales</h3>
+                                <span class="text-xs text-gray-500">Order Management & Fulfillment</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6 text-sm">
+                            <div class="text-center">
+                                <span class="font-bold text-orange-500">861</span>
+                                <span class="text-gray-500 text-xs ml-1">components</span>
+                            </div>
+                            <div class="text-center">
+                                <span class="font-bold text-yellow-500">16</span>
+                                <span class="text-gray-500 text-xs ml-1">plugins</span>
+                            </div>
+                            <div class="text-center">
+                                <span class="font-bold text-charcoal">25</span>
+                                <span class="text-gray-500 text-xs ml-1">observers</span>
+                            </div>
+                        </div>
+                        <svg class="w-5 h-5 text-gray-400 group-hover:text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+
+                    <!-- Module Row: Catalog -->
+                    <a href="modules/Magento_Catalog/html/index.html" class="flex items-center gap-4 p-4 hover:bg-orange-50 border-b border-gray-100 transition-colors group">
+                        <div class="w-10 h-10 bg-orange-500 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-3">
+                                <h3 class="font-bold text-charcoal group-hover:text-orange-600">Magento_Catalog</h3>
+                                <span class="text-xs text-gray-500">Products, Categories & Pricing</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6 text-sm">
+                            <div class="text-center">
+                                <span class="font-bold text-orange-500">2120</span>
+                                <span class="text-gray-500 text-xs ml-1">components</span>
+                            </div>
+                            <div class="text-center">
+                                <span class="font-bold text-yellow-500">24</span>
+                                <span class="text-gray-500 text-xs ml-1">plugins</span>
+                            </div>
+                            <div class="text-center">
+                                <span class="font-bold text-charcoal">31</span>
+                                <span class="text-gray-500 text-xs ml-1">observers</span>
+                            </div>
+                        </div>
+                        <svg class="w-5 h-5 text-gray-400 group-hover:text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+
+                    <!-- More modules would follow same pattern... -->
+                    <div class="p-4 text-sm text-gray-500 italic">
+                        + 6 more modules in this phase (Checkout, Quote, Payment, Shipping, Store, EAV)
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Phase 2: Product Types (In Progress) -->
+            <div class="border border-gray-200 bg-white shadow-sm">
+                <button
+                    @click="openPhase = openPhase === 2 ? null : 2"
+                    class="w-full flex items-center justify-between p-4 hover:bg-gray-50 transition-colors"
+                >
+                    <div class="flex items-center gap-4">
+                        <div class="w-2 h-12 bg-orange-500"></div>
+                        <div class="text-left">
+                            <h2 class="text-xl font-bold text-charcoal">Phase 2: Product Types & Catalog Extensions</h2>
+                            <p class="text-sm text-gray-600">9 modules | 1/9 complete | <span class="text-orange-600 font-semibold">11% In Progress</span></p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="px-3 py-1 text-xs font-semibold bg-orange-100 text-orange-800">IN PROGRESS</span>
+                        <svg
+                            class="w-5 h-5 text-gray-500 transition-transform duration-200"
+                            :class="{ 'rotate-180': openPhase === 2 }"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        >
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </div>
+                </button>
+
+                <div x-show="openPhase === 2" x-collapse class="border-t border-gray-200">
+
+                    <!-- Documented Module: ConfigurableProduct -->
+                    <a href="modules/Magento_ConfigurableProduct/html/index.html" class="flex items-center gap-4 p-4 hover:bg-orange-50 border-b border-gray-100 transition-colors group">
+                        <div class="w-10 h-10 bg-yellow-500 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-3">
+                                <h3 class="font-bold text-charcoal group-hover:text-orange-600">Magento_ConfigurableProduct</h3>
+                                <span class="px-2 py-0.5 text-xs font-semibold bg-yellow-100 text-yellow-800">COMPLETE</span>
+                                <span class="text-xs text-gray-500">Configurable Products & Variants</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6 text-sm">
+                            <div class="text-center">
+                                <span class="font-bold text-orange-500">452</span>
+                                <span class="text-gray-500 text-xs ml-1">components</span>
+                            </div>
+                            <div class="text-center">
+                                <span class="font-bold text-yellow-500">18</span>
+                                <span class="text-gray-500 text-xs ml-1">plugins</span>
+                            </div>
+                            <div class="text-center">
+                                <span class="font-bold text-charcoal">12</span>
+                                <span class="text-gray-500 text-xs ml-1">APIs</span>
+                            </div>
+                        </div>
+                        <svg class="w-5 h-5 text-gray-400 group-hover:text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+
+                    <!-- Pending Module: Bundle (not yet documented) -->
+                    <div class="flex items-center gap-4 p-4 border-b border-gray-100 opacity-60">
+                        <div class="w-10 h-10 bg-gray-300 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-3">
+                                <h3 class="font-bold text-gray-500">Magento_Bundle</h3>
+                                <span class="px-2 py-0.5 text-xs font-semibold bg-gray-100 text-gray-600">PENDING</span>
+                                <span class="text-xs text-gray-400">Bundle Products</span>
+                            </div>
+                        </div>
+                        <span class="text-sm text-gray-400">Coming soon</span>
+                    </div>
+
+                    <!-- Pending Module: GroupedProduct -->
+                    <div class="flex items-center gap-4 p-4 border-b border-gray-100 opacity-60">
+                        <div class="w-10 h-10 bg-gray-300 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-3">
+                                <h3 class="font-bold text-gray-500">Magento_GroupedProduct</h3>
+                                <span class="px-2 py-0.5 text-xs font-semibold bg-gray-100 text-gray-600">PENDING</span>
+                                <span class="text-xs text-gray-400">Grouped Products</span>
+                            </div>
+                        </div>
+                        <span class="text-sm text-gray-400">Coming soon</span>
+                    </div>
+
+                    <div class="p-4 text-sm text-gray-500 italic">
+                        + 6 more pending modules (Downloadable, CatalogRule, CatalogInventory, CatalogSearch, CatalogUrlRewrite, CatalogWidget)
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Phase 3: Sales Extensions (Pending) -->
+            <div class="border border-gray-200 bg-white shadow-sm">
+                <button
+                    @click="openPhase = openPhase === 3 ? null : 3"
+                    class="w-full flex items-center justify-between p-4 hover:bg-gray-50 transition-colors"
+                >
+                    <div class="flex items-center gap-4">
+                        <div class="w-2 h-12 bg-gray-300"></div>
+                        <div class="text-left">
+                            <h2 class="text-xl font-bold text-charcoal">Phase 3: Sales & Order Extensions</h2>
+                            <p class="text-sm text-gray-600">7 modules | <span class="text-gray-500">Planned</span></p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="px-3 py-1 text-xs font-semibold bg-gray-100 text-gray-600">PLANNED</span>
+                        <svg
+                            class="w-5 h-5 text-gray-500 transition-transform duration-200"
+                            :class="{ 'rotate-180': openPhase === 3 }"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        >
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </div>
+                </button>
+
+                <div x-show="openPhase === 3" x-collapse class="border-t border-gray-200">
+                    <div class="flex items-center gap-4 p-4 border-b border-gray-100 opacity-60">
+                        <div class="w-10 h-10 bg-gray-300 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-gray-500">Magento_SalesRule</h3>
+                            <span class="text-xs text-gray-400">Cart price rules & coupons</span>
+                        </div>
+                        <span class="text-sm text-gray-400">Coming soon</span>
+                    </div>
+                    <div class="p-4 text-sm text-gray-500 italic">
+                        + 6 more planned modules (SalesSequence, SalesInventory, Tax, Weee, GiftMessage, Msrp)
+                    </div>
+                </div>
+            </div>
+
+            <!-- Collapsed phases 4-13 shown as summary -->
+            <div class="border border-gray-200 bg-gray-50 p-4">
+                <h3 class="font-bold text-gray-600 mb-2">Additional Phases (4-13)</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm text-gray-500">
+                    <span>Phase 4: Payment & Shipping (8 modules)</span>
+                    <span>Phase 5: MSI Inventory (7 modules)</span>
+                    <span>Phase 6: CMS & Content (6 modules)</span>
+                    <span>Phase 7: Infrastructure (9 modules)</span>
+                    <span>Phase 8: GraphQL API (6 modules)</span>
+                    <span>Phase 9: Search (6 modules)</span>
+                    <span>Phase 10: Security (7 modules)</span>
+                    <span>Phase 11: Import/Export (4 modules)</span>
+                    <span>Phase 12: Analytics (5 modules)</span>
+                    <span>Phase 13: Auxiliary (7 modules)</span>
+                </div>
+                <p class="mt-3 text-xs text-gray-400">254 additional modules not yet categorized</p>
+            </div>
+
+        </div>
+
+        <!-- Comparison Note -->
+        <div class="mt-12 p-6 bg-yellow-50 border-l-4 border-yellow-500">
+            <h3 class="font-bold text-charcoal mb-2">Design Benefits</h3>
+            <ul class="space-y-1 text-sm text-gray-700">
+                <li><strong>Compact rows:</strong> Each module takes ~60px height vs ~400px in grid cards</li>
+                <li><strong>Accordion phases:</strong> 344 modules organized into 13 collapsible sections</li>
+                <li><strong>Inline stats:</strong> Components, plugins, observers shown in single row</li>
+                <li><strong>Visual hierarchy:</strong> Complete modules have full color, pending are grayed out</li>
+                <li><strong>Progressive disclosure:</strong> Only expanded phase shows detail</li>
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+</html>

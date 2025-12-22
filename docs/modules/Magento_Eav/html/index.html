@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magento_Eav Module Documentation</title>
+    <style>
+        :root {
+            --orange: #F26423;
+            --yellow: #F1BC1B;
+            --charcoal: #2C2C2C;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+            --orange-hover: #D55A1F;
+            --yellow-hover: #D9A918;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: var(--light-gray);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 2rem;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--orange) 0%, var(--orange) 50%, var(--yellow) 50%, var(--yellow) 100%);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+        }
+
+        .breadcrumb a {
+            color: var(--yellow);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: var(--light-gray);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .module-badge {
+            display: inline-block;
+            background-color: var(--orange);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.5rem;
+        }
+
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background-color: var(--white);
+            padding: 1.5rem;
+            text-align: center;
+            border-left: 4px solid var(--orange);
+        }
+
+        .stat-card:nth-child(even) {
+            border-left-color: var(--yellow);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--charcoal);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .overview-section {
+            background-color: var(--white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .overview-section h2 {
+            color: var(--charcoal);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--orange);
+            display: inline-block;
+        }
+
+        .overview-section p {
+            margin-bottom: 1rem;
+            color: #444;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .nav-card {
+            background-color: var(--white);
+            padding: 1.5rem;
+            text-decoration: none;
+            color: var(--charcoal);
+            border-left: 4px solid var(--orange);
+            transition: all 0.2s ease;
+            display: block;
+        }
+
+        .nav-card:nth-child(even) {
+            border-left-color: var(--yellow);
+        }
+
+        .nav-card:hover {
+            transform: translateX(8px);
+            box-shadow: -4px 4px 0 var(--charcoal);
+        }
+
+        .nav-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--charcoal);
+        }
+
+        .nav-card p {
+            font-size: 0.875rem;
+            color: #666;
+        }
+
+        .key-components {
+            background-color: var(--white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .key-components h2 {
+            color: var(--charcoal);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--yellow);
+            display: inline-block;
+        }
+
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .component-item {
+            padding: 1rem;
+            background-color: var(--light-gray);
+            border-left: 3px solid var(--orange);
+        }
+
+        .component-item:nth-child(3n+2) {
+            border-left-color: var(--yellow);
+        }
+
+        .component-item:nth-child(3n) {
+            border-left-color: var(--charcoal);
+        }
+
+        .component-name {
+            font-weight: 600;
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+            font-size: 0.875rem;
+            color: var(--charcoal);
+        }
+
+        .component-desc {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 0.25rem;
+        }
+
+        .api-section {
+            background-color: var(--white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .api-section h2 {
+            color: var(--charcoal);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--orange);
+            display: inline-block;
+        }
+
+        .api-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .api-table th {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 0.75rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .api-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #E0E0E0;
+        }
+
+        .api-table tr:hover {
+            background-color: var(--light-gray);
+        }
+
+        .method-badge {
+            display: inline-block;
+            padding: 0.125rem 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background-color: var(--yellow);
+            color: var(--charcoal);
+        }
+
+        .method-badge.get {
+            background-color: var(--yellow);
+        }
+
+        .method-badge.post {
+            background-color: #8FD9A8;
+            color: var(--charcoal);
+        }
+
+        .method-badge.put {
+            background-color: var(--orange);
+            color: var(--white);
+        }
+
+        .method-badge.delete {
+            background-color: var(--charcoal);
+            color: var(--white);
+        }
+
+        .code {
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+            font-size: 0.875rem;
+            background-color: var(--light-gray);
+            padding: 0.125rem 0.375rem;
+        }
+
+        .callout {
+            background-color: #FFF3E0;
+            border-left: 4px solid var(--orange);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .callout-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer a {
+            color: var(--yellow);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <nav class="breadcrumb">
+                <a href="../../../index.html">Documentation</a>
+                <span> / </span>
+                <span>Magento_Eav</span>
+            </nav>
+            <h1>Magento_Eav</h1>
+            <span class="module-badge">Phase 1 - Core Commerce</span>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">484</div>
+                <div class="stat-label">PHP Files</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">36</div>
+                <div class="stat-label">API Interfaces</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">284</div>
+                <div class="stat-label">Model Classes</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">17</div>
+                <div class="stat-label">DB Tables</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">5</div>
+                <div class="stat-label">REST Endpoints</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">20+</div>
+                <div class="stat-label">DI Preferences</div>
+            </div>
+        </div>
+
+        <section class="overview-section">
+            <h2>Module Overview</h2>
+            <p>
+                The <strong>Magento_Eav</strong> (Entity-Attribute-Value) module provides Magento's flexible attribute
+                system that powers products, categories, customers, and customer addresses. Instead of fixed database
+                columns, EAV stores attribute values in separate tables organized by data type, enabling unlimited
+                custom attributes without schema changes.
+            </p>
+            <p>
+                This module defines the core EAV architecture: <strong>entity types</strong> (product, category, customer),
+                <strong>attributes</strong> (name, price, color), <strong>attribute sets</strong> (groupings of attributes),
+                and <strong>attribute groups</strong> (tabs in admin forms). It also provides backend models for validation,
+                frontend models for display, and source models for option values.
+            </p>
+            <p>
+                <strong>Key insight:</strong> While EAV provides flexibility, it comes with performance costs due to
+                multiple JOINs required to load entity data. Magento uses "flat tables" (denormalized copies) for
+                catalog data to optimize frontend queries.
+            </p>
+        </section>
+
+        <div class="callout">
+            <div class="callout-title">EAV vs Flat Tables</div>
+            <p>
+                EAV tables are the source of truth but slow for queries. Products and categories use flat
+                indexer tables (<code>catalog_product_flat_*</code>, <code>catalog_category_flat_*</code>) for
+                frontend performance. Always use flat tables when available for read operations.
+            </p>
+        </div>
+
+        <nav class="nav-grid" aria-label="Module documentation sections">
+            <a href="architecture.html" class="nav-card">
+                <h3>Architecture</h3>
+                <p>EAV data model, entity types, value tables by type (varchar, int, decimal, text, datetime), attribute sets and groups.</p>
+            </a>
+            <a href="execution-flows.html" class="nav-card">
+                <h3>Execution Flows</h3>
+                <p>Attribute loading, entity save with EAV values, attribute set assignment, option value resolution.</p>
+            </a>
+            <a href="plugins-observers.html" class="nav-card">
+                <h3>Plugins &amp; Observers</h3>
+                <p>DI preferences, cache invalidation plugins, backend/frontend/source model patterns.</p>
+            </a>
+            <a href="integrations.html" class="nav-card">
+                <h3>Integrations</h3>
+                <p>Dependencies on Store/Theme, usage by Catalog/Customer/CustomerAddress entities.</p>
+            </a>
+            <a href="known-issues.html" class="nav-card">
+                <h3>Known Issues</h3>
+                <p>N+1 query problems, flat table sync issues, attribute cache invalidation, scope confusion.</p>
+            </a>
+        </nav>
+
+        <section class="key-components">
+            <h2>Key Components</h2>
+            <div class="component-grid">
+                <div class="component-item">
+                    <div class="component-name">Eav\Model\Config</div>
+                    <div class="component-desc">Central configuration for entity types and attributes. Heavily cached.</div>
+                </div>
+                <div class="component-item">
+                    <div class="component-name">Eav\Model\Entity\AbstractEntity</div>
+                    <div class="component-desc">Base resource model for all EAV entities. Handles multi-table saves.</div>
+                </div>
+                <div class="component-item">
+                    <div class="component-name">Eav\Model\Entity\Attribute</div>
+                    <div class="component-desc">Attribute model with backend, frontend, and source model references.</div>
+                </div>
+                <div class="component-item">
+                    <div class="component-name">Eav\Model\Entity\Attribute\Set</div>
+                    <div class="component-desc">Attribute set model for grouping attributes per entity type.</div>
+                </div>
+                <div class="component-item">
+                    <div class="component-name">Eav\Model\Entity\Attribute\Group</div>
+                    <div class="component-desc">Attribute group model for organizing attributes into tabs.</div>
+                </div>
+                <div class="component-item">
+                    <div class="component-name">Eav\Model\Entity\Attribute\Backend\*</div>
+                    <div class="component-desc">Backend models for validation and data transformation on save.</div>
+                </div>
+                <div class="component-item">
+                    <div class="component-name">Eav\Model\Entity\Attribute\Frontend\*</div>
+                    <div class="component-desc">Frontend models for value formatting on display.</div>
+                </div>
+                <div class="component-item">
+                    <div class="component-name">Eav\Model\Entity\Attribute\Source\*</div>
+                    <div class="component-desc">Source models for select/multiselect option values.</div>
+                </div>
+                <div class="component-item">
+                    <div class="component-name">AttributeRepository</div>
+                    <div class="component-desc">Repository for CRUD operations on attributes with search criteria.</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="api-section">
+            <h2>REST API Endpoints</h2>
+            <table class="api-table">
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Endpoint</th>
+                        <th>Service Interface</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="method-badge get">GET</span></td>
+                        <td><code class="code">/V1/eav/attribute-sets/list</code></td>
+                        <td>AttributeSetRepositoryInterface::getList</td>
+                        <td>List all attribute sets</td>
+                    </tr>
+                    <tr>
+                        <td><span class="method-badge get">GET</span></td>
+                        <td><code class="code">/V1/eav/attribute-sets/:id</code></td>
+                        <td>AttributeSetRepositoryInterface::get</td>
+                        <td>Get attribute set by ID</td>
+                    </tr>
+                    <tr>
+                        <td><span class="method-badge post">POST</span></td>
+                        <td><code class="code">/V1/eav/attribute-sets</code></td>
+                        <td>AttributeSetManagementInterface::create</td>
+                        <td>Create new attribute set</td>
+                    </tr>
+                    <tr>
+                        <td><span class="method-badge put">PUT</span></td>
+                        <td><code class="code">/V1/eav/attribute-sets/:id</code></td>
+                        <td>AttributeSetRepositoryInterface::save</td>
+                        <td>Update attribute set</td>
+                    </tr>
+                    <tr>
+                        <td><span class="method-badge delete">DELETE</span></td>
+                        <td><code class="code">/V1/eav/attribute-sets/:id</code></td>
+                        <td>AttributeSetRepositoryInterface::deleteById</td>
+                        <td>Delete attribute set</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="key-components">
+            <h2>Database Tables Overview</h2>
+            <div class="component-grid">
+                <div class="component-item">
+                    <div class="component-name">eav_entity_type</div>
+                    <div class="component-desc">Entity type definitions (product, category, customer, etc.)</div>
+                </div>
+                <div class="component-item">
+                    <div class="component-name">eav_attribute</div>
+                    <div class="component-desc">Attribute definitions with backend/frontend/source model references.</div>
+                </div>
+                <div class="component-item">
+                    <div class="component-name">eav_attribute_set</div>
+                    <div class="component-desc">Attribute set definitions per entity type.</div>
+                </div>
+                <div class="component-item">
+                    <div class="component-name">eav_attribute_group</div>
+                    <div class="component-desc">Attribute groups within sets (admin form tabs).</div>
+                </div>
+                <div class="component-item">
+                    <div class="component-name">eav_entity_attribute</div>
+                    <div class="component-desc">Links attributes to sets/groups with sort order.</div>
+                </div>
+                <div class="component-item">
+                    <div class="component-name">eav_entity_*</div>
+                    <div class="component-desc">Value tables: varchar, int, decimal, text, datetime.</div>
+                </div>
+                <div class="component-item">
+                    <div class="component-name">eav_attribute_option</div>
+                    <div class="component-desc">Options for select/multiselect attributes.</div>
+                </div>
+                <div class="component-item">
+                    <div class="component-name">eav_attribute_option_value</div>
+                    <div class="component-desc">Store-scoped option labels.</div>
+                </div>
+                <div class="component-item">
+                    <div class="component-name">eav_attribute_label</div>
+                    <div class="component-desc">Store-scoped attribute labels.</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Magento 2 Core Documentation - Generated 2025-12-22</p>
+            <p><a href="../../../index.html">Back to Documentation Index</a></p>
+        </div>
+    </footer>
+</body>
+</html>

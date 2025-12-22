@@ -1,0 +1,70 @@
+version: '3.8'
+
+services:
+  # Neo4j Graph Database - ALL DATA IN LOCAL FOLDER
+  neo4j:
+    image: neo4j:5-community
+    container_name: magento-analyzer-neo4j
+    user: "${USER_ID:-1000}:${GROUP_ID:-1000}"
+    ports:
+      - "${NEO4J_HTTP_PORT:-7474}:7474"   # HTTP Browser UI
+      - "${NEO4J_BOLT_PORT:-7687}:7687"   # Bolt protocol
+    environment:
+      - NEO4J_AUTH=${NEO4J_USER:-neo4j}/${NEO4J_PASSWORD:-magento-analyzer}
+      - NEO4J_server_memory_heap_initial__size=512M
+      - NEO4J_server_memory_heap_max__size=${NEO4J_HEAP_SIZE:-2G}
+      - NEO4J_server_memory_pagecache_size=512M
+      - NEO4J_db_tx__log_rotation_retention__policy=1G size
+      - NEO4J_ACCEPT_LICENSE_AGREEMENT=yes
+    volumes:
+      # CRITICAL: Use local folders instead of Docker volumes
+      # This keeps ALL data in the external drive folder
+      - ../docker-data/neo4j/data:/data
+      - ../docker-data/neo4j/logs:/logs
+      - ../docker-data/neo4j/import:/var/lib/neo4j/import
+      - ../docker-data/neo4j/plugins:/plugins
+    networks:
+      - magento-analyzer
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider localhost:7474 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # PHP Parser Service (nikic/php-parser)
+  php-parser:
+    image: php:8.2-cli
+    container_name: magento-analyzer-php-parser
+    working_dir: /app
+    volumes:
+      - ../src/parsers/php:/app
+      - ${MAGENTO_PATH:-./magento2}:/magento:ro
+      - ../data:/data
+      - ../docker-data/composer:/root/.composer  # Cache composer packages locally
+    environment:
+      - COMPOSER_ALLOW_SUPERUSER=1
+    networks:
+      - magento-analyzer
+    command: >
+      sh -c "
+        echo '🔧 Setting up PHP Parser...';
+        if [ ! -f /app/vendor/autoload.php ]; then
+          echo '📦 Installing Composer...';
+          curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer;
+          cd /app;
+          echo '📦 Installing nikic/php-parser...';
+          composer require nikic/php-parser --no-interaction;
+        fi;
+        echo '✅ PHP Parser ready';
+        echo '💡 Usage: docker-compose exec php-parser php /app/parse.php <file>';
+        tail -f /dev/null
+      "
+    restart: unless-stopped
+
+networks:
+  magento-analyzer:
+    driver: bridge
+
+# NO NAMED VOLUMES - Everything is in local folders
+# This ensures the entire project is portable on the external drive

@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magento_ConfigurableProduct - Architecture</title>
+    <style>
+        :root {
+            --orange: #F26423;
+            --yellow: #F1BC1B;
+            --charcoal: #2C2C2C;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+            --code-bg: #1E1E1E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: var(--light-gray);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--charcoal);
+            padding: 2rem;
+            border-bottom: 4px solid var(--orange);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            color: #999;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--yellow);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            color: var(--white);
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        h1 span {
+            color: var(--orange);
+        }
+
+        .subtitle {
+            color: #999;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        nav {
+            background-color: var(--white);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            max-width: 1400px;
+            margin: 0 auto;
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            border-bottom-color: var(--orange);
+        }
+
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: var(--charcoal);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--orange);
+            display: inline-block;
+        }
+
+        h3 {
+            color: var(--charcoal);
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #444;
+        }
+
+        .code-block {
+            background-color: var(--code-bg);
+            color: #D4D4D4;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Fira Code', 'Consolas', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 1rem 0;
+        }
+
+        .code-block .comment { color: #6A9955; }
+        .code-block .keyword { color: #569CD6; }
+        .code-block .string { color: #CE9178; }
+        .code-block .class { color: #4EC9B0; }
+        .code-block .method { color: #DCDCAA; }
+        .code-block .variable { color: #9CDCFE; }
+        .code-block .tag { color: #569CD6; }
+        .code-block .attr { color: #92C5F8; }
+        .code-block .value { color: #CE9178; }
+
+        .diagram {
+            background: var(--light-gray);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        .diagram-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .diagram-box {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            min-width: 150px;
+            text-align: center;
+        }
+
+        .diagram-box.primary {
+            background: var(--orange);
+        }
+
+        .diagram-box.secondary {
+            background: var(--yellow);
+            color: var(--charcoal);
+        }
+
+        .diagram-box.small {
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            min-width: 100px;
+        }
+
+        .diagram-arrow {
+            color: var(--charcoal);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .diagram-arrow.down {
+            display: block;
+            margin: 0.5rem auto;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .data-table th {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .data-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #E0E0E0;
+            vertical-align: top;
+        }
+
+        .data-table tr:nth-child(even) {
+            background: var(--light-gray);
+        }
+
+        .data-table code {
+            background: var(--charcoal);
+            color: var(--yellow);
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.85rem;
+        }
+
+        .info-box {
+            background: #FFF3E0;
+            border-left: 4px solid var(--orange);
+            padding: 1rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+        }
+
+        .info-box h4 {
+            color: var(--orange);
+            margin-bottom: 0.5rem;
+        }
+
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .concept-card {
+            background: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--orange);
+        }
+
+        .concept-card:nth-child(even) {
+            border-left-color: var(--yellow);
+        }
+
+        .concept-card h4 {
+            color: var(--charcoal);
+            margin-bottom: 0.75rem;
+        }
+
+        .concept-card ul {
+            margin-left: 1.25rem;
+            font-size: 0.9rem;
+        }
+
+        .concept-card li {
+            margin-bottom: 0.25rem;
+        }
+
+        footer {
+            background: var(--charcoal);
+            color: #999;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--yellow);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .diagram-row {
+                flex-direction: column;
+            }
+
+            .diagram-arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="breadcrumb">
+                <a href="../../index.html">Modules</a> /
+                <a href="index.html">Magento_ConfigurableProduct</a> /
+                Architecture
+            </div>
+            <h1>Module <span>Architecture</span></h1>
+            <p class="subtitle">Super attributes, product linking, and pricing architecture</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Overview</a></li>
+            <li><a href="architecture.html" class="active">Architecture</a></li>
+            <li><a href="execution-flows.html">Execution Flows</a></li>
+            <li><a href="plugins-observers.html">Plugins & Observers</a></li>
+            <li><a href="integrations.html">Integrations</a></li>
+            <li><a href="known-issues.html">Known Issues</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Conceptual Overview -->
+        <section class="section">
+            <h2>Conceptual Overview</h2>
+            <p>A configurable product is a composite product type that allows customers to select from predefined attribute options to choose a specific product variant. The configurable product itself has no stock or price - these come from the simple product children.</p>
+
+            <div class="diagram">
+                <div class="diagram-box primary">Configurable Product (T-Shirt)</div>
+                <div class="diagram-arrow down">&darr;</div>
+                <div class="diagram-row">
+                    <div class="diagram-box secondary">Color (Super Attribute)</div>
+                    <div class="diagram-box secondary">Size (Super Attribute)</div>
+                </div>
+                <div class="diagram-arrow down">&darr;</div>
+                <div class="diagram-row">
+                    <div class="diagram-box small">Red - S</div>
+                    <div class="diagram-box small">Red - M</div>
+                    <div class="diagram-box small">Red - L</div>
+                    <div class="diagram-box small">Blue - S</div>
+                    <div class="diagram-box small">Blue - M</div>
+                    <div class="diagram-box small">Blue - L</div>
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">Simple Product Children (Actual SKUs with stock/price)</p>
+            </div>
+        </section>
+
+        <!-- Super Attributes -->
+        <section class="section">
+            <h2>Super Attributes System</h2>
+            <p>Super attributes are EAV attributes designated as configuration axes for a configurable product. Only attributes with <code>select</code> frontend input type and global scope can be used as super attributes.</p>
+
+            <h3>Super Attribute Requirements</h3>
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <h4>Attribute Properties</h4>
+                    <ul>
+                        <li><code>frontend_input = 'select'</code></li>
+                        <li><code>is_global = 1</code> (Global scope)</li>
+                        <li><code>is_user_defined = 1</code> (or core like color/size)</li>
+                        <li>Must have predefined options</li>
+                    </ul>
+                </div>
+                <div class="concept-card">
+                    <h4>Attribute Storage</h4>
+                    <ul>
+                        <li><code>catalog_product_super_attribute</code> table</li>
+                        <li>Links attribute_id to product_id</li>
+                        <li>Position determines display order</li>
+                        <li>Store-specific labels supported</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Database Schema</h3>
+            <div class="code-block">
+<span class="comment">-- Super attribute definition (links attribute to configurable product)</span>
+<span class="keyword">CREATE TABLE</span> catalog_product_super_attribute (
+    product_super_attribute_id <span class="keyword">INT UNSIGNED AUTO_INCREMENT</span>,
+    product_id <span class="keyword">INT UNSIGNED</span>,      <span class="comment">-- Configurable product entity_id</span>
+    attribute_id <span class="keyword">SMALLINT UNSIGNED</span>, <span class="comment">-- EAV attribute_id</span>
+    position <span class="keyword">SMALLINT UNSIGNED</span>,     <span class="comment">-- Display order</span>
+    <span class="keyword">PRIMARY KEY</span> (product_super_attribute_id),
+    <span class="keyword">UNIQUE</span> (product_id, attribute_id)
+);
+
+<span class="comment">-- Store-specific labels for super attributes</span>
+<span class="keyword">CREATE TABLE</span> catalog_product_super_attribute_label (
+    value_id <span class="keyword">INT UNSIGNED AUTO_INCREMENT</span>,
+    product_super_attribute_id <span class="keyword">INT UNSIGNED</span>,
+    store_id <span class="keyword">SMALLINT UNSIGNED</span>,
+    use_default <span class="keyword">SMALLINT UNSIGNED DEFAULT</span> 0,
+    value <span class="keyword">VARCHAR</span>(255),
+    <span class="keyword">PRIMARY KEY</span> (value_id)
+);
+            </div>
+
+            <h3>Loading Super Attributes</h3>
+            <div class="code-block">
+<span class="comment">// Get configurable attributes for a product</span>
+<span class="variable">$configurableType</span> = <span class="variable">$product</span>-><span class="method">getTypeInstance</span>();
+<span class="variable">$superAttributes</span> = <span class="variable">$configurableType</span>-><span class="method">getConfigurableAttributes</span>(<span class="variable">$product</span>);
+
+<span class="keyword">foreach</span> (<span class="variable">$superAttributes</span> <span class="keyword">as</span> <span class="variable">$attribute</span>) {
+    <span class="variable">$attributeCode</span> = <span class="variable">$attribute</span>-><span class="method">getProductAttribute</span>()-><span class="method">getAttributeCode</span>();
+    <span class="variable">$label</span> = <span class="variable">$attribute</span>-><span class="method">getLabel</span>();
+    <span class="variable">$position</span> = <span class="variable">$attribute</span>-><span class="method">getPosition</span>();
+
+    <span class="comment">// Get available options from child products</span>
+    <span class="variable">$options</span> = <span class="variable">$attribute</span>-><span class="method">getOptions</span>();
+}
+            </div>
+        </section>
+
+        <!-- Parent-Child Linking -->
+        <section class="section">
+            <h2>Parent-Child Product Linking</h2>
+            <p>The super_link table establishes the relationship between configurable parents and simple product children. Each child must have values for all super attributes of the parent.</p>
+
+            <h3>Link Table Schema</h3>
+            <div class="code-block">
+<span class="comment">-- Links simple products to configurable parent</span>
+<span class="keyword">CREATE TABLE</span> catalog_product_super_link (
+    link_id <span class="keyword">INT UNSIGNED AUTO_INCREMENT</span>,
+    product_id <span class="keyword">INT UNSIGNED</span>,  <span class="comment">-- Child simple product entity_id</span>
+    parent_id <span class="keyword">INT UNSIGNED</span>,   <span class="comment">-- Parent configurable product entity_id</span>
+    <span class="keyword">PRIMARY KEY</span> (link_id),
+    <span class="keyword">UNIQUE</span> (product_id, parent_id),
+    <span class="keyword">FOREIGN KEY</span> (product_id) <span class="keyword">REFERENCES</span> catalog_product_entity(entity_id),
+    <span class="keyword">FOREIGN KEY</span> (parent_id) <span class="keyword">REFERENCES</span> catalog_product_entity(entity_id)
+);
+            </div>
+
+            <div class="info-box">
+                <h4>Important Constraint</h4>
+                <p>A simple product can be linked to multiple configurable parents, but the combination of (product_id, parent_id) must be unique. This enables the same simple product to appear as an option in multiple configurables.</p>
+            </div>
+
+            <h3>Getting Child Products</h3>
+            <div class="code-block">
+<span class="comment">// Get all linked simple products</span>
+<span class="variable">$configurableType</span> = <span class="variable">$product</span>-><span class="method">getTypeInstance</span>();
+
+<span class="comment">// Full product objects (loads EAV attributes)</span>
+<span class="variable">$usedProducts</span> = <span class="variable">$configurableType</span>-><span class="method">getUsedProducts</span>(<span class="variable">$product</span>);
+
+<span class="comment">// Just product IDs (faster, no EAV load)</span>
+<span class="variable">$childIds</span> = <span class="variable">$configurableType</span>-><span class="method">getChildrenIds</span>(<span class="variable">$product</span>-><span class="method">getId</span>());
+
+<span class="comment">// Find specific child by attribute values</span>
+<span class="variable">$attributes</span> = [<span class="string">'color'</span> => <span class="string">'red'</span>, <span class="string">'size'</span> => <span class="string">'M'</span>];
+<span class="variable">$child</span> = <span class="variable">$configurableType</span>-><span class="method">getProductByAttributes</span>(<span class="variable">$attributes</span>, <span class="variable">$product</span>);
+            </div>
+        </section>
+
+        <!-- Pricing Architecture -->
+        <section class="section">
+            <h2>Pricing Architecture</h2>
+            <p>Configurable products don't have their own price. Instead, the price is derived from the child products. Magento provides flexible price resolution strategies.</p>
+
+            <h3>Price Resolution Flow</h3>
+            <div class="diagram">
+                <div class="diagram-box primary">ConfigurablePriceResolver</div>
+                <div class="diagram-arrow down">&darr;</div>
+                <div class="diagram-row">
+                    <div class="diagram-box secondary">FinalPriceResolver</div>
+                    <div class="diagram-box secondary">RegularPriceResolver</div>
+                </div>
+                <div class="diagram-arrow down">&darr;</div>
+                <div class="diagram-box">LowestPriceOptionsProvider</div>
+                <div class="diagram-arrow down">&darr;</div>
+                <div class="diagram-row">
+                    <div class="diagram-box small">Child 1 Price</div>
+                    <div class="diagram-box small">Child 2 Price</div>
+                    <div class="diagram-box small">Child N Price</div>
+                </div>
+            </div>
+
+            <h3>Price Type Classes</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Class</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>ConfigurablePriceResolver</code></td>
+                        <td>Main resolver that delegates to specific price type resolvers</td>
+                    </tr>
+                    <tr>
+                        <td><code>FinalPrice</code></td>
+                        <td>Calculates final price (lowest among salable children)</td>
+                    </tr>
+                    <tr>
+                        <td><code>ConfigurableRegularPrice</code></td>
+                        <td>Calculates regular price before discounts</td>
+                    </tr>
+                    <tr>
+                        <td><code>LowestPriceOptionsProvider</code></td>
+                        <td>Finds the child product with lowest price</td>
+                    </tr>
+                    <tr>
+                        <td><code>ConfigurableOptionsProvider</code></td>
+                        <td>Provides all option prices for frontend display</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Price Calculation Example</h3>
+            <div class="code-block">
+<span class="comment">// Getting configurable product price</span>
+<span class="variable">$priceInfo</span> = <span class="variable">$product</span>-><span class="method">getPriceInfo</span>();
+
+<span class="comment">// Final price (lowest salable child)</span>
+<span class="variable">$finalPrice</span> = <span class="variable">$priceInfo</span>-><span class="method">getPrice</span>(<span class="string">'final_price'</span>)-><span class="method">getAmount</span>();
+
+<span class="comment">// Regular price</span>
+<span class="variable">$regularPrice</span> = <span class="variable">$priceInfo</span>-><span class="method">getPrice</span>(<span class="string">'regular_price'</span>)-><span class="method">getAmount</span>();
+
+<span class="comment">// All option prices for swatch/dropdown display</span>
+<span class="variable">$optionsProvider</span> = <span class="variable">$objectManager</span>-><span class="method">get</span>(<span class="class">ConfigurableOptionsProviderInterface</span>::<span class="keyword">class</span>);
+<span class="variable">$options</span> = <span class="variable">$optionsProvider</span>-><span class="method">getProducts</span>(<span class="variable">$product</span>);
+            </div>
+        </section>
+
+        <!-- Product Type Model -->
+        <section class="section">
+            <h2>Product Type Model</h2>
+            <p>The <code>Configurable</code> type class extends <code>AbstractType</code> and provides all configurable-specific behavior.</p>
+
+            <h3>Key Methods</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>getConfigurableAttributes($product)</code></td>
+                        <td>Returns collection of super attributes for the product</td>
+                    </tr>
+                    <tr>
+                        <td><code>getUsedProducts($product, $attributes)</code></td>
+                        <td>Returns all linked simple products (with optional attribute filter)</td>
+                    </tr>
+                    <tr>
+                        <td><code>getProductByAttributes($attributes, $product)</code></td>
+                        <td>Finds the specific child matching attribute values</td>
+                    </tr>
+                    <tr>
+                        <td><code>isSalable($product)</code></td>
+                        <td>Returns true if at least one child is salable</td>
+                    </tr>
+                    <tr>
+                        <td><code>prepareForCartAdvanced($buyRequest, $product)</code></td>
+                        <td>Prepares products for adding to cart (returns [parent, child])</td>
+                    </tr>
+                    <tr>
+                        <td><code>getSelectedAttributesInfo($product)</code></td>
+                        <td>Gets selected option info for order/cart display</td>
+                    </tr>
+                    <tr>
+                        <td><code>getConfigurableOptions($product)</code></td>
+                        <td>Returns all available options for frontend JSON</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Type Model Flow</h3>
+            <div class="code-block">
+<span class="comment">// Product type identification</span>
+<span class="variable">$product</span>-><span class="method">getTypeId</span>(); <span class="comment">// Returns 'configurable'</span>
+<span class="variable">$product</span>-><span class="method">getTypeInstance</span>(); <span class="comment">// Returns Configurable type model</span>
+
+<span class="comment">// Check if product is configurable</span>
+<span class="keyword">if</span> (<span class="variable">$product</span>-><span class="method">getTypeId</span>() === <span class="class">Configurable</span>::TYPE_CODE) {
+    <span class="variable">$superAttributes</span> = <span class="variable">$product</span>-><span class="method">getTypeInstance</span>()
+        -><span class="method">getConfigurableAttributes</span>(<span class="variable">$product</span>);
+}
+            </div>
+        </section>
+
+        <!-- EntityManager Integration -->
+        <section class="section">
+            <h2>EntityManager Integration</h2>
+            <p>Configurable product data is persisted through EntityManager handlers that process super attributes and links during product save/load operations.</p>
+
+            <h3>Extension Handlers</h3>
+            <div class="code-block">
+<span class="comment">&lt;!-- di.xml EntityManager configuration --&gt;</span>
+<span class="tag">&lt;type</span> <span class="attr">name</span>=<span class="value">"Magento\Framework\EntityManager\Operation\ExtensionPool"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;arguments&gt;</span>
+        <span class="tag">&lt;argument</span> <span class="attr">name</span>=<span class="value">"extensionActions"</span> <span class="attr">xsi:type</span>=<span class="value">"array"</span><span class="tag">&gt;</span>
+            <span class="tag">&lt;item</span> <span class="attr">name</span>=<span class="value">"Magento\Catalog\Api\Data\ProductInterface"</span> <span class="attr">xsi:type</span>=<span class="value">"array"</span><span class="tag">&gt;</span>
+                <span class="tag">&lt;item</span> <span class="attr">name</span>=<span class="value">"create"</span> <span class="attr">xsi:type</span>=<span class="value">"array"</span><span class="tag">&gt;</span>
+                    <span class="tag">&lt;item</span> <span class="attr">name</span>=<span class="value">"create_configurable_options"</span> <span class="attr">xsi:type</span>=<span class="value">"string"</span><span class="tag">&gt;</span>
+                        Magento\ConfigurableProduct\Model\Product\SaveHandler
+                    <span class="tag">&lt;/item&gt;</span>
+                <span class="tag">&lt;/item&gt;</span>
+                <span class="tag">&lt;item</span> <span class="attr">name</span>=<span class="value">"update"</span> <span class="attr">xsi:type</span>=<span class="value">"array"</span><span class="tag">&gt;</span>
+                    <span class="tag">&lt;item</span> <span class="attr">name</span>=<span class="value">"update_configurable_options"</span> <span class="attr">xsi:type</span>=<span class="value">"string"</span><span class="tag">&gt;</span>
+                        Magento\ConfigurableProduct\Model\Product\SaveHandler
+                    <span class="tag">&lt;/item&gt;</span>
+                <span class="tag">&lt;/item&gt;</span>
+                <span class="tag">&lt;item</span> <span class="attr">name</span>=<span class="value">"read"</span> <span class="attr">xsi:type</span>=<span class="value">"array"</span><span class="tag">&gt;</span>
+                    <span class="tag">&lt;item</span> <span class="attr">name</span>=<span class="value">"read_configurable_options"</span> <span class="attr">xsi:type</span>=<span class="value">"string"</span><span class="tag">&gt;</span>
+                        Magento\ConfigurableProduct\Model\Product\ReadHandler
+                    <span class="tag">&lt;/item&gt;</span>
+                <span class="tag">&lt;/item&gt;</span>
+            <span class="tag">&lt;/item&gt;</span>
+        <span class="tag">&lt;/argument&gt;</span>
+    <span class="tag">&lt;/arguments&gt;</span>
+<span class="tag">&lt;/type&gt;</span>
+            </div>
+
+            <h3>Handler Responsibilities</h3>
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <h4>SaveHandler</h4>
+                    <ul>
+                        <li>Saves super attributes to catalog_product_super_attribute</li>
+                        <li>Saves attribute labels per store</li>
+                        <li>Creates/updates super_link relationships</li>
+                        <li>Validates child products have required attributes</li>
+                    </ul>
+                </div>
+                <div class="concept-card">
+                    <h4>ReadHandler</h4>
+                    <ul>
+                        <li>Loads super attributes into extension_attributes</li>
+                        <li>Populates configurable_product_options</li>
+                        <li>Loads configurable_product_links (child IDs)</li>
+                        <li>Sets data on product model for type instance</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variation Generator -->
+        <section class="section">
+            <h2>Variation Generator</h2>
+            <p>The variation generator creates all possible simple product combinations from selected super attributes. This is used in admin when creating configurable products.</p>
+
+            <div class="code-block">
+<span class="comment">// Generate all variations programmatically</span>
+<span class="variable">$management</span> = <span class="variable">$objectManager</span>-><span class="method">get</span>(<span class="class">ConfigurableProductManagementInterface</span>::<span class="keyword">class</span>);
+
+<span class="comment">// Define attributes and their options</span>
+<span class="variable">$options</span> = [
+    [
+        <span class="string">'attribute_id'</span> => <span class="string">'93'</span>,  <span class="comment">// Color</span>
+        <span class="string">'values'</span> => [
+            [<span class="string">'value_index'</span> => <span class="string">'49'</span>],  <span class="comment">// Black</span>
+            [<span class="string">'value_index'</span> => <span class="string">'50'</span>],  <span class="comment">// Blue</span>
+        ]
+    ],
+    [
+        <span class="string">'attribute_id'</span> => <span class="string">'141'</span>, <span class="comment">// Size</span>
+        <span class="string">'values'</span> => [
+            [<span class="string">'value_index'</span> => <span class="string">'166'</span>], <span class="comment">// S</span>
+            [<span class="string">'value_index'</span> => <span class="string">'167'</span>], <span class="comment">// M</span>
+            [<span class="string">'value_index'</span> => <span class="string">'168'</span>], <span class="comment">// L</span>
+        ]
+    ]
+];
+
+<span class="comment">// Generates 6 variations: Black-S, Black-M, Black-L, Blue-S, Blue-M, Blue-L</span>
+<span class="variable">$variations</span> = <span class="variable">$management</span>-><span class="method">generateVariation</span>(<span class="variable">$product</span>, <span class="variable">$options</span>);
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Magento 2 ConfigurableProduct Module Documentation | Generated December 2024</p>
+        <p><a href="index.html">Back to Module Overview</a></p>
+    </footer>
+</body>
+</html>

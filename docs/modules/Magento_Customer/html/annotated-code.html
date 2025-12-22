@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Annotated Code Tutorial | Magento_Customer Documentation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            jacarta: {
+              50: '#e9ecfa', 100: '#d7dbf5', 200: '#b7bdec', 300: '#8c93dd',
+              400: '#5d5ecc', 500: '#292562', 600: '#2b2551', 700: '#2c293e',
+              800: '#252331', 900: '#201f26', 950: '#19181e'
+            },
+            amaranth: {
+              50: '#feeff1', 100: '#fde2e6', 200: '#fbc9d2', 300: '#f89caf',
+              400: '#f46484', 500: '#ec2254', 600: '#cc2254', 700: '#a21542',
+              800: '#87153c', 900: '#731539', 950: '#41061b'
+            },
+            orange: {
+              DEFAULT: '#F26423',
+              50: '#fef5ee', 100: '#fee9d6', 200: '#fbd0ad', 300: '#f9ae78',
+              400: '#f58242', 500: '#f26423', 600: '#e34613', 700: '#bc3312',
+              800: '#962a16', 900: '#792515', 950: '#411009'
+            },
+            yellow: {
+              DEFAULT: '#F1BC1B',
+              50: '#fffdeb', 100: '#fdf9c8', 200: '#fbf38c', 300: '#f8e651',
+              400: '#f7d728', 500: '#f1bc1b', 600: '#d5900a', 700: '#b1670c',
+              800: '#8f5111', 900: '#764311', 950: '#442204'
+            },
+            charcoal: {
+              DEFAULT: '#2c2c2c',
+              50: '#f1f1f1', 100: '#d9d9d9', 200: '#b6b6b6', 300: '#818181',
+              400: '#474747', 500: '#2c2c2c', 600: '#262626', 700: '#202020',
+              800: '#1c1c1c', 900: '#191919', 950: '#121212'
+            },
+            alabaster: {
+              50: '#ffffff', 100: '#ffffff', 200: '#ffffff', 300: '#ffffff',
+              400: '#ffffff', 500: '#fafafa', 600: '#cccccc', 700: '#a5a5a5',
+              800: '#8d8d8d', 900: '#7b7b7b', 950: '#535353'
+            },
+            brown: '#442204',
+            'off-white': '#FAFAFA',
+          },
+          fontFamily: {
+            sans: ['Inter Tight', 'system-ui', 'sans-serif'],
+            mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap');
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-php.min.js"></script>
+  <style>
+    [x-cloak] { display: none !important; }
+    pre[class*="language-"] { margin: 0;  }
+    .code-section { position: relative; }
+    .copy-button { position: absolute; top: 0.5rem; right: 0.5rem; }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-orange-800 focus:text-white focus:">Skip to content</a>
+
+  <header class="bg-white border-b sticky top-0 z-40 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <h1 class="text-xl font-bold text-orange-800">Magento_Customer</h1>
+          <nav class="hidden md:ml-6 md:flex md:space-x-4">
+            <a href="index.html" class="px-3 py-2  text-sm font-medium text-gray-700 hover:bg-gray-100">Home</a>
+            <a href="architecture.html" class="px-3 py-2  text-sm font-medium text-gray-700 hover:bg-gray-100">Architecture</a>
+            <a href="execution-flows.html" class="px-3 py-2  text-sm font-medium text-gray-700 hover:bg-gray-100">Execution Flows</a>
+            <a href="plugins-observers.html" class="px-3 py-2  text-sm font-medium text-gray-700 hover:bg-gray-100">Plugins & Observers</a>
+            <a href="integrations.html" class="px-3 py-2  text-sm font-medium text-gray-700 hover:bg-gray-100">Integrations</a>
+            <a href="annotated-code.html" class="px-3 py-2  text-sm font-medium bg-orange-100 text-orange-900" aria-current="page">Annotated Code</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="bg-white  shadow-lg p-8">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">Annotated Code Tutorial</h1>
+      <p class="text-xl text-gray-600 mb-8">CustomerRepositoryInterface with extensive inline comments explaining Magento patterns</p>
+
+      <div class="bg-gradient-to-r from-orange-700 to-orange-900  p-6 text-white mb-8">
+        <h2 class="text-2xl font-bold mb-2">The Primary Service Contract</h2>
+        <p class="text-orange-50">CustomerRepositoryInterface is the main CRUD interface for customer data persistence in Magento</p>
+      </div>
+
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Architectural Position</h2>
+        
+        <div class="bg-gray-50 border-l-4 border-orange-500 p-6 mb-6">
+          <h3 class="text-lg font-semibold text-gray-900 mb-4">Layer Hierarchy</h3>
+          <div class="space-y-2 text-sm">
+            <div class="bg-white p-3 border-l-4 border-yellow-500">
+              <strong>Controllers / API Endpoints / Commands</strong> → Call this interface
+            </div>
+            <div class="ml-4 text-gray-500">↓</div>
+            <div class="bg-white p-3 border-l-4 border-orange-500">
+              <strong>CustomerRepositoryInterface</strong> (Service Contract - You are here!)
+            </div>
+            <div class="ml-4 text-gray-500">↓</div>
+            <div class="bg-white p-3 border-l-4 border-yellow-500">
+              <strong>Model\ResourceModel\CustomerRepository</strong> (Implementation via DI)
+            </div>
+            <div class="ml-4 text-gray-500">↓</div>
+            <div class="bg-white p-3 border-l-4 border-charcoal-300">
+              <strong>Database</strong> (customer_entity + EAV tables)
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6">
+          <h3 class="text-lg font-semibold text-charcoal-800 mb-3">Why Service Contracts?</h3>
+          <ul class="text-sm text-charcoal-700 space-y-2">
+            <li><strong>Backward Compatibility:</strong> @api interfaces cannot change signatures</li>
+            <li><strong>Decoupling:</strong> Controllers don't depend on implementation details</li>
+            <li><strong>Plugin Intercept Points:</strong> Plugins can only intercept interfaces</li>
+            <li><strong>API Exposure:</strong> REST/SOAP APIs auto-generate from service contracts</li>
+            <li><strong>Testability:</strong> Easy to mock in unit tests</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Plugins Intercepting This Interface</h2>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-orange-500 border border-amaranth-200  p-4">
+            <div class="flex items-center mb-3">
+              <span class="bg-orange-800 text-white text-xs font-bold px-2 py-1 mr-2">sortOrder: -1</span>
+              <h3 class="text-lg font-semibold text-amaranth-900">TransactionWrapper</h3>
+            </div>
+            <ul class="text-sm text-amaranth-800 space-y-1">
+              <li>Opens database transaction BEFORE save/delete</li>
+              <li>Commits AFTER successful operation</li>
+              <li>Rolls back on ANY exception</li>
+              <li>Ensures customer + addresses + EAV saved atomically</li>
+            </ul>
+          </div>
+
+          <div class="bg-yellow-50 border border-yellow-500  p-4">
+            <div class="flex items-center mb-3">
+              <span class="bg-charcoal-500 text-white text-xs font-bold px-2 py-1 mr-2">webapi_rest</span>
+              <h3 class="text-lg font-semibold text-brown">UpdateCustomer</h3>
+            </div>
+            <p class="text-sm text-brown">REST API specific: Merges request body into customer DTO</p>
+          </div>
+
+          <div class="bg-yellow-50 border border-yellow-500  p-4">
+            <div class="flex items-center mb-3">
+              <span class="bg-charcoal-500 text-white text-xs font-bold px-2 py-1 mr-2">API areas</span>
+              <h3 class="text-lg font-semibold text-purple-900">CustomerAuthorization</h3>
+            </div>
+            <ul class="text-sm text-purple-800 space-y-1">
+              <li>Validates API token customer matches requested customer ID</li>
+              <li>Prevents customer A from accessing customer B's data</li>
+            </ul>
+          </div>
+
+          <div class="bg-yellow-500 border border-yellow-200  p-4">
+            <div class="flex items-center mb-3">
+              <span class="bg-charcoal-500 text-white text-xs font-bold px-2 py-1 mr-2">Third-party</span>
+              <h3 class="text-lg font-semibold text-yellow-900">Custom Plugins</h3>
+            </div>
+            <p class="text-sm text-yellow-800">Data enrichment, validation, logging/audit, integration with external systems</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Method: save()</h2>
+        
+        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-6">
+          <p class="text-sm text-yellow-800"><strong>Signature:</strong> <code class="bg-yellow-100 px-2 py-1">save(CustomerInterface $customer, $passwordHash = null): CustomerInterface</code></p>
+        </div>
+
+        <div class="code-section mb-6">
+          <button class="copy-button bg-gray-700 hover:bg-gray-800 text-white text-xs px-3 py-1" onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent)">Copy</button>
+          <pre><code class="language-php">/**
+ * Create or update a customer.
+ *
+ * EXECUTION FLOW:
+ * 1. TransactionWrapper::beforeSave() - Opens database transaction
+ * 2. Validation (email format, required fields, uniqueness)
+ * 3. Convert DTO to Model (CustomerInterface → Customer)
+ * 4. Set password_hash if provided
+ * 5. Database persistence (INSERT/UPDATE customer_entity + EAV)
+ * 6. Save addresses if included
+ * 7. EVENT: customer_save_after_data_object
+ *    - Triggers email sync observers
+ * 8. TransactionWrapper::afterSave() - Commits transaction
+ * 9. Return saved CustomerInterface DTO
+ *
+ * TRANSACTION SAFETY:
+ * The TransactionWrapper plugin ensures:
+ * - Customer + addresses saved atomically
+ * - Email sync observers run in same transaction
+ * - Validation failures rollback everything
+ *
+ * PASSWORD HANDLING:
+ * CREATE with password:
+ *   $hash = $encryptor->getHash($plainPassword, true);
+ *   $repository->save($customer, $hash);
+ *
+ * UPDATE without changing password:
+ *   $repository->save($customer); // Don't pass hash
+ *
+ * @param CustomerInterface $customer Customer data object
+ * @param string|null $passwordHash Hashed password (optional)
+ * @return CustomerInterface Saved customer with generated ID
+ */
+public function save(
+    \Magento\Customer\Api\Data\CustomerInterface $customer,
+    $passwordHash = null
+);</code></pre>
+        </div>
+
+        <div class="bg-orange-500 border-l-4 border-amaranth-500 p-6 mb-6">
+          <h3 class="text-lg font-semibold text-amaranth-900 mb-3">Critical Side Effect: Email Synchronization</h3>
+          <p class="text-sm text-amaranth-800 mb-3">When customer email changes, observers automatically update:</p>
+          <ul class="text-sm text-amaranth-800 list-disc list-inside space-y-1">
+            <li>All historical orders get new email (UpgradeOrderCustomerEmailObserver)</li>
+            <li>Active quote gets new email (UpgradeQuoteCustomerEmailObserver)</li>
+            <li>This happens in the SAME transaction as customer save</li>
+          </ul>
+          <pre class="text-xs bg-orange-500 p-3 mt-3 overflow-x-auto"><code>UPDATE sales_order SET customer_email = ? WHERE customer_id = ?
+UPDATE quote SET customer_email = ? WHERE customer_id = ? AND is_active = 1</code></pre>
+        </div>
+
+        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6">
+          <h3 class="text-lg font-semibold text-brown mb-3">Error Handling</h3>
+          <div class="code-section">
+            <button class="copy-button bg-gray-700 hover:bg-gray-800 text-white text-xs px-3 py-1" onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent)">Copy</button>
+            <pre><code class="language-php">try {
+    $customer = $this->customerRepository->save($customer, $passwordHash);
+} catch (\Magento\Framework\Exception\InputException $e) {
+    // Validation error (invalid email, missing required fields)
+    foreach ($e->getErrors() as $error) {
+        $this->messageManager->addErrorMessage($error->getMessage());
+    }
+} catch (\Magento\Framework\Exception\State\InputMismatchException $e) {
+    // Email already exists (unique constraint violation)
+    $this->messageManager->addErrorMessage($e->getMessage());
+} catch (\Magento\Framework\Exception\LocalizedException $e) {
+    // Business logic error
+    $this->messageManager->addErrorMessage($e->getMessage());
+} catch (\Exception $e) {
+    // Unexpected error
+    $this->logger->critical($e);
+    $this->messageManager->addErrorMessage(__('Unable to save customer.'));
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Method: getById()</h2>
+        
+        <div class="bg-yellow-500 border-l-4 border-yellow-500 p-4 mb-6">
+          <p class="text-sm text-yellow-800"><strong>Signature:</strong> <code class="bg-yellow-500 px-2 py-1">getById(int $customerId): CustomerInterface</code></p>
+          <p class="text-sm text-yellow-700 mt-2"><strong>Performance:</strong> This is the FASTEST way to load a customer (primary key lookup O(1))</p>
+        </div>
+
+        <div class="code-section mb-6">
+          <button class="copy-button bg-gray-700 hover:bg-gray-800 text-white text-xs px-3 py-1" onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent)">Copy</button>
+          <pre><code class="language-php">/**
+ * Get customer by Customer ID.
+ *
+ * PREFERRED LOOKUP METHOD - Uses primary key (entity_id)
+ *
+ * Database query: SELECT * FROM customer_entity WHERE entity_id = ?
+ * Performance: O(1) - direct primary key lookup
+ *
+ * This method loads:
+ * - customer_entity row (main table)
+ * - All EAV attributes (joins to customer_entity_varchar, _int, etc.)
+ * - Custom attributes (if defined)
+ * - Extension attributes (if defined)
+ *
+ * Does NOT load:
+ * - Addresses (must call AddressRepositoryInterface separately)
+ *
+ * WHERE TO GET CUSTOMER ID:
+ * - Customer session: $this->session->getCustomerId()
+ * - Order: $order->getCustomerId()
+ * - Quote: $quote->getCustomerId()
+ * - URL parameter: $this->getRequest()->getParam('customer_id')
+ *
+ * @param int $customerId Customer ID (entity_id)
+ * @return CustomerInterface Customer data object
+ * @throws NoSuchEntityException If customer doesn't exist
+ */
+public function getById($customerId);</code></pre>
+        </div>
+
+        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6">
+          <h3 class="text-lg font-semibold text-purple-900 mb-3">Usage Example</h3>
+          <div class="code-section">
+            <button class="copy-button bg-gray-700 hover:bg-gray-800 text-white text-xs px-3 py-1" onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent)">Copy</button>
+            <pre><code class="language-php">// Fast: Primary key lookup
+$customerId = $this->session->getCustomerId();
+$customer = $this->customerRepository->getById($customerId);
+
+// Slow: Secondary index lookup (email + website_id)
+$customer = $this->customerRepository->get('john@example.com', $websiteId);
+
+// Always prefer getById() when you have the ID!</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Method: getList()</h2>
+        
+        <div class="bg-indigo-50 border-l-4 border-indigo-500 p-4 mb-6">
+          <p class="text-sm text-indigo-800"><strong>Signature:</strong> <code class="bg-indigo-100 px-2 py-1">getList(SearchCriteriaInterface $searchCriteria): CustomerSearchResultsInterface</code></p>
+        </div>
+
+        <div class="code-section mb-6">
+          <button class="copy-button bg-gray-700 hover:bg-gray-800 text-white text-xs px-3 py-1" onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent)">Copy</button>
+          <pre><code class="language-php">/**
+ * Retrieve customers which match specified criteria.
+ *
+ * Example usage:
+ */
+$searchCriteria = $this->searchCriteriaBuilder
+    ->addFilter('email', '%@example.com', 'like')
+    ->addFilter('group_id', [1, 2], 'in')
+    ->addFilter('website_id', $websiteId)
+    ->setPageSize(50)
+    ->setCurrentPage(1)
+    ->addSortOrder(
+        $this->sortOrderBuilder
+            ->setField('created_at')
+            ->setDirection('DESC')
+            ->create()
+    )
+    ->create();
+
+$results = $this->customerRepository->getList($searchCriteria);
+
+echo "Total customers: " . $results->getTotalCount();
+foreach ($results->getItems() as $customer) {
+    echo $customer->getEmail() . "\n";
+}</code></pre>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-amber-50 border border-amber-200  p-4">
+            <h3 class="text-lg font-semibold text-amber-900 mb-3">Filter Conditions</h3>
+            <ul class="text-sm text-amber-800 space-y-1 font-mono">
+              <li>'eq' - equals (default)</li>
+              <li>'neq' - not equals</li>
+              <li>'like' - SQL LIKE with %</li>
+              <li>'in' - IN array</li>
+              <li>'gt' - greater than</li>
+              <li>'lt' - less than</li>
+              <li>'null' - IS NULL</li>
+            </ul>
+          </div>
+
+          <div class="bg-rose-50 border border-rose-200  p-4">
+            <h3 class="text-lg font-semibold text-rose-900 mb-3">Performance Tips</h3>
+            <ul class="text-sm text-rose-800 space-y-2">
+              <li><strong>Always use pagination</strong> - setPageSize()</li>
+              <li><strong>Filter on indexed fields</strong> (email, website_id)</li>
+              <li><strong>Avoid multiple EAV filters</strong> (adds JOINs)</li>
+              <li><strong>Use specific filters</strong> to reduce result set</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Complete Usage Example</h2>
+        
+        <div class="code-section">
+          <button class="copy-button bg-gray-700 hover:bg-gray-800 text-white text-xs px-3 py-1" onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent)">Copy</button>
+          <pre><code class="language-php">namespace Vendor\Module\Model;
+
+use Magento\Customer\Api\CustomerInterfaceFactory;
+use Magento\Customer\Api\CustomerRepositoryInterface;
+use Magento\Framework\Encryption\EncryptorInterface;
+use Magento\Store\Model\StoreManagerInterface;
+
+class CustomerService
+{
+    private $customerFactory;
+    private $customerRepository;
+    private $encryptor;
+    private $storeManager;
+
+    public function __construct(
+        CustomerInterfaceFactory $customerFactory,
+        CustomerRepositoryInterface $customerRepository,
+        EncryptorInterface $encryptor,
+        StoreManagerInterface $storeManager
+    ) {
+        $this->customerFactory = $customerFactory;
+        $this->customerRepository = $customerRepository;
+        $this->encryptor = $encryptor;
+        $this->storeManager = $storeManager;
+    }
+
+    /**
+     * Create new customer account
+     */
+    public function createCustomer($email, $firstname, $lastname, $password)
+    {
+        $websiteId = $this->storeManager->getWebsite()->getId();
+        $storeId = $this->storeManager->getStore()->getId();
+
+        // Create customer DTO
+        $customer = $this->customerFactory->create();
+        $customer->setWebsiteId($websiteId);
+        $customer->setStoreId($storeId);
+        $customer->setEmail($email);
+        $customer->setFirstname($firstname);
+        $customer->setLastname($lastname);
+        $customer->setGroupId(1); // General group
+
+        // Hash password
+        $passwordHash = $this->encryptor->getHash($password, true);
+
+        try {
+            // Save customer (TransactionWrapper ensures atomicity)
+            $savedCustomer = $this->customerRepository->save($customer, $passwordHash);
+            return $savedCustomer;
+        } catch (\Magento\Framework\Exception\InputException $e) {
+            throw new \Exception('Invalid customer data: ' . $e->getMessage());
+        } catch (\Magento\Framework\Exception\State\InputMismatchException $e) {
+            throw new \Exception('Email already exists');
+        }
+    }
+
+    /**
+     * Update customer information
+     */
+    public function updateCustomer($customerId, $firstname, $lastname)
+    {
+        try {
+            // Load existing customer (fast primary key lookup)
+            $customer = $this->customerRepository->getById($customerId);
+            
+            // Update fields
+            $customer->setFirstname($firstname);
+            $customer->setLastname($lastname);
+            
+            // Save (no password hash = password unchanged)
+            $savedCustomer = $this->customerRepository->save($customer);
+            
+            return $savedCustomer;
+        } catch (\Magento\Framework\Exception\NoSuchEntityException $e) {
+            throw new \Exception('Customer not found');
+        }
+    }
+}</code></pre>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="bg-white border-t mt-16 py-8">
+    <div class="max-w-7xl mx-auto px-4 text-center text-sm text-gray-500">
+      <p>Last Updated: 2025-12-03 | <a href="index.html" class="text-orange-800 hover:underline">Back to Home</a></p>
+    </div>
+  </footer>
+
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 bg-orange-600 text-white p-3  shadow-lg hover:bg-orange-700" aria-label="Back to top">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
+  </button>
+</body>
+</html>

@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plugins and Observers Reference - Magento_Sales Module</title>
+  <style>
+    /* Design Tokens */
+    :root {
+      /* Magento Bauhaus Colors */
+      --magento-orange: #F26423;
+      --magento-yellow: #F1BC1B;
+      --magento-charcoal: #2C2C2C;
+      --magento-offwhite: #FAFAFA;
+
+      /* Semantic Colors */
+      --color-bg: #FFFFFF;
+      --color-bg-alt: var(--magento-offwhite);
+      --color-text: var(--magento-charcoal);
+      --color-text-muted: #666666;
+      --color-accent: var(--magento-orange);
+      --color-accent-secondary: var(--magento-yellow);
+      --color-border: #E5E5E5;
+
+      /* Spacing (4px base) */
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --space-12: 48px;
+      --space-16: 64px;
+      --space-24: 96px;
+
+      /* Typography */
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+      /* Contrast Ratios (WCAG AA Compliant) */
+      --contrast-normal: 4.5;
+      --contrast-large: 3.0;
+    }
+
+    /* Reset and Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--color-text);
+      background-color: var(--color-bg);
+    }
+
+    /* Container System */
+    .container {
+      max-width: 1280px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: var(--space-4);
+      padding-right: var(--space-4);
+    }
+
+    @media (min-width: 640px) {
+      .container {
+        padding-left: var(--space-6);
+        padding-right: var(--space-6);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .container {
+        padding-left: var(--space-8);
+        padding-right: var(--space-8);
+      }
+    }
+
+    /* Hero Section with Hexagon Pattern */
+    
+
+    @media (min-width: 640px) {
+      
+    }
+
+    @media (min-width: 1024px) {
+      
+    }
+
+    .hero-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0.08;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 30px;
+      line-height: 1.2;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-4);
+    }
+
+    @media (min-width: 640px) {
+      .hero h1 {
+        font-size: 36px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero h1 {
+        font-size: 48px;
+      }
+    }
+
+    .hero p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: rgba(250, 250, 250, 0.85);
+      max-width: 75ch;
+    }
+
+    @media (min-width: 640px) {
+      .hero p {
+        font-size: 18px;
+        line-height: 1.7;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero p {
+        font-size: 20px;
+      }
+    }
+
+    /* Breadcrumb Navigation */
+    .breadcrumb {
+      background-color: var(--color-bg-alt);
+      border-bottom: 1px solid var(--color-border);
+      padding-top: var(--space-4);
+      padding-bottom: var(--space-4);
+    }
+
+    .breadcrumb-list {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      list-style: none;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .breadcrumb-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    .breadcrumb-link {
+      color: var(--color-text-muted);
+      text-decoration: none;
+      transition: color 200ms ease-out;
+    }
+
+    .breadcrumb-link:hover {
+      color: var(--color-accent);
+      text-decoration: underline;
+      text-decoration-color: var(--color-accent);
+      text-underline-offset: 2px;
+    }
+
+    .breadcrumb-link:focus {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+      
+      color: var(--color-accent);
+    }
+
+    .breadcrumb-separator {
+      color: var(--color-text-muted);
+      user-select: none;
+    }
+
+    .breadcrumb-current {
+      color: var(--color-text);
+      font-weight: 500;
+    }
+
+    /* Main Content Area */
+    .main-content {
+      padding-top: var(--space-8);
+      padding-bottom: var(--space-16);
+    }
+
+    @media (min-width: 640px) {
+      .main-content {
+        padding-top: var(--space-12);
+        padding-bottom: var(--space-24);
+      }
+    }
+
+    /* Section Spacing */
+    .section {
+      margin-bottom: var(--space-12);
+    }
+
+    @media (min-width: 1024px) {
+      .section {
+        margin-bottom: var(--space-16);
+      }
+    }
+
+    /* Typography */
+    h2 {
+      font-size: 24px;
+      line-height: 1.3;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--color-text);
+      margin-bottom: var(--space-6);
+      border-bottom: 3px solid var(--color-accent);
+      padding-bottom: var(--space-3);
+    }
+
+    @media (min-width: 640px) {
+      h2 {
+        font-size: 30px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      h2 {
+        font-size: 36px;
+      }
+    }
+
+    h3 {
+      font-size: 20px;
+      line-height: 1.4;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-top: var(--space-8);
+      margin-bottom: var(--space-4);
+    }
+
+    @media (min-width: 640px) {
+      h3 {
+        font-size: 24px;
+      }
+    }
+
+    h4 {
+      font-size: 18px;
+      line-height: 1.4;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-top: var(--space-6);
+      margin-bottom: var(--space-3);
+    }
+
+    @media (min-width: 640px) {
+      h4 {
+        font-size: 20px;
+      }
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--color-text);
+      margin-bottom: var(--space-4);
+      max-width: 75ch;
+    }
+
+    strong {
+      font-weight: 600;
+      color: var(--color-text);
+    }
+
+    code {
+      font-family: var(--font-mono);
+      font-size: 0.9em;
+      background-color: var(--color-bg-alt);
+      border: 1px solid var(--color-border);
+      
+      padding: 2px 6px;
+      color: var(--color-text);
+    }
+
+    pre {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      line-height: 1.5;
+      background-color: var(--magento-charcoal);
+      color: var(--magento-offwhite);
+      
+      padding: var(--space-4);
+      overflow-x: auto;
+      margin-bottom: var(--space-6);
+    }
+
+    pre code {
+      background: transparent;
+      border: none;
+      padding: 0;
+      color: inherit;
+      font-size: inherit;
+    }
+
+    /* Badge/Pill Components */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      
+      margin-left: var(--space-2);
+    }
+
+    .badge-critical {
+      background-color: #FEE;
+      color: #C00;
+      border: 1px solid #FCC;
+    }
+
+    .badge-security {
+      background-color: #FFF3E0;
+      color: #E65100;
+      border: 1px solid #FFE0B2;
+    }
+
+    .badge-global {
+      background-color: #E3F2FD;
+      color: #1565C0;
+      border: 1px solid #BBDEFB;
+    }
+
+    .badge-admin {
+      background-color: #F3E5F5;
+      color: #6A1B9A;
+      border: 1px solid #E1BEE7;
+    }
+
+    .badge-frontend {
+      background-color: #E8F5E9;
+      color: #2E7D32;
+      border: 1px solid #C8E6C9;
+    }
+
+    /* Info Callouts */
+    .callout {
+      background-color: var(--color-bg-alt);
+      border-left: 4px solid var(--color-accent);
+      
+      padding: var(--space-4);
+      margin-bottom: var(--space-6);
+    }
+
+    .callout-warning {
+      border-left-color: var(--magento-yellow);
+      background-color: #FFFBF0;
+    }
+
+    .callout-info {
+      border-left-color: #2196F3;
+      background-color: #F5FAFF;
+    }
+
+    .callout-title {
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--space-2);
+      color: var(--color-text);
+    }
+
+    .callout p {
+      margin-bottom: 0;
+    }
+
+    /* Table of Contents */
+    .toc {
+      background-color: var(--color-bg-alt);
+      border: 1px solid var(--color-border);
+      
+      padding: var(--space-6);
+      margin-bottom: var(--space-8);
+    }
+
+    .toc-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: var(--space-4);
+      color: var(--color-text);
+    }
+
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .toc-link {
+      color: var(--color-text);
+      text-decoration: none;
+      padding: var(--space-2);
+      
+      transition: all 200ms ease-out;
+      display: block;
+    }
+
+    .toc-link:hover {
+      background-color: rgba(242, 100, 35, 0.1);
+      color: var(--color-accent);
+      padding-left: var(--space-3);
+    }
+
+    .toc-link:focus {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+
+    /* Tables */
+    .table-wrapper {
+      overflow-x: auto;
+      margin-bottom: var(--space-8);
+      
+      border: 1px solid var(--color-border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    @media (min-width: 640px) {
+      table {
+        font-size: 15px;
+      }
+    }
+
+    thead {
+      background-color: var(--magento-charcoal);
+      color: var(--magento-offwhite);
+    }
+
+    th {
+      text-align: left;
+      padding: var(--space-3) var(--space-4);
+      font-weight: 600;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 2px solid var(--color-accent);
+    }
+
+    @media (min-width: 640px) {
+      th {
+        font-size: 14px;
+      }
+    }
+
+    td {
+      padding: var(--space-3) var(--space-4);
+      border-bottom: 1px solid var(--color-border);
+      vertical-align: top;
+    }
+
+    tbody tr {
+      transition: background-color 200ms ease-out;
+    }
+
+    tbody tr:hover {
+      background-color: rgba(242, 100, 35, 0.05);
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+      margin-bottom: var(--space-8);
+    }
+
+    @media (min-width: 640px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-6);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .stat-card {
+      background-color: var(--color-bg-alt);
+      border: 1px solid var(--color-border);
+      
+      padding: var(--space-6);
+      text-align: center;
+      transition: all 200ms ease-out;
+    }
+
+    .stat-card:hover {
+      border-color: var(--color-accent);
+      box-shadow: 0 4px 12px rgba(242, 100, 35, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .stat-number {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--color-accent);
+      line-height: 1;
+      margin-bottom: var(--space-2);
+    }
+
+    .stat-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Lists */
+    ul, ol {
+      margin-left: var(--space-6);
+      margin-bottom: var(--space-4);
+      max-width: 75ch;
+    }
+
+    li {
+      margin-bottom: var(--space-2);
+      line-height: 1.6;
+    }
+
+    /* Links */
+    a {
+      color: var(--color-accent);
+      text-decoration: underline;
+      text-decoration-color: rgba(242, 100, 35, 0.3);
+      text-underline-offset: 2px;
+      transition: all 200ms ease-out;
+    }
+
+    a:hover {
+      text-decoration-color: var(--color-accent);
+      color: #D9551C;
+    }
+
+    a:focus {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+      
+    }
+
+    /* Accessibility - Focus Visible */
+    *:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+      
+    }
+
+    /* Reduced Motion Support */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Print Styles */
+    @media print {
+      .hero,
+      .breadcrumb {
+        display: none;
+      }
+
+      body {
+        font-size: 12pt;
+      }
+
+      h2 {
+        page-break-after: avoid;
+      }
+
+      table {
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <header class="bg-gradient-to-br from-magento-charcoal via-magento-charcoal to-gray-800 border-b-8 border-magento-orange">
+    
+
+    <div class="hero-content container">
+      <h1>Plugins and Observers Reference</h1>
+      <p>Comprehensive documentation of all plugins and observers in the Magento_Sales module, including execution context, security implications, and performance considerations.</p>
+    </div>
+  </header>
+
+  <!-- Breadcrumb Navigation -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item">
+          <a href="../../index.html" class="breadcrumb-link">Magento Documentation</a>
+        </li>
+        <li class="breadcrumb-separator" aria-hidden="true">/</li>
+        <li class="breadcrumb-item">
+          <a href="../index.html" class="breadcrumb-link">Modules</a>
+        </li>
+        <li class="breadcrumb-separator" aria-hidden="true">/</li>
+        <li class="breadcrumb-item">
+          <a href="./index.html" class="breadcrumb-link">Magento_Sales</a>
+        </li>
+        <li class="breadcrumb-separator" aria-hidden="true">/</li>
+        <li class="breadcrumb-item">
+          <span class="breadcrumb-current">Plugins and Observers</span>
+        </li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content container">
+
+    <!-- Stats Overview -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">16</div>
+        <div class="stat-label">Total Plugins</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">25</div>
+        <div class="stat-label">Total Observers</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">10</div>
+        <div class="stat-label">Frontend Plugins</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">8</div>
+        <div class="stat-label">Grid Sync Observers</div>
+      </div>
+    </div>
+
+    <!-- Table of Contents -->
+    <div class="toc">
+      <h2 class="toc-title">Table of Contents</h2>
+      <ul class="toc-list">
+        <li><a href="#plugins-overview" class="toc-link">Plugins Overview</a></li>
+        <li><a href="#frontend-plugins" class="toc-link">Frontend Plugins (Authentication)</a></li>
+        <li><a href="#admin-plugins" class="toc-link">Admin Plugins</a></li>
+        <li><a href="#global-plugins" class="toc-link">Global Plugins</a></li>
+        <li><a href="#observers-overview" class="toc-link">Observers Overview</a></li>
+        <li><a href="#lifecycle-observers" class="toc-link">Order Lifecycle Observers</a></li>
+        <li><a href="#grid-observers" class="toc-link">Grid Synchronization Observers</a></li>
+        <li><a href="#email-observers" class="toc-link">Email Notification Observers</a></li>
+        <li><a href="#quote-observers" class="toc-link">Quote Integration Observers</a></li>
+        <li><a href="#catalog-observers" class="toc-link">Catalog Integration Observers</a></li>
+      </ul>
+    </div>
+
+    <!-- Plugins Overview -->
+    <section id="plugins-overview" class="section">
+      <h2>Plugins Overview</h2>
+
+      <p>The Magento_Sales module implements <strong>16 plugins</strong> to intercept and modify behavior at critical execution points in the order management lifecycle.</p>
+
+      <div class="callout callout-info">
+        <div class="callout-title">Plugin Naming Convention</div>
+        <p><strong>Pattern:</strong> Plugins use descriptive names that reflect their purpose (e.g., <code>authentication</code>, <code>addressUpdate</code>, <code>authorization</code>).</p>
+        <p><strong>Why:</strong> Core Magento code predates strict naming conventions. Third-party modules should follow the "Extend" suffix pattern.</p>
+      </div>
+
+      <h3>Plugin Execution Priority</h3>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>sortOrder Value</th>
+              <th>Purpose</th>
+              <th>Example Use Cases</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>1</code></td>
+              <td>Authorization and validation plugins</td>
+              <td>Must run first to prevent unauthorized access</td>
+            </tr>
+            <tr>
+              <td><code>10</code></td>
+              <td>Standard business logic plugins</td>
+              <td>Default execution order for most operations</td>
+            </tr>
+            <tr>
+              <td><code>100+</code></td>
+              <td>Cosmetic or non-critical plugins</td>
+              <td>Formatting, logging, analytics</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Frontend Plugins -->
+    <section id="frontend-plugins" class="section">
+      <h2>Frontend Plugins <span class="badge badge-frontend">Frontend</span></h2>
+
+      <p>These plugins are registered in <code>etc/frontend/di.xml</code> and only apply to customer-facing storefront requests.</p>
+
+      <h3>Order Controller Authentication Plugins (1-10) <span class="badge badge-critical">Critical Security</span></h3>
+
+      <p><strong>Purpose:</strong> Validates customer has permission to view their orders, invoices, shipments, and credit memos.</p>
+
+      <p>These 10 plugins all use the same class but intercept different controllers:</p>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Plugin Name</th>
+              <th>Intercepts</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>authentication</code></td>
+              <td><code>Magento\Sales\Controller\Order\Creditmemo</code></td>
+              <td>Validate access to credit memo view</td>
+            </tr>
+            <tr>
+              <td><code>authentication</code></td>
+              <td><code>Magento\Sales\Controller\Order\History</code></td>
+              <td>Validate access to order history</td>
+            </tr>
+            <tr>
+              <td><code>authentication</code></td>
+              <td><code>Magento\Sales\Controller\Order\Invoice</code></td>
+              <td>Validate access to invoice view</td>
+            </tr>
+            <tr>
+              <td><code>authentication</code></td>
+              <td><code>Magento\Sales\Controller\Order\PrintAction</code></td>
+              <td>Validate access to order print</td>
+            </tr>
+            <tr>
+              <td><code>authentication</code></td>
+              <td><code>Magento\Sales\Controller\Order\PrintCreditmemo</code></td>
+              <td>Validate access to credit memo print</td>
+            </tr>
+            <tr>
+              <td><code>authentication</code></td>
+              <td><code>Magento\Sales\Controller\Order\PrintInvoice</code></td>
+              <td>Validate access to invoice print</td>
+            </tr>
+            <tr>
+              <td><code>authentication</code></td>
+              <td><code>Magento\Sales\Controller\Order\PrintShipment</code></td>
+              <td>Validate access to shipment print</td>
+            </tr>
+            <tr>
+              <td><code>authentication</code></td>
+              <td><code>Magento\Sales\Controller\Order\Reorder</code></td>
+              <td>Validate access to reorder functionality</td>
+            </tr>
+            <tr>
+              <td><code>authentication</code></td>
+              <td><code>Magento\Sales\Controller\Order\Shipment</code></td>
+              <td>Validate access to shipment view</td>
+            </tr>
+            <tr>
+              <td><code>authentication</code></td>
+              <td><code>Magento\Sales\Controller\Order\View</code></td>
+              <td>Validate access to order detail view</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Plugin Class</h4>
+      <p><strong>Class:</strong> <code>Magento\Sales\Controller\Order\Plugin\Authentication</code><br>
+      <strong>Sort Order:</strong> <code>10</code> (default)</p>
+
+      <h4>Behavior</h4>
+      <ol>
+        <li>Extract order ID from request parameters</li>
+        <li>Load order from repository</li>
+        <li>Check if current customer owns the order:
+          <ul>
+            <li>Compare <code>$order->getCustomerId()</code> with <code>$customerSession->getCustomerId()</code></li>
+          </ul>
+        </li>
+        <li>If mismatch: redirect to 404 (prevent information disclosure)</li>
+        <li>If match: allow request to proceed</li>
+      </ol>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">Security Note</div>
+        <p>Returns 404 (not 403) to prevent order ID enumeration attacks. This prevents attackers from determining which order IDs exist in the system.</p>
+      </div>
+
+      <h4>Code Example</h4>
+      <pre><code>public function beforeExecute(\Magento\Framework\App\ActionInterface $subject)
+{
+    $orderId = (int) $subject->getRequest()->getParam('order_id');
+
+    if (!$orderId) {
+        throw new NotFoundException(__('Page not found.'));
+    }
+
+    try {
+        $order = $this->orderRepository->get($orderId);
+    } catch (NoSuchEntityException $e) {
+        throw new NotFoundException(__('Page not found.'));
+    }
+
+    $customerId = $this->customerSession->getCustomerId();
+
+    if ($order->getCustomerId() != $customerId) {
+        // Return 404 to prevent order ID enumeration
+        throw new NotFoundException(__('Page not found.'));
+    }
+
+    return null; // Proceed with action
+}</code></pre>
+
+      <h4>Security Impact</h4>
+      <p><strong>Critical:</strong> Without these plugins, any customer could view any order by guessing order IDs.</p>
+
+      <div class="callout">
+        <div class="callout-title">Attack Vector Prevented</div>
+        <pre><code># Without plugin:
+GET /sales/order/view/order_id/123  → Shows order details
+GET /sales/order/view/order_id/124  → Shows different customer's order ❌
+
+# With plugin:
+GET /sales/order/view/order_id/123  → Shows order details (if owned)
+GET /sales/order/view/order_id/124  → 404 Not Found ✓</code></pre>
+      </div>
+    </section>
+
+    <!-- Admin Plugins -->
+    <section id="admin-plugins" class="section">
+      <h2>Admin Plugins <span class="badge badge-admin">Admin</span></h2>
+
+      <p>These plugins are registered in <code>etc/adminhtml/di.xml</code> and only apply to the admin area.</p>
+
+      <h3>11. AddressUpdate Plugin</h3>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Intercepts</strong></td>
+              <td><code>Magento\Sales\Model\ResourceModel\Order\Handler\Address</code></td>
+            </tr>
+            <tr>
+              <td><strong>Plugin Class</strong></td>
+              <td><code>Magento\Sales\Model\Order\Invoice\Plugin\AddressUpdate</code></td>
+            </tr>
+            <tr>
+              <td><strong>Sort Order</strong></td>
+              <td><code>10</code></td>
+            </tr>
+            <tr>
+              <td><strong>Area</strong></td>
+              <td>adminhtml</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Purpose</h4>
+      <p>Synchronizes address changes from order to associated invoices, shipments, and credit memos.</p>
+
+      <h4>Behavior</h4>
+      <p>When admin updates order billing or shipping address:</p>
+      <ol>
+        <li>Get all invoices for order</li>
+        <li>Update invoice billing/shipping addresses to match order</li>
+        <li>Get all shipments for order</li>
+        <li>Update shipment shipping address to match order</li>
+        <li>Get all credit memos for order</li>
+        <li>Update credit memo billing address to match order</li>
+        <li>Save all updated entities</li>
+      </ol>
+
+      <p><strong>Result:</strong> Address changes propagate to all order documents.</p>
+
+      <h4>Use Cases</h4>
+      <ul>
+        <li><strong>Address Correction:</strong> Admin fixes typo in shipping address after order placed</li>
+        <li><strong>Fraud Prevention:</strong> Admin changes billing address after verification</li>
+        <li><strong>Compliance:</strong> Ensure all documents show current validated address</li>
+      </ul>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">Performance Impact</div>
+        <p><strong>Moderate:</strong> Updates all related documents. Can be expensive for orders with many invoices/shipments.</p>
+      </div>
+    </section>
+
+    <!-- Global Plugins -->
+    <section id="global-plugins" class="section">
+      <h2>Global Plugins <span class="badge badge-global">Global</span></h2>
+
+      <p>These plugins are registered in <code>etc/di.xml</code> and apply across all areas (frontend, admin, API).</p>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Plugin</th>
+              <th>Name</th>
+              <th>Intercepts</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>12</td>
+              <td><code>orderGridExportFilterColumnPlugin</code></td>
+              <td><code>Magento\Ui\Model\Export\MetadataProvider</code></td>
+              <td>Filters column data when exporting order grid to CSV/XML</td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td><code>orderGridCollectionFilterPlugin</code></td>
+              <td><code>Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult</code></td>
+              <td>Applies ACL and security filters to order grid collection</td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td><code>authorization</code> <span class="badge badge-security">Security</span></td>
+              <td><code>Magento\Sales\Model\ResourceModel\Order</code></td>
+              <td>Validates user has permission to modify orders</td>
+            </tr>
+            <tr>
+              <td>15</td>
+              <td><code>convert_blob_to_string</code></td>
+              <td><code>Magento\Sales\Api\ShipmentRepositoryInterface</code></td>
+              <td>Converts binary shipping label to base64 for API responses</td>
+            </tr>
+            <tr>
+              <td>16</td>
+              <td><code>addTransactionCommentAfterCapture</code></td>
+              <td><code>Magento\Sales\Model\Service\InvoiceService</code></td>
+              <td>Adds payment transaction comments after invoice capture</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Authorization Plugin <span class="badge badge-critical">Critical Security</span></h3>
+
+      <p><strong>Purpose:</strong> Validates user has permission to modify orders via repository operations.</p>
+
+      <h4>Behavior</h4>
+      <p>Before any order save/delete:</p>
+      <ol>
+        <li>Check current user's ACL permissions</li>
+        <li>Verify user has <code>Magento_Sales::actions_edit</code> permission</li>
+        <li>If admin user: check role restrictions</li>
+        <li>If API token: verify scope includes sales operations</li>
+        <li>Throw <code>AuthorizationException</code> if denied</li>
+      </ol>
+
+      <p><strong>Result:</strong> Fine-grained permission control over order modifications.</p>
+
+      <h3>ConvertBlobToString Plugin (Shipping Labels)</h3>
+
+      <p>Converts binary shipping label data to base64 string for API responses.</p>
+
+      <h4>API Response Example</h4>
+      <pre><code>{
+  "entity_id": 12345,
+  "increment_id": "000000123",
+  "extension_attributes": {
+    "shipping_label": "JVBERi0xLjQKJeLjz9MKMyAwIG9iago8PC9UeXB..."
+  }
+}</code></pre>
+
+      <p><strong>Why:</strong> API responses cannot contain binary data. Base64 encoding required for JSON/XML.</p>
+    </section>
+
+    <!-- Observers Overview -->
+    <section id="observers-overview" class="section">
+      <h2>Observers Overview</h2>
+
+      <p>The Magento_Sales module implements <strong>25 observers</strong> that react to events dispatched during sales operations.</p>
+
+      <div class="callout callout-info">
+        <div class="callout-title">Observer Execution</div>
+        <p><strong>Synchronous:</strong> Observers execute immediately when event is dispatched (blocking).</p>
+        <p><strong>Transaction Safety:</strong> Most observers run inside database transactions, so exceptions rollback entire operation.</p>
+        <p><strong>Performance:</strong> Grid sync observers are the most performance-sensitive (run on every order save).</p>
+      </div>
+    </section>
+
+    <!-- Order Lifecycle Observers -->
+    <section id="lifecycle-observers" class="section">
+      <h2>Order Lifecycle Observers</h2>
+
+      <h3>1. VatRequestParamsOrderCommentObserver</h3>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Event</strong></td>
+              <td><code>sales_order_place_after</code></td>
+            </tr>
+            <tr>
+              <td><strong>Class</strong></td>
+              <td><code>Magento\Sales\Observer\VatRequestParamsOrderCommentObserver</code></td>
+            </tr>
+            <tr>
+              <td><strong>Area</strong></td>
+              <td>global</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Purpose</h4>
+      <p>Adds VAT validation request details to order comments after order is placed.</p>
+
+      <h4>Use Cases</h4>
+      <ul>
+        <li><strong>Tax Compliance:</strong> Audit trail of VAT validation</li>
+        <li><strong>Dispute Resolution:</strong> Proof of VAT validation at time of order</li>
+        <li><strong>EU Reporting:</strong> Required documentation for intra-EU transactions</li>
+      </ul>
+
+      <div class="callout callout-info">
+        <div class="callout-title">Why This Exists</div>
+        <p><strong>Compliance:</strong> EU regulations require merchants to document VAT validation attempts for tax-exempt orders.</p>
+        <p><strong>Audit Trail:</strong> If customer later disputes VAT exemption, merchant has proof of validation.</p>
+      </div>
+    </section>
+
+    <!-- Grid Synchronization Observers -->
+    <section id="grid-observers" class="section">
+      <h2>Grid Synchronization Observers</h2>
+
+      <p>These 8 observers maintain the sales grid tables (denormalized copies of order/invoice/shipment/creditmemo data for fast admin grid display).</p>
+
+      <h3>Grid Insert Observers (2-5) - Synchronous</h3>
+
+      <p>These observers run <strong>synchronously</strong> after entity save to update grid tables immediately.</p>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Observer</th>
+              <th>Name</th>
+              <th>Event</th>
+              <th>Grid Table</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2</td>
+              <td><code>OrderGridSyncInsert</code></td>
+              <td><code>sales_order_process_relation</code></td>
+              <td><code>sales_order_grid</code></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><code>InvoiceGridSyncInsert</code></td>
+              <td><code>sales_order_invoice_process_relation</code></td>
+              <td><code>sales_invoice_grid</code></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td><code>ShipmentGridSyncInsert</code></td>
+              <td><code>sales_order_shipment_process_relation</code></td>
+              <td><code>sales_shipment_grid</code></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td><code>CreditmemoGridSyncInsert</code></td>
+              <td><code>sales_order_creditmemo_process_relation</code></td>
+              <td><code>sales_creditmemo_grid</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Why Needed</h4>
+      <p>Admin order grid queries <code>sales_order_grid</code> instead of <code>sales_order</code> for performance. Grid tables contain denormalized data optimized for fast filtering and sorting.</p>
+
+      <h3>Grid Delete Observers (6-9)</h3>
+
+      <p>These observers clean up grid tables when entities are deleted.</p>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Observer</th>
+              <th>Name</th>
+              <th>Event</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>6</td>
+              <td><code>OrderGridSyncRemove</code></td>
+              <td><code>sales_order_delete_after</code></td>
+              <td>Delete order row from <code>sales_order_grid</code></td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td><code>InvoiceGridSyncRemove</code></td>
+              <td><code>sales_order_invoice_delete_after</code></td>
+              <td>Delete invoice row from <code>sales_invoice_grid</code></td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td><code>ShipmentGridSyncRemove</code></td>
+              <td><code>sales_order_shipment_delete_after</code></td>
+              <td>Delete shipment row from <code>sales_shipment_grid</code></td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td><code>CreditmemoGridSyncRemove</code></td>
+              <td><code>sales_order_creditmemo_delete_after</code></td>
+              <td>Delete credit memo row from <code>sales_creditmemo_grid</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>10. AdminRefreshGridsObserver</h3>
+
+      <p><strong>Event:</strong> <code>admin_sales_order_address_update</code><br>
+      <strong>Area:</strong> adminhtml</p>
+
+      <p><strong>Purpose:</strong> Refresh all sales grids when admin updates order address (synchronize billing/shipping name changes to grids).</p>
+
+      <p><strong>Use Case:</strong> Admin changes customer name in order → All grids update immediately.</p>
+
+      <h3>Async Grid Indexing Observers (11-14)</h3>
+
+      <p>These observers handle <strong>asynchronous</strong> grid updates via message queue when async indexing is enabled.</p>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Mode</th>
+              <th>Performance</th>
+              <th>Use Case</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Synchronous</strong></td>
+              <td>Slower order save (blocks on grid UPDATE)</td>
+              <td>Small stores, realtime accuracy critical</td>
+            </tr>
+            <tr>
+              <td><strong>Asynchronous</strong></td>
+              <td>Faster order save (queue message only)</td>
+              <td>High-volume stores, eventual consistency OK</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>Trade-off:</strong> Async mode improves order placement performance but grids may lag by seconds/minutes.</p>
+    </section>
+
+    <!-- Email Notification Observers -->
+    <section id="email-observers" class="section">
+      <h2>Email Notification Observers</h2>
+
+      <p>These 4 observers handle <strong>asynchronous</strong> email sending via message queue.</p>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Observer</th>
+              <th>Name</th>
+              <th>Event</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>15</td>
+              <td><code>SendOrderEmailsObserver</code></td>
+              <td><code>config_data_sales_email_general_async_sending_disabled</code></td>
+              <td>Send order confirmation emails synchronously</td>
+            </tr>
+            <tr>
+              <td>16</td>
+              <td><code>SendInvoiceEmailsObserver</code></td>
+              <td><code>config_data_sales_email_general_async_sending_disabled</code></td>
+              <td>Send invoice emails synchronously</td>
+            </tr>
+            <tr>
+              <td>17</td>
+              <td><code>SendShipmentEmailsObserver</code></td>
+              <td><code>config_data_sales_email_general_async_sending_disabled</code></td>
+              <td>Send shipment emails synchronously</td>
+            </tr>
+            <tr>
+              <td>18</td>
+              <td><code>SendCreditmemoEmailsObserver</code></td>
+              <td><code>config_data_sales_email_general_async_sending_disabled</code></td>
+              <td>Send credit memo emails synchronously</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">Performance Impact</div>
+        <p>Order save blocked until email sent (SMTP timeout risk).</p>
+      </div>
+
+      <h3>Async Email Recommendation</h3>
+
+      <p><strong>Best Practice:</strong> Enable async email sending for production:</p>
+
+      <pre><code>bin/magento config:set sales_email/general/async_sending 1</code></pre>
+
+      <p><strong>Why:</strong> Prevents order save failures due to SMTP timeouts or email service outages.</p>
+    </section>
+
+    <!-- Quote Integration Observers -->
+    <section id="quote-observers" class="section">
+      <h2>Quote Integration Observers</h2>
+
+      <h3>19. MagentoSequenceObserver</h3>
+
+      <p><strong>Event:</strong> <code>store_add</code><br>
+      <strong>Purpose:</strong> Creates order increment ID sequences when new store is added.</p>
+
+      <p><strong>Result:</strong> New store starts with increment IDs: 000000001, 000000002, etc.</p>
+
+      <h3>20. AssignOrderToCustomerObserver <span class="badge badge-security">Business Critical</span></h3>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Event</strong></td>
+              <td><code>customer_save_after_data_object</code></td>
+            </tr>
+            <tr>
+              <td><strong>Class</strong></td>
+              <td><code>Magento\Sales\Observer\AssignOrderToCustomerObserver</code></td>
+            </tr>
+            <tr>
+              <td><strong>Area</strong></td>
+              <td>global</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Purpose</h4>
+      <p><strong>Critical Business Logic:</strong> Links guest orders to customer account after customer registration.</p>
+
+      <h4>Execution Logic</h4>
+      <ol>
+        <li>Only for new customers (registration)</li>
+        <li>Find guest orders with matching email</li>
+        <li>Update <code>customer_id</code> and <code>customer_is_guest</code> fields</li>
+        <li>Customer can now see all their orders (guest + registered)</li>
+      </ol>
+
+      <h4>Use Cases</h4>
+      <ul>
+        <li><strong>Guest Checkout → Registration:</strong> Customer places order as guest, then creates account</li>
+        <li><strong>Order History:</strong> Customer can now see all their orders (guest + registered)</li>
+        <li><strong>Loyalty Programs:</strong> Past guest orders count toward loyalty points</li>
+      </ul>
+
+      <div class="callout callout-info">
+        <div class="callout-title">Why This Exists</div>
+        <p><strong>Problem:</strong> Guest orders orphaned after customer registration. Customer can't see order history.</p>
+        <p><strong>Solution:</strong> Automatically link guest orders by email match.</p>
+      </div>
+
+      <h3>21. CustomerValidateVatNumberObserver</h3>
+
+      <p><strong>Event:</strong> <code>sales_quote_address_collect_totals_after</code><br>
+      <strong>Purpose:</strong> Validates customer VAT number during checkout totals calculation to determine tax exemption.</p>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">Performance Warning</div>
+        <p><strong>External API Call:</strong> VIES validation can take 1-3 seconds. <strong>Blocks checkout!</strong></p>
+        <p><strong>Recommendation:</strong> Cache VAT validation results or use async validation.</p>
+      </div>
+    </section>
+
+    <!-- Catalog Integration Observers -->
+    <section id="catalog-observers" class="section">
+      <h2>Catalog Integration Observers</h2>
+
+      <p>These observers maintain quote consistency when catalog data changes.</p>
+
+      <h3>22-24. SalesQuoteObserver (Catalog Rule Changes)</h3>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Observer</th>
+              <th>Events</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>SalesQuoteObserver</code></td>
+              <td>
+                <code>catalog_product_delete_before</code><br>
+                <code>catalogrule_before_apply</code><br>
+                <code>catalogrule_after_apply</code>
+              </td>
+              <td>Invalidates and recalculates quote totals when catalog rules or products change</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>Result:</strong> When customer returns to cart, prices recalculated with new catalog rules.</p>
+
+      <h4>Use Cases</h4>
+      <ul>
+        <li><strong>Price Changes:</strong> Admin applies new catalog price rule</li>
+        <li><strong>Product Deletion:</strong> Product removed from catalog (must remove from carts)</li>
+        <li><strong>Discount Updates:</strong> Flash sale prices change</li>
+      </ul>
+
+      <h3>25. SalesQuoteProductObserver</h3>
+
+      <p><strong>Event:</strong> <code>catalog_product_save_after</code><br>
+      <strong>Purpose:</strong> Updates quotes when product is modified (price, name, attributes).</p>
+
+      <h4>Use Cases</h4>
+      <ul>
+        <li><strong>Price Update:</strong> Product price changed in admin</li>
+        <li><strong>Inventory Update:</strong> Product goes out of stock</li>
+        <li><strong>Name Change:</strong> Product name updated (refresh cart display)</li>
+      </ul>
+    </section>
+
+    <!-- Best Practices -->
+    <section class="section">
+      <h2>Observer Best Practices</h2>
+
+      <h3>1. Avoid Heavy Operations in Synchronous Observers</h3>
+
+      <p><strong>Bad:</strong> External API calls in order save observer</p>
+
+      <pre><code>// BAD - blocks order save
+public function execute(Observer $observer): void
+{
+    $order = $observer->getEvent()->getOrder();
+    $this->externalApi->notifyOrderPlaced($order); // 2 second timeout!
+}</code></pre>
+
+      <p><strong>Good:</strong> Queue message for async processing</p>
+
+      <pre><code>// GOOD - async processing
+public function execute(Observer $observer): void
+{
+    $order = $observer->getEvent()->getOrder();
+    $this->publisher->publish('sales.order.placed', $order->getId());
+}</code></pre>
+
+      <h3>2. Check for Data Changes Before Processing</h3>
+
+      <pre><code>public function execute(Observer $observer): void
+{
+    $order = $observer->getEvent()->getOrder();
+
+    // Check if status changed
+    if (!$order->dataHasChangedFor('status')) {
+        return; // No change, skip processing
+    }
+
+    // Expensive status change logic
+}</code></pre>
+
+      <h3>3. Handle Exceptions Gracefully</h3>
+
+      <pre><code>public function execute(Observer $observer): void
+{
+    try {
+        // Risky operation
+        $this->externalService->notify($data);
+    } catch (\Exception $e) {
+        // Log error but don't fail order save
+        $this->logger->error('Notification failed: ' . $e->getMessage());
+        // Don't rethrow - allow order save to succeed
+    }
+}</code></pre>
+
+      <h3>4. Use Grid Async Indexing for Performance</h3>
+
+      <p><strong>Production Recommendation:</strong></p>
+
+      <pre><code># Enable async grid indexing
+bin/magento config:set dev/grid/async_indexing 1
+
+# Enable async email sending
+bin/magento config:set sales_email/general/async_sending 1</code></pre>
+
+      <p><strong>Result:</strong> Faster order placement, better scalability.</p>
+    </section>
+
+    <!-- Security Considerations -->
+    <section class="section">
+      <h2>Security Considerations</h2>
+
+      <h3>1. Authentication Plugins are Critical</h3>
+
+      <p>The 10 authentication plugins prevent customer A from viewing customer B's orders.</p>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">Attack Vector Without Plugins</div>
+        <pre><code># Attacker guesses order IDs
+for i in {1..10000}; do
+  curl "https://store.com/sales/order/view/order_id/$i"
+done</code></pre>
+        <p><strong>Result:</strong> Attacker downloads thousands of orders with customer PII.</p>
+      </div>
+
+      <h3>2. Authorization Plugin Prevents API Abuse</h3>
+
+      <p>Without authorization plugin, any API token could modify any order.</p>
+
+      <p><strong>Attack:</strong> Malicious integration edits order totals, cancels orders, issues refunds.</p>
+
+      <h3>3. Grid Observers Maintain Data Integrity</h3>
+
+      <p>Grid tables must stay synchronized with order tables. Stale grid data causes:</p>
+      <ul>
+        <li>Orders "disappear" from admin grid</li>
+        <li>Incorrect totals in reports</li>
+        <li>Duplicate order processing</li>
+      </ul>
+    </section>
+
+    <!-- Troubleshooting -->
+    <section class="section">
+      <h2>Troubleshooting</h2>
+
+      <h3>Grid Not Updating</h3>
+
+      <p><strong>Symptom:</strong> Order visible in database but not in admin grid.</p>
+
+      <p><strong>Cause:</strong> Grid sync observer failed or async indexing lagged.</p>
+
+      <p><strong>Fix:</strong></p>
+
+      <pre><code># Reindex grids manually
+bin/magento indexer:reindex sales_order_grid
+bin/magento indexer:reindex sales_invoice_grid
+bin/magento indexer:reindex sales_shipment_grid
+bin/magento indexer:reindex sales_creditmemo_grid</code></pre>
+
+      <h3>VAT Validation Timeout</h3>
+
+      <p><strong>Symptom:</strong> Checkout hangs at payment step for EU customers.</p>
+
+      <p><strong>Cause:</strong> VAT validation observer blocking on slow VIES API.</p>
+
+      <p><strong>Fix:</strong> Enable VAT validation caching in configuration.</p>
+
+      <h3>Email Not Sending</h3>
+
+      <p><strong>Symptom:</strong> Orders placed but no confirmation emails.</p>
+
+      <p><strong>Cause:</strong> Async email queue not processing or SMTP failure.</p>
+
+      <p><strong>Debug:</strong></p>
+
+      <pre><code># Check email queue
+bin/magento queue:consumers:list | grep email
+
+# Process queue manually
+bin/magento queue:consumers:start sales.email.sender</code></pre>
+    </section>
+
+    <!-- Document Metadata -->
+    <footer class="section" style="border-top: 2px solid var(--color-border); padding-top: var(--space-8); margin-top: var(--space-16);">
+      <p style="color: var(--color-text-muted); font-size: 14px;">
+        <strong>Document Version:</strong> 1.0.0<br>
+        <strong>Last Updated:</strong> 2025-12-04<br>
+        <strong>Magento Version:</strong> 2.4.8
+      </p>
+    </footer>
+
+  </main>
+
+</body>
+</html>

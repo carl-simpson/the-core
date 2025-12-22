@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magento_ConfigurableProduct - Execution Flows</title>
+    <style>
+        :root {
+            --orange: #F26423;
+            --yellow: #F1BC1B;
+            --charcoal: #2C2C2C;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+            --code-bg: #1E1E1E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: var(--light-gray);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--charcoal);
+            padding: 2rem;
+            border-bottom: 4px solid var(--orange);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            color: #999;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--yellow);
+            text-decoration: none;
+        }
+
+        h1 {
+            color: var(--white);
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        h1 span {
+            color: var(--orange);
+        }
+
+        .subtitle {
+            color: #999;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        nav {
+            background-color: var(--white);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            max-width: 1400px;
+            margin: 0 auto;
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            border-bottom-color: var(--orange);
+        }
+
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: var(--charcoal);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--orange);
+            display: inline-block;
+        }
+
+        h3 {
+            color: var(--charcoal);
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #444;
+        }
+
+        .flow-container {
+            background: var(--light-gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .flow-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px dashed #CCC;
+        }
+
+        .flow-step:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            background: var(--orange);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .step-number.secondary {
+            background: var(--yellow);
+            color: var(--charcoal);
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-content h4 {
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .step-content p {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-content code {
+            background: var(--charcoal);
+            color: var(--yellow);
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.85rem;
+        }
+
+        .code-block {
+            background-color: var(--code-bg);
+            color: #D4D4D4;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Fira Code', 'Consolas', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 1rem 0;
+        }
+
+        .code-block .comment { color: #6A9955; }
+        .code-block .keyword { color: #569CD6; }
+        .code-block .string { color: #CE9178; }
+        .code-block .class { color: #4EC9B0; }
+        .code-block .method { color: #DCDCAA; }
+        .code-block .variable { color: #9CDCFE; }
+        .code-block .number { color: #B5CEA8; }
+
+        .warning-box {
+            background: #FFF3E0;
+            border-left: 4px solid var(--orange);
+            padding: 1rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+        }
+
+        .warning-box h4 {
+            color: var(--orange);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-box {
+            background: #E3F2FD;
+            border-left: 4px solid #2196F3;
+            padding: 1rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+        }
+
+        .info-box h4 {
+            color: #1565C0;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-tag {
+            display: inline-block;
+            background: var(--yellow);
+            color: var(--charcoal);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .plugin-tag {
+            display: inline-block;
+            background: var(--orange);
+            color: var(--white);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        footer {
+            background: var(--charcoal);
+            color: #999;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--yellow);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .flow-step {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="breadcrumb">
+                <a href="../../index.html">Modules</a> /
+                <a href="index.html">Magento_ConfigurableProduct</a> /
+                Execution Flows
+            </div>
+            <h1>Execution <span>Flows</span></h1>
+            <p class="subtitle">Step-by-step traces of key configurable product operations</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Overview</a></li>
+            <li><a href="architecture.html">Architecture</a></li>
+            <li><a href="execution-flows.html" class="active">Execution Flows</a></li>
+            <li><a href="plugins-observers.html">Plugins & Observers</a></li>
+            <li><a href="integrations.html">Integrations</a></li>
+            <li><a href="known-issues.html">Known Issues</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Flow 1: Add to Cart -->
+        <section class="section">
+            <h2>Flow 1: Add Configurable Product to Cart</h2>
+            <p>When a customer selects options and adds a configurable product to cart, the system must resolve the specific child product and create appropriate quote items.</p>
+
+            <div class="flow-container">
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Customer Submits Add to Cart</h4>
+                        <p>POST request with <code>super_attribute</code> array containing selected option values.</p>
+                        <p><code>super_attribute[93] = 49</code> (Color: Black), <code>super_attribute[141] = 166</code> (Size: S)</p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Cart Controller Processes Request</h4>
+                        <p><code>Magento\Checkout\Controller\Cart\Add::execute()</code></p>
+                        <p>Creates <code>DataObject</code> buyRequest with product ID and super_attribute data.</p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Quote Adds Product</h4>
+                        <p><code>Magento\Quote\Model\Quote::addProduct()</code></p>
+                        <p>Calls product type's <code>prepareForCartAdvanced()</code> method.</p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Configurable Type Prepares Products</h4>
+                        <p><code>Magento\ConfigurableProduct\Model\Product\Type\Configurable::prepareForCartAdvanced()</code></p>
+                        <p>Validates super_attribute values exist and are valid options.</p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number secondary">5</div>
+                    <div class="step-content">
+                        <h4>Resolve Child Product</h4>
+                        <p><code>getProductByAttributes($superAttributeValues, $product)</code></p>
+                        <p>Finds the specific simple product matching the selected attribute combination.</p>
+                        <p><span class="plugin-tag">PLUGIN</span> <code>CartConfiguration\Plugin\Configurable</code> may intercept.</p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h4>Validate Child Product</h4>
+                        <p>Checks child product is salable (in stock, enabled, valid dates).</p>
+                        <p>Returns error message if child is not available.</p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">7</div>
+                    <div class="step-content">
+                        <h4>Return Product Array</h4>
+                        <p>Returns array: <code>[0 => $parentProduct, 1 => $childProduct]</code></p>
+                        <p>Both products are added to quote with parent-child relationship.</p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number secondary">8</div>
+                    <div class="step-content">
+                        <h4>Create Quote Items</h4>
+                        <p>Two quote items created with <code>parent_item_id</code> linking child to parent.</p>
+                        <p>Custom options stored in <code>quote_item_option</code> table.</p>
+                        <p><span class="plugin-tag">PLUGIN</span> <code>QuantityValidator</code> validates against child stock.</p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">9</div>
+                    <div class="step-content">
+                        <h4>Collect Totals</h4>
+                        <p>Quote recalculates totals using child product's price.</p>
+                        <p><span class="event-tag">EVENT</span> <code>sales_quote_product_add_after</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-block">
+<span class="comment">// Example buyRequest for configurable product</span>
+<span class="variable">$buyRequest</span> = <span class="keyword">new</span> <span class="class">DataObject</span>([
+    <span class="string">'product'</span> => <span class="number">123</span>,  <span class="comment">// Configurable product ID</span>
+    <span class="string">'qty'</span> => <span class="number">1</span>,
+    <span class="string">'super_attribute'</span> => [
+        <span class="number">93</span> => <span class="number">49</span>,   <span class="comment">// Color (attr_id) => Black (option_id)</span>
+        <span class="number">141</span> => <span class="number">166</span>  <span class="comment">// Size (attr_id) => Small (option_id)</span>
+    ]
+]);
+
+<span class="comment">// Result from prepareForCartAdvanced()</span>
+<span class="variable">$result</span> = [
+    <span class="number">0</span> => <span class="variable">$configurableProduct</span>, <span class="comment">// Parent (display item)</span>
+    <span class="number">1</span> => <span class="variable">$simpleProduct</span>        <span class="comment">// Child (actual item for fulfillment)</span>
+];
+            </div>
+
+            <div class="warning-box">
+                <h4>Cart Item Visibility</h4>
+                <p>In the cart, only the parent configurable product is visible. The child simple product is hidden (<code>is_virtual = 1</code> on parent item). The child's SKU and stock are used for inventory, but the parent's name and image are displayed.</p>
+            </div>
+        </section>
+
+        <!-- Flow 2: Price Calculation -->
+        <section class="section">
+            <h2>Flow 2: Price Calculation for Display</h2>
+            <p>Configurable products display prices based on their child products. The frontend typically shows "From $X" or a price range.</p>
+
+            <div class="flow-container">
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Price Block Requests Price</h4>
+                        <p><code>Magento\Catalog\Pricing\Render\FinalPriceBox::renderAmount()</code></p>
+                        <p>Triggers price info resolution for the configurable product.</p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Get PriceInfo</h4>
+                        <p><code>$product->getPriceInfo()->getPrice('final_price')</code></p>
+                        <p>Uses configurable-specific price collection from DI configuration.</p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>FinalPrice Calculation</h4>
+                        <p><code>Magento\ConfigurableProduct\Pricing\Price\FinalPrice::getValue()</code></p>
+                        <p>Delegates to <code>ConfigurablePriceResolver</code> for actual resolution.</p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number secondary">4</div>
+                    <div class="step-content">
+                        <h4>Resolve From Child Products</h4>
+                        <p><code>ConfigurablePriceResolver::resolvePrice()</code></p>
+                        <p>Gets lowest price among all salable child products.</p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h4>Get Salable Children</h4>
+                        <p><code>LowestPriceOptionsProvider::getProducts()</code></p>
+                        <p>Queries indexed price data for children, filtered by stock status.</p>
+                        <p><span class="plugin-tag">PLUGIN</span> <code>SalableResolver</code> filters out-of-stock children.</p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h4>Apply Price Filters</h4>
+                        <p><code>ConfigurableOptionsCompositeFilter::filter()</code></p>
+                        <p>Applies any configured filters (stock, visibility, etc.).</p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">7</div>
+                    <div class="step-content">
+                        <h4>Return Minimum Price</h4>
+                        <p>Returns the lowest final_price among filtered children.</p>
+                        <p>Used for "From $X" display or tier pricing logic.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-block">
+<span class="comment">// Price resolution chain (di.xml virtual types)</span>
+
+<span class="comment">// 1. FinalPrice uses ConfigurableFinalPriceResolver</span>
+<span class="class">FinalPrice</span>
+  → <span class="class">ConfigurableFinalPriceResolver</span> (virtual type)
+    → <span class="class">FinalPriceResolver</span> (inner resolver)
+      → <span class="method">resolvePrice</span>(<span class="variable">$product</span>)
+
+<span class="comment">// 2. LowestPriceOptionsProvider builds query</span>
+<span class="keyword">SELECT</span> entity_id, min_price, final_price
+<span class="keyword">FROM</span> catalog_product_index_price
+<span class="keyword">WHERE</span> entity_id <span class="keyword">IN</span> (<span class="variable">$childIds</span>)
+  <span class="keyword">AND</span> customer_group_id = <span class="variable">$groupId</span>
+  <span class="keyword">AND</span> website_id = <span class="variable">$websiteId</span>
+<span class="keyword">ORDER BY</span> final_price <span class="keyword">ASC</span>
+<span class="keyword">LIMIT</span> <span class="number">1</span>
+            </div>
+
+            <div class="info-box">
+                <h4>Price Index Dependency</h4>
+                <p>Configurable product pricing relies heavily on the <code>catalog_product_index_price</code> table. If the price indexer is out of date, displayed prices may be incorrect. The configurable indexer creates entries based on the minimum child price.</p>
+            </div>
+        </section>
+
+        <!-- Flow 3: Frontend Options JSON -->
+        <section class="section">
+            <h2>Flow 3: Frontend Options JSON Generation</h2>
+            <p>The product detail page loads a JSON structure containing all option combinations and their prices for the swatch/dropdown JavaScript.</p>
+
+            <div class="flow-container">
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Block Renders Options</h4>
+                        <p><code>Magento\ConfigurableProduct\Block\Product\View\Type\Configurable::getJsonConfig()</code></p>
+                        <p>Called from product view template.</p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Get Allowed Products</h4>
+                        <p><code>getAllowProducts()</code> returns salable child products.</p>
+                        <p>Filtered by stock status, visibility, and enabled status.</p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Build Options Structure</h4>
+                        <p><code>getOptionPrices()</code> builds price data per child.</p>
+                        <p><code>getOptions()</code> builds attribute/option structure.</p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number secondary">4</div>
+                    <div class="step-content">
+                        <h4>Include Child Media</h4>
+                        <p>For each child, includes image gallery data if configured.</p>
+                        <p>Enables image swapping when customer selects options.</p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h4>Return JSON Config</h4>
+                        <p>Complete JSON structure for <code>Magento_ConfigurableProduct/js/configurable</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-block">
+<span class="comment">// Example JSON config structure</span>
+{
+    <span class="string">"attributes"</span>: {
+        <span class="string">"93"</span>: {                     <span class="comment">// Color attribute ID</span>
+            <span class="string">"id"</span>: <span class="string">"93"</span>,
+            <span class="string">"code"</span>: <span class="string">"color"</span>,
+            <span class="string">"label"</span>: <span class="string">"Color"</span>,
+            <span class="string">"options"</span>: [
+                {
+                    <span class="string">"id"</span>: <span class="string">"49"</span>,
+                    <span class="string">"label"</span>: <span class="string">"Black"</span>,
+                    <span class="string">"products"</span>: [<span class="string">"456"</span>, <span class="string">"457"</span>, <span class="string">"458"</span>]  <span class="comment">// Child IDs with this color</span>
+                },
+                {
+                    <span class="string">"id"</span>: <span class="string">"50"</span>,
+                    <span class="string">"label"</span>: <span class="string">"Blue"</span>,
+                    <span class="string">"products"</span>: [<span class="string">"459"</span>, <span class="string">"460"</span>, <span class="string">"461"</span>]
+                }
+            ]
+        }
+    },
+    <span class="string">"optionPrices"</span>: {
+        <span class="string">"456"</span>: {                    <span class="comment">// Child product ID</span>
+            <span class="string">"finalPrice"</span>: {<span class="string">"amount"</span>: <span class="number">29.99</span>},
+            <span class="string">"basePrice"</span>: {<span class="string">"amount"</span>: <span class="number">29.99</span>},
+            <span class="string">"oldPrice"</span>: {<span class="string">"amount"</span>: <span class="number">39.99</span>}
+        }
+    },
+    <span class="string">"images"</span>: {
+        <span class="string">"456"</span>: [{<span class="string">"img"</span>: <span class="string">"/media/catalog/product/t-shirt-black.jpg"</span>}]
+    }
+}
+            </div>
+        </section>
+
+        <!-- Flow 4: Product Save with Options -->
+        <section class="section">
+            <h2>Flow 4: Save Configurable Product with Options</h2>
+            <p>When saving a configurable product via repository or admin, the extension attributes for options and links are processed.</p>
+
+            <div class="flow-container">
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>ProductRepository::save()</h4>
+                        <p>Product save initiated with extension_attributes containing configurable data.</p>
+                        <p><code>configurable_product_options</code> and <code>configurable_product_links</code></p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Plugin Intercepts Save</h4>
+                        <p><code>Magento\ConfigurableProduct\Model\Plugin\ProductRepositorySave::afterSave()</code></p>
+                        <p><span class="plugin-tag">PLUGIN</span> sortOrder: 10</p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>EntityManager Handler</h4>
+                        <p><code>Magento\ConfigurableProduct\Model\Product\SaveHandler::execute()</code></p>
+                        <p>Processes configurable-specific data after main product save.</p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number secondary">4</div>
+                    <div class="step-content">
+                        <h4>Save Super Attributes</h4>
+                        <p>Inserts/updates <code>catalog_product_super_attribute</code> table.</p>
+                        <p>Saves store-specific labels to <code>catalog_product_super_attribute_label</code>.</p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number secondary">5</div>
+                    <div class="step-content">
+                        <h4>Save Product Links</h4>
+                        <p>Updates <code>catalog_product_super_link</code> table.</p>
+                        <p>Validates child products have required attribute values.</p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h4>Trigger Reindex</h4>
+                        <p>Price and stock indexers scheduled for update.</p>
+                        <p><span class="plugin-tag">PLUGIN</span> <code>UpdateStockChangedAuto</code> syncs stock status.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-block">
+<span class="comment">// Saving configurable product with extension attributes</span>
+<span class="variable">$product</span>-><span class="method">setTypeId</span>(<span class="string">'configurable'</span>);
+
+<span class="comment">// Set configurable options (super attributes)</span>
+<span class="variable">$optionFactory</span> = <span class="variable">$objectManager</span>-><span class="method">get</span>(<span class="class">OptionInterfaceFactory</span>::<span class="keyword">class</span>);
+<span class="variable">$option</span> = <span class="variable">$optionFactory</span>-><span class="method">create</span>();
+<span class="variable">$option</span>-><span class="method">setAttributeId</span>(<span class="number">93</span>);  <span class="comment">// Color attribute</span>
+<span class="variable">$option</span>-><span class="method">setLabel</span>(<span class="string">'Color'</span>);
+<span class="variable">$option</span>-><span class="method">setPosition</span>(<span class="number">0</span>);
+
+<span class="variable">$extensionAttributes</span> = <span class="variable">$product</span>-><span class="method">getExtensionAttributes</span>();
+<span class="variable">$extensionAttributes</span>-><span class="method">setConfigurableProductOptions</span>([<span class="variable">$option</span>]);
+<span class="variable">$extensionAttributes</span>-><span class="method">setConfigurableProductLinks</span>([<span class="number">456</span>, <span class="number">457</span>, <span class="number">458</span>]); <span class="comment">// Child IDs</span>
+
+<span class="variable">$productRepository</span>-><span class="method">save</span>(<span class="variable">$product</span>);
+            </div>
+        </section>
+
+        <!-- Flow 5: Order Placement -->
+        <section class="section">
+            <h2>Flow 5: Order Placement with Configurable Items</h2>
+            <p>During checkout, configurable quote items are converted to order items while preserving the parent-child relationship.</p>
+
+            <div class="flow-container">
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Quote to Order Conversion</h4>
+                        <p><code>Magento\Quote\Model\Quote\Item\ToOrderItem::convert()</code></p>
+                        <p>Processes each quote item including configurable parent and simple child.</p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Product Option Processor</h4>
+                        <p><code>Magento\ConfigurableProduct\Model\ProductOptionProcessor::convertToProductOption()</code></p>
+                        <p>Converts quote item options to order item options.</p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Create Order Items</h4>
+                        <p>Parent order item created with child's data for fulfillment.</p>
+                        <p>Selected options stored in <code>product_options</code> JSON column.</p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number secondary">4</div>
+                    <div class="step-content">
+                        <h4>Stock Deduction</h4>
+                        <p>Inventory deducted from the simple child product, not the configurable parent.</p>
+                        <p>Configurable products have no independent stock.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-block">
+<span class="comment">// Order item product_options JSON structure</span>
+{
+    <span class="string">"info_buyRequest"</span>: {
+        <span class="string">"product"</span>: <span class="number">123</span>,
+        <span class="string">"super_attribute"</span>: {<span class="string">"93"</span>: <span class="string">"49"</span>, <span class="string">"141"</span>: <span class="string">"166"</span>},
+        <span class="string">"qty"</span>: <span class="number">1</span>
+    },
+    <span class="string">"attributes_info"</span>: [
+        {<span class="string">"label"</span>: <span class="string">"Color"</span>, <span class="string">"value"</span>: <span class="string">"Black"</span>},
+        {<span class="string">"label"</span>: <span class="string">"Size"</span>, <span class="string">"value"</span>: <span class="string">"Small"</span>}
+    ],
+    <span class="string">"simple_name"</span>: <span class="string">"T-Shirt Black Small"</span>,
+    <span class="string">"simple_sku"</span>: <span class="string">"TSHIRT-BLK-S"</span>
+}
+            </div>
+
+            <div class="warning-box">
+                <h4>Fulfillment Uses Child SKU</h4>
+                <p>While the order displays the configurable product name, the <code>simple_sku</code> in product_options is used for fulfillment. Warehouse management systems should reference this SKU, not the parent configurable SKU.</p>
+            </div>
+        </section>
+
+        <!-- Flow 6: Stock Status Aggregation -->
+        <section class="section">
+            <h2>Flow 6: Stock Status Aggregation</h2>
+            <p>A configurable product's stock status is derived from its children. If any child is in stock, the parent is considered salable.</p>
+
+            <div class="flow-container">
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Check Product Salability</h4>
+                        <p><code>Magento\ConfigurableProduct\Model\Product\Type\Configurable::isSalable()</code></p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Get Salable Children</h4>
+                        <p><code>getSalableUsedProducts($product)</code></p>
+                        <p>Filters children by <code>isSalable()</code> check.</p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Return Result</h4>
+                        <p>Returns <code>true</code> if at least one child is salable.</p>
+                        <p>Returns <code>false</code> if all children are out of stock.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4>Stock Indexer Updates</h4>
+                <p>When a child product's stock changes, the <code>UpdateStockChangedAuto</code> plugin triggers reindex of the parent configurable product's stock status. This ensures the configurable shows as out-of-stock when all children are depleted.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Magento 2 ConfigurableProduct Module Documentation | Generated December 2024</p>
+        <p><a href="index.html">Back to Module Overview</a></p>
+    </footer>
+</body>
+</html>

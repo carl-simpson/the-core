@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magento_Eav - Module Integrations</title>
+    <style>
+        :root {
+            --orange: #F26423;
+            --yellow: #F1BC1B;
+            --charcoal: #2C2C2C;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+            --code-bg: #1E1E1E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: var(--light-gray);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--charcoal);
+            padding: 2rem;
+            border-bottom: 4px solid var(--orange);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            color: #999;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--yellow);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            color: var(--white);
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        h1 span {
+            color: var(--orange);
+        }
+
+        .subtitle {
+            color: #999;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        nav {
+            background-color: var(--white);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            max-width: 1400px;
+            margin: 0 auto;
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            border-bottom-color: var(--orange);
+        }
+
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: var(--charcoal);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--orange);
+            display: inline-block;
+        }
+
+        h3 {
+            color: var(--charcoal);
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #444;
+        }
+
+        .integration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .integration-card {
+            background: var(--light-gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--orange);
+        }
+
+        .integration-card.dependency {
+            border-left-color: var(--yellow);
+        }
+
+        .integration-card.consumer {
+            border-left-color: var(--orange);
+        }
+
+        .integration-card h4 {
+            color: var(--charcoal);
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .integration-card p {
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .integration-card ul {
+            margin-left: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .integration-card li {
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .code-block {
+            background-color: var(--code-bg);
+            color: #D4D4D4;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Fira Code', 'Consolas', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 1rem 0;
+        }
+
+        .code-block .comment { color: #6A9955; }
+        .code-block .keyword { color: #569CD6; }
+        .code-block .string { color: #CE9178; }
+        .code-block .class { color: #4EC9B0; }
+        .code-block .method { color: #DCDCAA; }
+        .code-block .variable { color: #9CDCFE; }
+        .code-block .tag { color: #569CD6; }
+        .code-block .attr { color: #92C5F8; }
+        .code-block .value { color: #CE9178; }
+
+        .api-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .api-table th {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .api-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #E0E0E0;
+            vertical-align: top;
+        }
+
+        .api-table tr:nth-child(even) {
+            background: var(--light-gray);
+        }
+
+        .api-table code {
+            background: var(--charcoal);
+            color: var(--yellow);
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.85rem;
+        }
+
+        .flow-diagram {
+            background: var(--light-gray);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        .flow-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .flow-box {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            min-width: 150px;
+        }
+
+        .flow-box.eav {
+            background: var(--orange);
+        }
+
+        .flow-box.consumer {
+            background: var(--charcoal);
+            border: 2px solid var(--yellow);
+        }
+
+        .flow-arrow {
+            color: var(--charcoal);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .flow-arrow.down {
+            display: block;
+            margin: 0.5rem auto;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .badge.dependency {
+            background: var(--yellow);
+            color: var(--charcoal);
+        }
+
+        .badge.consumer {
+            background: var(--orange);
+            color: var(--white);
+        }
+
+        .badge.api {
+            background: var(--charcoal);
+            color: var(--white);
+        }
+
+        .extension-point {
+            background: var(--light-gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .extension-point h4 {
+            color: var(--orange);
+            margin-bottom: 0.75rem;
+        }
+
+        footer {
+            background: var(--charcoal);
+            color: #999;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--yellow);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .integration-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .flow-row {
+                flex-direction: column;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="breadcrumb">
+                <a href="../../index.html">Modules</a> /
+                <a href="index.html">Magento_Eav</a> /
+                Integrations
+            </div>
+            <h1>Module <span>Integrations</span></h1>
+            <p class="subtitle">Dependencies, consumers, and extension points for the EAV framework</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Overview</a></li>
+            <li><a href="architecture.html">Architecture</a></li>
+            <li><a href="execution-flows.html">Execution Flows</a></li>
+            <li><a href="plugins-observers.html">Plugins & Observers</a></li>
+            <li><a href="integrations.html" class="active">Integrations</a></li>
+            <li><a href="known-issues.html">Known Issues</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Integration Overview -->
+        <section class="section">
+            <h2>Integration Overview</h2>
+            <p>Magento_Eav is a foundational framework module that provides the Entity-Attribute-Value architecture used by multiple core commerce modules. It has minimal dependencies but is consumed by many critical modules for their flexible attribute systems.</p>
+
+            <div class="flow-diagram">
+                <div class="flow-row">
+                    <div class="flow-box">Magento_Store</div>
+                    <div class="flow-arrow">&rarr;</div>
+                    <div class="flow-box eav">Magento_Eav</div>
+                    <div class="flow-arrow">&larr;</div>
+                    <div class="flow-box">Magento_Theme</div>
+                </div>
+                <div class="flow-arrow down">&darr;</div>
+                <div class="flow-row">
+                    <div class="flow-box consumer">Magento_Catalog</div>
+                    <div class="flow-box consumer">Magento_Customer</div>
+                    <div class="flow-box consumer">Magento_Swatches</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Module Dependencies -->
+        <section class="section">
+            <h2>Module Dependencies</h2>
+            <p>Magento_Eav has minimal dependencies, allowing it to serve as a core framework component:</p>
+
+            <div class="integration-grid">
+                <div class="integration-card dependency">
+                    <h4><span class="badge dependency">Dependency</span> Magento_Store</h4>
+                    <p>Required for store-scoped attribute values. Each EAV value can be specific to a store view, website, or global scope.</p>
+                    <ul>
+                        <li><code>StoreManagerInterface</code> - Store context resolution</li>
+                        <li>Store ID in value tables for scope differentiation</li>
+                        <li>Default value inheritance from parent scopes</li>
+                    </ul>
+                </div>
+
+                <div class="integration-card dependency">
+                    <h4><span class="badge dependency">Dependency</span> Magento_Theme</h4>
+                    <p>Provides frontend presentation infrastructure for EAV attribute rendering in layouts and templates.</p>
+                    <ul>
+                        <li>Block rendering for attribute displays</li>
+                        <li>Layout XML integration for admin forms</li>
+                        <li>Theme inheritance for customizations</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="code-block">
+<span class="comment">&lt;!-- module.xml dependencies --&gt;</span>
+<span class="tag">&lt;config</span> <span class="attr">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;module</span> <span class="attr">name</span>=<span class="value">"Magento_Eav"</span><span class="tag">&gt;</span>
+        <span class="tag">&lt;sequence&gt;</span>
+            <span class="tag">&lt;module</span> <span class="attr">name</span>=<span class="value">"Magento_Store"</span><span class="tag">/&gt;</span>
+            <span class="tag">&lt;module</span> <span class="attr">name</span>=<span class="value">"Magento_Theme"</span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;/sequence&gt;</span>
+    <span class="tag">&lt;/module&gt;</span>
+<span class="tag">&lt;/config&gt;</span>
+            </div>
+        </section>
+
+        <!-- Consumer Modules -->
+        <section class="section">
+            <h2>Consumer Modules</h2>
+            <p>These modules depend on Magento_Eav for their attribute systems:</p>
+
+            <div class="integration-grid">
+                <div class="integration-card consumer">
+                    <h4><span class="badge consumer">Consumer</span> Magento_Catalog</h4>
+                    <p>The largest EAV consumer. Products and categories use EAV for flexible attribute management.</p>
+                    <ul>
+                        <li><strong>Entity Types:</strong> catalog_product, catalog_category</li>
+                        <li><strong>Attributes:</strong> ~200+ product attributes, ~30+ category attributes</li>
+                        <li>Uses flat tables for frontend performance</li>
+                        <li>Custom backend models for prices, images, etc.</li>
+                    </ul>
+                </div>
+
+                <div class="integration-card consumer">
+                    <h4><span class="badge consumer">Consumer</span> Magento_Customer</h4>
+                    <p>Customer and address entities leverage EAV for customizable registration and account fields.</p>
+                    <ul>
+                        <li><strong>Entity Types:</strong> customer, customer_address</li>
+                        <li><strong>Attributes:</strong> ~30+ customer, ~20+ address attributes</li>
+                        <li>Form field configuration via eav_form tables</li>
+                        <li>Validation rules per form context</li>
+                    </ul>
+                </div>
+
+                <div class="integration-card consumer">
+                    <h4><span class="badge consumer">Consumer</span> Magento_Swatches</h4>
+                    <p>Extends EAV to provide visual swatch functionality for configurable product options.</p>
+                    <ul>
+                        <li>Custom frontend models for swatch rendering</li>
+                        <li>Additional attribute metadata for swatch types</li>
+                        <li>Color/image swatch option storage</li>
+                    </ul>
+                </div>
+
+                <div class="integration-card consumer">
+                    <h4><span class="badge consumer">Consumer</span> Magento_ConfigurableProduct</h4>
+                    <p>Uses EAV attributes as configuration axes for product variations.</p>
+                    <ul>
+                        <li>Super attributes for product configuration</li>
+                        <li>Attribute-based product linking</li>
+                        <li>Price adjustments per attribute value</li>
+                    </ul>
+                </div>
+
+                <div class="integration-card consumer">
+                    <h4><span class="badge consumer">Consumer</span> Magento_CatalogSearch</h4>
+                    <p>Indexes EAV attributes for search functionality.</p>
+                    <ul>
+                        <li>Searchable attribute indexing</li>
+                        <li>Filterable attribute processing</li>
+                        <li>Layered navigation configuration</li>
+                    </ul>
+                </div>
+
+                <div class="integration-card consumer">
+                    <h4><span class="badge consumer">Consumer</span> Magento_ImportExport</h4>
+                    <p>Handles EAV data during product/customer import operations.</p>
+                    <ul>
+                        <li>Attribute mapping in CSV imports</li>
+                        <li>Multi-value attribute handling</li>
+                        <li>Option value creation during import</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Contracts -->
+        <section class="section">
+            <h2>Service Contracts (API)</h2>
+            <p>Magento_Eav exposes service contracts for programmatic attribute management:</p>
+
+            <table class="api-table">
+                <thead>
+                    <tr>
+                        <th>Interface</th>
+                        <th>Purpose</th>
+                        <th>Key Methods</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>AttributeSetRepositoryInterface</code></td>
+                        <td>Manage attribute sets</td>
+                        <td>get(), save(), delete(), getList()</td>
+                    </tr>
+                    <tr>
+                        <td><code>AttributeGroupRepositoryInterface</code></td>
+                        <td>Manage attribute groups within sets</td>
+                        <td>get(), save(), delete(), getList()</td>
+                    </tr>
+                    <tr>
+                        <td><code>AttributeRepositoryInterface</code></td>
+                        <td>Generic attribute repository</td>
+                        <td>get(), getList()</td>
+                    </tr>
+                    <tr>
+                        <td><code>AttributeSetManagementInterface</code></td>
+                        <td>Create attribute sets from skeleton</td>
+                        <td>create()</td>
+                    </tr>
+                    <tr>
+                        <td><code>AttributeOptionManagementInterface</code></td>
+                        <td>Manage attribute options</td>
+                        <td>add(), delete(), getItems()</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>REST API Endpoints</h3>
+            <table class="api-table">
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Endpoint</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="badge api">GET</span></td>
+                        <td><code>/V1/eav/attribute-sets/list</code></td>
+                        <td>Retrieve list of attribute sets</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge api">GET</span></td>
+                        <td><code>/V1/eav/attribute-sets/:attributeSetId</code></td>
+                        <td>Retrieve attribute set by ID</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge api">POST</span></td>
+                        <td><code>/V1/eav/attribute-sets</code></td>
+                        <td>Create new attribute set</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge api">PUT</span></td>
+                        <td><code>/V1/eav/attribute-sets/:attributeSetId</code></td>
+                        <td>Update attribute set</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge api">DELETE</span></td>
+                        <td><code>/V1/eav/attribute-sets/:attributeSetId</code></td>
+                        <td>Delete attribute set</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Extension Points -->
+        <section class="section">
+            <h2>Extension Points</h2>
+            <p>Magento_Eav provides multiple extension mechanisms for customization:</p>
+
+            <div class="extension-point">
+                <h4>Custom Backend Models</h4>
+                <p>Backend models handle attribute data processing during save/load operations. Create custom backend models by extending <code>Magento\Eav\Model\Entity\Attribute\Backend\AbstractBackend</code>.</p>
+                <div class="code-block">
+<span class="keyword">class</span> <span class="class">CustomBackend</span> <span class="keyword">extends</span> <span class="class">AbstractBackend</span>
+{
+    <span class="keyword">public function</span> <span class="method">beforeSave</span>(<span class="variable">$object</span>)
+    {
+        <span class="variable">$value</span> = <span class="variable">$object</span>-><span class="method">getData</span>(<span class="variable">$this</span>-><span class="method">getAttribute</span>()-><span class="method">getAttributeCode</span>());
+        <span class="comment">// Transform/validate value before save</span>
+        <span class="variable">$object</span>-><span class="method">setData</span>(<span class="variable">$this</span>-><span class="method">getAttribute</span>()-><span class="method">getAttributeCode</span>(), <span class="variable">$processedValue</span>);
+        <span class="keyword">return</span> <span class="variable">$this</span>;
+    }
+
+    <span class="keyword">public function</span> <span class="method">validate</span>(<span class="variable">$object</span>)
+    {
+        <span class="comment">// Return true or throw LocalizedException</span>
+        <span class="keyword">return</span> <span class="keyword">true</span>;
+    }
+}
+                </div>
+            </div>
+
+            <div class="extension-point">
+                <h4>Custom Frontend Models</h4>
+                <p>Frontend models control how attribute values are displayed. Extend <code>Magento\Eav\Model\Entity\Attribute\Frontend\AbstractFrontend</code> for custom rendering.</p>
+                <div class="code-block">
+<span class="keyword">class</span> <span class="class">CustomFrontend</span> <span class="keyword">extends</span> <span class="class">AbstractFrontend</span>
+{
+    <span class="keyword">public function</span> <span class="method">getValue</span>(<span class="class">DataObject</span> <span class="variable">$object</span>)
+    {
+        <span class="variable">$value</span> = <span class="variable">$object</span>-><span class="method">getData</span>(<span class="variable">$this</span>-><span class="method">getAttribute</span>()-><span class="method">getAttributeCode</span>());
+        <span class="comment">// Format value for display (e.g., currency, date)</span>
+        <span class="keyword">return</span> <span class="variable">$this</span>-><span class="method">formatValue</span>(<span class="variable">$value</span>);
+    }
+}
+                </div>
+            </div>
+
+            <div class="extension-point">
+                <h4>Custom Source Models</h4>
+                <p>Source models provide option values for select/multiselect attributes. Implement <code>Magento\Eav\Model\Entity\Attribute\Source\SourceInterface</code>.</p>
+                <div class="code-block">
+<span class="keyword">class</span> <span class="class">CustomSource</span> <span class="keyword">implements</span> <span class="class">SourceInterface</span>
+{
+    <span class="keyword">public function</span> <span class="method">getAllOptions</span>()
+    {
+        <span class="keyword">return</span> [
+            [<span class="string">'value'</span> => <span class="string">'1'</span>, <span class="string">'label'</span> => <span class="method">__</span>(<span class="string">'Option One'</span>)],
+            [<span class="string">'value'</span> => <span class="string">'2'</span>, <span class="string">'label'</span> => <span class="method">__</span>(<span class="string">'Option Two'</span>)],
+        ];
+    }
+
+    <span class="keyword">public function</span> <span class="method">getOptionText</span>(<span class="variable">$value</span>)
+    {
+        <span class="comment">// Return label for value</span>
+    }
+}
+                </div>
+            </div>
+
+            <div class="extension-point">
+                <h4>EntityManager Handlers</h4>
+                <p>The EntityManager framework allows extending entity CRUD operations via AttributePool handlers.</p>
+                <div class="code-block">
+<span class="comment">&lt;!-- di.xml extension --&gt;</span>
+<span class="tag">&lt;type</span> <span class="attr">name</span>=<span class="value">"Magento\Framework\EntityManager\Operation\AttributePool"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;arguments&gt;</span>
+        <span class="tag">&lt;argument</span> <span class="attr">name</span>=<span class="value">"extensionActions"</span> <span class="attr">xsi:type</span>=<span class="value">"array"</span><span class="tag">&gt;</span>
+            <span class="tag">&lt;item</span> <span class="attr">name</span>=<span class="value">"eav"</span> <span class="attr">xsi:type</span>=<span class="value">"array"</span><span class="tag">&gt;</span>
+                <span class="tag">&lt;item</span> <span class="attr">name</span>=<span class="value">"Your\Entity\Type"</span> <span class="attr">xsi:type</span>=<span class="value">"array"</span><span class="tag">&gt;</span>
+                    <span class="tag">&lt;item</span> <span class="attr">name</span>=<span class="value">"read"</span> <span class="attr">xsi:type</span>=<span class="value">"string"</span><span class="tag">&gt;</span>Your\Handler\Read<span class="tag">&lt;/item&gt;</span>
+                    <span class="tag">&lt;item</span> <span class="attr">name</span>=<span class="value">"create"</span> <span class="attr">xsi:type</span>=<span class="value">"string"</span><span class="tag">&gt;</span>Your\Handler\Create<span class="tag">&lt;/item&gt;</span>
+                    <span class="tag">&lt;item</span> <span class="attr">name</span>=<span class="value">"update"</span> <span class="attr">xsi:type</span>=<span class="value">"string"</span><span class="tag">&gt;</span>Your\Handler\Update<span class="tag">&lt;/item&gt;</span>
+                <span class="tag">&lt;/item&gt;</span>
+            <span class="tag">&lt;/item&gt;</span>
+        <span class="tag">&lt;/argument&gt;</span>
+    <span class="tag">&lt;/arguments&gt;</span>
+<span class="tag">&lt;/type&gt;</span>
+                </div>
+            </div>
+
+            <div class="extension-point">
+                <h4>Custom Entity Types</h4>
+                <p>Register new EAV entity types via setup scripts for custom data models.</p>
+                <div class="code-block">
+<span class="comment">// Setup/InstallData.php or Setup/Patch/Data/</span>
+<span class="variable">$eavSetup</span>-><span class="method">addEntityType</span>(
+    <span class="string">'custom_entity'</span>,
+    [
+        <span class="string">'entity_model'</span> => <span class="class">CustomEntity</span>::<span class="keyword">class</span>,
+        <span class="string">'attribute_model'</span> => <span class="class">Attribute</span>::<span class="keyword">class</span>,
+        <span class="string">'table'</span> => <span class="string">'custom_entity'</span>,
+        <span class="string">'increment_model'</span> => <span class="keyword">null</span>,
+        <span class="string">'additional_attribute_table'</span> => <span class="string">'custom_entity_eav_attribute'</span>,
+        <span class="string">'entity_attribute_collection'</span> => <span class="class">Collection</span>::<span class="keyword">class</span>,
+    ]
+);
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Flow Integration -->
+        <section class="section">
+            <h2>Data Flow Integration</h2>
+
+            <h3>Entity Load Integration</h3>
+            <p>When consumer modules load entities, EAV attributes are loaded through the following integration points:</p>
+
+            <div class="code-block">
+<span class="comment">// Catalog Product Load - Integration with EAV</span>
+<span class="variable">$product</span> = <span class="variable">$productRepository</span>-><span class="method">getById</span>(<span class="variable">$productId</span>);
+
+<span class="comment">// Internal flow:</span>
+<span class="comment">// 1. ProductRepository calls ResourceModel::load()</span>
+<span class="comment">// 2. ResourceModel extends Magento\Eav\Model\Entity\AbstractEntity</span>
+<span class="comment">// 3. AbstractEntity::load() queries eav_entity + value tables</span>
+<span class="comment">// 4. Store-scoped values override global values</span>
+<span class="comment">// 5. Backend models transform data on afterLoad()</span>
+            </div>
+
+            <h3>Indexer Integration</h3>
+            <p>EAV data feeds into multiple indexers for frontend performance:</p>
+
+            <table class="api-table">
+                <thead>
+                    <tr>
+                        <th>Indexer</th>
+                        <th>EAV Data Used</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>catalog_product_flat</td>
+                        <td>Product EAV attributes</td>
+                        <td>Denormalized product data for fast reads</td>
+                    </tr>
+                    <tr>
+                        <td>catalog_category_flat</td>
+                        <td>Category EAV attributes</td>
+                        <td>Denormalized category data</td>
+                    </tr>
+                    <tr>
+                        <td>catalogsearch_fulltext</td>
+                        <td>Searchable attributes</td>
+                        <td>Search engine indexing</td>
+                    </tr>
+                    <tr>
+                        <td>catalog_product_attribute</td>
+                        <td>Filterable attributes</td>
+                        <td>Layered navigation filters</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Admin Form Integration</h3>
+            <p>EAV forms are rendered dynamically based on attribute set configuration:</p>
+
+            <div class="code-block">
+<span class="comment">&lt;!-- UI Component form integration --&gt;</span>
+<span class="tag">&lt;fieldset</span> <span class="attr">name</span>=<span class="value">"product-details"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;settings&gt;</span>
+        <span class="tag">&lt;label</span> <span class="attr">translate</span>=<span class="value">"true"</span><span class="tag">&gt;</span>Product Details<span class="tag">&lt;/label&gt;</span>
+        <span class="tag">&lt;dataScope&gt;</span>product<span class="tag">&lt;/dataScope&gt;</span>
+    <span class="tag">&lt;/settings&gt;</span>
+    <span class="comment">&lt;!-- EAV attributes injected dynamically based on attribute set --&gt;</span>
+    <span class="tag">&lt;container</span> <span class="attr">name</span>=<span class="value">"container_eav_attributes"</span>
+               <span class="attr">class</span>=<span class="value">"Magento\Catalog\Ui\Component\Form\AttributeMapper"</span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/fieldset&gt;</span>
+            </div>
+        </section>
+
+        <!-- Integration Best Practices -->
+        <section class="section">
+            <h2>Integration Best Practices</h2>
+
+            <div class="integration-grid">
+                <div class="integration-card">
+                    <h4>Use Service Contracts</h4>
+                    <p>Always interact with EAV through service contracts (repositories) rather than direct model/resource model access to ensure proper event dispatch and plugin execution.</p>
+                </div>
+
+                <div class="integration-card">
+                    <h4>Cache Attribute Config</h4>
+                    <p>Attribute configuration is cached aggressively. After programmatic attribute changes, invalidate the EAV cache tag: <code>Magento\Eav\Model\Config::CACHE_TAG</code></p>
+                </div>
+
+                <div class="integration-card">
+                    <h4>Consider Flat Tables</h4>
+                    <p>For high-read entities, implement flat table indexing. EAV is flexible but slow for complex queries. Catalog uses flat tables for frontend.</p>
+                </div>
+
+                <div class="integration-card">
+                    <h4>Batch Operations</h4>
+                    <p>For bulk attribute updates, use the EntityManager's batch operations or direct SQL with proper cache invalidation rather than iterating repositories.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Magento 2 EAV Module Documentation | Generated December 2024</p>
+        <p><a href="index.html">Back to Module Overview</a></p>
+    </footer>
+</body>
+</html>

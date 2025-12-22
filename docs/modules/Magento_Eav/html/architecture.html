@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture - Magento_Eav Module</title>
+    <style>
+        :root {
+            --orange: #F26423;
+            --yellow: #F1BC1B;
+            --charcoal: #2C2C2C;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: var(--light-gray);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 2rem;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--orange) 0%, var(--orange) 50%, var(--yellow) 50%, var(--yellow) 100%);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+        }
+
+        .breadcrumb a {
+            color: var(--yellow);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: var(--light-gray);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            background-color: var(--white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section h2 {
+            color: var(--charcoal);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--orange);
+            display: inline-block;
+        }
+
+        .section h3 {
+            color: var(--charcoal);
+            font-size: 1.25rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .section p {
+            margin-bottom: 1rem;
+            color: #444;
+        }
+
+        .eav-diagram {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 2rem;
+            margin: 1.5rem 0;
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+            font-size: 0.8rem;
+            overflow-x: auto;
+        }
+
+        .diagram-level {
+            margin-bottom: 0.25rem;
+        }
+
+        .level-type {
+            color: var(--orange);
+            font-weight: bold;
+        }
+
+        .level-set {
+            color: var(--yellow);
+        }
+
+        .level-group {
+            color: #8FD9A8;
+        }
+
+        .level-attr {
+            color: #B4A7E5;
+        }
+
+        .table-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .table-card {
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            border-left: 4px solid var(--orange);
+        }
+
+        .table-card:nth-child(even) {
+            border-left-color: var(--yellow);
+        }
+
+        .table-name {
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .table-desc {
+            font-size: 0.875rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .column-list {
+            font-size: 0.8rem;
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+            color: #555;
+        }
+
+        .column-list li {
+            margin-bottom: 0.25rem;
+            list-style: none;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .column-list li::before {
+            content: '->';
+            position: absolute;
+            left: 0;
+            color: var(--orange);
+        }
+
+        .code-block {
+            background-color: var(--charcoal);
+            color: #E0E0E0;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        .code-block .keyword {
+            color: var(--orange);
+        }
+
+        .code-block .class-name {
+            color: var(--yellow);
+        }
+
+        .code-block .string {
+            color: #8FD9A8;
+        }
+
+        .code-block .comment {
+            color: #888;
+        }
+
+        .value-types {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .value-type-box {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .value-type-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .value-type-table {
+            font-size: 0.7rem;
+            color: var(--yellow);
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+        }
+
+        .callout {
+            background-color: #FFF3E0;
+            border-left: 4px solid var(--orange);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .callout-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .model-pattern {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .model-box {
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            text-align: center;
+            border-top: 4px solid var(--charcoal);
+        }
+
+        .model-box.backend {
+            border-top-color: var(--orange);
+        }
+
+        .model-box.frontend {
+            border-top-color: var(--yellow);
+        }
+
+        .model-box.source {
+            border-top-color: #8FD9A8;
+        }
+
+        .model-title {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .model-desc {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .footer {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer a {
+            color: var(--yellow);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .value-types {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .model-pattern {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <nav class="breadcrumb">
+                <a href="../../../index.html">Documentation</a>
+                <span> / </span>
+                <a href="index.html">Magento_Eav</a>
+                <span> / </span>
+                <span>Architecture</span>
+            </nav>
+            <h1>Architecture</h1>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="section">
+            <h2>EAV Data Model</h2>
+            <p>
+                The Entity-Attribute-Value (EAV) pattern separates attribute storage from entity storage,
+                allowing unlimited custom attributes without modifying the database schema. This flexibility
+                comes at the cost of query complexity.
+            </p>
+
+            <div class="eav-diagram">
+<div class="diagram-level"><span class="level-type">ENTITY TYPE</span> (eav_entity_type)</div>
+<div class="diagram-level">    <span style="color: #888;">|</span>  catalog_product, catalog_category, customer, customer_address</div>
+<div class="diagram-level">    <span style="color: #888;">|</span></div>
+<div class="diagram-level">    <span style="color: #888;">+--></span> <span class="level-set">ATTRIBUTE SET</span> (eav_attribute_set)</div>
+<div class="diagram-level">    <span style="color: #888;">|</span>       <span style="color: #888;">|</span>  "Default", "Clothing", "Electronics"</div>
+<div class="diagram-level">    <span style="color: #888;">|</span>       <span style="color: #888;">|</span></div>
+<div class="diagram-level">    <span style="color: #888;">|</span>       <span style="color: #888;">+--></span> <span class="level-group">ATTRIBUTE GROUP</span> (eav_attribute_group)</div>
+<div class="diagram-level">    <span style="color: #888;">|</span>               <span style="color: #888;">|</span>  "Product Details", "Images", "SEO"</div>
+<div class="diagram-level">    <span style="color: #888;">|</span>               <span style="color: #888;">|</span></div>
+<div class="diagram-level">    <span style="color: #888;">|</span>               <span style="color: #888;">+--></span> <span class="level-attr">ATTRIBUTE</span> (eav_attribute)</div>
+<div class="diagram-level">    <span style="color: #888;">|</span>                       name, price, description, color...</div>
+<div class="diagram-level">    <span style="color: #888;">|</span></div>
+<div class="diagram-level">    <span style="color: #888;">+--></span> <span class="level-type">ENTITY</span> (entity-specific table)</div>
+<div class="diagram-level">            <span style="color: #888;">|</span>  catalog_product_entity, customer_entity...</div>
+<div class="diagram-level">            <span style="color: #888;">|</span></div>
+<div class="diagram-level">            <span style="color: #888;">+--></span> <span class="level-attr">VALUES</span> (typed value tables)</div>
+<div class="diagram-level">                    eav_entity_varchar, eav_entity_int...</div>
+            </div>
+
+            <div class="callout">
+                <div class="callout-title">Terminology</div>
+                <p>
+                    <strong>Entity Type:</strong> The "class" of entity (product, customer).<br>
+                    <strong>Attribute Set:</strong> A collection of attributes assigned to an entity.<br>
+                    <strong>Attribute Group:</strong> A tab within an attribute set for organization.<br>
+                    <strong>Attribute:</strong> A single property (name, color, price).
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Value Tables by Type</h2>
+            <p>
+                EAV stores attribute values in separate tables based on data type. This allows proper
+                indexing and type-specific operations. The <code>backend_type</code> column in
+                <code>eav_attribute</code> determines which table stores the value.
+            </p>
+
+            <div class="value-types">
+                <div class="value-type-box">
+                    <div class="value-type-name">VARCHAR</div>
+                    <div class="value-type-table">eav_entity_varchar</div>
+                </div>
+                <div class="value-type-box">
+                    <div class="value-type-name">INT</div>
+                    <div class="value-type-table">eav_entity_int</div>
+                </div>
+                <div class="value-type-box">
+                    <div class="value-type-name">DECIMAL</div>
+                    <div class="value-type-table">eav_entity_decimal</div>
+                </div>
+                <div class="value-type-box">
+                    <div class="value-type-name">TEXT</div>
+                    <div class="value-type-table">eav_entity_text</div>
+                </div>
+                <div class="value-type-box">
+                    <div class="value-type-name">DATETIME</div>
+                    <div class="value-type-table">eav_entity_datetime</div>
+                </div>
+            </div>
+
+            <h3>Value Table Structure</h3>
+            <p>All value tables share a common structure with store-scoped values:</p>
+
+            <div class="code-block">
+<span class="comment">// Common columns in all eav_entity_* value tables</span>
+value_id       <span class="comment">// Primary key (auto-increment)</span>
+entity_type_id <span class="comment">// FK to eav_entity_type</span>
+attribute_id   <span class="comment">// FK to eav_attribute</span>
+store_id       <span class="comment">// FK to store (0 = default/admin)</span>
+entity_id      <span class="comment">// FK to entity table (product_id, customer_id)</span>
+value          <span class="comment">// The actual value (type varies by table)</span>
+
+<span class="comment">// Unique constraint: entity_id + attribute_id + store_id</span>
+<span class="comment">// This enables store-scoped attribute overrides</span>
+            </div>
+
+            <div class="callout">
+                <div class="callout-title">Static vs EAV Attributes</div>
+                <p>
+                    Attributes with <code>backend_type='static'</code> are stored directly in the entity
+                    table (e.g., <code>sku</code> in <code>catalog_product_entity</code>). This avoids
+                    JOINs for frequently accessed attributes.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Core Database Tables</h2>
+
+            <div class="table-grid">
+                <div class="table-card">
+                    <div class="table-name">eav_entity_type</div>
+                    <div class="table-desc">Defines entity types and their configurations.</div>
+                    <ul class="column-list">
+                        <li>entity_type_id (PK)</li>
+                        <li>entity_type_code (product, customer)</li>
+                        <li>entity_model (resource model class)</li>
+                        <li>attribute_model (custom attribute class)</li>
+                        <li>entity_table (main entity table)</li>
+                        <li>default_attribute_set_id</li>
+                        <li>additional_attribute_table</li>
+                    </ul>
+                </div>
+
+                <div class="table-card">
+                    <div class="table-name">eav_attribute</div>
+                    <div class="table-desc">Attribute definitions with model references.</div>
+                    <ul class="column-list">
+                        <li>attribute_id (PK)</li>
+                        <li>entity_type_id (FK)</li>
+                        <li>attribute_code (unique per type)</li>
+                        <li>backend_type (varchar/int/decimal/text/datetime/static)</li>
+                        <li>backend_model (validation class)</li>
+                        <li>frontend_model (display class)</li>
+                        <li>frontend_input (text/select/multiselect/boolean)</li>
+                        <li>source_model (options class)</li>
+                        <li>is_required, is_user_defined, is_unique</li>
+                    </ul>
+                </div>
+
+                <div class="table-card">
+                    <div class="table-name">eav_attribute_set</div>
+                    <div class="table-desc">Groups of attributes for entity assignment.</div>
+                    <ul class="column-list">
+                        <li>attribute_set_id (PK)</li>
+                        <li>entity_type_id (FK)</li>
+                        <li>attribute_set_name</li>
+                        <li>sort_order</li>
+                    </ul>
+                </div>
+
+                <div class="table-card">
+                    <div class="table-name">eav_attribute_group</div>
+                    <div class="table-desc">Tabs within attribute sets.</div>
+                    <ul class="column-list">
+                        <li>attribute_group_id (PK)</li>
+                        <li>attribute_set_id (FK)</li>
+                        <li>attribute_group_name</li>
+                        <li>attribute_group_code</li>
+                        <li>tab_group_code</li>
+                        <li>sort_order</li>
+                    </ul>
+                </div>
+
+                <div class="table-card">
+                    <div class="table-name">eav_entity_attribute</div>
+                    <div class="table-desc">Links attributes to sets/groups.</div>
+                    <ul class="column-list">
+                        <li>entity_attribute_id (PK)</li>
+                        <li>entity_type_id (FK)</li>
+                        <li>attribute_set_id (FK)</li>
+                        <li>attribute_group_id (FK)</li>
+                        <li>attribute_id (FK)</li>
+                        <li>sort_order</li>
+                    </ul>
+                </div>
+
+                <div class="table-card">
+                    <div class="table-name">eav_attribute_option</div>
+                    <div class="table-desc">Options for select/multiselect attributes.</div>
+                    <ul class="column-list">
+                        <li>option_id (PK)</li>
+                        <li>attribute_id (FK)</li>
+                        <li>sort_order</li>
+                    </ul>
+                </div>
+
+                <div class="table-card">
+                    <div class="table-name">eav_attribute_option_value</div>
+                    <div class="table-desc">Store-scoped option labels.</div>
+                    <ul class="column-list">
+                        <li>value_id (PK)</li>
+                        <li>option_id (FK)</li>
+                        <li>store_id (FK)</li>
+                        <li>value (the label text)</li>
+                    </ul>
+                </div>
+
+                <div class="table-card">
+                    <div class="table-name">eav_attribute_label</div>
+                    <div class="table-desc">Store-scoped attribute labels.</div>
+                    <ul class="column-list">
+                        <li>attribute_label_id (PK)</li>
+                        <li>attribute_id (FK)</li>
+                        <li>store_id (FK)</li>
+                        <li>value (the label text)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Attribute Model Pattern</h2>
+            <p>
+                Each attribute can have three types of associated models that control its behavior
+                during save, load, and display operations.
+            </p>
+
+            <div class="model-pattern">
+                <div class="model-box backend">
+                    <div class="model-title">Backend Model</div>
+                    <div class="model-desc">
+                        Validates and transforms data before save. Examples: ArrayBackend, Datetime, Increment.
+                        Method: beforeSave(), afterSave(), validate()
+                    </div>
+                </div>
+                <div class="model-box frontend">
+                    <div class="model-title">Frontend Model</div>
+                    <div class="model-desc">
+                        Formats values for display. Examples: Datetime (date formatting), Image (generates URLs).
+                        Method: getValue()
+                    </div>
+                </div>
+                <div class="model-box source">
+                    <div class="model-title">Source Model</div>
+                    <div class="model-desc">
+                        Provides options for select/multiselect inputs. Examples: Boolean, Table, Config.
+                        Method: getAllOptions(), getOptionText()
+                    </div>
+                </div>
+            </div>
+
+            <h3>Example: Creating a Custom Attribute</h3>
+            <div class="code-block">
+<span class="comment">// In Setup/Patch/Data/AddCustomAttribute.php</span>
+$eavSetup = $this->eavSetupFactory->create();
+
+$eavSetup->addAttribute(
+    <span class="class-name">Product</span>::ENTITY,
+    <span class="string">'custom_attribute'</span>,
+    [
+        <span class="string">'type'</span>         => <span class="string">'varchar'</span>,          <span class="comment">// backend_type</span>
+        <span class="string">'label'</span>        => <span class="string">'Custom Attribute'</span>,
+        <span class="string">'input'</span>        => <span class="string">'select'</span>,           <span class="comment">// frontend_input</span>
+        <span class="string">'source'</span>       => <span class="class-name">CustomSource</span>::<span class="keyword">class</span>, <span class="comment">// source_model</span>
+        <span class="string">'backend'</span>      => <span class="class-name">ArrayBackend</span>::<span class="keyword">class</span>,  <span class="comment">// backend_model</span>
+        <span class="string">'required'</span>     => <span class="keyword">false</span>,
+        <span class="string">'global'</span>       => <span class="class-name">ScopedAttribute</span>::SCOPE_STORE,
+        <span class="string">'visible'</span>      => <span class="keyword">true</span>,
+        <span class="string">'user_defined'</span> => <span class="keyword">true</span>,
+        <span class="string">'group'</span>        => <span class="string">'General'</span>,
+    ]
+);
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Entity Type Configuration</h2>
+            <p>
+                Each entity type defines its storage configuration in <code>eav_entity_type</code>.
+                This tells EAV how to load and save entities of that type.
+            </p>
+
+            <div class="code-block">
+<span class="comment">// eav_entity_type row for products</span>
+entity_type_id            = <span class="class-name">4</span>
+entity_type_code          = <span class="string">'catalog_product'</span>
+entity_model              = <span class="string">'Magento\Catalog\Model\ResourceModel\Product'</span>
+attribute_model           = <span class="string">'Magento\Catalog\Model\ResourceModel\Eav\Attribute'</span>
+entity_table              = <span class="string">'catalog_product_entity'</span>
+additional_attribute_table = <span class="string">'catalog_eav_attribute'</span>
+entity_attribute_collection = <span class="string">'Magento\Catalog\Model\ResourceModel\Product\Attribute\Collection'</span>
+
+<span class="comment">// Products use extended tables:</span>
+<span class="comment">// - catalog_eav_attribute extends eav_attribute with catalog-specific columns</span>
+<span class="comment">// - catalog_product_entity_* extends eav_entity_* for product values</span>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p><a href="index.html">Back to Magento_Eav Overview</a></p>
+        <p><a href="../../../index.html">Documentation Index</a></p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magento_Eav - Known Issues & Gotchas</title>
+    <style>
+        :root {
+            --orange: #F26423;
+            --yellow: #F1BC1B;
+            --charcoal: #2C2C2C;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+            --code-bg: #1E1E1E;
+            --critical: #DC3545;
+            --major: #FD7E14;
+            --minor: #FFC107;
+            --info: #17A2B8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: var(--light-gray);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--charcoal);
+            padding: 2rem;
+            border-bottom: 4px solid var(--orange);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            color: #999;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--yellow);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            color: var(--white);
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        h1 span {
+            color: var(--orange);
+        }
+
+        .subtitle {
+            color: #999;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        nav {
+            background-color: var(--white);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            max-width: 1400px;
+            margin: 0 auto;
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            border-bottom-color: var(--orange);
+        }
+
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: var(--charcoal);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--orange);
+            display: inline-block;
+        }
+
+        h3 {
+            color: var(--charcoal);
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #444;
+        }
+
+        .severity-legend {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: var(--light-gray);
+            border-radius: 8px;
+        }
+
+        .severity-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .severity-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .severity-badge.critical {
+            background: var(--critical);
+            color: var(--white);
+        }
+
+        .severity-badge.major {
+            background: var(--major);
+            color: var(--white);
+        }
+
+        .severity-badge.minor {
+            background: var(--minor);
+            color: var(--charcoal);
+        }
+
+        .severity-badge.info {
+            background: var(--info);
+            color: var(--white);
+        }
+
+        .issue-card {
+            background: var(--white);
+            border: 1px solid #E0E0E0;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .issue-header {
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .issue-header.critical {
+            background: linear-gradient(to right, var(--critical), transparent);
+            border-left: 4px solid var(--critical);
+        }
+
+        .issue-header.major {
+            background: linear-gradient(to right, var(--major), transparent);
+            border-left: 4px solid var(--major);
+        }
+
+        .issue-header.minor {
+            background: linear-gradient(to right, var(--minor), transparent);
+            border-left: 4px solid var(--minor);
+        }
+
+        .issue-header.info {
+            background: linear-gradient(to right, var(--info), transparent);
+            border-left: 4px solid var(--info);
+        }
+
+        .issue-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+
+        .issue-meta {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .issue-body {
+            padding: 1.5rem;
+            border-top: 1px solid #E0E0E0;
+        }
+
+        .issue-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .issue-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .issue-section h4 {
+            color: var(--orange);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .code-block {
+            background-color: var(--code-bg);
+            color: #D4D4D4;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Fira Code', 'Consolas', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0.5rem 0;
+        }
+
+        .code-block .comment { color: #6A9955; }
+        .code-block .keyword { color: #569CD6; }
+        .code-block .string { color: #CE9178; }
+        .code-block .class { color: #4EC9B0; }
+        .code-block .method { color: #DCDCAA; }
+        .code-block .variable { color: #9CDCFE; }
+        .code-block .bad { color: #F44747; }
+        .code-block .good { color: #4EC9B0; }
+
+        .tag {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            background: var(--light-gray);
+            border-radius: 3px;
+            font-size: 0.8rem;
+            margin-right: 0.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .affected-code {
+            font-family: 'Fira Code', 'Consolas', monospace;
+            background: var(--charcoal);
+            color: var(--yellow);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.85rem;
+        }
+
+        .workaround-box {
+            background: #E8F5E9;
+            border-left: 4px solid #4CAF50;
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .workaround-box h4 {
+            color: #2E7D32;
+        }
+
+        .warning-box {
+            background: #FFF3E0;
+            border-left: 4px solid var(--major);
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-box {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-box .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--orange);
+        }
+
+        .stat-box.critical .number { color: var(--critical); }
+        .stat-box.major .number { color: var(--major); }
+        .stat-box.minor .number { color: var(--minor); }
+
+        .stat-box .label {
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        footer {
+            background: var(--charcoal);
+            color: #999;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--yellow);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .issue-header {
+                flex-direction: column;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="breadcrumb">
+                <a href="../../index.html">Modules</a> /
+                <a href="index.html">Magento_Eav</a> /
+                Known Issues
+            </div>
+            <h1>Known Issues & <span>Gotchas</span></h1>
+            <p class="subtitle">Common pitfalls, performance traps, and solutions for EAV development</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Overview</a></li>
+            <li><a href="architecture.html">Architecture</a></li>
+            <li><a href="execution-flows.html">Execution Flows</a></li>
+            <li><a href="plugins-observers.html">Plugins & Observers</a></li>
+            <li><a href="integrations.html">Integrations</a></li>
+            <li><a href="known-issues.html" class="active">Known Issues</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Summary Stats -->
+        <section class="section">
+            <h2>Issue Summary</h2>
+            <div class="stats-grid">
+                <div class="stat-box critical">
+                    <div class="number">3</div>
+                    <div class="label">Critical</div>
+                </div>
+                <div class="stat-box major">
+                    <div class="number">4</div>
+                    <div class="label">Major</div>
+                </div>
+                <div class="stat-box minor">
+                    <div class="number">3</div>
+                    <div class="label">Minor</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">10</div>
+                    <div class="label">Total Issues</div>
+                </div>
+            </div>
+
+            <div class="severity-legend">
+                <div class="severity-item">
+                    <span class="severity-badge critical">Critical</span>
+                    <span>Data loss or major performance degradation</span>
+                </div>
+                <div class="severity-item">
+                    <span class="severity-badge major">Major</span>
+                    <span>Significant impact, workaround required</span>
+                </div>
+                <div class="severity-item">
+                    <span class="severity-badge minor">Minor</span>
+                    <span>Edge cases or minor inconvenience</span>
+                </div>
+                <div class="severity-item">
+                    <span class="severity-badge info">Info</span>
+                    <span>Best practice guidance</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Critical Issues -->
+        <section class="section">
+            <h2>Critical Issues</h2>
+
+            <div class="issue-card">
+                <div class="issue-header critical">
+                    <div class="issue-title">N+1 Query Problem on Entity Load</div>
+                    <div class="issue-meta">
+                        <span class="severity-badge critical">Critical</span>
+                    </div>
+                </div>
+                <div class="issue-body">
+                    <div class="issue-section">
+                        <h4>Affected Code</h4>
+                        <p><span class="affected-code">Magento\Eav\Model\Entity\AbstractEntity::load()</span></p>
+                        <p><span class="affected-code">Magento\Eav\Model\Entity\Collection\AbstractCollection::load()</span></p>
+                    </div>
+                    <div class="issue-section">
+                        <h4>Description</h4>
+                        <p>Loading EAV entities performs one query per value table type (varchar, int, decimal, text, datetime). When loading collections, this multiplies: N entities x 5+ value tables = severe performance degradation.</p>
+                        <div class="code-block">
+<span class="comment">// BAD: Loading 100 products = 500+ queries</span>
+<span class="variable">$collection</span> = <span class="variable">$productCollectionFactory</span>-><span class="method">create</span>();
+<span class="variable">$collection</span>-><span class="method">addAttributeToSelect</span>(<span class="string">'*'</span>);
+<span class="keyword">foreach</span> (<span class="variable">$collection</span> <span class="keyword">as</span> <span class="variable">$product</span>) {
+    <span class="comment">// Each iteration may trigger lazy-loaded attribute queries</span>
+}
+                        </div>
+                    </div>
+                    <div class="issue-section">
+                        <div class="workaround-box">
+                            <h4>Workaround</h4>
+                            <p>1. Use flat tables for read-heavy operations (catalog_product_flat, catalog_category_flat)</p>
+                            <p>2. Explicitly select only needed attributes:</p>
+                            <div class="code-block">
+<span class="comment">// GOOD: Only load required attributes</span>
+<span class="variable">$collection</span>-><span class="method">addAttributeToSelect</span>([<span class="string">'name'</span>, <span class="string">'price'</span>, <span class="string">'sku'</span>]);
+                            </div>
+                            <p>3. Use joins for specific attributes rather than loading full entities</p>
+                        </div>
+                    </div>
+                    <div class="issue-section">
+                        <h4>Tags</h4>
+                        <span class="tag">performance</span>
+                        <span class="tag">queries</span>
+                        <span class="tag">collections</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="issue-card">
+                <div class="issue-header critical">
+                    <div class="issue-title">Flat Table Sync Failures</div>
+                    <div class="issue-meta">
+                        <span class="severity-badge critical">Critical</span>
+                    </div>
+                </div>
+                <div class="issue-body">
+                    <div class="issue-section">
+                        <h4>Affected Code</h4>
+                        <p><span class="affected-code">Magento\Catalog\Model\Indexer\Product\Flat</span></p>
+                        <p><span class="affected-code">Magento\Catalog\Model\Indexer\Category\Flat</span></p>
+                    </div>
+                    <div class="issue-section">
+                        <h4>Description</h4>
+                        <p>When EAV attributes are modified but flat table indexers fail or are not triggered, the frontend shows stale data. This is especially problematic with:</p>
+                        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                            <li>New attribute creation (flat tables missing columns)</li>
+                            <li>Attribute deletion (orphaned flat table columns)</li>
+                            <li>Attribute type changes (column type mismatch)</li>
+                            <li>Multi-store deployments with partial reindexing</li>
+                        </ul>
+                    </div>
+                    <div class="issue-section">
+                        <div class="workaround-box">
+                            <h4>Workaround</h4>
+                            <p>1. Always run full reindex after attribute schema changes:</p>
+                            <div class="code-block">
+bin/magento indexer:reindex catalog_product_flat catalog_category_flat
+                            </div>
+                            <p>2. Monitor indexer status in production</p>
+                            <p>3. Consider disabling flat tables if attribute schema changes frequently</p>
+                        </div>
+                    </div>
+                    <div class="issue-section">
+                        <h4>Tags</h4>
+                        <span class="tag">indexer</span>
+                        <span class="tag">flat-tables</span>
+                        <span class="tag">data-sync</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="issue-card">
+                <div class="issue-header critical">
+                    <div class="issue-title">Store Scope Value Inheritance Confusion</div>
+                    <div class="issue-meta">
+                        <span class="severity-badge critical">Critical</span>
+                    </div>
+                </div>
+                <div class="issue-body">
+                    <div class="issue-section">
+                        <h4>Affected Code</h4>
+                        <p><span class="affected-code">Magento\Eav\Model\Entity\Attribute\AbstractAttribute::getValue()</span></p>
+                    </div>
+                    <div class="issue-section">
+                        <h4>Description</h4>
+                        <p>EAV attributes support store-scoped values that inherit from website then global scope. When developers directly query value tables without proper scope resolution, they may:</p>
+                        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                            <li>Return wrong scope value (store-specific instead of global)</li>
+                            <li>Return NULL when inheritance should provide a value</li>
+                            <li>Overwrite global values when saving store-scoped entities</li>
+                        </ul>
+                        <div class="code-block">
+<span class="comment">// BAD: Direct query ignores scope inheritance</span>
+<span class="variable">$value</span> = <span class="variable">$connection</span>-><span class="method">fetchOne</span>(
+    <span class="string">"SELECT value FROM catalog_product_entity_varchar
+     WHERE attribute_id = ? AND entity_id = ?"</span>
+);
+<span class="comment">// Missing: AND store_id IN (0, $currentStoreId) ORDER BY store_id DESC LIMIT 1</span>
+                        </div>
+                    </div>
+                    <div class="issue-section">
+                        <div class="workaround-box">
+                            <h4>Workaround</h4>
+                            <p>Always use the entity model or repository pattern which handles scope resolution:</p>
+                            <div class="code-block">
+<span class="comment">// GOOD: Proper scope handling</span>
+<span class="variable">$product</span> = <span class="variable">$productRepository</span>-><span class="method">getById</span>(
+    <span class="variable">$productId</span>,
+    <span class="keyword">false</span>,
+    <span class="variable">$storeId</span>  <span class="comment">// Scope properly resolved</span>
+);
+<span class="variable">$value</span> = <span class="variable">$product</span>-><span class="method">getName</span>();
+                            </div>
+                        </div>
+                    </div>
+                    <div class="issue-section">
+                        <h4>Tags</h4>
+                        <span class="tag">store-scope</span>
+                        <span class="tag">multi-store</span>
+                        <span class="tag">inheritance</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Major Issues -->
+        <section class="section">
+            <h2>Major Issues</h2>
+
+            <div class="issue-card">
+                <div class="issue-header major">
+                    <div class="issue-title">Cache Invalidation After Attribute Changes</div>
+                    <div class="issue-meta">
+                        <span class="severity-badge major">Major</span>
+                    </div>
+                </div>
+                <div class="issue-body">
+                    <div class="issue-section">
+                        <h4>Affected Code</h4>
+                        <p><span class="affected-code">Magento\Eav\Model\Config</span></p>
+                    </div>
+                    <div class="issue-section">
+                        <h4>Description</h4>
+                        <p>EAV attribute configuration is heavily cached. When attributes are modified programmatically (via setup scripts or API), the cached configuration may not be invalidated properly, leading to:</p>
+                        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                            <li>New attributes not appearing in admin forms</li>
+                            <li>Attribute options showing stale values</li>
+                            <li>Validation rules not being applied</li>
+                        </ul>
+                    </div>
+                    <div class="issue-section">
+                        <div class="workaround-box">
+                            <h4>Workaround</h4>
+                            <div class="code-block">
+<span class="comment">// After programmatic attribute changes</span>
+<span class="variable">$cacheManager</span> = <span class="variable">$objectManager</span>-><span class="method">get</span>(<span class="class">CacheManager</span>::<span class="keyword">class</span>);
+<span class="variable">$cacheManager</span>-><span class="method">clean</span>([<span class="class">EavConfig</span>::<span class="string">CACHE_TAG</span>]);
+
+<span class="comment">// Or flush all caches</span>
+bin/magento cache:clean config eav
+                            </div>
+                        </div>
+                    </div>
+                    <div class="issue-section">
+                        <h4>Tags</h4>
+                        <span class="tag">cache</span>
+                        <span class="tag">config</span>
+                        <span class="tag">admin</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="issue-card">
+                <div class="issue-header major">
+                    <div class="issue-title">Attribute Option Order Persistence</div>
+                    <div class="issue-meta">
+                        <span class="severity-badge major">Major</span>
+                    </div>
+                </div>
+                <div class="issue-body">
+                    <div class="issue-section">
+                        <h4>Affected Code</h4>
+                        <p><span class="affected-code">Magento\Eav\Model\Entity\Attribute\Source\Table</span></p>
+                        <p><span class="affected-code">eav_attribute_option</span> table</p>
+                    </div>
+                    <div class="issue-section">
+                        <h4>Description</h4>
+                        <p>Attribute option sort order is stored in the <code>sort_order</code> column, but:</p>
+                        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                            <li>Admin UI doesn't always persist drag-drop order changes</li>
+                            <li>Import processes may reset sort order to insertion order</li>
+                            <li>API option creation ignores sort_order parameter in some versions</li>
+                        </ul>
+                    </div>
+                    <div class="issue-section">
+                        <div class="workaround-box">
+                            <h4>Workaround</h4>
+                            <p>Explicitly set sort_order via direct database update or custom setup script:</p>
+                            <div class="code-block">
+<span class="variable">$connection</span>-><span class="method">update</span>(
+    <span class="string">'eav_attribute_option'</span>,
+    [<span class="string">'sort_order'</span> => <span class="variable">$sortOrder</span>],
+    [<span class="string">'option_id = ?'</span> => <span class="variable">$optionId</span>]
+);
+                            </div>
+                        </div>
+                    </div>
+                    <div class="issue-section">
+                        <h4>Tags</h4>
+                        <span class="tag">options</span>
+                        <span class="tag">sort-order</span>
+                        <span class="tag">admin</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="issue-card">
+                <div class="issue-header major">
+                    <div class="issue-title">Backend Model Validation Bypass</div>
+                    <div class="issue-meta">
+                        <span class="severity-badge major">Major</span>
+                    </div>
+                </div>
+                <div class="issue-body">
+                    <div class="issue-section">
+                        <h4>Affected Code</h4>
+                        <p><span class="affected-code">Magento\Eav\Model\Entity\Attribute\Backend\AbstractBackend::validate()</span></p>
+                    </div>
+                    <div class="issue-section">
+                        <h4>Description</h4>
+                        <p>Backend model validation only runs when saving through the entity model. Direct database updates or ResourceModel::save() without entity context bypasses validation:</p>
+                        <div class="code-block">
+<span class="comment">// BAD: Bypasses backend model validation</span>
+<span class="variable">$resourceModel</span>-><span class="method">getConnection</span>()-><span class="method">insert</span>(
+    <span class="string">'catalog_product_entity_varchar'</span>,
+    [<span class="string">'value'</span> => <span class="variable">$invalidValue</span>, ...]
+);
+
+<span class="comment">// GOOD: Backend validation runs</span>
+<span class="variable">$product</span>-><span class="method">setData</span>(<span class="string">'attribute_code'</span>, <span class="variable">$value</span>);
+<span class="variable">$productRepository</span>-><span class="method">save</span>(<span class="variable">$product</span>);
+                        </div>
+                    </div>
+                    <div class="issue-section">
+                        <div class="workaround-box">
+                            <h4>Workaround</h4>
+                            <p>Always use repository or model save() for EAV entity persistence. If direct SQL is required for performance, manually validate:</p>
+                            <div class="code-block">
+<span class="variable">$attribute</span> = <span class="variable">$eavConfig</span>-><span class="method">getAttribute</span>(<span class="string">'catalog_product'</span>, <span class="string">'attribute_code'</span>);
+<span class="variable">$backend</span> = <span class="variable">$attribute</span>-><span class="method">getBackend</span>();
+<span class="variable">$backend</span>-><span class="method">validate</span>(<span class="variable">$entityObject</span>); <span class="comment">// Throws exception if invalid</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="issue-section">
+                        <h4>Tags</h4>
+                        <span class="tag">validation</span>
+                        <span class="tag">backend-model</span>
+                        <span class="tag">data-integrity</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="issue-card">
+                <div class="issue-header major">
+                    <div class="issue-title">Attribute Set Assignment During Import</div>
+                    <div class="issue-meta">
+                        <span class="severity-badge major">Major</span>
+                    </div>
+                </div>
+                <div class="issue-body">
+                    <div class="issue-section">
+                        <h4>Affected Code</h4>
+                        <p><span class="affected-code">Magento\ImportExport\Model\Import\Entity\AbstractEntity</span></p>
+                    </div>
+                    <div class="issue-section">
+                        <h4>Description</h4>
+                        <p>During product import, attribute set changes can cause:</p>
+                        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                            <li>Orphaned attribute values (attribute removed from set but values remain)</li>
+                            <li>Missing required attributes (new set has required attrs not in CSV)</li>
+                            <li>Type conflicts (attribute exists in both sets with different types)</li>
+                        </ul>
+                    </div>
+                    <div class="issue-section">
+                        <div class="workaround-box">
+                            <h4>Workaround</h4>
+                            <p>1. Validate attribute set compatibility before import</p>
+                            <p>2. Clean orphaned values after attribute set changes:</p>
+                            <div class="code-block">
+<span class="comment">-- Find orphaned values</span>
+<span class="keyword">SELECT</span> v.* <span class="keyword">FROM</span> catalog_product_entity_varchar v
+<span class="keyword">LEFT JOIN</span> eav_entity_attribute ea
+    <span class="keyword">ON</span> v.attribute_id = ea.attribute_id
+    <span class="keyword">AND</span> ea.attribute_set_id = (
+        <span class="keyword">SELECT</span> attribute_set_id <span class="keyword">FROM</span> catalog_product_entity
+        <span class="keyword">WHERE</span> entity_id = v.entity_id
+    )
+<span class="keyword">WHERE</span> ea.entity_attribute_id <span class="keyword">IS NULL</span>;
+                            </div>
+                        </div>
+                    </div>
+                    <div class="issue-section">
+                        <h4>Tags</h4>
+                        <span class="tag">import</span>
+                        <span class="tag">attribute-set</span>
+                        <span class="tag">orphaned-data</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Minor Issues -->
+        <section class="section">
+            <h2>Minor Issues</h2>
+
+            <div class="issue-card">
+                <div class="issue-header minor">
+                    <div class="issue-title">Source Model Caching</div>
+                    <div class="issue-meta">
+                        <span class="severity-badge minor">Minor</span>
+                    </div>
+                </div>
+                <div class="issue-body">
+                    <div class="issue-section">
+                        <h4>Description</h4>
+                        <p>Custom source models that fetch options from external sources (APIs, databases) are called multiple times per request without caching. This can cause performance issues with slow external services.</p>
+                    </div>
+                    <div class="issue-section">
+                        <div class="workaround-box">
+                            <h4>Workaround</h4>
+                            <p>Implement internal caching in custom source models:</p>
+                            <div class="code-block">
+<span class="keyword">protected</span> <span class="variable">$options</span> = <span class="keyword">null</span>;
+
+<span class="keyword">public function</span> <span class="method">getAllOptions</span>()
+{
+    <span class="keyword">if</span> (<span class="variable">$this</span>-><span class="variable">options</span> === <span class="keyword">null</span>) {
+        <span class="variable">$this</span>-><span class="variable">options</span> = <span class="variable">$this</span>-><span class="method">fetchFromExternalSource</span>();
+    }
+    <span class="keyword">return</span> <span class="variable">$this</span>-><span class="variable">options</span>;
+}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="issue-card">
+                <div class="issue-header minor">
+                    <div class="issue-title">Multiselect Value Delimiter Handling</div>
+                    <div class="issue-meta">
+                        <span class="severity-badge minor">Minor</span>
+                    </div>
+                </div>
+                <div class="issue-body">
+                    <div class="issue-section">
+                        <h4>Description</h4>
+                        <p>Multiselect attribute values are stored as comma-separated option IDs. If option values themselves contain commas, parsing can fail. The backend model handles this, but direct SQL queries may break.</p>
+                    </div>
+                    <div class="issue-section">
+                        <div class="workaround-box">
+                            <h4>Workaround</h4>
+                            <p>Always use the attribute's backend model for multiselect handling:</p>
+                            <div class="code-block">
+<span class="variable">$attribute</span> = <span class="variable">$eavConfig</span>-><span class="method">getAttribute</span>(<span class="string">'catalog_product'</span>, <span class="string">'multiselect_attr'</span>);
+<span class="variable">$values</span> = <span class="variable">$attribute</span>-><span class="method">getBackend</span>()-><span class="method">getArrayValue</span>(<span class="variable">$product</span>);
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="issue-card">
+                <div class="issue-header minor">
+                    <div class="issue-title">Attribute Label Translation Scope</div>
+                    <div class="issue-meta">
+                        <span class="severity-badge minor">Minor</span>
+                    </div>
+                </div>
+                <div class="issue-body">
+                    <div class="issue-section">
+                        <h4>Description</h4>
+                        <p>Attribute labels can be translated per store view via <code>eav_attribute_label</code> table. However, the admin interface doesn't always load the correct store's label when editing, leading to confusion about which translation is being modified.</p>
+                    </div>
+                    <div class="issue-section">
+                        <div class="workaround-box">
+                            <h4>Workaround</h4>
+                            <p>Verify store scope when working with attribute labels in admin:</p>
+                            <div class="code-block">
+<span class="comment">// Get label for specific store</span>
+<span class="variable">$label</span> = <span class="variable">$attribute</span>-><span class="method">getStoreLabel</span>(<span class="variable">$storeId</span>);
+
+<span class="comment">// Or via table directly</span>
+<span class="keyword">SELECT</span> value <span class="keyword">FROM</span> eav_attribute_label
+<span class="keyword">WHERE</span> attribute_id = ? <span class="keyword">AND</span> store_id = ?;
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Performance Best Practices -->
+        <section class="section">
+            <h2>Performance Best Practices</h2>
+
+            <div class="warning-box">
+                <h4>EAV Performance Golden Rules</h4>
+                <ol style="margin-left: 1.5rem;">
+                    <li><strong>Never use <code>addAttributeToSelect('*')</code></strong> - Select only needed attributes</li>
+                    <li><strong>Enable flat tables</strong> for catalog in production</li>
+                    <li><strong>Use collection filters</strong> before loading, not after</li>
+                    <li><strong>Batch operations</strong> when creating/updating multiple entities</li>
+                    <li><strong>Profile queries</strong> - Watch for N+1 patterns in New Relic/logs</li>
+                </ol>
+            </div>
+
+            <div class="code-block">
+<span class="comment">// Collection Performance Pattern</span>
+
+<span class="comment">// BAD: Filter after load (all entities loaded)</span>
+<span class="variable">$collection</span>-><span class="method">addAttributeToSelect</span>(<span class="string">'*'</span>);
+<span class="keyword">foreach</span> (<span class="variable">$collection</span> <span class="keyword">as</span> <span class="variable">$item</span>) {
+    <span class="keyword">if</span> (<span class="variable">$item</span>-><span class="method">getStatus</span>() == <span class="string">'active'</span>) { ... }
+}
+
+<span class="comment">// GOOD: Filter before load (SQL WHERE clause)</span>
+<span class="variable">$collection</span>-><span class="method">addAttributeToSelect</span>([<span class="string">'name'</span>, <span class="string">'status'</span>])
+            -><span class="method">addAttributeToFilter</span>(<span class="string">'status'</span>, <span class="string">'active'</span>);
+<span class="keyword">foreach</span> (<span class="variable">$collection</span> <span class="keyword">as</span> <span class="variable">$item</span>) { ... }
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Magento 2 EAV Module Documentation | Generated December 2024</p>
+        <p><a href="index.html">Back to Module Overview</a></p>
+    </footer>
+</body>
+</html>

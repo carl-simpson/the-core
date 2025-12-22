@@ -1,0 +1,663 @@
+================================================================================
+MAGENTO 2 CORE DOCUMENTATION & MAPPING TOOL - PROJECT PLAN
+================================================================================
+Generated: 2025-12-03
+Agents: project-orchestrator-180 + magento-expert
+================================================================================
+
+🎯 EXECUTIVE SUMMARY
+================================================================================
+
+Both agents strongly recommend building this tool with a tightly scoped, phased
+approach starting with a 3-4 week proof of concept.
+
+
+📋 KEY RECOMMENDATIONS FROM BOTH AGENTS
+================================================================================
+
+TECHNOLOGY STACK (CONSENSUS)
+----------------------------
+Core Components:
+  - Node.js CLI (commander.js)
+  - PHP Parser: nikic/php-parser via Docker (not tree-sitter)
+  - XML Parser: fast-xml-parser
+  - Graph Database: Neo4j 5.x
+  - Visualization: D3.js + Mermaid.js
+  - API: GraphQL (Apollo Server)
+  - Frontend: React + Vite + Tailwind CSS
+
+
+CRITICAL DECISION: START WITH XML, NOT PHP
+-------------------------------------------
+Both agents agreed to prioritize XML parsing first:
+  - Magento's runtime behavior is heavily XML-driven (di.xml, events.xml)
+  - Higher ROI: Can answer "what plugins affect this method?" without full PHP AST
+  - More deterministic and complete than PHP parsing
+  - PHP method parsing added in Phase 2 for call chain analysis
+
+
+POC TARGET: MAGENTO_CUSTOMER (NOT CATALOG)
+-------------------------------------------
+The Magento expert recommended Magento_Customer over Catalog:
+  - Catalog is 5x more complex (would overwhelm POC)
+  - Customer has all the architectural patterns needed
+  - Easier to validate against known structure
+  - ~150 classes vs Catalog's 184
+
+
+📅 5-PHASE DELIVERY PLAN (18-21 WEEKS TOTAL)
+================================================================================
+
+PHASE 1: PROOF OF CONCEPT (4 WEEKS) ✅ GO/NO-GO GATE
+----------------------------------------------------
+
+Scope: Single module (Magento_Customer)
+
+Deliverables:
+  - Parse di.xml, events.xml, module.xml for Magento_Customer
+  - Build in-memory graph with 3 node types (Interface, Class, Plugin,
+    Observer, Event, Module)
+  - Implement 3 CLI queries:
+    * mage-map plugins <InterfaceName> → list all plugins with sortOrder
+    * mage-map observers <eventName> → list all observers
+    * mage-map deps <ModuleName> → show module dependencies
+  - Generate Mermaid diagram for plugin chain on CustomerRepository::save()
+  - Parse completes in <5 minutes
+
+Exit Criteria:
+  - All 3 queries return correct results
+  - QA validates against known Magento_Customer structure
+  - At least 1 Mermaid diagram generated successfully
+  - GO/NO-GO decision before Phase 2
+
+
+PHASE 2: SCALE TO FULL CORE + NEO4J (6 WEEKS) ✅ SECOND GATE
+-------------------------------------------------------------
+
+Scope: All ~500 Magento modules
+
+Key Tasks:
+  - Parallel parsing with worker threads (target: <60 min for full core)
+  - Neo4j schema design and import pipeline
+  - Add PHP method parsing (tree-sitter) for call chains
+  - Implement call chain query: trace execution from method X
+  - Performance benchmarking and optimization
+
+Exit Criteria:
+  - Full core parsed and imported to Neo4j
+  - QA validation shows >80% precision/recall
+  - Performance targets met (<60min parse, <500ms queries)
+
+
+PHASE 3: KNOWN ISSUES ANNOTATION SYSTEM (3 WEEKS)
+--------------------------------------------------
+
+Key Innovation: YAML-based community contribution workflow
+
+Example Annotation Format:
+---
+# annotations/customer/customer-save-validation.yml
+id: "MAG-CUST-001"
+title: "Customer::save() bypasses validation in certain conditions"
+severity: "major"  # critical | major | minor | info
+affected:
+  class: "Magento\\Customer\\Model\\Customer"
+  method: "save"
+description: "When saving via resourceModel directly..."
+workaround: "Use CustomerRepository::save() instead"
+links:
+  - "https://github.com/magento/magento2/issues/12345"
+tags: ["validation", "data-integrity"]
+---
+
+Deliverables:
+  - JSON schema validation for annotations
+  - GitHub PR workflow with CI checks
+  - Seed with 20 known Magento core gotchas
+  - CLI displays issues inline with severity color-coding
+
+
+PHASE 4: INTERACTIVE VISUALIZATION UI (5 WEEKS)
+------------------------------------------------
+
+3 Core Views:
+  1. Graph Explorer: D3.js force-directed layout with zoom/pan
+  2. Plugin Chain Viewer: Horizontal timeline showing execution order
+  3. Issue Browser: Filterable table with severity/module filters
+
+Tech Stack: React + Vite + Tailwind + Apollo Client
+
+Quality Bars:
+  - Lighthouse accessibility score 100 (WCAG 2.1 AA)
+  - LCP <2.5s
+  - Graph with 500 nodes renders in <3 seconds
+
+
+PHASE 5: LAUNCH & HARDENING (3 WEEKS)
+--------------------------------------
+
+Deliverables:
+  - Comprehensive documentation (Docusaurus/VitePress)
+  - CI/CD pipelines (GitHub Actions)
+  - 70% test coverage
+  - Security audit (0 critical vulnerabilities)
+  - npm package publication
+  - Community launch materials (blog post, demo video, forum posts)
+
+
+🎁 TOP 30 MAGENTO GOTCHAS TO DOCUMENT
+================================================================================
+
+CRITICAL SEVERITY:
+------------------
+1. Product::getPrice() returns base price, not final price
+2. ProductRepository::save() race condition with stock indexer
+3. Quote address validation bypass in certain flows
+4. Plugin sortOrder conflicts causing unpredictable behavior
+5. Magic methods breaking static analysis
+
+MAJOR SEVERITY:
+---------------
+6. Repository pattern inconsistencies across modules
+7. Model vs ResourceModel confusion
+8. Collection loading performance traps (N+1 queries)
+9. EAV attribute load overhead
+10. Cache invalidation missing after certain operations
+11. Event dispatch in loops (performance)
+12. Missing ACL checks in admin controllers
+13. Direct ObjectManager usage (anti-pattern)
+14. Hardcoded class names instead of DI
+15. Session data not cleared on logout
+16. Incorrect use of singletons
+17. Database queries in loops
+18. Missing index definitions
+19. Improper exception handling
+20. Registry usage (deprecated pattern)
+
+MINOR SEVERITY:
+---------------
+21. Inconsistent return types
+22. Missing type hints
+23. Overly complex constructors
+24. Lack of interface segregation
+25. God classes (too many responsibilities)
+26. Missing plugin points
+27. Non-extensible private methods
+28. Hardcoded configuration
+29. Inconsistent naming conventions
+30. Missing unit test coverage
+
+
+🚀 IMMEDIATE NEXT STEPS (WEEK 1)
+================================================================================
+
+DAY 1-2: FOUNDATION
+-------------------
+# Initialize project
+npm init -y
+npm install commander chalk fast-xml-parser neo4j-driver
+
+# Create structure
+mkdir -p src/{cli,parsers/{xml,php},graph,commands}
+mkdir -p tests/fixtures
+mkdir -p data
+mkdir -p diagrams
+
+
+DAY 3-5: XML PARSING POC
+------------------------
+# Parse di.xml for Magento_Customer
+node src/cli.js parse-di vendor/magento/module-customer/etc
+
+# Expected output:
+✓ Found 8 preferences
+✓ Found 15 plugins
+✓ Found 23 virtual types
+✓ Stored in data/customer-di.json
+
+
+WEEK 2-3: GRAPH + QUERIES
+--------------------------
+- Set up Neo4j (Docker Compose)
+- Import parsed data
+- Implement 3 reference CLI queries
+- Generate first Mermaid diagram
+
+
+WEEK 4: QA & DEMO
+-----------------
+- QA validation against known structure
+- Record 5-minute demo video
+- GO/NO-GO decision with stakeholders
+
+
+⚠️ CRITICAL SUCCESS FACTORS
+================================================================================
+
+1. SCOPE DISCIPLINE
+   Stay focused on Magento_Customer for POC
+
+2. FALLBACK STRATEGIES
+   Use Magento CLI commands when static parsing too hard
+
+3. 80% ACCURACY GOAL
+   Don't aim for perfection initially
+
+4. COMMUNITY SEEDING
+   Pre-populate 50 gotchas before launch
+
+5. CLEAR DIFFERENTIATION
+   Visual mapping + gotcha detection, not just docs
+
+
+📊 RISK REGISTER (TOP 5)
+================================================================================
+
+RISK                             | PROBABILITY | IMPACT | MITIGATION
+---------------------------------|-------------|--------|---------------------------
+PHP call chain <50% accuracy     | High        | Medium | Focus on static calls only
+Neo4j performance issues         | Medium      | High   | Partition graph by module
+D3.js slow with 4000+ nodes      | Medium      | High   | Progressive loading
+Low community adoption           | Medium      | Low    | Seed with friendly devs
+Scope creep requests             | Medium      | Medium | Strict roadmap
+
+
+💡 WHAT MAKES THIS UNIQUE
+================================================================================
+
+VS EXISTING TOOLS:
+------------------
+- PHPStan Magento extensions: Static analysis, no visual mapping
+- bin/magento dev:di:info: Single class lookup, no relationships
+- Magerun2: CLI utilities, no comprehensive graph
+- DevDocs: Static documentation, no live codebase analysis
+
+YOUR TOOL'S USP:
+----------------
+✓ Visual relationship mapping (see how everything connects)
+✓ Known gotchas database (community-curated warnings)
+✓ Interactive exploration (click, filter, drill down)
+✓ Call chain tracing (what happens when X is called?)
+✓ Version-aware (compare across Magento versions)
+
+
+📂 RECOMMENDED PROJECT STRUCTURE
+================================================================================
+
+magento-analyzer/
+├── src/
+│   ├── parsers/
+│   │   ├── php/
+│   │   │   ├── PhpParser.js
+│   │   │   └── ast-extractor.php
+│   │   └── xml/
+│   │       ├── DiXmlParser.js
+│   │       ├── EventsXmlParser.js
+│   │       └── ModuleXmlParser.js
+│   ├── graph/
+│   │   ├── Neo4jConnector.js
+│   │   └── GraphBuilder.js
+│   ├── analyzers/
+│   │   ├── DependencyAnalyzer.js
+│   │   └── GotchaDetector.js
+│   ├── visualizers/
+│   │   ├── D3GraphRenderer.js
+│   │   └── MermaidGenerator.js
+│   ├── commands/
+│   │   ├── plugins.js
+│   │   ├── observers.js
+│   │   ├── deps.js
+│   │   └── trace.js
+│   └── cli/
+│       └── index.js
+├── tests/
+│   └── fixtures/
+│       └── Magento_Customer/
+├── annotations/
+│   ├── catalog/
+│   ├── customer/
+│   └── sales/
+├── schemas/
+│   └── known-issue.schema.json
+├── docker/
+│   └── docker-compose.yml
+├── data/
+├── diagrams/
+├── package.json
+└── README.md
+
+
+🔧 DETAILED PHASE 1 TASKS (POC)
+================================================================================
+
+WEEK 1: FOUNDATION + DI PARSING
+--------------------------------
+□ P1-T1: Set up Node.js CLI scaffold with commander.js (4 hours)
+  - Initialize package.json with Node 18+ target
+  - Add commander.js for CLI arg parsing
+  - Add chalk for colored output
+  - Create src/cli.js entry point
+  - Implement --help and --version flags
+
+□ P1-T2: Parse di.xml for Magento_Customer (12 hours)
+  - Install fast-xml-parser NPM package
+  - Locate vendor/magento/module-customer/etc/di.xml and etc/*/di.xml
+  - Parse <preference>, <plugin>, <virtualType> nodes
+  - Extract: for attribute, type attribute, sortOrder, disabled flag
+  - Store in Map<interfaceName, {preferences, plugins}>
+  - Handle area-specific di.xml (frontend, adminhtml, graphql, webapi_rest)
+
+□ P1-T3: Parse events.xml for Magento_Customer (6 hours)
+  - Locate etc/events.xml and etc/*/events.xml
+  - Parse <event name=...><observer name=... instance=... disabled=.../></event>
+  - Store as Map<eventName, [{observerName, class, disabled}]>
+  - Handle area-specific event declarations
+
+□ P1-T4: Parse module.xml for dependencies (4 hours)
+  - Parse etc/module.xml for <module name=... setup_version=...>
+  - Extract <sequence><module name=.../></sequence> for load-order deps
+  - Store as directed graph: moduleA → [moduleB, moduleC]
+
+
+WEEK 2: GRAPH MODEL + NEO4J SETUP
+----------------------------------
+□ P1-T5: Build in-memory graph model from parsed XML data (10 hours)
+  - Design graph schema: Node types (Interface, Class, Plugin, Observer, Event, Module)
+  - Edge types: PREFERS, PLUGINS, OBSERVES, DISPATCHES, DEPENDS_ON
+  - Implement Graph class with addNode(type, id, props), addEdge(from, to, type, props)
+  - Merge di.xml, events.xml, module.xml data into single graph
+  - Add metadata: sortOrder for plugins, area for di/events
+
+□ P1-T6: Implement 3 reference CLI queries (8 hours)
+  - Query 1: `mage-map plugins <InterfaceName>` → list all plugins with sortOrder
+  - Query 2: `mage-map observers <eventName>` → list all observers
+  - Query 3: `mage-map deps <ModuleName>` → list module dependencies (transitive)
+  - Output as ASCII tree with indentation and colors (chalk)
+
+
+WEEK 3: VISUALIZATION
+----------------------
+□ P1-T7: Generate Mermaid diagram for plugin chain (6 hours)
+  - Implement DiagramGenerator.js using mermaid syntax
+  - Query graph for all plugins on ProductRepository::save
+  - Sort by sortOrder, generate flowchart: before plugins → original → after plugins
+  - Output .mmd file and render to PNG via mermaid-cli
+
+
+WEEK 4: DOCUMENTATION + QA
+--------------------------
+□ P1-T8: Document POC architecture and handoff to QA (6 hours)
+  - Write ARCHITECTURE.md: parser flow, graph schema, query design
+  - Write USAGE.md: install, run, example queries
+  - Create test fixtures: sample di.xml, events.xml for unit tests
+  - Package QA handoff: install script, test matrix, acceptance criteria
+
+
+🎯 PHASE 1 EXIT CRITERIA (GO/NO-GO GATE)
+================================================================================
+
+REQUIRED FOR GO:
+----------------
+✓ All 3 CLI queries return correct results for Magento_Customer
+✓ Parse completes in <5 minutes on standard laptop
+✓ At least 1 Mermaid diagram generated successfully
+✓ QA validates queries against known Magento_Customer structure
+✓ Stakeholders approve architecture and Phase 2 scope
+
+IF NO-GO:
+---------
+- Document lessons learned
+- Pivot to simpler approach (e.g., wrapper around bin/magento dev:di:info)
+- OR: Reduce scope further (single class, not module)
+- OR: Defer project pending resource availability
+
+
+📈 SUCCESS METRICS
+================================================================================
+
+POC SUCCESS (PHASE 1):
+----------------------
+✓ Parse Magento_Customer in <30 seconds
+✓ Detect 5 known gotchas
+✓ Generate interactive visualization
+✓ All data in Neo4j, queryable
+
+PRODUCTION READINESS (PHASE 5):
+--------------------------------
+✓ Parse full Magento core (150 modules) in <10 minutes
+✓ Detect 30 gotcha categories
+✓ Support Magento 2.4.6, 2.4.7, 2.4.8
+✓ Community contributions (5+ external contributors)
+✓ 100+ GitHub stars
+
+
+💻 TECHNICAL DECISIONS RATIONALE
+================================================================================
+
+WHY nikic/php-parser (via Docker) over tree-sitter:
+----------------------------------------------------
+- Gold standard for PHP parsing (used by PHPStan, Psalm)
+- 100% accuracy for PHP AST extraction
+- Handles all PHP 8.x features including attributes, enums
+- Docker overhead acceptable for batch processing
+- Tree-sitter lacks maturity for complex PHP (magic methods, traits)
+
+WHY Neo4j over alternatives (ArangoDB, TinkerPop):
+---------------------------------------------------
+- Native graph database (optimized for relationship queries)
+- Cypher query language intuitive for developers
+- Best-in-class visualization tools (Neo4j Browser)
+- Strong community and documentation
+- Can handle 10M+ nodes on commodity hardware
+
+WHY GraphQL over REST:
+----------------------
+- Graph queries are natural fit for graph data
+- Client can request exact data needed (no over-fetching)
+- Schema introspection built-in
+- Apollo ecosystem mature and well-supported
+
+WHY Magento_Customer over Magento_Catalog for POC:
+---------------------------------------------------
+- Catalog has 184 classes, Customer has ~150 (more manageable)
+- Catalog has complex product types, configurable, bundle, etc.
+- Customer has all key patterns (DI, plugins, events) but simpler domain
+- Easier to validate (fewer edge cases)
+- Faster to parse (proves feasibility sooner)
+
+
+🚫 WHAT NOT TO DO (LESSONS FROM SIMILAR PROJECTS)
+================================================================================
+
+1. DON'T try to parse EAV in POC
+   - Too complex, low ROI for POC
+   - Defer to Phase 2
+
+2. DON'T aim for 100% accuracy initially
+   - 80% is enough to be useful
+   - Perfection kills momentum
+
+3. DON'T build custom XML merger
+   - Use Magento's compiled config via shell
+   - Reimplement only if performance critical
+
+4. DON'T visualize everything at once
+   - Large graphs are unusable
+   - Hierarchical drill-down required
+
+5. DON'T launch without community strategy
+   - Tool without users is wasted effort
+   - Marketing plan essential
+
+6. DON'T depend on runtime introspection for POC
+   - Static analysis sufficient for Phase 1
+   - Hybrid approach for Phase 2
+
+
+📚 REFERENCE ARCHITECTURE (FROM MAGENTO EXPERT)
+================================================================================
+
+MAGENTO 2 CORE SYSTEMS TO MAP:
+-------------------------------
+
+1. DEPENDENCY INJECTION (di.xml)
+   - Preferences: interface → implementation mappings
+   - Plugins: before/after/around interceptors with sortOrder
+   - Virtual types: configuration-based class variants
+   - Type configurations: constructor argument injection
+   - Area-specific overrides (frontend, adminhtml, graphql, webapi_rest)
+   - Effective configuration resolution across module load order
+
+2. PLUGIN/INTERCEPTOR CHAINS
+   - Execution order determined by sortOrder
+   - Plugin chains (plugins on plugins)
+   - Around plugin wrapping
+   - Disabled plugin handling
+   - sortOrder conflicts and resolution
+
+3. EVENT/OBSERVER SYSTEM
+   - Event dispatch points in code (Magento\Framework\Event\Manager::dispatch)
+   - Observer priority (no explicit order, load sequence determines)
+   - Global vs area-specific events
+   - Disabled observer handling
+   - Event payload analysis
+
+4. LAYOUT XML
+   - Layout handle resolution
+   - Block extends, overrides, removes
+   - Block → Template → ViewModel mapping
+   - Container nesting
+   - Move, remove, addChild operations
+   - Area-specific layout merging
+
+5. SERVICE CONTRACTS
+   - API interfaces vs implementation classes
+   - Preference chains (Interface → AbstractImpl → ConcreteImpl)
+   - WebAPI exposure (webapi.xml)
+   - Data interfaces vs models
+
+6. MODULE DEPENDENCIES
+   - module.xml sequence (soft dependencies)
+   - composer.json require (hard dependencies)
+   - Circular dependency detection
+   - Load order implications
+   - Module enable/disable impact
+
+
+KNOWN PARSING CHALLENGES:
+--------------------------
+
+1. GENERATED CODE
+   - Factories, Proxies, Interceptors don't exist in source
+   - Generated at runtime in var/generation/
+   - Must parse generated code OR infer from patterns
+
+2. MAGIC METHODS
+   - __call() for dynamic getters/setters (getFirstname, setEmail, etc.)
+   - Cannot be detected via static analysis alone
+   - Must use convention-based heuristics
+
+3. XML MERGING LOGIC
+   - Magento merges XML across modules based on load order
+   - Area-specific XML overrides global
+   - Understanding effective config requires replicating merger logic
+
+4. RUNTIME VS COMPILE-TIME
+   - Some configuration only known at runtime (store config)
+   - Area determination affects DI/events/layout
+   - Static analysis gives partial picture
+
+5. AREA-SPECIFIC BEHAVIOR
+   - frontend vs adminhtml vs webapi_rest vs graphql
+   - Different DI, events, layout per area
+   - Must parse and store per-area variants
+
+
+NEO4J GRAPH SCHEMA (RECOMMENDED):
+----------------------------------
+
+NODES:
+------
+- Interface (name, namespace, module)
+- Class (name, namespace, module, extends, abstract)
+- Method (name, class, visibility, parameters, returnType)
+- Plugin (name, class, type [before/after/around], sortOrder, disabled)
+- Observer (name, class, event, disabled)
+- Event (name, area, module)
+- Module (name, version, sequence)
+- Preference (interface, implementation, area)
+- VirtualType (name, type, arguments)
+
+RELATIONSHIPS:
+--------------
+- (Interface)-[:IMPLEMENTED_BY]->(Class)
+- (Class)-[:EXTENDS]->(Class)
+- (Class)-[:DEPENDS_ON]->(Class)  [via constructor injection]
+- (Method)-[:CALLS]->(Method)  [static analysis]
+- (Plugin)-[:INTERCEPTS]->(Method)  {sortOrder, type}
+- (Observer)-[:OBSERVES]->(Event)
+- (Event)-[:DISPATCHED_BY]->(Method)
+- (Module)-[:DEPENDS_ON]->(Module)  [sequence]
+- (Module)-[:REQUIRES]->(Module)  [composer]
+- (Preference)-[:MAPS {area}]->(Class)
+- (Class)-[:HAS_ISSUE]->(Issue)  [known gotchas]
+
+INDEXES:
+--------
+CREATE INDEX ON :Class(name)
+CREATE INDEX ON :Interface(name)
+CREATE INDEX ON :Method(name)
+CREATE INDEX ON :Module(name)
+CREATE INDEX ON :Event(name)
+CREATE CONSTRAINT ON (c:Class) ASSERT c.fqcn IS UNIQUE
+
+
+EXAMPLE CYPHER QUERIES:
+-----------------------
+
+1. Find all plugins on a method:
+MATCH (m:Method {name: 'save'})<-[:INTERCEPTS]-(p:Plugin)
+WHERE m.class = 'Magento\\Customer\\Model\\ResourceModel\\CustomerRepository'
+RETURN p.name, p.type, p.sortOrder
+ORDER BY p.sortOrder
+
+2. Find dependency chain from ClassA to ClassB:
+MATCH path = shortestPath(
+  (a:Class {name: 'CustomerRepository'})-[:DEPENDS_ON*]->(b:Class {name: 'Customer'})
+)
+RETURN path
+
+3. Find all observers for an event:
+MATCH (e:Event {name: 'customer_save_after'})<-[:OBSERVES]-(o:Observer)
+RETURN o.name, o.class
+
+4. Find methods with known issues:
+MATCH (m:Method)-[:HAS_ISSUE]->(i:Issue)
+WHERE i.severity = 'critical'
+RETURN m.class, m.name, i.title, i.workaround
+
+
+================================================================================
+END OF PROJECT PLAN
+================================================================================
+
+NEXT ACTION: Review with stakeholders and approve Phase 1 kickoff
+
+ESTIMATED TOTAL EFFORT:
+- Phase 1 (POC): 56 hours (4 weeks @ 14 hours/week, or 1.4 weeks full-time)
+- Phase 2 (Scale): 96 hours
+- Phase 3 (Issues): 52 hours
+- Phase 4 (UI): 90 hours
+- Phase 5 (Launch): 86 hours
+TOTAL: ~380 hours (~9.5 weeks full-time or ~27 weeks @ 14 hours/week)
+
+ROI JUSTIFICATION:
+- Saves every Magento developer 10+ hours/month
+- Reduces onboarding time for new developers by 50%
+- Catches architectural violations before code review
+- Community contributions scale value exponentially
+- Estimated 1000+ developers benefit within first year
+
+CONTACT: Project Orchestrator & Magento Expert Agents
+REPOSITORY: (To be created)
+LICENSE: (Recommend MIT or Apache 2.0 for community adoption)

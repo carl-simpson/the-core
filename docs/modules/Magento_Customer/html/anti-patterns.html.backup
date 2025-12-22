@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anti-Patterns - Magento_Customer Module</title>
+    <style>
+        /* Design System: Magento Bauhaus */
+        :root {
+            --magento-orange: #F26423;
+            --magento-yellow: #F1BC1B;
+            --magento-charcoal: #2C2C2C;
+            --magento-off-white: #FAFAFA;
+            --magento-orange-light: #FFA06F;
+            --magento-orange-dark: #D94E12;
+            --magento-gray-100: #F5F5F5;
+            --magento-gray-200: #E5E5E5;
+            --magento-gray-300: #D1D1D1;
+            --magento-gray-700: #4A4A4A;
+            --magento-gray-900: #1A1A1A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--magento-charcoal);
+            background-color: var(--magento-off-white);
+        }
+
+        /* Hero Section */
+        
+
+        
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: var(--magento-yellow);
+            opacity: 0.08;
+            
+        }
+
+        .hero-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-svg {
+            display: inline-block;
+            width: 64px;
+            height: 64px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--magento-gray-200);
+            max-width: 65ch;
+            line-height: 1.7;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background-color: white;
+            border-bottom: 1px solid var(--magento-gray-200);
+            padding: 1rem 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .breadcrumb-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb a {
+            color: var(--magento-gray-700);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 200ms ease-out;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--magento-orange);
+        }
+
+        .breadcrumb-separator {
+            color: var(--magento-gray-300);
+            user-select: none;
+        }
+
+        .breadcrumb-current {
+            color: var(--magento-charcoal);
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 4rem;
+        }
+
+        /* Table of Contents */
+        .toc {
+            background-color: white;
+            
+            border: 2px solid var(--magento-gray-200);
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .toc h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--magento-charcoal);
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .toc h2::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background-color: var(--magento-orange);
+            
+        }
+
+        .toc ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .toc li a {
+            color: var(--magento-gray-700);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            display: block;
+            padding: 0.625rem 1rem;
+            
+            transition: all 200ms ease-out;
+            border: 1px solid transparent;
+        }
+
+        .toc li a:hover {
+            background-color: var(--magento-gray-100);
+            color: var(--magento-orange);
+            border-color: var(--magento-gray-200);
+        }
+
+        /* Section Headers */
+        .section-header {
+            margin-top: 4rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--magento-charcoal);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-header h2::before {
+            content: '';
+            width: 6px;
+            height: 36px;
+            background: linear-gradient(180deg, var(--magento-orange) 0%, var(--magento-yellow) 100%);
+            
+        }
+
+        /* Anti-Pattern Cards */
+        .anti-pattern {
+            background-color: white;
+            
+            border: 2px solid var(--magento-gray-200);
+            margin-bottom: 3rem;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .anti-pattern-header {
+            background: linear-gradient(135deg, #FFF5F0 0%, #FFFAF5 100%);
+            border-bottom: 2px solid var(--magento-orange);
+            padding: 1.75rem 2rem;
+        }
+
+        .anti-pattern-header h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--magento-charcoal);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .anti-pattern-header h3::before {
+            content: '❌';
+            font-size: 1.75rem;
+            flex-shrink: 0;
+        }
+
+        .anti-pattern-content {
+            padding: 2rem;
+        }
+
+        /* Warning Callouts */
+        .callout {
+            
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid;
+        }
+
+        .callout-danger {
+            background-color: #FFF5F5;
+            border-color: #DC2626;
+        }
+
+        .callout-danger h4 {
+            color: #991B1B;
+            font-size: 1.0625rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .callout-danger h4::before {
+            content: '⚠';
+            font-size: 1.25rem;
+        }
+
+        .callout-danger p,
+        .callout-danger ul {
+            color: #7F1D1D;
+            font-size: 0.9375rem;
+            line-height: 1.6;
+        }
+
+        .callout-danger ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .callout-danger li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .callout-danger li::before {
+            content: '•';
+            position: absolute;
+            left: 0.5rem;
+            font-weight: 700;
+        }
+
+        .callout-success {
+            background-color: #F0FDF4;
+            border-color: #16A34A;
+        }
+
+        .callout-success h4 {
+            color: #166534;
+            font-size: 1.0625rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .callout-success h4::before {
+            content: '✓';
+            font-size: 1.25rem;
+        }
+
+        .callout-success p,
+        .callout-success ul {
+            color: #14532D;
+            font-size: 0.9375rem;
+            line-height: 1.6;
+        }
+
+        .callout-success ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .callout-success li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .callout-success li::before {
+            content: '•';
+            position: absolute;
+            left: 0.5rem;
+            font-weight: 700;
+        }
+
+        .callout-info {
+            background-color: #FFF9EB;
+            border-color: var(--magento-yellow);
+        }
+
+        .callout-info h4 {
+            color: #92400E;
+            font-size: 1.0625rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .callout-info h4::before {
+            content: 'ℹ';
+            font-size: 1.25rem;
+        }
+
+        .callout-info p,
+        .callout-info ul {
+            color: #78350F;
+            font-size: 0.9375rem;
+            line-height: 1.6;
+        }
+
+        /* Code Blocks */
+        .code-container {
+            margin: 1.5rem 0;
+            
+            overflow: hidden;
+            border: 1px solid var(--magento-gray-200);
+        }
+
+        .code-header {
+            background-color: var(--magento-charcoal);
+            color: var(--magento-off-white);
+            padding: 0.75rem 1.25rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .code-badge {
+            background-color: #DC2626;
+            color: white;
+            padding: 0.25rem 0.625rem;
+            
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .code-badge-good {
+            background-color: #16A34A;
+        }
+
+        pre {
+            margin: 0;
+            padding: 1.5rem;
+            overflow-x: auto;
+            background-color: var(--magento-gray-900);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.875rem;
+            line-height: 1.6;
+            color: #E5E5E5;
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .code-comment {
+            color: #9CA3AF;
+        }
+
+        /* Typography */
+        h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--magento-charcoal);
+            margin: 2rem 0 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            max-width: 75ch;
+        }
+
+        strong {
+            font-weight: 600;
+            color: var(--magento-charcoal);
+        }
+
+        /* Summary Table */
+        .summary-table {
+            margin: 2rem 0;
+            
+            overflow: hidden;
+            border: 2px solid var(--magento-gray-200);
+            background-color: white;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--magento-charcoal) 0%, var(--magento-gray-900) 100%);
+        }
+
+        th {
+            color: var(--magento-off-white);
+            font-weight: 600;
+            text-align: left;
+            padding: 1rem 1.25rem;
+            font-size: 0.9375rem;
+        }
+
+        td {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid var(--magento-gray-200);
+            font-size: 0.9375rem;
+            line-height: 1.6;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background-color: var(--magento-gray-100);
+        }
+
+        /* Footer */
+        .doc-footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--magento-gray-200);
+            text-align: center;
+            color: var(--magento-gray-700);
+            font-size: 0.875rem;
+        }
+
+        .doc-footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 2rem 1rem 3rem;
+            }
+
+            .toc ul {
+                grid-template-columns: 1fr;
+            }
+
+            .anti-pattern-header,
+            .anti-pattern-content {
+                padding: 1.5rem;
+            }
+
+            .code-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            pre {
+                padding: 1rem;
+                font-size: 0.8125rem;
+            }
+
+            .summary-table {
+                overflow-x: auto;
+            }
+
+            table {
+                min-width: 600px;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Focus States */
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--magento-orange);
+            outline-offset: 2px;
+            
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="bg-gradient-to-br from-magento-charcoal via-magento-charcoal to-gray-800 border-b-8 border-magento-orange">
+        <div class="hero-content">
+            <svg class="hero-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="32" r="30" stroke="#F26423" stroke-width="3" fill="none"/>
+                <path d="M32 16L32 48M16 32L48 32" stroke="#F1BC1B" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="32" cy="32" r="6" fill="#F26423"/>
+            </svg>
+            <h1>Anti-Patterns</h1>
+            <p>Common mistakes developers make when working with the Magento_Customer module, why they're problematic, and the correct implementations following Magento best practices.</p>
+        </div>
+    </header>
+
+  <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="../../../index.html">Documentation</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="./index.html">Magento_Customer</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Anti-Patterns</span>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Table of Contents -->
+        <section class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#data-access">Data Access Anti-Patterns</a></li>
+                <li><a href="#cache">Cache Anti-Patterns</a></li>
+                <li><a href="#observer">Observer Anti-Patterns</a></li>
+                <li><a href="#performance">Performance Anti-Patterns</a></li>
+                <li><a href="#security">Security Anti-Patterns</a></li>
+                <li><a href="#testing">Testing Anti-Patterns</a></li>
+                <li><a href="#summary">Quick Reference Summary</a></li>
+            </ul>
+        </section>
+
+        <!-- Data Access Anti-Patterns -->
+        <section id="data-access">
+            <div class="section-header">
+                <h2>Data Access Anti-Patterns</h2>
+            </div>
+
+            <!-- Anti-Pattern 1 -->
+            <article class="anti-pattern">
+                <div class="anti-pattern-header">
+                    <h3>Anti-Pattern 1: Direct Model Usage Instead of Repository</h3>
+                </div>
+                <div class="anti-pattern-content">
+                    <div class="callout callout-danger">
+                        <h4>Why It's Bad</h4>
+                        <ul>
+                            <li><strong>Bypasses Service Contracts:</strong> Extensions depending on service contract interfaces won't intercept this operation</li>
+                            <li><strong>Skips Plugins:</strong> Plugins registered on CustomerRepositoryInterface won't execute</li>
+                            <li><strong>Skips Transaction Wrapper:</strong> Risk of partial data writes</li>
+                            <li><strong>No Event Dispatch:</strong> customer_save_after_data_object event not fired (breaks email sync, audit logging)</li>
+                            <li><strong>Breaks API Compatibility:</strong> Third-party code expecting repository pattern won't work</li>
+                            <li><strong>No Data Validation:</strong> Repository validation logic bypassed</li>
+                        </ul>
+                    </div>
+
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>Bad Code Example</span>
+                            <span class="code-badge">Bad</span>
+                        </div>
+                        <pre><code>&lt;?php
+namespace Vendor\Module\Model;
+
+use Magento\Customer\Model\CustomerFactory;
+
+class CustomerService
+{
+    private CustomerFactory $customerFactory;
+
+    public function __construct(CustomerFactory $customerFactory)
+    {
+        $this->customerFactory = $customerFactory;
+    }
+
+    public function updateCustomerName(int $customerId, string $firstname, string $lastname): void
+    {
+        <span class="code-comment">// WRONG: Direct model manipulation</span>
+        $customer = $this->customerFactory->create();
+        $customer->load($customerId);
+        $customer->setFirstname($firstname);
+        $customer->setLastname($lastname);
+        $customer->save();
+    }
+}</code></pre>
+                    </div>
+
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>Good Code Example</span>
+                            <span class="code-badge code-badge-good">Good</span>
+                        </div>
+                        <pre><code>&lt;?php
+declare(strict_types=1);
+
+namespace Vendor\Module\Model;
+
+use Magento\Customer\Api\CustomerRepositoryInterface;
+use Magento\Customer\Api\Data\CustomerInterface;
+
+class CustomerService
+{
+    private CustomerRepositoryInterface $customerRepository;
+
+    public function __construct(CustomerRepositoryInterface $customerRepository)
+    {
+        $this->customerRepository = $customerRepository;
+    }
+
+    public function updateCustomerName(int $customerId, string $firstname, string $lastname): void
+    {
+        <span class="code-comment">// CORRECT: Use repository service contract</span>
+        $customer = $this->customerRepository->getById($customerId);
+        $customer->setFirstname($firstname);
+        $customer->setLastname($lastname);
+        $this->customerRepository->save($customer);
+    }
+}</code></pre>
+                    </div>
+
+                    <div class="callout callout-success">
+                        <h4>Why It's Better</h4>
+                        <ul>
+                            <li><strong>Service Contract Compliance:</strong> Follows Magento's service contract pattern</li>
+                            <li><strong>Plugin Support:</strong> All plugins on CustomerRepositoryInterface::save() execute</li>
+                            <li><strong>Transaction Safety:</strong> TransactionWrapper plugin ensures atomic save</li>
+                            <li><strong>Event Dispatch:</strong> Proper event chain fires (before/after save, email sync observers)</li>
+                            <li><strong>Extensibility:</strong> Third-party modules can extend without modifying code</li>
+                            <li><strong>API Compatibility:</strong> Works identically via REST/SOAP/GraphQL</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Anti-Pattern 2 -->
+            <article class="anti-pattern">
+                <div class="anti-pattern-header">
+                    <h3>Anti-Pattern 2: Loading Full Customer When Only ID Needed</h3>
+                </div>
+                <div class="anti-pattern-content">
+                    <div class="callout callout-danger">
+                        <h4>Why It's Bad</h4>
+                        <ul>
+                            <li><strong>Performance Waste:</strong> Loads all EAV attributes (10+ SQL queries) when only 1 field needed</li>
+                            <li><strong>Memory Overhead:</strong> Loads entire customer object into memory</li>
+                            <li><strong>Database Load:</strong> Unnecessary JOIN operations across EAV tables</li>
+                            <li><strong>Slow Response:</strong> 100-500ms customer load vs. 5-10ms direct query</li>
+                        </ul>
+                    </div>
+
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>Good Code Example</span>
+                            <span class="code-badge code-badge-good">Good</span>
+                        </div>
+                        <pre><code>&lt;?php
+declare(strict_types=1);
+
+namespace Vendor\Module\Helper;
+
+use Magento\Framework\App\ResourceConnection;
+
+class OrderHelper
+{
+    private ResourceConnection $resourceConnection;
+
+    public function __construct(ResourceConnection $resourceConnection)
+    {
+        $this->resourceConnection = $resourceConnection;
+    }
+
+    public function getCustomerGroupForOrder(int $customerId): int
+    {
+        <span class="code-comment">// CORRECT: Direct query for single field</span>
+        $connection = $this->resourceConnection->getConnection();
+        $customerTable = $this->resourceConnection->getTableName('customer_entity');
+
+        $select = $connection->select()
+            ->from($customerTable, ['group_id'])
+            ->where('entity_id = ?', $customerId);
+
+        return (int)$connection->fetchOne($select);
+    }
+}</code></pre>
+                    </div>
+
+                    <div class="callout callout-success">
+                        <h4>Performance Gain</h4>
+                        <p><strong>10-50x faster:</strong> Single query (5-10ms) vs. 10+ queries with EAV joins (100-500ms)</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Anti-Pattern 3 -->
+            <article class="anti-pattern">
+                <div class="anti-pattern-header">
+                    <h3>Anti-Pattern 3: Excessive Custom EAV Attributes</h3>
+                </div>
+                <div class="anti-pattern-content">
+                    <div class="callout callout-danger">
+                        <h4>Why It's Bad</h4>
+                        <ul>
+                            <li><strong>Query Complexity:</strong> Each EAV attribute = 1 LEFT JOIN (50 attributes = 50 JOINs)</li>
+                            <li><strong>Slow Customer Load:</strong> 2000ms+ customer load time with 50+ custom attributes</li>
+                            <li><strong>Database Stress:</strong> Complex execution plans, potential table locks</li>
+                            <li><strong>Memory Usage:</strong> Large result sets consume memory</li>
+                            <li><strong>Index Bloat:</strong> EAV attribute tables grow exponentially</li>
+                        </ul>
+                    </div>
+
+                    <div class="callout callout-success">
+                        <h4>Correct Approach: Extension Attributes + Custom Table</h4>
+                        <ul>
+                            <li><strong>Single JOIN:</strong> Only 1 JOIN to extended data table (vs. 50 JOINs for EAV)</li>
+                            <li><strong>Fast Queries:</strong> Simple SELECT with single JOIN, 20-50ms vs. 2000ms</li>
+                            <li><strong>Better Indexing:</strong> Standard table indexes (vs. EAV attribute indexes)</li>
+                            <li><strong>Lazy Loading:</strong> Extended data only loaded when needed via extension attributes</li>
+                            <li><strong>Scalable:</strong> Handles hundreds of custom fields efficiently</li>
+                        </ul>
+                    </div>
+
+                    <div class="callout callout-info">
+                        <h4>Performance Gain</h4>
+                        <p><strong>10-100x faster:</strong> Single query with one JOIN (20-50ms) vs. 50 JOINs (2000ms+)</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Cache Anti-Patterns -->
+        <section id="cache">
+            <div class="section-header">
+                <h2>Cache Anti-Patterns</h2>
+            </div>
+
+            <article class="anti-pattern">
+                <div class="anti-pattern-header">
+                    <h3>Anti-Pattern 4: Ignoring Customer Group Cache After Group Change</h3>
+                </div>
+                <div class="anti-pattern-content">
+                    <div class="callout callout-danger">
+                        <h4>Why It's Bad</h4>
+                        <ul>
+                            <li><strong>Stale Prices:</strong> Full Page Cache serves old pricing based on previous customer group</li>
+                            <li><strong>Wrong Promotions:</strong> Catalog rules and group-based promotions don't apply immediately</li>
+                            <li><strong>Customer Confusion:</strong> "I changed my group, why are prices still the same?"</li>
+                            <li><strong>Business Logic Errors:</strong> Group-specific content shows old version</li>
+                            <li><strong>Revenue Impact:</strong> Potential overcharging or undercharging</li>
+                        </ul>
+                    </div>
+
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>Good Code Example - Cache Invalidation</span>
+                            <span class="code-badge code-badge-good">Good</span>
+                        </div>
+                        <pre><code>&lt;?php
+declare(strict_types=1);
+
+namespace Vendor\Module\Controller\Adminhtml\Customer;
+
+use Magento\Customer\Api\CustomerRepositoryInterface;
+use Magento\Framework\App\CacheInterface;
+use Magento\PageCache\Model\Cache\Type as FullPageCache;
+
+class ChangeGroup extends Action
+{
+    private CustomerRepositoryInterface $customerRepository;
+    private CacheInterface $cache;
+
+    public function execute()
+    {
+        $customerId = $this->getRequest()->getParam('customer_id');
+        $newGroupId = $this->getRequest()->getParam('group_id');
+
+        $customer = $this->customerRepository->getById($customerId);
+        $customer->setGroupId($newGroupId);
+        $this->customerRepository->save($customer);
+
+        <span class="code-comment">// CORRECT: Invalidate FPC to prevent stale pricing</span>
+        $this->cache->clean([FullPageCache::CACHE_TAG]);
+
+        $this->messageManager->addSuccessMessage('Customer group updated. Cache cleared.');
+        return $this->_redirect('customer/index');
+    }
+}</code></pre>
+                    </div>
+
+                    <div class="callout callout-success">
+                        <h4>Why It's Better</h4>
+                        <ul>
+                            <li><strong>Fresh Pricing:</strong> FPC cleared, next page load shows correct prices</li>
+                            <li><strong>Correct Business Logic:</strong> Group-based rules apply immediately</li>
+                            <li><strong>Customer Satisfaction:</strong> No confusion about pricing discrepancies</li>
+                            <li><strong>Data Integrity:</strong> Cache state matches database state</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Observer Anti-Patterns -->
+        <section id="observer">
+            <div class="section-header">
+                <h2>Observer Anti-Patterns</h2>
+            </div>
+
+            <article class="anti-pattern">
+                <div class="anti-pattern-header">
+                    <h3>Anti-Pattern 6: Synchronous External API Calls in Observers</h3>
+                </div>
+                <div class="anti-pattern-content">
+                    <div class="callout callout-danger">
+                        <h4>Why It's Bad</h4>
+                        <ul>
+                            <li><strong>Slow Saves:</strong> Customer save operations take 200-1000ms longer (HTTP latency)</li>
+                            <li><strong>Failure Coupling:</strong> External API failure causes customer save to fail</li>
+                            <li><strong>Poor UX:</strong> Admin users wait for external API during customer edits</li>
+                            <li><strong>Scalability:</strong> High customer save volume overwhelms external API</li>
+                            <li><strong>Timeout Risk:</strong> Long API calls may exceed PHP max_execution_time</li>
+                        </ul>
+                    </div>
+
+                    <div class="callout callout-info">
+                        <h4>Performance Impact</h4>
+                        <p><strong>Without external API:</strong> Customer save = 50ms</p>
+                        <p><strong>With synchronous API call:</strong> Customer save = 250-1050ms (5-20x slower)</p>
+                    </div>
+
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>Good Code Example - Async Queue Pattern</span>
+                            <span class="code-badge code-badge-good">Good</span>
+                        </div>
+                        <pre><code>&lt;?php
+declare(strict_types=1);
+
+namespace Vendor\Module\Observer;
+
+use Magento\Framework\Event\Observer;
+use Magento\Framework\Event\ObserverInterface;
+use Magento\Framework\MessageQueue\PublisherInterface;
+
+class QueueCustomerSyncObserver implements ObserverInterface
+{
+    private PublisherInterface $publisher;
+
+    public function __construct(PublisherInterface $publisher)
+    {
+        $this->publisher = $publisher;
+    }
+
+    public function execute(Observer $observer): void
+    {
+        $customer = $observer->getEvent()->getCustomer();
+
+        <span class="code-comment">// CORRECT: Queue message for async processing</span>
+        $this->publisher->publish('customer.external.sync', json_encode([
+            'customer_id' => $customer->getId(),
+            'email' => $customer->getEmail(),
+            'firstname' => $customer->getFirstname(),
+            'lastname' => $customer->getLastname(),
+        ]));
+
+        <span class="code-comment">// Observer completes immediately (~1ms)</span>
+        <span class="code-comment">// Actual sync happens in background via consumer</span>
+    }
+}</code></pre>
+                    </div>
+
+                    <div class="callout callout-success">
+                        <h4>Performance Gain</h4>
+                        <p><strong>10x faster:</strong> Customer save 51ms (with queue) vs. 500ms (synchronous API call)</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="anti-pattern">
+                <div class="anti-pattern-header">
+                    <h3>Anti-Pattern 7: Bulk Operations Not Disabling Observers</h3>
+                </div>
+                <div class="anti-pattern-content">
+                    <div class="callout callout-danger">
+                        <h4>Why It's Bad</h4>
+                        <ul>
+                            <li><strong>Extremely Slow:</strong> Observers execute for each save (10,000 saves x 50ms = 500 seconds)</li>
+                            <li><strong>Unnecessary Work:</strong> Email sync, audit logs, external API calls not needed for bulk operations</li>
+                            <li><strong>Database Load:</strong> Thousands of unnecessary queries from observers</li>
+                            <li><strong>Timeout Risk:</strong> Script may hit max_execution_time</li>
+                            <li><strong>Resource Exhaustion:</strong> Memory leaks from repeated object instantiation</li>
+                        </ul>
+                    </div>
+
+                    <div class="callout callout-info">
+                        <h4>Performance Example</h4>
+                        <p><strong>10,000 customers with observers:</strong> 500 seconds (8+ minutes)</p>
+                        <p><strong>10,000 customers without observers:</strong> 20 seconds</p>
+                        <p><strong>Observer overhead:</strong> 25x slower</p>
+                    </div>
+
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>Best Approach - Direct SQL for Bulk Updates</span>
+                            <span class="code-badge code-badge-good">Good</span>
+                        </div>
+                        <pre><code>&lt;?php
+declare(strict_types=1);
+
+namespace Vendor\Module\Console\Command;
+
+use Magento\Framework\App\ResourceConnection;
+
+class BulkUpdateCustomers extends Command
+{
+    private ResourceConnection $resourceConnection;
+
+    protected function execute(InputInterface $input, OutputInterface $output)
+    {
+        $connection = $this->resourceConnection->getConnection();
+        $tableName = $this->resourceConnection->getTableName('customer_entity');
+
+        <span class="code-comment">// BEST: Single SQL UPDATE for bulk operation</span>
+        $connection->update(
+            $tableName,
+            ['group_id' => 2],
+            ['group_id = ?' => 1]
+        );
+
+        $affectedRows = $connection->rowCount();
+        $output->writeln("Updated {$affectedRows} customers.");
+
+        <span class="code-comment">// Single query, completes in &lt; 1 second for 10,000 customers</span>
+    }
+}</code></pre>
+                    </div>
+
+                    <div class="callout callout-success">
+                        <h4>Performance Gain</h4>
+                        <p><strong>1000x faster:</strong> 0.5 seconds vs. 500 seconds for 10,000 customers</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Performance Anti-Patterns -->
+        <section id="performance">
+            <div class="section-header">
+                <h2>Performance Anti-Patterns</h2>
+            </div>
+
+            <article class="anti-pattern">
+                <div class="anti-pattern-header">
+                    <h3>Anti-Pattern 8: Loading Customer Collection in Loop (N+1 Query Problem)</h3>
+                </div>
+                <div class="anti-pattern-content">
+                    <div class="callout callout-danger">
+                        <h4>Why It's Bad</h4>
+                        <ul>
+                            <li><strong>N+1 Query Problem:</strong> 1000 orders = 1000 separate customer queries</li>
+                            <li><strong>Slow Execution:</strong> Each query takes 5-20ms, total 5-20 seconds</li>
+                            <li><strong>Database Overload:</strong> Excessive query count</li>
+                            <li><strong>Memory Inefficient:</strong> Creating new collection object per iteration</li>
+                        </ul>
+                    </div>
+
+                    <div class="callout callout-success">
+                        <h4>Correct Approach: Batch Loading</h4>
+                        <ul>
+                            <li><strong>Two Queries Total:</strong> 1 for orders, 1 for all customers</li>
+                            <li><strong>Fast Execution:</strong> 100ms vs. 5-20 seconds (50-200x faster)</li>
+                            <li><strong>Efficient Memory:</strong> Single customer collection vs. 1000 collection objects</li>
+                            <li><strong>Scalable:</strong> Performance consistent regardless of order count</li>
+                        </ul>
+                    </div>
+
+                    <div class="callout callout-info">
+                        <h4>Performance Gain</h4>
+                        <p><strong>50-200x faster:</strong> 2 queries (100ms) vs. 1001 queries (5-20 seconds)</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Security Anti-Patterns -->
+        <section id="security">
+            <div class="section-header">
+                <h2>Security Anti-Patterns</h2>
+            </div>
+
+            <article class="anti-pattern">
+                <div class="anti-pattern-header">
+                    <h3>Anti-Pattern 9: Hardcoding Customer Group IDs</h3>
+                </div>
+                <div class="anti-pattern-content">
+                    <div class="callout callout-danger">
+                        <h4>Why It's Bad</h4>
+                        <ul>
+                            <li><strong>Environment Portability:</strong> Group IDs differ across environments (dev/staging/prod)</li>
+                            <li><strong>Data Integrity:</strong> Assigning non-existent group ID causes errors</li>
+                            <li><strong>Deployment Failures:</strong> Code works in dev, fails in production</li>
+                            <li><strong>Maintenance Burden:</strong> Must manually sync group IDs across environments</li>
+                        </ul>
+                    </div>
+
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>Good Code Example - Look Up by Group Code</span>
+                            <span class="code-badge code-badge-good">Good</span>
+                        </div>
+                        <pre><code>&lt;?php
+declare(strict_types=1);
+
+namespace Vendor\Module\Model;
+
+use Magento\Customer\Api\CustomerRepositoryInterface;
+use Magento\Customer\Api\GroupRepositoryInterface;
+use Magento\Framework\Api\SearchCriteriaBuilder;
+
+class PromotionAssigner
+{
+    public function assignWholesaleGroup(int $customerId): void
+    {
+        <span class="code-comment">// CORRECT: Look up group by code, not hardcoded ID</span>
+        $groupCode = 'Wholesale';
+
+        $searchCriteria = $this->searchCriteriaBuilder
+            ->addFilter('customer_group_code', $groupCode, 'eq')
+            ->create();
+
+        $groups = $this->groupRepository->getList($searchCriteria);
+
+        if ($groups->getTotalCount() === 0) {
+            throw new \RuntimeException("Customer group '{$groupCode}' not found.");
+        }
+
+        $wholesaleGroup = $groups->getItems()[0];
+
+        $customer = $this->customerRepository->getById($customerId);
+        $customer->setGroupId($wholesaleGroup->getId());
+        $this->customerRepository->save($customer);
+    }
+}</code></pre>
+                    </div>
+
+                    <div class="callout callout-success">
+                        <h4>Best Practice</h4>
+                        <p>Always use <strong>customer group codes</strong>, never IDs. This ensures environment portability and prevents deployment failures.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="anti-pattern">
+                <div class="anti-pattern-header">
+                    <h3>Anti-Pattern 10: Not Implementing Around Plugins Correctly</h3>
+                </div>
+                <div class="anti-pattern-content">
+                    <div class="callout callout-danger">
+                        <h4>Why It's Bad</h4>
+                        <ul>
+                            <li><strong>Lost Arguments:</strong> Missing arguments not passed to original method</li>
+                            <li><strong>Silent Failure:</strong> No error thrown, just incorrect behavior</li>
+                            <li><strong>Breaks Functionality:</strong> Original method signature not respected</li>
+                            <li><strong>Hard to Debug:</strong> Issues manifest downstream, not at plugin</li>
+                        </ul>
+                    </div>
+
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>Good Code Example - Spread Operator</span>
+                            <span class="code-badge code-badge-good">Good</span>
+                        </div>
+                        <pre><code>&lt;?php
+declare(strict_types=1);
+
+namespace Vendor\Module\Plugin;
+
+use Magento\Customer\Api\CustomerRepositoryInterface;
+use Magento\Customer\Api\Data\CustomerInterface;
+
+class LogCustomerSaveExtend
+{
+    public function aroundSave(
+        CustomerRepositoryInterface $subject,
+        callable $proceed,
+        ...$args <span class="code-comment">// Capture all arguments</span>
+    ): CustomerInterface {
+        $this->logger->info('Before customer save');
+
+        <span class="code-comment">// CORRECT: Pass all arguments regardless of count</span>
+        $result = $proceed(...$args);
+
+        $this->logger->info('After customer save');
+
+        return $result;
+    }
+}</code></pre>
+                    </div>
+
+                    <div class="callout callout-success">
+                        <h4>Why It's Better</h4>
+                        <ul>
+                            <li><strong>Argument Safety:</strong> All arguments passed correctly</li>
+                            <li><strong>Future-Proof:</strong> Works even if method signature changes</li>
+                            <li><strong>Correct Behavior:</strong> Original method executes as intended</li>
+                            <li><strong>No Silent Failures:</strong> Functionality preserved</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Testing Anti-Patterns -->
+        <section id="testing">
+            <div class="section-header">
+                <h2>Testing Anti-Patterns</h2>
+            </div>
+
+            <article class="anti-pattern">
+                <div class="anti-pattern-header">
+                    <h3>Anti-Pattern 11: Not Testing Service Contracts, Only Models</h3>
+                </div>
+                <div class="anti-pattern-content">
+                    <div class="callout callout-danger">
+                        <h4>Why It's Bad</h4>
+                        <ul>
+                            <li><strong>Wrong Abstraction:</strong> Tests internal implementation, not public API</li>
+                            <li><strong>False Security:</strong> Test passes but real code (using repository) might fail</li>
+                            <li><strong>Brittle Tests:</strong> Model refactoring breaks tests even if API stable</li>
+                            <li><strong>Missing Coverage:</strong> Doesn't test plugins, observers, events</li>
+                        </ul>
+                    </div>
+
+                    <div class="callout callout-success">
+                        <h4>Correct Approach: Test Service Contracts</h4>
+                        <ul>
+                            <li><strong>Tests Real API:</strong> Uses service contract, not internal models</li>
+                            <li><strong>Validates Plugins:</strong> Plugins execute during integration test</li>
+                            <li><strong>Validates Events:</strong> Observers fire and can be tested</li>
+                            <li><strong>Realistic:</strong> Tests actual usage patterns</li>
+                            <li><strong>Stable:</strong> API changes detected, internal refactoring doesn't break tests</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Summary Table -->
+        <section id="summary">
+            <div class="section-header">
+                <h2>Quick Reference Summary</h2>
+            </div>
+
+            <div class="summary-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Anti-Pattern</th>
+                            <th>Impact</th>
+                            <th>Correct Approach</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Direct model usage</td>
+                            <td>Bypasses plugins, events</td>
+                            <td>Use repository interface</td>
+                        </tr>
+                        <tr>
+                            <td>Loading full customer for one field</td>
+                            <td>10-50x slower</td>
+                            <td>Direct SQL query for field</td>
+                        </tr>
+                        <tr>
+                            <td>Excessive EAV attributes</td>
+                            <td>2000ms+ load time</td>
+                            <td>Extension attributes + custom table</td>
+                        </tr>
+                        <tr>
+                            <td>Ignoring cache after group change</td>
+                            <td>Stale pricing</td>
+                            <td>Invalidate FPC after group change</td>
+                        </tr>
+                        <tr>
+                            <td>Physical class for DI</td>
+                            <td>Code bloat</td>
+                            <td>Virtual types in di.xml</td>
+                        </tr>
+                        <tr>
+                            <td>Sync external API in observer</td>
+                            <td>10-100x slower saves</td>
+                            <td>Async queue pattern</td>
+                        </tr>
+                        <tr>
+                            <td>Bulk ops with observers</td>
+                            <td>25x slower</td>
+                            <td>Disable observers or direct SQL</td>
+                        </tr>
+                        <tr>
+                            <td>N+1 queries in loop</td>
+                            <td>Database overload</td>
+                            <td>Batch load with IN clause</td>
+                        </tr>
+                        <tr>
+                            <td>Hardcoded group IDs</td>
+                            <td>Environment portability</td>
+                            <td>Look up by group code</td>
+                        </tr>
+                        <tr>
+                            <td>Incorrect around plugins</td>
+                            <td>Lost arguments</td>
+                            <td>Pass all args with spread operator</td>
+                        </tr>
+                        <tr>
+                            <td>Testing models not APIs</td>
+                            <td>False coverage</td>
+                            <td>Test service contracts</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="doc-footer">
+            <p><strong>Document Version:</strong> 1.0.0</p>
+            <p><strong>Last Updated:</strong> 2025-12-04</p>
+            <p><strong>Magento Versions:</strong> 2.4.x | <strong>PHP Versions:</strong> 8.1, 8.2, 8.3, 8.4</p>
+        </footer>
+    </main>
+</body>
+</html>
