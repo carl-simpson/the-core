@@ -5,12 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mage-OS vs Magento Comparison | Magento_Customer Documentation</title>
   <meta name="description" content="Complete comparison of Magento_Customer module implementation between Adobe Commerce/Magento Open Source and Mage-OS">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap');
     [x-cloak] { display: none !important; }
     .feature-added { background-color: #fffdeb; } /* magento-gold-50 */
     .feature-removed { background-color: #fee9d6; } /* magento-orange-100 */
@@ -21,6 +19,10 @@
     tailwind.config = {
       theme: {
         extend: {
+          fontFamily: {
+            sans: ['Inter Tight', 'ui-sans-serif', 'system-ui', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
+            mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
+          },
           colors: {
             'magento-orange': {
               DEFAULT: '#f26423',
