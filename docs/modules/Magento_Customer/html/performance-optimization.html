@@ -40,6 +40,8 @@
             }
         }
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
     <style>
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
@@ -48,6 +50,22 @@
                 transition-duration: 0.01ms !important;
             }
         }
+        /* Syntax highlighting colors (VS Code Dark+ theme) */
+        .hljs { background: transparent; }
+        .hljs-comment { color: #6a9955; }
+        .hljs-keyword { color: #569cd6; }
+        .hljs-function .hljs-title, .hljs-title.function_ { color: #dcdcaa; }
+        .hljs-variable, .hljs-variable.language_ { color: #9cdcfe; }
+        .hljs-string { color: #ce9178; }
+        .hljs-number { color: #b5cea8; }
+        .hljs-literal, .hljs-built_in { color: #569cd6; }
+        .hljs-params { color: #d4d4d4; }
+        .hljs-type, .hljs-title.class_ { color: #4ec9b0; }
+        .hljs-attr, .hljs-attribute { color: #9cdcfe; }
+        .hljs-tag, .hljs-name { color: #569cd6; }
+        .hljs-selector-tag, .hljs-selector-class { color: #d7ba7d; }
+        .hljs-meta { color: #569cd6; }
+        .hljs-operator { color: #d4d4d4; }
     </style>
 </head>
 <body class="bg-[#FAFAFA] text-magento-charcoal font-sans">
