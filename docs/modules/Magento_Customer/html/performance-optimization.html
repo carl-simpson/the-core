@@ -178,14 +178,14 @@
                 </table>
             </div>
 
-            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-6">
+            <div class="bg-magento-gold-50 border-l-4 border-magento-gold-500 p-6 mb-6">
                 <div class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-6 h-6 text-magento-gold-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                     </svg>
                     <div>
-                        <h4 class="text-sm font-semibold text-blue-900 mb-2">Performance Tip</h4>
-                        <p class="text-sm text-blue-800">Use the benchmark script below to establish your baseline metrics. Run it during off-peak hours to get accurate measurements without production traffic interference.</p>
+                        <h4 class="text-sm font-semibold text-magento-gold-900 mb-2">Performance Tip</h4>
+                        <p class="text-sm text-magento-gold-800">Use the benchmark script below to establish your baseline metrics. Run it during off-peak hours to get accurate measurements without production traffic interference.</p>
                     </div>
                 </div>
             </div>
@@ -339,14 +339,14 @@ Request 3: 600ms (waits for Requests 1 & 2)</code></pre>
 Address Save: 2800ms (VAT validation: 2500ms)</code></pre>
             </div>
 
-            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-6">
+            <div class="bg-magento-gold-50 border-l-4 border-magento-gold-500 p-6 mb-6">
                 <div class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-6 h-6 text-magento-gold-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                     </svg>
                     <div>
-                        <h4 class="text-sm font-semibold text-blue-900 mb-2">Solution</h4>
-                        <p class="text-sm text-blue-800">Implement async queue-based validation instead of synchronous API calls. Queue the validation task and notify the customer when complete. This allows the save operation to complete immediately.</p>
+                        <h4 class="text-sm font-semibold text-magento-gold-900 mb-2">Solution</h4>
+                        <p class="text-sm text-magento-gold-800">Implement async queue-based validation instead of synchronous API calls. Queue the validation task and notify the customer when complete. This allows the save operation to complete immediately.</p>
                     </div>
                 </div>
             </div>
@@ -557,14 +557,14 @@ class CacheCustomerDataExtend
                 <li><strong>Result:</strong> <span class="inline-block px-3 py-1 bg-magento-gold-100 text-magento-gold-800 text-sm font-semibold ">20x improvement</span> for cached reads</li>
             </ul>
 
-            <div class="bg-blue-50 border-l-4 border-blue-500 p-6">
+            <div class="bg-magento-gold-50 border-l-4 border-magento-gold-500 p-6">
                 <div class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-6 h-6 text-magento-gold-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                     </svg>
                     <div>
-                        <h4 class="text-sm font-semibold text-blue-900 mb-2">Cache Warming</h4>
-                        <p class="text-sm text-blue-800">Pre-warm customer cache for frequently accessed customers using a scheduled cron job. This ensures popular customer data is always available in cache, eliminating cold-start latency.</p>
+                        <h4 class="text-sm font-semibold text-magento-gold-900 mb-2">Cache Warming</h4>
+                        <p class="text-sm text-magento-gold-800">Pre-warm customer cache for frequently accessed customers using a scheduled cron job. This ensures popular customer data is always available in cache, eliminating cold-start latency.</p>
                     </div>
                 </div>
             </div>
@@ -624,14 +624,14 @@ foreach ($orders as $order) {
 // Total: 2 queries (50x reduction)</code></pre>
             </div>
 
-            <div class="bg-blue-50 border-l-4 border-blue-500 p-6">
+            <div class="bg-magento-gold-50 border-l-4 border-magento-gold-500 p-6">
                 <div class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-6 h-6 text-magento-gold-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
                     <div>
-                        <h4 class="text-sm font-semibold text-blue-900 mb-2">Detection</h4>
-                        <p class="text-sm text-blue-800">Enable query logging with <code class="bg-blue-100 px-2 py-0.5 ">bin/magento dev:query-log:enable</code> and check <code class="bg-blue-100 px-2 py-0.5 ">var/debug/db.log</code> for repeated similar queries.</p>
+                        <h4 class="text-sm font-semibold text-magento-gold-900 mb-2">Detection</h4>
+                        <p class="text-sm text-magento-gold-800">Enable query logging with <code class="bg-magento-gold-100 px-2 py-0.5 ">bin/magento dev:query-log:enable</code> and check <code class="bg-magento-gold-100 px-2 py-0.5 ">var/debug/db.log</code> for repeated similar queries.</p>
                     </div>
                 </div>
             </div>
@@ -687,14 +687,14 @@ class QueueCustomerProcessingObserver implements ObserverInterface
 }</code></pre>
             </div>
 
-            <div class="bg-blue-50 border-l-4 border-blue-500 p-6">
+            <div class="bg-magento-gold-50 border-l-4 border-magento-gold-500 p-6">
                 <div class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-6 h-6 text-magento-gold-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                     </svg>
                     <div>
-                        <h4 class="text-sm font-semibold text-blue-900 mb-2">Performance Gain</h4>
-                        <p class="text-sm text-blue-800">By moving heavy processing to async queues, observer execution completes in 1-5ms instead of 100-500ms, dramatically improving user experience for save operations.</p>
+                        <h4 class="text-sm font-semibold text-magento-gold-900 mb-2">Performance Gain</h4>
+                        <p class="text-sm text-magento-gold-800">By moving heavy processing to async queues, observer execution completes in 1-5ms instead of 100-500ms, dramatically improving user experience for save operations.</p>
                     </div>
                 </div>
             </div>
@@ -815,14 +815,14 @@ class PerformanceLogger
 }</code></pre>
             </div>
 
-            <div class="bg-blue-50 border-l-4 border-blue-500 p-6">
+            <div class="bg-magento-gold-50 border-l-4 border-magento-gold-500 p-6">
                 <div class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-6 h-6 text-magento-gold-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
                     <div>
-                        <h4 class="text-sm font-semibold text-blue-900 mb-2">Monitoring Tools</h4>
-                        <p class="text-sm text-blue-800">Use tools like New Relic, Blackfire.io, or built-in Magento profiling to get detailed performance insights. These tools help identify slow operations, memory leaks, and optimization opportunities.</p>
+                        <h4 class="text-sm font-semibold text-magento-gold-900 mb-2">Monitoring Tools</h4>
+                        <p class="text-sm text-magento-gold-800">Use tools like New Relic, Blackfire.io, or built-in Magento profiling to get detailed performance insights. These tools help identify slow operations, memory leaks, and optimization opportunities.</p>
                     </div>
                 </div>
             </div>
@@ -962,14 +962,14 @@ ab -n 1000 -c 10 -C "PHPSESSID=abc123" https://example.com/customer/account/
 
             <p class="text-gray-700 mb-4"><strong>ROI:</strong> 1 day DBA time, unmeasurable admin time savings</p>
 
-            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mt-8">
+            <div class="bg-magento-gold-50 border-l-4 border-magento-gold-500 p-6 mt-8">
                 <div class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-6 h-6 text-magento-gold-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                     </svg>
                     <div>
-                        <h4 class="text-sm font-semibold text-blue-900 mb-2">Key Takeaway</h4>
-                        <p class="text-sm text-blue-800">All three case studies demonstrate that targeted performance optimizations provide exceptional ROI. Most optimizations can be implemented in 1-3 days and deliver 10-50x performance improvements with significant cost savings.</p>
+                        <h4 class="text-sm font-semibold text-magento-gold-900 mb-2">Key Takeaway</h4>
+                        <p class="text-sm text-magento-gold-800">All three case studies demonstrate that targeted performance optimizations provide exceptional ROI. Most optimizations can be implemented in 1-3 days and deliver 10-50x performance improvements with significant cost savings.</p>
                     </div>
                 </div>
             </div>
