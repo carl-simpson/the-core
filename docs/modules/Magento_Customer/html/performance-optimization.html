@@ -193,8 +193,11 @@
             <h3 class="text-xl font-semibold text-magento-orange-800 mb-4 mt-8">Baseline Measurement Script</h3>
             <p class="text-gray-700 mb-4">Create a custom CLI command to benchmark customer module operations and establish performance baselines.</p>
 
-            <div class="bg-gray-900 text-gray-100 p-6 -lg overflow-x-auto mb-6">
-                <pre class="text-sm leading-relaxed"><code>&lt;?php
+            <div class="code-block shadow-md overflow-hidden mb-6">
+              <div class="code-header bg-magento-charcoal-700 px-4 py-2 flex justify-between items-center border-b border-magento-charcoal-600">
+                <span class="text-magento-gold-400 text-sm font-semibold tracking-wide">PHP</span>
+              </div>
+              <pre class="bg-magento-charcoal-800 p-4 overflow-x-auto m-0 text-sm leading-relaxed"><code class="language-php text-gray-100">&lt;?php
 // app/code/Vendor/Performance/Console/Command/BenchmarkCustomer.php
 declare(strict_types=1);
 
@@ -252,13 +255,19 @@ class BenchmarkCustomer extends Command
             </div>
 
             <p class="text-gray-700 mb-2"><strong>Run the benchmark:</strong></p>
-            <div class="bg-gray-900 text-gray-100 p-4 -lg mb-4">
-                <code>bin/magento performance:benchmark:customer</code>
+            <div class="code-block shadow-md overflow-hidden mb-4">
+              <div class="code-header bg-magento-charcoal-700 px-4 py-2 flex justify-between items-center border-b border-magento-charcoal-600">
+                <span class="text-magento-gold-400 text-sm font-semibold tracking-wide">Bash</span>
+              </div>
+              <pre class="bg-magento-charcoal-800 p-4 overflow-x-auto m-0 text-sm leading-relaxed"><code class="language-bash text-gray-100">bin/magento performance:benchmark:customer</code></pre>
             </div>
 
             <p class="text-gray-700 mb-2"><strong>Expected output:</strong></p>
-            <div class="bg-gray-900 text-gray-100 p-4 -lg">
-                <pre class="text-sm"><code>Customer Load (getById): 42ms average over 100 iterations
+            <div class="code-block shadow-md overflow-hidden mb-4">
+              <div class="code-header bg-magento-charcoal-700 px-4 py-2 flex justify-between items-center border-b border-magento-charcoal-600">
+                <span class="text-magento-gold-400 text-sm font-semibold tracking-wide">Text</span>
+              </div>
+              <pre class="bg-magento-charcoal-800 p-4 overflow-x-auto m-0 text-sm leading-relaxed"><code class="language-text text-gray-100">Customer Load (getById): 42ms average over 100 iterations
 ✓ EXCELLENT</code></pre>
             </div>
         </section>
@@ -271,14 +280,20 @@ class BenchmarkCustomer extends Command
             <p class="text-gray-700 mb-4"><strong>Problem:</strong> Multiple JOINs slow customer load operations when dealing with numerous custom attributes.</p>
 
             <p class="text-gray-700 mb-2"><strong>Symptom:</strong></p>
-            <div class="bg-gray-900 text-gray-100 p-4 -lg mb-4">
-                <pre class="text-sm"><code># Slow customer load times
+            <div class="code-block shadow-md overflow-hidden mb-4">
+              <div class="code-header bg-magento-charcoal-700 px-4 py-2 flex justify-between items-center border-b border-magento-charcoal-600">
+                <span class="text-magento-gold-400 text-sm font-semibold tracking-wide">Text</span>
+              </div>
+              <pre class="bg-magento-charcoal-800 p-4 overflow-x-auto m-0 text-sm leading-relaxed"><code class="language-text text-gray-100"># Slow customer load times
 Customer Load: 800ms (with 50+ custom attributes)</code></pre>
             </div>
 
             <p class="text-gray-700 mb-2"><strong>Detection Query:</strong></p>
-            <div class="bg-gray-900 text-gray-100 p-4 -lg mb-4">
-                <pre class="text-sm"><code>-- Check number of customer attributes
+            <div class="code-block shadow-md overflow-hidden mb-4">
+              <div class="code-header bg-magento-charcoal-700 px-4 py-2 flex justify-between items-center border-b border-magento-charcoal-600">
+                <span class="text-magento-gold-400 text-sm font-semibold tracking-wide">SQL</span>
+              </div>
+              <pre class="bg-magento-charcoal-800 p-4 overflow-x-auto m-0 text-sm leading-relaxed"><code class="language-sql text-gray-100">-- Check number of customer attributes
 SELECT COUNT(*) AS total_attributes
 FROM eav_attribute
 WHERE entity_type_id = (
@@ -306,16 +321,22 @@ WHERE entity_type_id = (
             <p class="text-gray-700 mb-4"><strong>Problem:</strong> Concurrent AJAX requests wait for session lock release, creating a queue effect.</p>
 
             <p class="text-gray-700 mb-2"><strong>Symptom:</strong></p>
-            <div class="bg-gray-900 text-gray-100 p-4 -lg mb-4">
-                <pre class="text-sm"><code># Concurrent requests queue up
+            <div class="code-block shadow-md overflow-hidden mb-4">
+              <div class="code-header bg-magento-charcoal-700 px-4 py-2 flex justify-between items-center border-b border-magento-charcoal-600">
+                <span class="text-magento-gold-400 text-sm font-semibold tracking-wide">Text</span>
+              </div>
+              <pre class="bg-magento-charcoal-800 p-4 overflow-x-auto m-0 text-sm leading-relaxed"><code class="language-text text-gray-100"># Concurrent requests queue up
 Request 1: 200ms
 Request 2: 400ms (waits for Request 1)
 Request 3: 600ms (waits for Requests 1 & 2)</code></pre>
             </div>
 
             <p class="text-gray-700 mb-2"><strong>Solution: Redis Session Handler with Optimistic Locking</strong></p>
-            <div class="bg-gray-900 text-gray-100 p-6 -lg overflow-x-auto mb-4">
-                <pre class="text-sm leading-relaxed"><code>// app/etc/env.php
+            <div class="code-block shadow-md overflow-hidden mb-4">
+              <div class="code-header bg-magento-charcoal-700 px-4 py-2 flex justify-between items-center border-b border-magento-charcoal-600">
+                <span class="text-magento-gold-400 text-sm font-semibold tracking-wide">PHP</span>
+              </div>
+              <pre class="bg-magento-charcoal-800 p-4 overflow-x-auto m-0 text-sm leading-relaxed"><code class="language-php text-gray-100">// app/etc/env.php
 'session' =&gt; [
     'save' =&gt; 'redis',
     'redis' =&gt; [
@@ -334,8 +355,11 @@ Request 3: 600ms (waits for Requests 1 & 2)</code></pre>
             <p class="text-gray-700 mb-4"><strong>Problem:</strong> Synchronous external API call during address save operation.</p>
 
             <p class="text-gray-700 mb-2"><strong>Symptom:</strong></p>
-            <div class="bg-gray-900 text-gray-100 p-4 -lg mb-4">
-                <pre class="text-sm"><code># Address save takes 2-5 seconds
+            <div class="code-block shadow-md overflow-hidden mb-4">
+              <div class="code-header bg-magento-charcoal-700 px-4 py-2 flex justify-between items-center border-b border-magento-charcoal-600">
+                <span class="text-magento-gold-400 text-sm font-semibold tracking-wide">Text</span>
+              </div>
+              <pre class="bg-magento-charcoal-800 p-4 overflow-x-auto m-0 text-sm leading-relaxed"><code class="language-text text-gray-100"># Address save takes 2-5 seconds
 Address Save: 2800ms (VAT validation: 2500ms)</code></pre>
             </div>
 
@@ -357,15 +381,21 @@ Address Save: 2800ms (VAT validation: 2500ms)</code></pre>
             <p class="text-gray-700 mb-4"><strong>Problem:</strong> Loading entire customer table without filters or pagination.</p>
 
             <p class="text-gray-700 mb-2"><strong>Symptom:</strong></p>
-            <div class="bg-gray-900 text-gray-100 p-4 -lg mb-4">
-                <pre class="text-sm"><code># Memory exhaustion on large stores
+            <div class="code-block shadow-md overflow-hidden mb-4">
+              <div class="code-header bg-magento-charcoal-700 px-4 py-2 flex justify-between items-center border-b border-magento-charcoal-600">
+                <span class="text-magento-gold-400 text-sm font-semibold tracking-wide">Text</span>
+              </div>
+              <pre class="bg-magento-charcoal-800 p-4 overflow-x-auto m-0 text-sm leading-relaxed"><code class="language-text text-gray-100"># Memory exhaustion on large stores
 Memory: 2GB+ for 100,000 customers
 Execution Time: 30+ seconds</code></pre>
             </div>
 
             <p class="text-gray-700 mb-2"><strong>Solution: Implement Pagination</strong></p>
-            <div class="bg-gray-900 text-gray-100 p-6 -lg overflow-x-auto mb-4">
-                <pre class="text-sm leading-relaxed"><code>// GOOD: Paginate
+            <div class="code-block shadow-md overflow-hidden mb-4">
+              <div class="code-header bg-magento-charcoal-700 px-4 py-2 flex justify-between items-center border-b border-magento-charcoal-600">
+                <span class="text-magento-gold-400 text-sm font-semibold tracking-wide">PHP</span>
+              </div>
+              <pre class="bg-magento-charcoal-800 p-4 overflow-x-auto m-0 text-sm leading-relaxed"><code class="language-php text-gray-100">// GOOD: Paginate
 $pageSize = 100;
 $currentPage = 1;
 
@@ -393,8 +423,11 @@ do {
             <p class="text-gray-700 mb-4">Proper database indexing is critical for customer module performance. Verify all required indexes exist and add custom indexes for common query patterns.</p>
 
             <p class="text-gray-700 mb-2"><strong>Check Missing Indexes:</strong></p>
-            <div class="bg-gray-900 text-gray-100 p-6 -lg overflow-x-auto mb-6">
-                <pre class="text-sm leading-relaxed"><code>-- Find slow queries on customer tables
+            <div class="code-block shadow-md overflow-hidden mb-6">
+              <div class="code-header bg-magento-charcoal-700 px-4 py-2 flex justify-between items-center border-b border-magento-charcoal-600">
+                <span class="text-magento-gold-400 text-sm font-semibold tracking-wide">SQL</span>
+              </div>
+              <pre class="bg-magento-charcoal-800 p-4 overflow-x-auto m-0 text-sm leading-relaxed"><code class="language-sql text-gray-100">-- Find slow queries on customer tables
 SELECT
     query_time,
     sql_text
@@ -410,8 +443,11 @@ EXPLAIN SELECT * FROM customer_entity WHERE email = 'test@example.com';
 
             <h4 class="text-lg font-semibold text-magento-charcoal mb-3">Required Indexes</h4>
             <p class="text-gray-700 mb-2">Verify these essential indexes exist on customer tables:</p>
-            <div class="bg-gray-900 text-gray-100 p-6 -lg overflow-x-auto mb-6">
-                <pre class="text-sm leading-relaxed"><code>-- Customer entity
+            <div class="code-block shadow-md overflow-hidden mb-6">
+              <div class="code-header bg-magento-charcoal-700 px-4 py-2 flex justify-between items-center border-b border-magento-charcoal-600">
+                <span class="text-magento-gold-400 text-sm font-semibold tracking-wide">SQL</span>
+              </div>
+              <pre class="bg-magento-charcoal-800 p-4 overflow-x-auto m-0 text-sm leading-relaxed"><code class="language-sql text-gray-100">-- Customer entity
 SHOW INDEX FROM customer_entity;
 -- Should include:
 -- - PRIMARY (entity_id)
@@ -429,8 +465,11 @@ SHOW INDEX FROM customer_address_entity;
 
             <h4 class="text-lg font-semibold text-magento-charcoal mb-3">Add Custom Indexes</h4>
             <p class="text-gray-700 mb-2">Create additional indexes based on your query patterns:</p>
-            <div class="bg-gray-900 text-gray-100 p-6 -lg overflow-x-auto mb-6">
-                <pre class="text-sm leading-relaxed"><code>-- Index on group_id for group-based queries
+            <div class="code-block shadow-md overflow-hidden mb-6">
+              <div class="code-header bg-magento-charcoal-700 px-4 py-2 flex justify-between items-center border-b border-magento-charcoal-600">
+                <span class="text-magento-gold-400 text-sm font-semibold tracking-wide">SQL</span>
+              </div>
+              <pre class="bg-magento-charcoal-800 p-4 overflow-x-auto m-0 text-sm leading-relaxed"><code class="language-sql text-gray-100">-- Index on group_id for group-based queries
 CREATE INDEX IDX_CUSTOMER_ENTITY_GROUP_ID
 ON customer_entity (group_id);
 
@@ -459,22 +498,31 @@ ON customer_entity (created_at);</code></pre>
             <p class="text-gray-700 mb-4">Regular maintenance keeps customer tables optimized and query plans accurate.</p>
 
             <p class="text-gray-700 mb-2"><strong>Analyze Tables (update statistics):</strong></p>
-            <div class="bg-gray-900 text-gray-100 p-4 -lg mb-4">
-                <pre class="text-sm"><code>ANALYZE TABLE customer_entity;
+            <div class="code-block shadow-md overflow-hidden mb-4">
+              <div class="code-header bg-magento-charcoal-700 px-4 py-2 flex justify-between items-center border-b border-magento-charcoal-600">
+                <span class="text-magento-gold-400 text-sm font-semibold tracking-wide">SQL</span>
+              </div>
+              <pre class="bg-magento-charcoal-800 p-4 overflow-x-auto m-0 text-sm leading-relaxed"><code class="language-sql text-gray-100">ANALYZE TABLE customer_entity;
 ANALYZE TABLE customer_address_entity;
 ANALYZE TABLE customer_entity_varchar;
 ANALYZE TABLE customer_entity_int;</code></pre>
             </div>
 
             <p class="text-gray-700 mb-2"><strong>Optimize Tables (defragment):</strong></p>
-            <div class="bg-gray-900 text-gray-100 p-4 -lg mb-4">
-                <pre class="text-sm"><code>OPTIMIZE TABLE customer_entity;
+            <div class="code-block shadow-md overflow-hidden mb-4">
+              <div class="code-header bg-magento-charcoal-700 px-4 py-2 flex justify-between items-center border-b border-magento-charcoal-600">
+                <span class="text-magento-gold-400 text-sm font-semibold tracking-wide">SQL</span>
+              </div>
+              <pre class="bg-magento-charcoal-800 p-4 overflow-x-auto m-0 text-sm leading-relaxed"><code class="language-sql text-gray-100">OPTIMIZE TABLE customer_entity;
 OPTIMIZE TABLE customer_address_entity;</code></pre>
             </div>
 
             <p class="text-gray-700 mb-2"><strong>Schedule Regular Maintenance:</strong></p>
-            <div class="bg-gray-900 text-gray-100 p-6 -lg overflow-x-auto mb-4">
-                <pre class="text-sm leading-relaxed"><code>#!/bin/bash
+            <div class="code-block shadow-md overflow-hidden mb-4">
+              <div class="code-header bg-magento-charcoal-700 px-4 py-2 flex justify-between items-center border-b border-magento-charcoal-600">
+                <span class="text-magento-gold-400 text-sm font-semibold tracking-wide">Bash</span>
+              </div>
+              <pre class="bg-magento-charcoal-800 p-4 overflow-x-auto m-0 text-sm leading-relaxed"><code class="language-bash text-gray-100">#!/bin/bash
 # cron: 0 3 * * 0 (weekly on Sunday 3am)
 
 mysql -u root -p magento_db &lt;&lt; EOF
@@ -493,8 +541,11 @@ EOF</code></pre>
             <h3 class="text-xl font-semibold text-magento-orange-800 mb-4">Customer Data Caching</h3>
             <p class="text-gray-700 mb-4">Implement Redis caching for customer repository operations to dramatically reduce database queries.</p>
 
-            <div class="bg-gray-900 text-gray-100 p-6 -lg overflow-x-auto mb-6">
-                <pre class="text-sm leading-relaxed"><code>&lt;?php
+            <div class="code-block shadow-md overflow-hidden mb-6">
+              <div class="code-header bg-magento-charcoal-700 px-4 py-2 flex justify-between items-center border-b border-magento-charcoal-600">
+                <span class="text-magento-gold-400 text-sm font-semibold tracking-wide">PHP</span>
+              </div>
+              <pre class="bg-magento-charcoal-800 p-4 overflow-x-auto m-0 text-sm leading-relaxed"><code class="language-php text-gray-100">&lt;?php
 declare(strict_types=1);
 
 namespace Vendor\Performance\Plugin;
@@ -707,8 +758,11 @@ class QueueCustomerProcessingObserver implements ObserverInterface
             <h3 class="text-xl font-semibold text-magento-orange-800 mb-4">Redis Session Configuration</h3>
             <p class="text-gray-700 mb-4">Optimal Redis session settings for high-traffic Magento stores:</p>
 
-            <div class="bg-gray-900 text-gray-100 p-6 -lg overflow-x-auto mb-6">
-                <pre class="text-sm leading-relaxed"><code>// app/etc/env.php
+            <div class="code-block shadow-md overflow-hidden mb-6">
+              <div class="code-header bg-magento-charcoal-700 px-4 py-2 flex justify-between items-center border-b border-magento-charcoal-600">
+                <span class="text-magento-gold-400 text-sm font-semibold tracking-wide">PHP</span>
+              </div>
+              <pre class="bg-magento-charcoal-800 p-4 overflow-x-auto m-0 text-sm leading-relaxed"><code class="language-php text-gray-100">// app/etc/env.php
 'session' =&gt; [
     'save' =&gt; 'redis',
     'redis' =&gt; [
@@ -744,8 +798,11 @@ class QueueCustomerProcessingObserver implements ObserverInterface
             <h3 class="text-xl font-semibold text-magento-orange-800 mb-4 mt-8">Session Size Reduction</h3>
             <p class="text-gray-700 mb-4">Minimize session data to improve performance and reduce Redis memory usage:</p>
 
-            <div class="bg-gray-900 text-gray-100 p-6 -lg overflow-x-auto mb-4">
-                <pre class="text-sm leading-relaxed"><code>// BAD: Store entire customer object in session
+            <div class="code-block shadow-md overflow-hidden mb-4">
+              <div class="code-header bg-magento-charcoal-700 px-4 py-2 flex justify-between items-center border-b border-magento-charcoal-600">
+                <span class="text-magento-gold-400 text-sm font-semibold tracking-wide">PHP</span>
+              </div>
+              <pre class="bg-magento-charcoal-800 p-4 overflow-x-auto m-0 text-sm leading-relaxed"><code class="language-php text-gray-100">// BAD: Store entire customer object in session
 $this-&gt;customerSession-&gt;setCustomerData($customer-&gt;getData());
 
 // GOOD: Store only customer ID
@@ -765,8 +822,11 @@ $customer = $this-&gt;customerRepository-&gt;getById(
             <h3 class="text-xl font-semibold text-magento-orange-800 mb-4">MySQL Slow Query Log</h3>
             <p class="text-gray-700 mb-4">Enable and analyze slow query logging to identify performance bottlenecks:</p>
 
-            <div class="bg-gray-900 text-gray-100 p-4 -lg mb-4">
-                <pre class="text-sm"><code># /etc/mysql/my.cnf
+            <div class="code-block shadow-md overflow-hidden mb-4">
+              <div class="code-header bg-magento-charcoal-700 px-4 py-2 flex justify-between items-center border-b border-magento-charcoal-600">
+                <span class="text-magento-gold-400 text-sm font-semibold tracking-wide">Text</span>
+              </div>
+              <pre class="bg-magento-charcoal-800 p-4 overflow-x-auto m-0 text-sm leading-relaxed"><code class="language-text text-gray-100"># /etc/mysql/my.cnf
 [mysqld]
 slow_query_log = 1
 slow_query_log_file = /var/log/mysql/slow-query.log
@@ -775,8 +835,11 @@ log_queries_not_using_indexes = 1</code></pre>
             </div>
 
             <p class="text-gray-700 mb-2"><strong>Analyze Customer Queries:</strong></p>
-            <div class="bg-gray-900 text-gray-100 p-4 -lg mb-6">
-                <pre class="text-sm"><code># Find slow customer queries
+            <div class="code-block shadow-md overflow-hidden mb-6">
+              <div class="code-header bg-magento-charcoal-700 px-4 py-2 flex justify-between items-center border-b border-magento-charcoal-600">
+                <span class="text-magento-gold-400 text-sm font-semibold tracking-wide">Bash</span>
+              </div>
+              <pre class="bg-magento-charcoal-800 p-4 overflow-x-auto m-0 text-sm leading-relaxed"><code class="language-bash text-gray-100"># Find slow customer queries
 grep "customer_entity" /var/log/mysql/slow-query.log | grep "Query_time"
 
 # Summary with mysqldumpslow
@@ -786,8 +849,11 @@ mysqldumpslow -s t -t 10 /var/log/mysql/slow-query.log | grep customer</code></p
             <h3 class="text-xl font-semibold text-magento-orange-800 mb-4 mt-8">Custom Performance Logging</h3>
             <p class="text-gray-700 mb-4">Implement custom logging to track customer operation performance:</p>
 
-            <div class="bg-gray-900 text-gray-100 p-6 -lg overflow-x-auto mb-6">
-                <pre class="text-sm leading-relaxed"><code>&lt;?php
+            <div class="code-block shadow-md overflow-hidden mb-6">
+              <div class="code-header bg-magento-charcoal-700 px-4 py-2 flex justify-between items-center border-b border-magento-charcoal-600">
+                <span class="text-magento-gold-400 text-sm font-semibold tracking-wide">PHP</span>
+              </div>
+              <pre class="bg-magento-charcoal-800 p-4 overflow-x-auto m-0 text-sm leading-relaxed"><code class="language-php text-gray-100">&lt;?php
 declare(strict_types=1);
 
 namespace Vendor\Performance\Logger;
@@ -835,8 +901,11 @@ class PerformanceLogger
             <h3 class="text-xl font-semibold text-magento-orange-800 mb-4">Apache Bench (Simple Load Test)</h3>
             <p class="text-gray-700 mb-4">Quick performance testing with Apache Bench:</p>
 
-            <div class="bg-gray-900 text-gray-100 p-4 -lg mb-6">
-                <pre class="text-sm"><code># Test customer account page
+            <div class="code-block shadow-md overflow-hidden mb-6">
+              <div class="code-header bg-magento-charcoal-700 px-4 py-2 flex justify-between items-center border-b border-magento-charcoal-600">
+                <span class="text-magento-gold-400 text-sm font-semibold tracking-wide">Bash</span>
+              </div>
+              <pre class="bg-magento-charcoal-800 p-4 overflow-x-auto m-0 text-sm leading-relaxed"><code class="language-bash text-gray-100"># Test customer account page
 ab -n 1000 -c 10 -C "PHPSESSID=abc123" https://example.com/customer/account/
 
 # Output:

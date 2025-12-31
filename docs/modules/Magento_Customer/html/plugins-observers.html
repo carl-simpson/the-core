@@ -193,8 +193,11 @@
             <h3 class="text-xl font-semibold text-magento-charcoal mb-3">TransactionWrapper Plugin</h3>
             <p class="text-sm text-magento-charcoal/80 mb-3"><strong>Critical Business Logic:</strong> Ensures atomicity of customer operations</p>
 
-            <div class="bg-magento-charcoal text-white p-4 text-xs overflow-x-auto mb-4">
-<pre><code>&lt;type name="Magento\Customer\Api\CustomerRepositoryInterface"&gt;
+            <div class="code-block shadow-md overflow-hidden mb-4">
+              <div class="code-header bg-magento-charcoal-700 px-4 py-2 flex justify-between items-center border-b border-magento-charcoal-600">
+                <span class="text-magento-gold-400 text-sm font-semibold tracking-wide">XML</span>
+              </div>
+              <pre class="bg-magento-charcoal-800 p-4 overflow-x-auto m-0 text-sm leading-relaxed"><code class="language-xml text-gray-100">&lt;type name="Magento\Customer\Api\CustomerRepositoryInterface"&gt;
     &lt;plugin name="transactionWrapper"
             type="Magento\Customer\Model\Plugin\CustomerRepository\TransactionWrapper"
             sortOrder="-1"/&gt;
@@ -413,8 +416,11 @@
             <p class="text-sm text-magento-charcoal/80 mb-3"><strong>Critical Business Logic:</strong> Synchronizes customer email changes to historical orders</p>
 
             <h4 class="text-base font-semibold text-magento-charcoal mb-2">Database Impact:</h4>
-            <div class="bg-magento-charcoal text-white p-4 text-xs overflow-x-auto mb-4">
-<pre><code>UPDATE sales_order
+            <div class="code-block shadow-md overflow-hidden mb-4">
+              <div class="code-header bg-magento-charcoal-700 px-4 py-2 flex justify-between items-center border-b border-magento-charcoal-600">
+                <span class="text-magento-gold-400 text-sm font-semibold tracking-wide">SQL</span>
+              </div>
+              <pre class="bg-magento-charcoal-800 p-4 overflow-x-auto m-0 text-sm leading-relaxed"><code class="language-sql text-gray-100">UPDATE sales_order
 SET customer_email = 'new@example.com'
 WHERE customer_id = 123
   AND customer_email = 'old@example.com'</code></pre>

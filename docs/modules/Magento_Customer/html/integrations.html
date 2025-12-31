@@ -611,9 +611,11 @@
 
           <div class="space-y-3">
             <div>
-              <h4 class="text-xs font-semibold uppercase tracking-wide mb-2 text-magento-yellow">Example Query</h4>
-              <div class="bg-black/30 p-3 border border-magento-yellow/30 overflow-x-auto">
-                <pre class="text-xs text-gray-300"><code>query {
+              <div class="code-block shadow-md overflow-hidden">
+                <div class="code-header bg-magento-charcoal-700 px-4 py-2 flex justify-between items-center border-b border-magento-charcoal-600">
+                  <span class="text-magento-gold-400 text-sm font-semibold tracking-wide">GraphQL Query</span>
+                </div>
+                <pre class="bg-magento-charcoal-800 p-4 overflow-x-auto m-0 text-sm leading-relaxed"><code class="language-graphql text-gray-100">query {
   customer {
     firstname
     lastname
@@ -629,10 +631,12 @@
               </div>
             </div>
 
-            <div>
-              <h4 class="text-xs font-semibold uppercase tracking-wide mb-2 text-magento-yellow">Example Mutation</h4>
-              <div class="bg-black/30 p-3 border border-magento-yellow/30 overflow-x-auto">
-                <pre class="text-xs text-gray-300"><code>mutation {
+            <div class="mt-3">
+              <div class="code-block shadow-md overflow-hidden">
+                <div class="code-header bg-magento-charcoal-700 px-4 py-2 flex justify-between items-center border-b border-magento-charcoal-600">
+                  <span class="text-magento-gold-400 text-sm font-semibold tracking-wide">GraphQL Mutation</span>
+                </div>
+                <pre class="bg-magento-charcoal-800 p-4 overflow-x-auto m-0 text-sm leading-relaxed"><code class="language-graphql text-gray-100">mutation {
   updateCustomer(input: {
     firstname: "Jane"
     lastname: "Doe"

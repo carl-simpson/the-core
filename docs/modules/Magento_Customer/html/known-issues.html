@@ -199,8 +199,13 @@
 
             <h4 class="text-lg font-semibold text-magento-charcoal mb-3">Symptom</h4>
             <p class="text-magento-charcoal/90 mb-4">Fatal error when authentication popup appears on frontend:</p>
-            <pre class="bg-magento-charcoal text-white p-4 text-xs overflow-x-auto"><code>Error: Call to a member function isGlobalScopeEnabled() on null
+            <div class="code-block shadow-md overflow-hidden">
+              <div class="code-header bg-magento-charcoal-700 px-4 py-2 flex justify-between items-center border-b border-magento-charcoal-600">
+                <span class="text-magento-gold-400 text-sm font-semibold tracking-wide">Error</span>
+              </div>
+              <pre class="bg-magento-charcoal-800 p-4 overflow-x-auto m-0 text-sm leading-relaxed"><code class="text-gray-100">Error: Call to a member function isGlobalScopeEnabled() on null
 File: vendor/magento/module-customer/view/frontend/templates/form/authentication-popup.phtml</code></pre>
+            </div>
             <p class="text-magento-charcoal/90 mb-6">Customer cannot log in via the popup, blocks checkout and add-to-cart for logged-in users.</p>
 
             <h4 class="text-lg font-semibold text-magento-charcoal mb-3">Cause</h4>
@@ -217,7 +222,11 @@ File: vendor/magento/module-customer/view/frontend/templates/form/authentication
 
             <h4 class="text-lg font-semibold text-magento-charcoal mb-3">Workaround #1: Template Override</h4>
             <p class="text-sm text-magento-charcoal/80 mb-2"><strong>File:</strong> <code class="bg-[#FAFAFA] px-2 py-1">app/design/frontend/[Vendor]/[Theme]/Magento_Customer/templates/form/authentication-popup.phtml</code></p>
-            <pre class="bg-magento-charcoal text-white p-4 text-sm overflow-x-auto"><code>&lt;?php
+            <div class="code-block shadow-md overflow-hidden">
+              <div class="code-header bg-magento-charcoal-700 px-4 py-2 flex justify-between items-center border-b border-magento-charcoal-600">
+                <span class="text-magento-gold-400 text-sm font-semibold tracking-wide">PHP</span>
+              </div>
+              <pre class="bg-magento-charcoal-800 p-4 overflow-x-auto m-0 text-sm leading-relaxed"><code class="language-php text-gray-100">&lt;?php
 /** @var \Magento\Customer\Block\Form\Login\Info $block */
 $config = $block->getConfig();
 $isGlobalScope = $config ? $config->isGlobalScopeEnabled() : false;
@@ -226,6 +235,7 @@ $isGlobalScope = $config ? $config->isGlobalScopeEnabled() : false;
 &lt;?php if ($isGlobalScope): ?&gt;
     &lt;!-- Safe execution with null check --&gt;
 &lt;?php endif; ?&gt;</code></pre>
+            </div>
 
             <h4 class="text-lg font-semibold text-magento-charcoal mb-3">References</h4>
             <ul class="space-y-1 text-magento-charcoal/90">
@@ -375,8 +385,13 @@ $isGlobalScope = $config ? $config->isGlobalScopeEnabled() : false;
             <h4 class="text-lg font-semibold text-magento-charcoal mb-3">Workaround: Disable VAT Validation</h4>
             <p class="text-magento-charcoal/90 mb-2"><strong>Configuration:</strong> <code class="bg-[#FAFAFA] px-2 py-1">Stores > Configuration > Customers > Customer Configuration > Create New Account Options</code></p>
             <p class="text-magento-charcoal/90 mb-4">Set <strong>Enable Automatic Assignment to Customer Group</strong> to "No"</p>
-            <pre class="bg-magento-charcoal text-white p-4 text-sm overflow-x-auto"><code>bin/magento config:set customer/create_account/auto_group_assign 0
+            <div class="code-block shadow-md overflow-hidden">
+              <div class="code-header bg-magento-charcoal-700 px-4 py-2 flex justify-between items-center border-b border-magento-charcoal-600">
+                <span class="text-magento-gold-400 text-sm font-semibold tracking-wide">Bash</span>
+              </div>
+              <pre class="bg-magento-charcoal-800 p-4 overflow-x-auto m-0 text-sm leading-relaxed"><code class="language-bash text-gray-100">bin/magento config:set customer/create_account/auto_group_assign 0
 bin/magento cache:flush config</code></pre>
+            </div>
 
             <h4 class="text-lg font-semibold text-magento-charcoal mb-3">References</h4>
             <ul class="space-y-1 text-magento-charcoal/90">
