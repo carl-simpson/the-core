@@ -40,12 +40,6 @@
               400: '#474747', 500: '#2c2c2c', 600: '#262626', 700: '#202020',
               800: '#1c1c1c', 900: '#191919', 950: '#121212'
             },
-            magento: {
-              50: '#fef5ee', 100: '#fee9d6', 500: '#f26423', 600: '#e34613', 800: '#962a16'
-            },
-            mageos: {
-              50: '#fffdeb', 100: '#fdf9c8', 500: '#f1bc1b', 600: '#d5900a', 800: '#8f5111'
-            },
           }
         }
       }
@@ -122,9 +116,9 @@
           <h2 class="text-3xl font-bold text-gray-900 mb-6">Overview</h2>
 
           <div class="grid md:grid-cols-2 gap-6 mb-6">
-            <div class="bg-magento-50 border-l-4 border-magento-500 p-6">
-              <h3 class="text-lg font-semibold text-magento-900 mb-3">Adobe Magento</h3>
-              <ul class="text-sm text-magento-800 space-y-2">
+            <div class="bg-magento-orange-50 border-l-4 border-magento-orange-500 p-6">
+              <h3 class="text-lg font-semibold text-magento-orange-900 mb-3">Adobe Magento</h3>
+              <ul class="text-sm text-magento-orange-800 space-y-2">
                 <li>Commercial backing by Adobe</li>
                 <li>Quarterly release schedule (Feb, May, Aug, Nov)</li>
                 <li>Adobe-specific integrations (IMS, Stock, Services Connector)</li>
@@ -133,9 +127,9 @@
               </ul>
             </div>
 
-            <div class="bg-mageos-50 border-l-4 border-mageos-500 p-6">
-              <h3 class="text-lg font-semibold text-mageos-900 mb-3">Mage-OS</h3>
-              <ul class="text-sm text-mageos-800 space-y-2">
+            <div class="bg-magento-gold-50 border-l-4 border-magento-gold-500 p-6">
+              <h3 class="text-lg font-semibold text-magento-gold-900 mb-3">Mage-OS</h3>
+              <ul class="text-sm text-magento-gold-800 space-y-2">
                 <li>Community-driven governance</li>
                 <li>Faster security patch releases (2-7 days)</li>
                 <li>Removed Adobe-specific integrations</li>
@@ -146,8 +140,8 @@
           </div>
 
           <div class="bg-magento-gold-50 border-l-4 border-magento-gold-500 p-6">
-            <h3 class="text-lg font-semibold text-brown mb-2">Key Point</h3>
-            <p class="text-brown">Mage-OS maintains <strong>100% API compatibility</strong> with Magento, meaning most extensions and customizations work without modification.</p>
+            <h3 class="text-lg font-semibold text-magento-gold-900 mb-2">Key Point</h3>
+            <p class="text-magento-gold-900">Mage-OS maintains <strong>100% API compatibility</strong> with Magento, meaning most extensions and customizations work without modification.</p>
           </div>
         </section>
 
@@ -159,10 +153,10 @@
               <thead class="bg-gray-50">
                 <tr>
                   <th class="px-4 py-3 text-left font-semibold text-gray-700">Feature</th>
-                  <th class="px-4 py-3 text-left font-semibold text-magento-700">Magento 2.4.6</th>
-                  <th class="px-4 py-3 text-left font-semibold text-magento-700">Magento 2.4.7</th>
-                  <th class="px-4 py-3 text-left font-semibold text-mageos-700">Mage-OS 1.0.3</th>
-                  <th class="px-4 py-3 text-left font-semibold text-mageos-700">Mage-OS 2.0.0</th>
+                  <th class="px-4 py-3 text-left font-semibold text-magento-orange-700">Magento 2.4.6</th>
+                  <th class="px-4 py-3 text-left font-semibold text-magento-orange-700">Magento 2.4.7</th>
+                  <th class="px-4 py-3 text-left font-semibold text-magento-gold-700">Mage-OS 1.0.3</th>
+                  <th class="px-4 py-3 text-left font-semibold text-magento-gold-700">Mage-OS 2.0.0</th>
                 </tr>
               </thead>
               <tbody class="bg-white divide-y divide-gray-200">
@@ -290,7 +284,7 @@
 
             <div class="border border-gray-200  overflow-hidden">
               <div class="bg-magento-gold-50 px-6 py-4 border-b">
-                <h3 class="text-lg font-semibold text-brown">2. Email Confirmation for Admin Users</h3>
+                <h3 class="text-lg font-semibold text-magento-gold-900">2. Email Confirmation for Admin Users</h3>
               </div>
               <div class="p-6">
                 <div class="overflow-x-auto">
@@ -306,24 +300,24 @@
                       <tr>
                         <td class="px-4 py-2 font-medium">Customer registers</td>
                         <td class="px-4 py-2 text-gray-700">Account active immediately</td>
-                        <td class="px-4 py-2 text-mageos-700 feature-changed">Email verification required</td>
+                        <td class="px-4 py-2 text-magento-gold-700 feature-changed">Email verification required</td>
                       </tr>
                       <tr>
                         <td class="px-4 py-2 font-medium">Admin creates customer</td>
                         <td class="px-4 py-2 text-gray-700">Account active immediately</td>
-                        <td class="px-4 py-2 text-mageos-700 feature-changed">Email verification required</td>
+                        <td class="px-4 py-2 text-magento-gold-700 feature-changed">Email verification required</td>
                       </tr>
                       <tr>
                         <td class="px-4 py-2 font-medium">Email change</td>
                         <td class="px-4 py-2 text-gray-700">No verification</td>
-                        <td class="px-4 py-2 text-mageos-700 feature-changed">Verification email sent</td>
+                        <td class="px-4 py-2 text-magento-gold-700 feature-changed">Verification email sent</td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
 
                 <div class="mt-6 bg-magento-gold-50 border-l-4 border-magento-gold-500 p-4">
-                  <p class="text-brown mb-2"><strong>Migration Note:</strong> If migrating from Magento to Mage-OS, you can disable this:</p>
+                  <p class="text-magento-gold-900 mb-2"><strong>Migration Note:</strong> If migrating from Magento to Mage-OS, you can disable this:</p>
                   <pre class="bg-gray-900 text-gray-100 p-3 text-xs"><code class="language-bash">bin/magento config:set customer/create_account/confirm 0</code></pre>
                 </div>
               </div>
@@ -335,18 +329,18 @@
               </div>
               <div class="p-6">
                 <div class="grid md:grid-cols-2 gap-6 mb-6">
-                  <div class="bg-magento-50 p-4">
-                    <h4 class="font-semibold text-magento-900 mb-3">Magento Process</h4>
-                    <ol class="list-decimal list-inside text-sm text-magento-800 space-y-2">
+                  <div class="bg-magento-orange-50 p-4">
+                    <h4 class="font-semibold text-magento-orange-900 mb-3">Magento Process</h4>
+                    <ol class="list-decimal list-inside text-sm text-magento-orange-800 space-y-2">
                       <li>CVE disclosed</li>
                       <li>Adobe internal review</li>
                       <li>Wait for quarterly release schedule</li>
                       <li>Release (typically 30-90 days from disclosure)</li>
                     </ol>
                   </div>
-                  <div class="bg-mageos-50 p-4">
-                    <h4 class="font-semibold text-mageos-900 mb-3">Mage-OS Process</h4>
-                    <ol class="list-decimal list-inside text-sm text-mageos-800 space-y-2">
+                  <div class="bg-magento-gold-50 p-4">
+                    <h4 class="font-semibold text-magento-gold-900 mb-3">Mage-OS Process</h4>
+                    <ol class="list-decimal list-inside text-sm text-magento-gold-800 space-y-2">
                       <li>CVE disclosed</li>
                       <li>Community review (24-48 hours)</li>
                       <li>Patch developed & peer reviewed</li>
@@ -468,8 +462,8 @@ bin/magento config:set customer/password/lockout_failures 6</code></pre>
             </div>
 
             <div class="bg-magento-gold-50 border-l-4 border-magento-gold-500 p-6">
-              <h3 class="text-lg font-semibold text-brown mb-3">Rate Limiting (Planned for Mage-OS 2.1)</h3>
-              <p class="text-brown mb-4">Built-in rate limiting for customer actions (Magento requires third-party extension or Varnish/CloudFlare).</p>
+              <h3 class="text-lg font-semibold text-magento-gold-900 mb-3">Rate Limiting (Planned for Mage-OS 2.1)</h3>
+              <p class="text-magento-gold-900 mb-4">Built-in rate limiting for customer actions (Magento requires third-party extension or Varnish/CloudFlare).</p>
               <pre class="bg-gray-900 text-gray-100 p-4  overflow-x-auto text-xs"><code class="language-xml">&lt;!-- Proposed etc/config.xml --&gt;
 &lt;default&gt;
     &lt;customer&gt;
@@ -538,7 +532,7 @@ bin/magento config:set customer/password/lockout_failures 6</code></pre>
           </div>
 
           <div class="mt-6 bg-magento-gold-50 border-l-4 border-magento-gold-500 p-6">
-            <h3 class="text-lg font-semibold text-brown mb-3">Best Practice: Use Service Contracts</h3>
+            <h3 class="text-lg font-semibold text-magento-gold-900 mb-3">Best Practice: Use Service Contracts</h3>
             <div class="grid md:grid-cols-2 gap-4">
               <div>
                 <p class="text-sm font-semibold text-magento-orange-700 mb-2">❌ Bad (likely to break):</p>
@@ -560,8 +554,8 @@ $customer = $this->customerRepository
           <h2 class="text-3xl font-bold text-gray-900 mb-6">Migration Paths</h2>
 
           <div class="grid md:grid-cols-2 gap-6">
-            <div class="border border-magento-200  overflow-hidden">
-              <div class="bg-magento-500 px-6 py-4 text-white">
+            <div class="border border-magento-orange-200  overflow-hidden">
+              <div class="bg-magento-orange-500 px-6 py-4 text-white">
                 <h3 class="text-lg font-semibold">Magento → Mage-OS</h3>
               </div>
               <div class="p-6">
@@ -591,8 +585,8 @@ bin/magento cache:flush</code></pre>
               </div>
             </div>
 
-            <div class="border border-mageos-200  overflow-hidden">
-              <div class="bg-mageos-500 px-6 py-4 text-white">
+            <div class="border border-magento-gold-200  overflow-hidden">
+              <div class="bg-magento-gold-500 px-6 py-4 text-white">
                 <h3 class="text-lg font-semibold">Mage-OS → Magento</h3>
               </div>
               <div class="p-6">
@@ -634,29 +628,29 @@ composer install</code></pre>
           <h2 class="text-3xl font-bold text-gray-900 mb-6">When to Choose Which Fork</h2>
 
           <div class="grid md:grid-cols-2 gap-6">
-            <div class="bg-magento-50 border-l-4 border-magento-500 p-6">
-              <h3 class="text-lg font-semibold text-magento-900 mb-4">Choose Magento/Adobe Commerce If...</h3>
-              <ul class="space-y-3 text-sm text-magento-800">
+            <div class="bg-magento-orange-50 border-l-4 border-magento-orange-500 p-6">
+              <h3 class="text-lg font-semibold text-magento-orange-900 mb-4">Choose Magento/Adobe Commerce If...</h3>
+              <ul class="space-y-3 text-sm text-magento-orange-800">
                 <li class="flex items-start">
-                  <svg class="w-5 h-5 text-magento-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-5 h-5 text-magento-orange-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   <span>Need Adobe's commercial support SLA</span>
                 </li>
                 <li class="flex items-start">
-                  <svg class="w-5 h-5 text-magento-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-5 h-5 text-magento-orange-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   <span>Require B2B features (Adobe Commerce only)</span>
                 </li>
                 <li class="flex items-start">
-                  <svg class="w-5 h-5 text-magento-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-5 h-5 text-magento-orange-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   <span>Need Adobe-specific integrations (Experience Cloud)</span>
                 </li>
                 <li class="flex items-start">
-                  <svg class="w-5 h-5 text-magento-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-5 h-5 text-magento-orange-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   <span>Prefer quarterly predictable release schedule</span>
@@ -664,29 +658,29 @@ composer install</code></pre>
               </ul>
             </div>
 
-            <div class="bg-mageos-50 border-l-4 border-mageos-500 p-6">
-              <h3 class="text-lg font-semibold text-mageos-900 mb-4">Choose Mage-OS If...</h3>
-              <ul class="space-y-3 text-sm text-mageos-800">
+            <div class="bg-magento-gold-50 border-l-4 border-magento-gold-500 p-6">
+              <h3 class="text-lg font-semibold text-magento-gold-900 mb-4">Choose Mage-OS If...</h3>
+              <ul class="space-y-3 text-sm text-magento-gold-800">
                 <li class="flex items-start">
-                  <svg class="w-5 h-5 text-mageos-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-5 h-5 text-magento-gold-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   <span>Want faster security patches (2-7 days vs 30-90 days)</span>
                 </li>
                 <li class="flex items-start">
-                  <svg class="w-5 h-5 text-mageos-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-5 h-5 text-magento-gold-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   <span>Prefer open governance and community direction</span>
                 </li>
                 <li class="flex items-start">
-                  <svg class="w-5 h-5 text-mageos-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-5 h-5 text-magento-gold-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   <span>Want to avoid vendor lock-in</span>
                 </li>
                 <li class="flex items-start">
-                  <svg class="w-5 h-5 text-mageos-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-5 h-5 text-magento-gold-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   <span>Need latest PHP versions faster (8.3, 8.4)</span>
@@ -701,7 +695,7 @@ composer install</code></pre>
         <p><strong>Document Version:</strong> 1.0.0 | <strong>Last Updated:</strong> 2025-12-04</p>
         <p class="mt-2"><strong>Comparison Versions:</strong> Magento 2.4.7 vs. Mage-OS 2.0.0 | <strong>Next Review:</strong> 2026-01-01</p>
         <p class="mt-4">
-          <a href="anti-patterns.html" class="text-magento-600 hover:underline transition-colors">Next: See ANTI_PATTERNS for common mistakes when working with the Customer module →</a>
+          <a href="anti-patterns.html" class="text-magento-orange-600 hover:underline transition-colors">Next: See ANTI_PATTERNS for common mistakes when working with the Customer module →</a>
         </p>
       </footer>
     </main>
