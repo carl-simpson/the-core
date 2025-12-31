@@ -50,28 +50,32 @@
     }
   </style>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-php.min.js"></script>
+  <!-- Syntax Highlighting Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
   <style>
     [x-cloak] { display: none !important; }
     pre[class*="language-"] { margin: 0; }
 
-    /* Syntax highlighting - Microsoft Docs inspired */
-    .hljs-comment { color: #6a9955; }
-    .hljs-keyword { color: #569cd6; }
-    .hljs-function .hljs-title { color: #dcdcaa; }
-    .hljs-variable { color: #9cdcfe; }
-    .hljs-string { color: #ce9178; }
-    .hljs-number { color: #b5cea8; }
-    .hljs-literal { color: #569cd6; }
-    .hljs-params { color: #d4d4d4; }
-    .hljs-params .hljs-title { color: #4ec9b0; }
-    .hljs-params .hljs-variable { color: #9cdcfe; }
-    .hljs-built_in { color: #4ec9b0; }
-    .hljs-attr { color: #9cdcfe; }
-    .hljs-tag { color: #569cd6; }
-    .hljs-name { color: #569cd6; }
+    /* ============================================= */
+    /* SYNTAX HIGHLIGHTING - VS Code Dark+ Theme    */
+    /* ============================================= */
+    /* Use with highlight.js and language-* classes */
+    .hljs { background: transparent; }
+    .hljs-comment { color: #6a9955; }                          /* Green - comments */
+    .hljs-keyword { color: #569cd6; }                          /* Blue - keywords (if, else, function, class) */
+    .hljs-function .hljs-title, .hljs-title.function_ { color: #dcdcaa; }  /* Yellow - function names */
+    .hljs-variable, .hljs-variable.language_ { color: #9cdcfe; }           /* Light blue - variables */
+    .hljs-string { color: #ce9178; }                           /* Orange - strings */
+    .hljs-number { color: #b5cea8; }                           /* Light green - numbers */
+    .hljs-literal, .hljs-built_in { color: #569cd6; }          /* Blue - literals (true, false, null) */
+    .hljs-params { color: #d4d4d4; }                           /* Gray - parameters */
+    .hljs-type, .hljs-title.class_ { color: #4ec9b0; }         /* Teal - types and class names */
+    .hljs-attr, .hljs-attribute { color: #9cdcfe; }            /* Light blue - attributes */
+    .hljs-tag, .hljs-name { color: #569cd6; }                  /* Blue - XML/HTML tags */
+    .hljs-selector-tag, .hljs-selector-class { color: #d7ba7d; } /* Gold - CSS selectors */
+    .hljs-meta { color: #569cd6; }                             /* Blue - meta/preprocessor */
+    .hljs-operator { color: #d4d4d4; }                         /* Gray - operators */
 
     /* Code block styling */
     .code-block pre { border-radius: 0; }
