@@ -8,46 +8,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        jacarta: {
-                            50: '#e9ecfa', 100: '#d7dbf5', 200: '#b7bdec', 300: '#8c93dd',
-                            400: '#5d5ecc', 500: '#292562', 600: '#2b2551', 700: '#2c293e',
-                            800: '#252331', 900: '#201f26', 950: '#19181e'
-                        },
-                        amaranth: {
-                            50: '#feeff1', 100: '#fde2e6', 200: '#fbc9d2', 300: '#f89caf',
-                            400: '#f46484', 500: '#ec2254', 600: '#cc2254', 700: '#a21542',
-                            800: '#87153c', 900: '#731539', 950: '#41061b'
-                        },
-                        orange: {
-                            DEFAULT: '#F26423',
+                        'magento-orange': {
+                            DEFAULT: '#f26423',
                             50: '#fef5ee', 100: '#fee9d6', 200: '#fbd0ad', 300: '#f9ae78',
                             400: '#f58242', 500: '#f26423', 600: '#e34613', 700: '#bc3312',
                             800: '#962a16', 900: '#792515', 950: '#411009'
                         },
-                        yellow: {
-                            DEFAULT: '#F1BC1B',
-                            50: '#fffdeb', 100: '#fdf9c8', 200: '#fbf38c', 300: '#f8e651',
-                            400: '#f7d728', 500: '#f1bc1b', 600: '#d5900a', 700: '#b1670c',
-                            800: '#8f5111', 900: '#764311', 950: '#442204'
-                        },
-                        charcoal: {
+                        'magento-charcoal': {
                             DEFAULT: '#2c2c2c',
                             50: '#f1f1f1', 100: '#d9d9d9', 200: '#b6b6b6', 300: '#818181',
                             400: '#474747', 500: '#2c2c2c', 600: '#262626', 700: '#202020',
                             800: '#1c1c1c', 900: '#191919', 950: '#121212'
                         },
-                        alabaster: {
-                            50: '#ffffff', 100: '#ffffff', 200: '#ffffff', 300: '#ffffff',
-                            400: '#ffffff', 500: '#fafafa', 600: '#cccccc', 700: '#a5a5a5',
-                            800: '#8d8d8d', 900: '#7b7b7b', 950: '#535353'
+                        'magento-gold': {
+                            DEFAULT: '#f1bc1b',
+                            50: '#fffdeb', 100: '#fdf9c8', 200: '#fbf38c', 300: '#f8e651',
+                            400: '#f7d728', 500: '#f1bc1b', 600: '#d5900a', 700: '#b1670c',
+                            800: '#8f5111', 900: '#764311', 950: '#442204'
                         },
-                        brown: '#442204',
-                        'off-white': '#FAFAFA',
                     },
                     fontFamily: {
                         sans: ['Inter Tight', 'system-ui', 'sans-serif'],
@@ -56,16 +40,30 @@
             }
         }
     </script>
+    <style>
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
 </head>
-<body class="bg-off-white text-charcoal">
+<body class="bg-[#FAFAFA] text-magento-charcoal">
 
-<header class="bg-gradient-to-br from-charcoal-500 via-charcoal-600 to-charcoal-700 border-b-8 border-orange-500">
+<!-- Skip to main content link for accessibility -->
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-magento-orange-500 focus:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-magento-orange-600">
+    Skip to main content
+</a>
+
+<header class="bg-gradient-to-br from-magento-charcoal-500 via-magento-charcoal-600 to-magento-charcoal-700 border-b-8 border-magento-orange-500">
     <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
         <nav aria-label="Breadcrumb" class="mb-8">
             <ol class="flex flex-wrap items-center gap-2 text-sm text-gray-400">
-                <li><a href="../../../index.html" class="hover:text-orange-500 underline underline-offset-4">Home</a></li>
+                <li><a href="../../../index.html" class="hover:text-magento-orange-500 underline underline-offset-4 transition-colors">Home</a></li>
                 <li aria-hidden="true"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
-                <li><a href="index.html" class="hover:text-orange-500 underline underline-offset-4">Magento_Customer</a></li>
+                <li><a href="index.html" class="hover:text-magento-orange-500 underline underline-offset-4 transition-colors">Magento_Customer</a></li>
                 <li aria-hidden="true"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
                 <li><span class="text-gray-300 font-medium" aria-current="page">Architecture</span></li>
             </ol>
@@ -75,7 +73,7 @@
                 <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">Module Architecture</h1>
                 <p class="text-base sm:text-lg text-gray-300 max-w-2xl mb-6">Complete architectural overview of customer management in Magento 2.4.x with component diagrams and dependency mappings.</p>
                 <div class="flex flex-wrap gap-3 text-sm">
-                    <span class="inline-flex items-center gap-1.5 bg-orange-500/20 text-yellow-400 px-3 py-1.5 border border-orange-500/40">
+                    <span class="inline-flex items-center gap-1.5 bg-magento-orange-500/20 text-magento-gold-400 px-3 py-1.5 border border-magento-orange-500/40">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
                         499 Components
                     </span>
@@ -85,116 +83,96 @@
                     </span>
                 </div>
             </div>
-            <div class="hidden lg:block">
-                <svg viewBox="0 0 400 300" class="w-full h-auto" aria-hidden="true">
-                    <rect x="20" y="20" width="80" height="80" fill="#F26423" opacity="0.2"/>
-                    <circle cx="340" cy="60" r="40" fill="#F1BC1B" opacity="0.15"/>
-                    <rect x="280" y="200" width="100" height="60" fill="#F26423" opacity="0.1"/>
-                    <!-- Architecture layers -->
-                    <rect x="80" y="40" width="240" height="45" fill="#F26423" stroke="#F1BC1B" stroke-width="2"/>
-                    <text x="200" y="68" text-anchor="middle" fill="white" font-size="13" font-weight="600">API / Service Contracts</text>
-                    <rect x="80" y="95" width="240" height="45" fill="#2C2C2C" stroke="#F1BC1B" stroke-width="2"/>
-                    <text x="200" y="123" text-anchor="middle" fill="#F1BC1B" font-size="13" font-weight="600">Business Logic</text>
-                    <rect x="80" y="150" width="240" height="45" fill="#2C2C2C" stroke="#F1BC1B" stroke-width="2"/>
-                    <text x="200" y="178" text-anchor="middle" fill="#F1BC1B" font-size="13" font-weight="600">Resource Models</text>
-                    <rect x="80" y="205" width="240" height="45" fill="#2C2C2C" stroke="#F26423" stroke-width="2"/>
-                    <text x="200" y="233" text-anchor="middle" fill="#F26423" font-size="13" font-weight="600">Database (EAV)</text>
-                    <!-- Arrows -->
-                    <path d="M200 85 L200 95" stroke="#F1BC1B" stroke-width="2"/>
-                    <path d="M200 140 L200 150" stroke="#F1BC1B" stroke-width="2"/>
-                    <path d="M200 195 L200 205" stroke="#F26423" stroke-width="2"/>
-                </svg>
-            </div>
         </div>
     </div>
 </header>
 
-<main class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+<main id="main-content" class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
 
-    <div class="bg-white mb-12 p-8 border-t-4 border-yellow-500 shadow-sm">
-        <h2 class="text-2xl font-bold text-charcoal mb-6">Quick Stats</h2>
+    <div class="bg-white mb-12 p-8 border-t-4 border-magento-gold-500 shadow-sm">
+        <h2 class="text-2xl font-bold text-magento-charcoal mb-6">Quick Stats</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div class="border-l-4 border-orange-500 pl-4">
-                <div class="text-3xl font-bold text-orange-500">499</div>
-                <div class="text-sm text-charcoal/70">Total Nodes</div>
+            <div class="border-l-4 border-magento-orange-500 pl-4">
+                <div class="text-3xl font-bold text-magento-orange-500">499</div>
+                <div class="text-sm text-magento-charcoal/70">Total Nodes</div>
             </div>
-            <div class="border-l-4 border-orange-500 pl-4">
-                <div class="text-3xl font-bold text-orange-500">123</div>
-                <div class="text-sm text-charcoal/70">Total Edges</div>
+            <div class="border-l-4 border-magento-orange-500 pl-4">
+                <div class="text-3xl font-bold text-magento-orange-500">123</div>
+                <div class="text-sm text-magento-charcoal/70">Total Edges</div>
             </div>
-            <div class="border-l-4 border-orange-500 pl-4">
-                <div class="text-3xl font-bold text-orange-500">2</div>
-                <div class="text-sm text-charcoal/70">Dependencies</div>
+            <div class="border-l-4 border-magento-orange-500 pl-4">
+                <div class="text-3xl font-bold text-magento-orange-500">2</div>
+                <div class="text-sm text-magento-charcoal/70">Dependencies</div>
             </div>
-            <div class="border-l-4 border-orange-500 pl-4">
-                <div class="text-3xl font-bold text-orange-500">2.4.x</div>
-                <div class="text-sm text-charcoal/70">Compatible</div>
+            <div class="border-l-4 border-magento-orange-500 pl-4">
+                <div class="text-3xl font-bold text-magento-orange-500">2.4.x</div>
+                <div class="text-sm text-magento-charcoal/70">Compatible</div>
             </div>
         </div>
     </div>
 
-    <div class="bg-white mb-12 p-8 border-t-4 border-yellow-500 shadow-sm">
-        <h2 class="text-2xl font-bold text-charcoal mb-4">Module Overview</h2>
-        <p class="text-lg text-charcoal/90 leading-relaxed mb-6">
+    <div class="bg-white mb-12 p-8 border-t-4 border-magento-gold-500 shadow-sm">
+        <h2 class="text-2xl font-bold text-magento-charcoal mb-4">Module Overview</h2>
+        <p class="text-lg text-magento-charcoal/90 leading-relaxed mb-6">
             The <strong>Magento_Customer</strong> module is the foundational component for managing customer accounts, authentication, and customer data throughout the Magento ecosystem.
         </p>
 
-        <h3 class="text-xl font-semibold text-charcoal mb-3 mt-8">What Magento_Customer Does</h3>
-        <ul class="space-y-2 text-charcoal/90">
-            <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Customer Account Management: Registration, login, profile updates, password management</li>
-            <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Address Management: Customer address CRUD operations with EAV attribute support</li>
-            <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Customer Groups: Group-based pricing and catalog rule management</li>
-            <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Authentication &amp; Authorization: Login validation, password hashing, session management</li>
-            <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Metadata Management: EAV attribute definitions for customers and addresses</li>
-            <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Email Notifications: Account creation, password reset, email change notifications</li>
-            <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> REST/SOAP APIs: Complete service contract implementation for external integrations</li>
-            <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Visitor Tracking: Anonymous and authenticated visitor session tracking</li>
+        <h3 class="text-xl font-semibold text-magento-charcoal mb-3 mt-8">What Magento_Customer Does</h3>
+        <ul class="space-y-2 text-magento-charcoal/90">
+            <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Customer Account Management: Registration, login, profile updates, password management</li>
+            <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Address Management: Customer address CRUD operations with EAV attribute support</li>
+            <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Customer Groups: Group-based pricing and catalog rule management</li>
+            <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Authentication &amp; Authorization: Login validation, password hashing, session management</li>
+            <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Metadata Management: EAV attribute definitions for customers and addresses</li>
+            <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Email Notifications: Account creation, password reset, email change notifications</li>
+            <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> REST/SOAP APIs: Complete service contract implementation for external integrations</li>
+            <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Visitor Tracking: Anonymous and authenticated visitor session tracking</li>
         </ul>
     </div>
 
-    <div class="bg-white mb-12 p-8 border-t-4 border-yellow-500 shadow-sm">
-        <h2 class="text-2xl font-bold text-charcoal mb-4">Position in Magento Ecosystem</h2>
+    <div class="bg-white mb-12 p-8 border-t-4 border-magento-gold-500 shadow-sm">
+        <h2 class="text-2xl font-bold text-magento-charcoal mb-4">Position in Magento Ecosystem</h2>
 
-        <div class="bg-white border-4 border-yellow-500 p-6 mb-6">
-            <h3 class="text-lg font-semibold text-charcoal mb-2">Architectural Layer: Foundation Module</h3>
-            <p class="text-charcoal/90">The Customer module sits at the foundation layer of Magento's architecture, providing essential services to nearly all customer-facing and admin modules.</p>
+        <div class="bg-magento-gold-50 border-l-4 border-magento-gold-500 p-6 mb-6 shadow-sm">
+            <h3 class="text-lg font-semibold text-magento-charcoal mb-2">Architectural Layer: Foundation Module</h3>
+            <p class="text-magento-charcoal/90">The Customer module sits at the foundation layer of Magento's architecture, providing essential services to nearly all customer-facing and admin modules.</p>
         </div>
 
-        <h3 class="text-xl font-semibold text-charcoal mb-3 mt-8">Direct Dependencies</h3>
-        <ul class="space-y-2 text-charcoal/90 mb-6">
-            <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> <strong>Magento_Eav:</strong> Customer and address entities use EAV for extensible attributes</li>
-            <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> <strong>Magento_Directory:</strong> Address regions, countries, and geographic data</li>
+        <h3 class="text-xl font-semibold text-magento-charcoal mb-3 mt-8">Direct Dependencies</h3>
+        <ul class="space-y-2 text-magento-charcoal/90 mb-6">
+            <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> <strong>Magento_Eav:</strong> Customer and address entities use EAV for extensible attributes</li>
+            <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> <strong>Magento_Directory:</strong> Address regions, countries, and geographic data</li>
         </ul>
 
-        <h3 class="text-xl font-semibold text-charcoal mb-3 mt-8">Key Dependent Modules</h3>
-        <p class="text-charcoal/90 mb-3">Modules that depend on Magento_Customer:</p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-charcoal/90">
-            <div class="flex gap-2"><span class="text-orange-500">•</span> Magento_Sales</div>
-            <div class="flex gap-2"><span class="text-orange-500">•</span> Magento_Quote</div>
-            <div class="flex gap-2"><span class="text-orange-500">•</span> Magento_Checkout</div>
-            <div class="flex gap-2"><span class="text-orange-500">•</span> Magento_Wishlist</div>
-            <div class="flex gap-2"><span class="text-orange-500">•</span> Magento_Review</div>
-            <div class="flex gap-2"><span class="text-orange-500">•</span> Magento_Newsletter</div>
-            <div class="flex gap-2"><span class="text-orange-500">•</span> Magento_Catalog</div>
-            <div class="flex gap-2"><span class="text-orange-500">•</span> Magento_Tax</div>
+        <h3 class="text-xl font-semibold text-magento-charcoal mb-3 mt-8">Key Dependent Modules</h3>
+        <p class="text-magento-charcoal/90 mb-3">Modules that depend on Magento_Customer:</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-magento-charcoal/90">
+            <div class="flex gap-2"><span class="text-magento-orange-500">•</span> Magento_Sales</div>
+            <div class="flex gap-2"><span class="text-magento-orange-500">•</span> Magento_Quote</div>
+            <div class="flex gap-2"><span class="text-magento-orange-500">•</span> Magento_Checkout</div>
+            <div class="flex gap-2"><span class="text-magento-orange-500">•</span> Magento_Wishlist</div>
+            <div class="flex gap-2"><span class="text-magento-orange-500">•</span> Magento_Review</div>
+            <div class="flex gap-2"><span class="text-magento-orange-500">•</span> Magento_Newsletter</div>
+            <div class="flex gap-2"><span class="text-magento-orange-500">•</span> Magento_Catalog</div>
+            <div class="flex gap-2"><span class="text-magento-orange-500">•</span> Magento_Tax</div>
         </div>
     </div>
 
-    <div class="bg-white mb-12 p-8 border-t-4 border-yellow-500 shadow-sm">
-        <h2 class="text-2xl font-bold text-charcoal mb-4">Service Contracts (API Layer)</h2>
-        <p class="text-charcoal/90 mb-6">The Customer module follows Magento's service contract pattern rigorously, exposing all functionality through well-defined interfaces.</p>
+    <div class="bg-white mb-12 p-8 border-t-4 border-magento-gold-500 shadow-sm">
+        <h2 class="text-2xl font-bold text-magento-charcoal mb-4">Service Contracts (API Layer)</h2>
+        <p class="text-magento-charcoal/90 mb-6">The Customer module follows Magento's service contract pattern rigorously, exposing all functionality through well-defined interfaces.</p>
 
-        <h3 class="text-xl font-semibold text-charcoal mb-3">Core Repository Interfaces</h3>
+        <h3 class="text-xl font-semibold text-magento-charcoal mb-3">Core Repository Interfaces</h3>
 
-        <div class="border-l-4 border-orange-500 pl-4 mb-6">
-            <h4 class="text-lg font-semibold text-charcoal mb-2">1. CustomerRepositoryInterface</h4>
-            <p class="text-sm text-charcoal/80 mb-2"><strong>Purpose:</strong> Main CRUD interface for customer entities</p>
-            <p class="text-sm text-charcoal/80 mb-2"><strong>Location:</strong> <code class="bg-off-white px-2 py-1">Magento\Customer\Api\CustomerRepositoryInterface</code></p>
-            <p class="text-sm text-charcoal/80"><strong>Implementation:</strong> <code class="bg-off-white px-2 py-1">Magento\Customer\Model\ResourceModel\CustomerRepository</code></p>
+        <div class="border-l-4 border-magento-orange-500 pl-4 mb-6">
+            <h4 class="text-lg font-semibold text-magento-charcoal mb-2">1. CustomerRepositoryInterface</h4>
+            <p class="text-sm text-magento-charcoal/80 mb-2"><strong>Purpose:</strong> Main CRUD interface for customer entities</p>
+            <p class="text-sm text-magento-charcoal/80 mb-2"><strong>Location:</strong> <code class="bg-[#FAFAFA] px-2 py-1">Magento\Customer\Api\CustomerRepositoryInterface</code></p>
+            <p class="text-sm text-magento-charcoal/80"><strong>Implementation:</strong> <code class="bg-[#FAFAFA] px-2 py-1">Magento\Customer\Model\ResourceModel\CustomerRepository</code></p>
 
             <div class="mt-3">
-                <p class="text-sm font-semibold text-charcoal mb-2">Key Methods:</p>
-                <pre class="bg-charcoal text-white p-3 text-xs overflow-x-auto"><code>save(CustomerInterface $customer, $passwordHash = null): CustomerInterface
+                <p class="text-sm font-semibold text-magento-charcoal mb-2">Key Methods:</p>
+                <pre class="bg-magento-charcoal text-white p-3 text-xs overflow-x-auto"><code>save(CustomerInterface $customer, $passwordHash = null): CustomerInterface
 get($email, $websiteId = null): CustomerInterface
 getById($customerId): CustomerInterface
 getList(SearchCriteriaInterface $searchCriteria): CustomerSearchResultsInterface
@@ -203,22 +181,22 @@ deleteById($customerId): bool</code></pre>
             </div>
         </div>
 
-        <div class="border-l-4 border-orange-500 pl-4 mb-6">
-            <h4 class="text-lg font-semibold text-charcoal mb-2">2. AddressRepositoryInterface</h4>
-            <p class="text-sm text-charcoal/80 mb-2"><strong>Purpose:</strong> CRUD operations for customer addresses</p>
-            <p class="text-sm text-charcoal/80 mb-2"><strong>Location:</strong> <code class="bg-off-white px-2 py-1">Magento\Customer\Api\AddressRepositoryInterface</code></p>
-            <p class="text-sm text-charcoal/80"><strong>Implementation:</strong> <code class="bg-off-white px-2 py-1">Magento\Customer\Model\ResourceModel\AddressRepository</code></p>
+        <div class="border-l-4 border-magento-orange-500 pl-4 mb-6">
+            <h4 class="text-lg font-semibold text-magento-charcoal mb-2">2. AddressRepositoryInterface</h4>
+            <p class="text-sm text-magento-charcoal/80 mb-2"><strong>Purpose:</strong> CRUD operations for customer addresses</p>
+            <p class="text-sm text-magento-charcoal/80 mb-2"><strong>Location:</strong> <code class="bg-[#FAFAFA] px-2 py-1">Magento\Customer\Api\AddressRepositoryInterface</code></p>
+            <p class="text-sm text-magento-charcoal/80"><strong>Implementation:</strong> <code class="bg-[#FAFAFA] px-2 py-1">Magento\Customer\Model\ResourceModel\AddressRepository</code></p>
         </div>
 
-        <div class="border-l-4 border-orange-500 pl-4 mb-6">
-            <h4 class="text-lg font-semibold text-charcoal mb-2">3. AccountManagementInterface</h4>
-            <p class="text-sm text-charcoal/80 mb-2"><strong>Purpose:</strong> High-level account operations (authentication, password, activation)</p>
-            <p class="text-sm text-charcoal/80 mb-2"><strong>Location:</strong> <code class="bg-off-white px-2 py-1">Magento\Customer\Api\AccountManagementInterface</code></p>
-            <p class="text-sm text-charcoal/80"><strong>Implementation:</strong> <code class="bg-off-white px-2 py-1">Magento\Customer\Model\AccountManagement</code></p>
+        <div class="border-l-4 border-magento-orange-500 pl-4 mb-6">
+            <h4 class="text-lg font-semibold text-magento-charcoal mb-2">3. AccountManagementInterface</h4>
+            <p class="text-sm text-magento-charcoal/80 mb-2"><strong>Purpose:</strong> High-level account operations (authentication, password, activation)</p>
+            <p class="text-sm text-magento-charcoal/80 mb-2"><strong>Location:</strong> <code class="bg-[#FAFAFA] px-2 py-1">Magento\Customer\Api\AccountManagementInterface</code></p>
+            <p class="text-sm text-magento-charcoal/80"><strong>Implementation:</strong> <code class="bg-[#FAFAFA] px-2 py-1">Magento\Customer\Model\AccountManagement</code></p>
 
             <div class="mt-3">
-                <p class="text-sm font-semibold text-charcoal mb-2">Key Methods:</p>
-                <pre class="bg-charcoal text-white p-3 text-xs overflow-x-auto"><code>createAccount(CustomerInterface $customer, $password = null, $redirectUrl = ''): CustomerInterface
+                <p class="text-sm font-semibold text-magento-charcoal mb-2">Key Methods:</p>
+                <pre class="bg-magento-charcoal text-white p-3 text-xs overflow-x-auto"><code>createAccount(CustomerInterface $customer, $password = null, $redirectUrl = ''): CustomerInterface
 authenticate($username, $password): CustomerInterface
 changePassword($email, $currentPassword, $newPassword): bool
 initiatePasswordReset($email, $template, $websiteId = null): bool
@@ -227,204 +205,204 @@ isEmailAvailable($customerEmail, $websiteId = null): bool</code></pre>
             </div>
         </div>
 
-        <div class="border-l-4 border-orange-500 pl-4 mb-6">
-            <h4 class="text-lg font-semibold text-charcoal mb-2">4. GroupRepositoryInterface</h4>
-            <p class="text-sm text-charcoal/80 mb-2"><strong>Purpose:</strong> Customer group management</p>
-            <p class="text-sm text-charcoal/80"><strong>Location:</strong> <code class="bg-off-white px-2 py-1">Magento\Customer\Api\GroupRepositoryInterface</code></p>
+        <div class="border-l-4 border-magento-orange-500 pl-4 mb-6">
+            <h4 class="text-lg font-semibold text-magento-charcoal mb-2">4. GroupRepositoryInterface</h4>
+            <p class="text-sm text-magento-charcoal/80 mb-2"><strong>Purpose:</strong> Customer group management</p>
+            <p class="text-sm text-magento-charcoal/80"><strong>Location:</strong> <code class="bg-[#FAFAFA] px-2 py-1">Magento\Customer\Api\GroupRepositoryInterface</code></p>
         </div>
     </div>
 
-    <div class="bg-white mb-12 p-8 border-t-4 border-yellow-500 shadow-sm">
-        <h2 class="text-2xl font-bold text-charcoal mb-4">Database Schema</h2>
+    <div class="bg-white mb-12 p-8 border-t-4 border-magento-gold-500 shadow-sm">
+        <h2 class="text-2xl font-bold text-magento-charcoal mb-4">Database Schema</h2>
 
-        <h3 class="text-xl font-semibold text-charcoal mb-3">Primary Tables</h3>
+        <h3 class="text-xl font-semibold text-magento-charcoal mb-3">Primary Tables</h3>
 
-        <div class="border-l-4 border-orange-500 pl-4 mb-6">
-            <h4 class="text-lg font-semibold text-charcoal mb-2">customer_entity</h4>
-            <p class="text-sm text-charcoal/80 mb-3"><strong>Purpose:</strong> Main customer data (EAV entity)</p>
+        <div class="border-l-4 border-magento-orange-500 pl-4 mb-6">
+            <h4 class="text-lg font-semibold text-magento-charcoal mb-2">customer_entity</h4>
+            <p class="text-sm text-magento-charcoal/80 mb-3"><strong>Purpose:</strong> Main customer data (EAV entity)</p>
 
             <div class="overflow-x-auto">
-                <table class="min-w-full text-sm border border-charcoal/20">
-                    <thead class="bg-off-white">
+                <table class="min-w-full text-sm border border-magento-charcoal/20">
+                    <thead class="bg-[#FAFAFA]">
                         <tr>
-                            <th class="px-3 py-2 text-left border-b border-charcoal/20 font-semibold text-charcoal">Column</th>
-                            <th class="px-3 py-2 text-left border-b border-charcoal/20 font-semibold text-charcoal">Type</th>
-                            <th class="px-3 py-2 text-left border-b border-charcoal/20 font-semibold text-charcoal">Description</th>
+                            <th class="px-3 py-2 text-left border-b border-magento-charcoal/20 font-semibold text-magento-charcoal">Column</th>
+                            <th class="px-3 py-2 text-left border-b border-magento-charcoal/20 font-semibold text-magento-charcoal">Type</th>
+                            <th class="px-3 py-2 text-left border-b border-magento-charcoal/20 font-semibold text-magento-charcoal">Description</th>
                         </tr>
                     </thead>
                     <tbody class="bg-white">
                         <tr>
-                            <td class="px-3 py-2 border-b border-charcoal/10"><code>entity_id</code></td>
-                            <td class="px-3 py-2 border-b border-charcoal/10">INT (PK)</td>
-                            <td class="px-3 py-2 border-b border-charcoal/10">Customer ID</td>
+                            <td class="px-3 py-2 border-b border-magento-charcoal/10"><code>entity_id</code></td>
+                            <td class="px-3 py-2 border-b border-magento-charcoal/10">INT (PK)</td>
+                            <td class="px-3 py-2 border-b border-magento-charcoal/10">Customer ID</td>
                         </tr>
                         <tr>
-                            <td class="px-3 py-2 border-b border-charcoal/10"><code>website_id</code></td>
-                            <td class="px-3 py-2 border-b border-charcoal/10">INT</td>
-                            <td class="px-3 py-2 border-b border-charcoal/10">Multi-website support</td>
+                            <td class="px-3 py-2 border-b border-magento-charcoal/10"><code>website_id</code></td>
+                            <td class="px-3 py-2 border-b border-magento-charcoal/10">INT</td>
+                            <td class="px-3 py-2 border-b border-magento-charcoal/10">Multi-website support</td>
                         </tr>
                         <tr>
-                            <td class="px-3 py-2 border-b border-charcoal/10"><code>email</code></td>
-                            <td class="px-3 py-2 border-b border-charcoal/10">VARCHAR(255)</td>
-                            <td class="px-3 py-2 border-b border-charcoal/10">Unique per website</td>
+                            <td class="px-3 py-2 border-b border-magento-charcoal/10"><code>email</code></td>
+                            <td class="px-3 py-2 border-b border-magento-charcoal/10">VARCHAR(255)</td>
+                            <td class="px-3 py-2 border-b border-magento-charcoal/10">Unique per website</td>
                         </tr>
                         <tr>
-                            <td class="px-3 py-2 border-b border-charcoal/10"><code>group_id</code></td>
-                            <td class="px-3 py-2 border-b border-charcoal/10">INT</td>
-                            <td class="px-3 py-2 border-b border-charcoal/10">FK to customer_group</td>
+                            <td class="px-3 py-2 border-b border-magento-charcoal/10"><code>group_id</code></td>
+                            <td class="px-3 py-2 border-b border-magento-charcoal/10">INT</td>
+                            <td class="px-3 py-2 border-b border-magento-charcoal/10">FK to customer_group</td>
                         </tr>
                         <tr>
-                            <td class="px-3 py-2 border-b border-charcoal/10"><code>created_at</code></td>
-                            <td class="px-3 py-2 border-b border-charcoal/10">TIMESTAMP</td>
-                            <td class="px-3 py-2 border-b border-charcoal/10">Account creation timestamp</td>
+                            <td class="px-3 py-2 border-b border-magento-charcoal/10"><code>created_at</code></td>
+                            <td class="px-3 py-2 border-b border-magento-charcoal/10">TIMESTAMP</td>
+                            <td class="px-3 py-2 border-b border-magento-charcoal/10">Account creation timestamp</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <div class="border-l-4 border-orange-500 pl-4 mb-6">
-            <h4 class="text-lg font-semibold text-charcoal mb-2">customer_address_entity</h4>
-            <p class="text-sm text-charcoal/80 mb-2"><strong>Purpose:</strong> Customer addresses (EAV entity)</p>
-            <p class="text-sm text-charcoal/80">Key columns: entity_id (PK), parent_id (FK to customer_entity), city, country_id, region, postcode, street, telephone</p>
+        <div class="border-l-4 border-magento-orange-500 pl-4 mb-6">
+            <h4 class="text-lg font-semibold text-magento-charcoal mb-2">customer_address_entity</h4>
+            <p class="text-sm text-magento-charcoal/80 mb-2"><strong>Purpose:</strong> Customer addresses (EAV entity)</p>
+            <p class="text-sm text-magento-charcoal/80">Key columns: entity_id (PK), parent_id (FK to customer_entity), city, country_id, region, postcode, street, telephone</p>
         </div>
 
-        <div class="border-l-4 border-orange-500 pl-4 mb-6">
-            <h4 class="text-lg font-semibold text-charcoal mb-2">customer_group</h4>
-            <p class="text-sm text-charcoal/80 mb-2"><strong>Purpose:</strong> Customer groups (for pricing, catalog rules)</p>
-            <p class="text-sm text-charcoal/80">System groups: 0 (NOT LOGGED IN), 1 (General), 2 (Wholesale), 3 (Retail)</p>
+        <div class="border-l-4 border-magento-orange-500 pl-4 mb-6">
+            <h4 class="text-lg font-semibold text-magento-charcoal mb-2">customer_group</h4>
+            <p class="text-sm text-magento-charcoal/80 mb-2"><strong>Purpose:</strong> Customer groups (for pricing, catalog rules)</p>
+            <p class="text-sm text-magento-charcoal/80">System groups: 0 (NOT LOGGED IN), 1 (General), 2 (Wholesale), 3 (Retail)</p>
         </div>
 
-        <h3 class="text-xl font-semibold text-charcoal mb-3 mt-8">EAV Tables</h3>
-        <p class="text-charcoal/90 mb-3">Customer and Address entities use standard EAV structure:</p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-charcoal/90">
-            <div class="flex gap-2"><span class="text-orange-500">•</span> customer_entity_datetime</div>
-            <div class="flex gap-2"><span class="text-orange-500">•</span> customer_entity_decimal</div>
-            <div class="flex gap-2"><span class="text-orange-500">•</span> customer_entity_int</div>
-            <div class="flex gap-2"><span class="text-orange-500">•</span> customer_entity_text</div>
-            <div class="flex gap-2"><span class="text-orange-500">•</span> customer_entity_varchar</div>
-            <div class="flex gap-2"><span class="text-orange-500">•</span> customer_address_entity_datetime</div>
-            <div class="flex gap-2"><span class="text-orange-500">•</span> customer_address_entity_decimal</div>
-            <div class="flex gap-2"><span class="text-orange-500">•</span> customer_address_entity_int</div>
-        </div>
-    </div>
-
-    <div class="bg-white mb-12 p-8 border-t-4 border-yellow-500 shadow-sm">
-        <h2 class="text-2xl font-bold text-charcoal mb-4">Extension Points</h2>
-
-        <h3 class="text-xl font-semibold text-charcoal mb-3">Plugin Intercept Points</h3>
-        <p class="text-charcoal/90 mb-4">The module provides <strong>19 plugins</strong> for customization.</p>
-
-        <div class="bg-white border-4 border-yellow-500 p-6 mb-6">
-            <h4 class="text-lg font-semibold text-charcoal mb-2">Critical Intercept Points:</h4>
-            <ul class="space-y-2 text-charcoal/90">
-                <li class="flex gap-2"><span class="text-orange-500 font-bold">1.</span> CustomerRepositoryInterface::save - Customer save operations</li>
-                <li class="flex gap-2"><span class="text-orange-500 font-bold">2.</span> AccountManagementInterface::authenticate - Login flows</li>
-                <li class="flex gap-2"><span class="text-orange-500 font-bold">3.</span> GroupRepositoryInterface - Group operations</li>
-                <li class="flex gap-2"><span class="text-orange-500 font-bold">4.</span> Framework\View\Layout - Frontend depersonalization for caching</li>
-                <li class="flex gap-2"><span class="text-orange-500 font-bold">5.</span> Framework\App\ActionInterface - Customer notification injection</li>
-            </ul>
-        </div>
-
-        <h3 class="text-xl font-semibold text-charcoal mb-3 mt-8">Event-Based Extension Points</h3>
-        <p class="text-charcoal/90 mb-4">The module dispatches <strong>12 core events</strong>:</p>
-
-        <div class="border-l-4 border-orange-500 pl-4">
-            <h4 class="text-base font-semibold text-charcoal mb-2">Customer Lifecycle Events:</h4>
-            <ul class="space-y-1 text-sm text-charcoal/90">
-                <li class="flex gap-2"><span class="text-orange-500">→</span> customer_save_before</li>
-                <li class="flex gap-2"><span class="text-orange-500">→</span> customer_save_after</li>
-                <li class="flex gap-2"><span class="text-orange-500">→</span> customer_save_after_data_object (Most important)</li>
-                <li class="flex gap-2"><span class="text-orange-500">→</span> customer_delete_before</li>
-                <li class="flex gap-2"><span class="text-orange-500">→</span> customer_delete_after</li>
-            </ul>
-
-            <h4 class="text-base font-semibold text-charcoal mb-2 mt-4">Authentication Events:</h4>
-            <ul class="space-y-1 text-sm text-charcoal/90">
-                <li class="flex gap-2"><span class="text-orange-500">→</span> customer_login</li>
-                <li class="flex gap-2"><span class="text-orange-500">→</span> customer_logout</li>
-                <li class="flex gap-2"><span class="text-orange-500">→</span> customer_data_object_login</li>
-            </ul>
+        <h3 class="text-xl font-semibold text-magento-charcoal mb-3 mt-8">EAV Tables</h3>
+        <p class="text-magento-charcoal/90 mb-3">Customer and Address entities use standard EAV structure:</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-magento-charcoal/90">
+            <div class="flex gap-2"><span class="text-magento-orange-500">•</span> customer_entity_datetime</div>
+            <div class="flex gap-2"><span class="text-magento-orange-500">•</span> customer_entity_decimal</div>
+            <div class="flex gap-2"><span class="text-magento-orange-500">•</span> customer_entity_int</div>
+            <div class="flex gap-2"><span class="text-magento-orange-500">•</span> customer_entity_text</div>
+            <div class="flex gap-2"><span class="text-magento-orange-500">•</span> customer_entity_varchar</div>
+            <div class="flex gap-2"><span class="text-magento-orange-500">•</span> customer_address_entity_datetime</div>
+            <div class="flex gap-2"><span class="text-magento-orange-500">•</span> customer_address_entity_decimal</div>
+            <div class="flex gap-2"><span class="text-magento-orange-500">•</span> customer_address_entity_int</div>
         </div>
     </div>
 
-    <div class="bg-white mb-12 p-8 border-t-4 border-yellow-500 shadow-sm">
-        <h2 class="text-2xl font-bold text-charcoal mb-4">Performance Considerations</h2>
+    <div class="bg-white mb-12 p-8 border-t-4 border-magento-gold-500 shadow-sm">
+        <h2 class="text-2xl font-bold text-magento-charcoal mb-4">Extension Points</h2>
 
-        <h3 class="text-xl font-semibold text-charcoal mb-3">Caching Strategy</h3>
-        <ul class="space-y-3 text-charcoal/90">
-            <li class="border-l-4 border-orange-500 pl-4">
+        <h3 class="text-xl font-semibold text-magento-charcoal mb-3">Plugin Intercept Points</h3>
+        <p class="text-magento-charcoal/90 mb-4">The module provides <strong>19 plugins</strong> for customization.</p>
+
+        <div class="bg-magento-gold-50 border-l-4 border-magento-gold-500 p-6 mb-6 shadow-sm">
+            <h4 class="text-lg font-semibold text-magento-charcoal mb-2">Critical Intercept Points:</h4>
+            <ul class="space-y-2 text-magento-charcoal/90">
+                <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">1.</span> CustomerRepositoryInterface::save - Customer save operations</li>
+                <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">2.</span> AccountManagementInterface::authenticate - Login flows</li>
+                <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">3.</span> GroupRepositoryInterface - Group operations</li>
+                <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">4.</span> Framework\View\Layout - Frontend depersonalization for caching</li>
+                <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">5.</span> Framework\App\ActionInterface - Customer notification injection</li>
+            </ul>
+        </div>
+
+        <h3 class="text-xl font-semibold text-magento-charcoal mb-3 mt-8">Event-Based Extension Points</h3>
+        <p class="text-magento-charcoal/90 mb-4">The module dispatches <strong>12 core events</strong>:</p>
+
+        <div class="border-l-4 border-magento-orange-500 pl-4">
+            <h4 class="text-base font-semibold text-magento-charcoal mb-2">Customer Lifecycle Events:</h4>
+            <ul class="space-y-1 text-sm text-magento-charcoal/90">
+                <li class="flex gap-2"><span class="text-magento-orange-500">→</span> customer_save_before</li>
+                <li class="flex gap-2"><span class="text-magento-orange-500">→</span> customer_save_after</li>
+                <li class="flex gap-2"><span class="text-magento-orange-500">→</span> customer_save_after_data_object (Most important)</li>
+                <li class="flex gap-2"><span class="text-magento-orange-500">→</span> customer_delete_before</li>
+                <li class="flex gap-2"><span class="text-magento-orange-500">→</span> customer_delete_after</li>
+            </ul>
+
+            <h4 class="text-base font-semibold text-magento-charcoal mb-2 mt-4">Authentication Events:</h4>
+            <ul class="space-y-1 text-sm text-magento-charcoal/90">
+                <li class="flex gap-2"><span class="text-magento-orange-500">→</span> customer_login</li>
+                <li class="flex gap-2"><span class="text-magento-orange-500">→</span> customer_logout</li>
+                <li class="flex gap-2"><span class="text-magento-orange-500">→</span> customer_data_object_login</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="bg-white mb-12 p-8 border-t-4 border-magento-gold-500 shadow-sm">
+        <h2 class="text-2xl font-bold text-magento-charcoal mb-4">Performance Considerations</h2>
+
+        <h3 class="text-xl font-semibold text-magento-charcoal mb-3">Caching Strategy</h3>
+        <ul class="space-y-3 text-magento-charcoal/90">
+            <li class="border-l-4 border-magento-orange-500 pl-4">
                 <strong>Metadata Caching:</strong> CustomerCachedMetadata and AddressCachedMetadata wrap metadata providers to prevent repeated EAV attribute queries
             </li>
-            <li class="border-l-4 border-orange-500 pl-4">
+            <li class="border-l-4 border-magento-orange-500 pl-4">
                 <strong>Full Page Cache (FPC):</strong> DepersonalizePlugin removes customer-specific data from cached pages
             </li>
-            <li class="border-l-4 border-orange-500 pl-4">
+            <li class="border-l-4 border-magento-orange-500 pl-4">
                 <strong>Session Storage:</strong> Customer session stored in configured session storage (Redis, database, files)
             </li>
         </ul>
 
-        <h3 class="text-xl font-semibold text-charcoal mb-3 mt-8">Database Performance</h3>
-        <div class="bg-white border-4 border-yellow-500 p-6">
-            <h4 class="text-base font-semibold text-charcoal mb-2">Key Indexes:</h4>
-            <ul class="space-y-1 text-sm text-charcoal/90">
-                <li class="flex gap-2"><span class="text-orange-500">•</span> CUSTOMER_ENTITY_EMAIL_WEBSITE_ID (email, website_id) - Unique constraint</li>
-                <li class="flex gap-2"><span class="text-orange-500">•</span> CUSTOMER_ENTITY_WEBSITE_ID - Website filtering</li>
-                <li class="flex gap-2"><span class="text-orange-500">•</span> CUSTOMER_ADDRESS_ENTITY_PARENT_ID - Customer's addresses lookup</li>
+        <h3 class="text-xl font-semibold text-magento-charcoal mb-3 mt-8">Database Performance</h3>
+        <div class="bg-magento-gold-50 border-l-4 border-magento-gold-500 p-6 shadow-sm">
+            <h4 class="text-base font-semibold text-magento-charcoal mb-2">Key Indexes:</h4>
+            <ul class="space-y-1 text-sm text-magento-charcoal/90">
+                <li class="flex gap-2"><span class="text-magento-orange-500">•</span> CUSTOMER_ENTITY_EMAIL_WEBSITE_ID (email, website_id) - Unique constraint</li>
+                <li class="flex gap-2"><span class="text-magento-orange-500">•</span> CUSTOMER_ENTITY_WEBSITE_ID - Website filtering</li>
+                <li class="flex gap-2"><span class="text-magento-orange-500">•</span> CUSTOMER_ADDRESS_ENTITY_PARENT_ID - Customer's addresses lookup</li>
             </ul>
 
-            <h4 class="text-base font-semibold text-charcoal mb-2 mt-4">Optimization Tips:</h4>
-            <ul class="space-y-1 text-sm text-charcoal/90">
-                <li class="flex gap-2"><span class="text-orange-500">→</span> Use getById() instead of get($email) when possible (primary key lookup)</li>
-                <li class="flex gap-2"><span class="text-orange-500">→</span> Batch operations with collections instead of repository in loops</li>
-                <li class="flex gap-2"><span class="text-orange-500">→</span> Consider custom indexers for complex customer searches</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="bg-white mb-12 p-8 border-t-4 border-yellow-500 shadow-sm">
-        <h2 class="text-2xl font-bold text-charcoal mb-4">Security &amp; Authorization</h2>
-
-        <div class="border-l-4 border-orange-500 pl-4 mb-6">
-            <h3 class="text-xl font-semibold text-charcoal mb-2">Password Management</h3>
-            <p class="text-sm text-charcoal/90 mb-2"><strong>Hashing:</strong> Uses Magento\Framework\Encryption\EncryptorInterface</p>
-            <p class="text-sm text-charcoal/90 mb-2"><strong>Default Algorithm:</strong> Argon2ID13 (Magento 2.4+)</p>
-            <p class="text-sm text-charcoal/90"><strong>Password Reset:</strong> Token-based reset with configurable expiration (typically 1-24 hours)</p>
-        </div>
-
-        <div class="border-l-4 border-orange-500 pl-4">
-            <h3 class="text-xl font-semibold text-charcoal mb-2">Admin Access Control (ACL)</h3>
-            <p class="text-sm text-charcoal/90 mb-2">Resources defined in etc/acl.xml:</p>
-            <ul class="space-y-1 text-sm text-charcoal/90">
-                <li class="flex gap-2"><span class="text-orange-500">•</span> Magento_Customer::manage - Main customer management permission</li>
-                <li class="flex gap-2"><span class="text-orange-500">•</span> Magento_Customer::customer - Customer operations</li>
-                <li class="flex gap-2"><span class="text-orange-500">•</span> Magento_Customer::group - Customer group management</li>
-                <li class="flex gap-2"><span class="text-orange-500">•</span> Magento_Customer::online - View online customers</li>
+            <h4 class="text-base font-semibold text-magento-charcoal mb-2 mt-4">Optimization Tips:</h4>
+            <ul class="space-y-1 text-sm text-magento-charcoal/90">
+                <li class="flex gap-2"><span class="text-magento-orange-500">→</span> Use getById() instead of get($email) when possible (primary key lookup)</li>
+                <li class="flex gap-2"><span class="text-magento-orange-500">→</span> Batch operations with collections instead of repository in loops</li>
+                <li class="flex gap-2"><span class="text-magento-orange-500">→</span> Consider custom indexers for complex customer searches</li>
             </ul>
         </div>
     </div>
 
-    <footer class="mt-16 pt-8 border-t-4 border-yellow-500">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-charcoal/80">
+    <div class="bg-white mb-12 p-8 border-t-4 border-magento-gold-500 shadow-sm">
+        <h2 class="text-2xl font-bold text-magento-charcoal mb-4">Security &amp; Authorization</h2>
+
+        <div class="border-l-4 border-magento-orange-500 pl-4 mb-6">
+            <h3 class="text-xl font-semibold text-magento-charcoal mb-2">Password Management</h3>
+            <p class="text-sm text-magento-charcoal/90 mb-2"><strong>Hashing:</strong> Uses Magento\Framework\Encryption\EncryptorInterface</p>
+            <p class="text-sm text-magento-charcoal/90 mb-2"><strong>Default Algorithm:</strong> Argon2ID13 (Magento 2.4+)</p>
+            <p class="text-sm text-magento-charcoal/90"><strong>Password Reset:</strong> Token-based reset with configurable expiration (typically 1-24 hours)</p>
+        </div>
+
+        <div class="border-l-4 border-magento-orange-500 pl-4">
+            <h3 class="text-xl font-semibold text-magento-charcoal mb-2">Admin Access Control (ACL)</h3>
+            <p class="text-sm text-magento-charcoal/90 mb-2">Resources defined in etc/acl.xml:</p>
+            <ul class="space-y-1 text-sm text-magento-charcoal/90">
+                <li class="flex gap-2"><span class="text-magento-orange-500">•</span> Magento_Customer::manage - Main customer management permission</li>
+                <li class="flex gap-2"><span class="text-magento-orange-500">•</span> Magento_Customer::customer - Customer operations</li>
+                <li class="flex gap-2"><span class="text-magento-orange-500">•</span> Magento_Customer::group - Customer group management</li>
+                <li class="flex gap-2"><span class="text-magento-orange-500">•</span> Magento_Customer::online - View online customers</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer class="mt-16 pt-8 border-t-4 border-magento-gold-500">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-magento-charcoal/80">
             <div>
-                <h3 class="font-semibold text-charcoal mb-2">Document Info</h3>
+                <h3 class="font-semibold text-magento-charcoal mb-2">Document Info</h3>
                 <p>Version: 1.0.0</p>
                 <p>Last Updated: 2025-12-03</p>
                 <p>Magento Version: 2.4.8</p>
             </div>
             <div>
-                <h3 class="font-semibold text-charcoal mb-2">Related Documentation</h3>
+                <h3 class="font-semibold text-magento-charcoal mb-2">Related Documentation</h3>
                 <ul class="space-y-1">
-                    <li><a href="execution-flows.html" class="text-orange-500 hover:underline">Execution Flows</a></li>
-                    <li><a href="plugins-observers.html" class="text-orange-500 hover:underline">Plugins &amp; Observers</a></li>
-                    <li><a href="integrations.html" class="text-orange-500 hover:underline">Module Integrations</a></li>
+                    <li><a href="execution-flows.html" class="text-magento-orange-500 hover:underline">Execution Flows</a></li>
+                    <li><a href="plugins-observers.html" class="text-magento-orange-500 hover:underline">Plugins &amp; Observers</a></li>
+                    <li><a href="integrations.html" class="text-magento-orange-500 hover:underline">Module Integrations</a></li>
                 </ul>
             </div>
             <div>
-                <h3 class="font-semibold text-charcoal mb-2">Navigation</h3>
+                <h3 class="font-semibold text-magento-charcoal mb-2">Navigation</h3>
                 <ul class="space-y-1">
-                    <li><a href="../../../index.html" class="text-orange-500 hover:underline">Home</a></li>
-                    <li><a href="../index.html" class="text-orange-500 hover:underline">Magento_Customer Module</a></li>
+                    <li><a href="../../../index.html" class="text-magento-orange-500 hover:underline">Home</a></li>
+                    <li><a href="../index.html" class="text-magento-orange-500 hover:underline">Magento_Customer Module</a></li>
                 </ul>
             </div>
         </div>

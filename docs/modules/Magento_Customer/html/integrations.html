@@ -6,49 +6,30 @@
   <title>Module Integrations - Magento_Customer Documentation</title>
   <meta name="description" content="Comprehensive integration mapping for Magento_Customer module, showing how it connects with Sales, Quote, Checkout, Catalog, and other core modules.">
   <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            jacarta: {
-              50: '#e9ecfa', 100: '#d7dbf5', 200: '#b7bdec', 300: '#8c93dd',
-              400: '#5d5ecc', 500: '#292562', 600: '#2b2551', 700: '#2c293e',
-              800: '#252331', 900: '#201f26', 950: '#19181e'
-            },
-            amaranth: {
-              50: '#feeff1', 100: '#fde2e6', 200: '#fbc9d2', 300: '#f89caf',
-              400: '#f46484', 500: '#ec2254', 600: '#cc2254', 700: '#a21542',
-              800: '#87153c', 900: '#731539', 950: '#41061b'
-            },
-            orange: {
-              DEFAULT: '#F26423',
+            'magento-orange': {
+              DEFAULT: '#f26423',
               50: '#fef5ee', 100: '#fee9d6', 200: '#fbd0ad', 300: '#f9ae78',
               400: '#f58242', 500: '#f26423', 600: '#e34613', 700: '#bc3312',
               800: '#962a16', 900: '#792515', 950: '#411009'
             },
-            yellow: {
-              DEFAULT: '#F1BC1B',
+            'magento-gold': {
+              DEFAULT: '#f1bc1b',
               50: '#fffdeb', 100: '#fdf9c8', 200: '#fbf38c', 300: '#f8e651',
               400: '#f7d728', 500: '#f1bc1b', 600: '#d5900a', 700: '#b1670c',
               800: '#8f5111', 900: '#764311', 950: '#442204'
             },
-            charcoal: {
+            'magento-charcoal': {
               DEFAULT: '#2c2c2c',
               50: '#f1f1f1', 100: '#d9d9d9', 200: '#b6b6b6', 300: '#818181',
               400: '#474747', 500: '#2c2c2c', 600: '#262626', 700: '#202020',
               800: '#1c1c1c', 900: '#191919', 950: '#121212'
             },
-            alabaster: {
-              50: '#ffffff', 100: '#ffffff', 200: '#ffffff', 300: '#ffffff',
-              400: '#ffffff', 500: '#fafafa', 600: '#cccccc', 700: '#a5a5a5',
-              800: '#8d8d8d', 900: '#7b7b7b', 950: '#535353'
-            },
-            brown: '#442204',
-            'off-white': '#FAFAFA',
-            'magento-orange': '#F26423',
-            'magento-yellow': '#F1BC1B',
-            'magento-charcoal': '#2C2C2C',
             'magento-offwhite': '#FAFAFA',
           },
           fontFamily: {
@@ -71,9 +52,14 @@
   </style>
 </head>
 <body class="bg-magento-offwhite text-magento-charcoal antialiased">
+<!-- Skip to main content link for accessibility -->
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-magento-orange-500 focus:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-magento-orange-600">
+    Skip to main content
+</a>
+
 
   <!-- Hero Section with SVG -->
-  <header class="bg-gradient-to-br from-magento-charcoal via-magento-charcoal to-gray-800 border-b-8 border-magento-orange">
+  <header class="bg-gradient-to-br from-magento-charcoal-500 via-magento-charcoal-600 to-magento-charcoal-700 border-b-8 border-magento-orange-500">
     <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
 
       <!-- Breadcrumb -->
@@ -122,57 +108,12 @@
           </div>
         </div>
 
-        <!-- Hero SVG Illustration -->
-        <div class="hidden lg:block">
-          <svg viewBox="0 0 400 300" class="w-full h-auto" aria-hidden="true">
-            <!-- Background geometric shapes -->
-            <rect x="20" y="20" width="80" height="80" fill="#F26423" opacity="0.2"/>
-            <circle cx="340" cy="60" r="40" fill="#F1BC1B" opacity="0.15"/>
-            <rect x="280" y="200" width="100" height="60" fill="#F26423" opacity="0.1"/>
-
-            <!-- Central node (Customer module) -->
-            <circle cx="200" cy="150" r="45" fill="#F26423" stroke="#F1BC1B" stroke-width="3"/>
-            <text x="200" y="155" text-anchor="middle" fill="white" font-size="14" font-weight="600">Customer</text>
-
-            <!-- Connected modules -->
-            <!-- Sales -->
-            <line x1="200" y1="105" x2="200" y2="40" stroke="#F1BC1B" stroke-width="2" stroke-dasharray="4,4" opacity="0.6"/>
-            <circle cx="200" cy="30" r="22" fill="#2C2C2C" stroke="#F1BC1B" stroke-width="2"/>
-            <text x="200" y="35" text-anchor="middle" fill="#F1BC1B" font-size="11" font-weight="500">Sales</text>
-
-            <!-- Quote -->
-            <line x1="155" y1="135" x2="80" y2="90" stroke="#F1BC1B" stroke-width="2" stroke-dasharray="4,4" opacity="0.6"/>
-            <circle cx="70" cy="75" r="22" fill="#2C2C2C" stroke="#F1BC1B" stroke-width="2"/>
-            <text x="70" y="80" text-anchor="middle" fill="#F1BC1B" font-size="11" font-weight="500">Quote</text>
-
-            <!-- Checkout -->
-            <line x1="245" y1="135" x2="320" y2="90" stroke="#F1BC1B" stroke-width="2" stroke-dasharray="4,4" opacity="0.6"/>
-            <circle cx="330" cy="75" r="22" fill="#2C2C2C" stroke="#F1BC1B" stroke-width="2"/>
-            <text x="330" y="80" text-anchor="middle" fill="#F1BC1B" font-size="10" font-weight="500">Checkout</text>
-
-            <!-- Catalog -->
-            <line x1="155" y1="165" x2="80" y2="210" stroke="#F1BC1B" stroke-width="2" stroke-dasharray="4,4" opacity="0.6"/>
-            <circle cx="70" cy="225" r="22" fill="#2C2C2C" stroke="#F1BC1B" stroke-width="2"/>
-            <text x="70" y="230" text-anchor="middle" fill="#F1BC1B" font-size="11" font-weight="500">Catalog</text>
-
-            <!-- Tax -->
-            <line x1="245" y1="165" x2="320" y2="210" stroke="#F1BC1B" stroke-width="2" stroke-dasharray="4,4" opacity="0.6"/>
-            <circle cx="330" cy="225" r="22" fill="#2C2C2C" stroke="#F1BC1B" stroke-width="2"/>
-            <text x="330" y="230" text-anchor="middle" fill="#F1BC1B" font-size="11" font-weight="500">Tax</text>
-
-            <!-- EAV (dependency) -->
-            <line x1="200" y1="195" x2="200" y2="260" stroke="#F26423" stroke-width="3" opacity="0.8"/>
-            <circle cx="200" cy="270" r="22" fill="#F26423" stroke="white" stroke-width="2"/>
-            <text x="200" y="275" text-anchor="middle" fill="white" font-size="11" font-weight="600">EAV</text>
-          </svg>
-        </div>
-
       </div>
     </div>
   </header>
 
   <!-- Main Content -->
-  <main class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+  <main id="main-content" class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
 
     <!-- Integration Overview -->
     <section class="mb-16">
@@ -212,7 +153,7 @@
             <p class="text-sm text-gray-600">Loose coupling via events and observers</p>
           </div>
 
-          <div class="border-l-4 border-magento-yellow bg-yellow-50 p-4 -lg">
+          <div class="border-l-4 border-magento-yellow bg-magento-gold-50 p-4 -lg">
             <h3 class="font-semibold text-magento-charcoal mb-1 text-sm">API Integration</h3>
             <p class="text-sm text-gray-600">REST/GraphQL endpoints for external systems</p>
           </div>
@@ -633,16 +574,16 @@
               <h4 class="text-xs font-semibold uppercase tracking-wide mb-2 text-magento-yellow">Key Endpoints</h4>
               <div class="space-y-2 text-sm font-mono">
                 <div class="bg-black/30 p-2 border border-magento-orange/30">
-                  <span class="text-yellow-400">GET</span> <span class="text-gray-300">/V1/customers/:customerId</span>
+                  <span class="text-magento-gold-400">GET</span> <span class="text-gray-300">/V1/customers/:customerId</span>
                 </div>
                 <div class="bg-black/30 p-2 border border-magento-orange/30">
                   <span class="text-blue-400">POST</span> <span class="text-gray-300">/V1/customers</span>
                 </div>
                 <div class="bg-black/30 p-2 border border-magento-orange/30">
-                  <span class="text-yellow-400">PUT</span> <span class="text-gray-300">/V1/customers/:customerId</span>
+                  <span class="text-magento-gold-400">PUT</span> <span class="text-gray-300">/V1/customers/:customerId</span>
                 </div>
                 <div class="bg-black/30 p-2 border border-magento-orange/30">
-                  <span class="text-amaranth-400">DELETE</span> <span class="text-gray-300">/V1/customers/:customerId</span>
+                  <span class="text-magento-orange-400">DELETE</span> <span class="text-gray-300">/V1/customers/:customerId</span>
                 </div>
               </div>
             </div>

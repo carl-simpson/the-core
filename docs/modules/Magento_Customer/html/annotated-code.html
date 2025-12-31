@@ -5,46 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Annotated Code Tutorial | Magento_Customer Documentation</title>
   <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            jacarta: {
-              50: '#e9ecfa', 100: '#d7dbf5', 200: '#b7bdec', 300: '#8c93dd',
-              400: '#5d5ecc', 500: '#292562', 600: '#2b2551', 700: '#2c293e',
-              800: '#252331', 900: '#201f26', 950: '#19181e'
-            },
-            amaranth: {
-              50: '#feeff1', 100: '#fde2e6', 200: '#fbc9d2', 300: '#f89caf',
-              400: '#f46484', 500: '#ec2254', 600: '#cc2254', 700: '#a21542',
-              800: '#87153c', 900: '#731539', 950: '#41061b'
-            },
-            orange: {
-              DEFAULT: '#F26423',
+            'magento-orange': {
+              DEFAULT: '#f26423',
               50: '#fef5ee', 100: '#fee9d6', 200: '#fbd0ad', 300: '#f9ae78',
               400: '#f58242', 500: '#f26423', 600: '#e34613', 700: '#bc3312',
               800: '#962a16', 900: '#792515', 950: '#411009'
             },
-            yellow: {
-              DEFAULT: '#F1BC1B',
+            'magento-gold': {
+              DEFAULT: '#f1bc1b',
               50: '#fffdeb', 100: '#fdf9c8', 200: '#fbf38c', 300: '#f8e651',
               400: '#f7d728', 500: '#f1bc1b', 600: '#d5900a', 700: '#b1670c',
               800: '#8f5111', 900: '#764311', 950: '#442204'
             },
-            charcoal: {
+            'magento-charcoal': {
               DEFAULT: '#2c2c2c',
               50: '#f1f1f1', 100: '#d9d9d9', 200: '#b6b6b6', 300: '#818181',
               400: '#474747', 500: '#2c2c2c', 600: '#262626', 700: '#202020',
               800: '#1c1c1c', 900: '#191919', 950: '#121212'
             },
-            alabaster: {
-              50: '#ffffff', 100: '#ffffff', 200: '#ffffff', 300: '#ffffff',
-              400: '#ffffff', 500: '#fafafa', 600: '#cccccc', 700: '#a5a5a5',
-              800: '#8d8d8d', 900: '#7b7b7b', 950: '#535353'
-            },
-            brown: '#442204',
-            'off-white': '#FAFAFA',
           },
           fontFamily: {
             sans: ['Inter Tight', 'system-ui', 'sans-serif'],
@@ -76,64 +60,74 @@
     .copy-button { position: absolute; top: 0.5rem; right: 0.5rem; }
   </style>
 </head>
-<body class="bg-gray-50">
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-orange-800 focus:text-white focus:">Skip to content</a>
+<body class="bg-[#FAFAFA] text-magento-charcoal">
+<!-- Skip to main content link for accessibility -->
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-magento-orange-500 focus:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-magento-orange-600">
+    Skip to main content
+</a>
 
-  <header class="bg-white border-b sticky top-0 z-40 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <div class="flex items-center">
-          <h1 class="text-xl font-bold text-orange-800">Magento_Customer</h1>
-          <nav class="hidden md:ml-6 md:flex md:space-x-4">
-            <a href="index.html" class="px-3 py-2  text-sm font-medium text-gray-700 hover:bg-gray-100">Home</a>
-            <a href="architecture.html" class="px-3 py-2  text-sm font-medium text-gray-700 hover:bg-gray-100">Architecture</a>
-            <a href="execution-flows.html" class="px-3 py-2  text-sm font-medium text-gray-700 hover:bg-gray-100">Execution Flows</a>
-            <a href="plugins-observers.html" class="px-3 py-2  text-sm font-medium text-gray-700 hover:bg-gray-100">Plugins & Observers</a>
-            <a href="integrations.html" class="px-3 py-2  text-sm font-medium text-gray-700 hover:bg-gray-100">Integrations</a>
-            <a href="annotated-code.html" class="px-3 py-2  text-sm font-medium bg-orange-100 text-orange-900" aria-current="page">Annotated Code</a>
-          </nav>
+<header class="bg-gradient-to-br from-magento-charcoal-500 via-magento-charcoal-600 to-magento-charcoal-700 border-b-8 border-magento-orange-500">
+    <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+        <nav aria-label="Breadcrumb" class="mb-8">
+            <ol class="flex flex-wrap items-center gap-2 text-sm text-gray-400">
+                <li><a href="../../../index.html" class="hover:text-magento-orange-500 underline underline-offset-4 transition-colors">Home</a></li>
+                <li aria-hidden="true"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
+                <li><a href="index.html" class="hover:text-magento-orange-500 underline underline-offset-4 transition-colors">Magento_Customer</a></li>
+                <li aria-hidden="true"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
+                <li><span class="text-gray-300 font-medium" aria-current="page">Annotated Code</span></li>
+            </ol>
+        </nav>
+        <div>
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">Annotated Code Tutorial</h1>
+            <p class="text-base sm:text-lg text-gray-300 max-w-2xl mb-6">CustomerRepositoryInterface with extensive inline comments explaining Magento patterns.</p>
+            <div class="flex flex-wrap gap-3 text-sm">
+                <span class="inline-flex items-center gap-1.5 bg-magento-orange-500/20 text-magento-gold-400 px-3 py-1.5 border border-magento-orange-500/40">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                    Service Contract
+                </span>
+                <span class="inline-flex items-center gap-1.5 bg-white/10 text-gray-300 px-3 py-1.5 border border-white/20">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    Fully Annotated
+                </span>
+            </div>
         </div>
-      </div>
     </div>
-  </header>
+</header>
 
-  <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <div class="bg-white  shadow-lg p-8">
-      <h1 class="text-4xl font-bold text-gray-900 mb-4">Annotated Code Tutorial</h1>
-      <p class="text-xl text-gray-600 mb-8">CustomerRepositoryInterface with extensive inline comments explaining Magento patterns</p>
+<main id="main-content" class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
 
-      <div class="bg-gradient-to-r from-orange-700 to-orange-900  p-6 text-white mb-8">
-        <h2 class="text-2xl font-bold mb-2">The Primary Service Contract</h2>
-        <p class="text-orange-50">CustomerRepositoryInterface is the main CRUD interface for customer data persistence in Magento</p>
-      </div>
+    <div class="bg-white mb-12 p-8 border-t-4 border-magento-gold-500 shadow-sm">
+        <h2 class="text-2xl font-bold text-magento-charcoal mb-4">The Primary Service Contract</h2>
+        <p class="text-magento-charcoal/80">CustomerRepositoryInterface is the main CRUD interface for customer data persistence in Magento</p>
+    </div>
 
       <section class="mb-12">
         <h2 class="text-3xl font-bold text-gray-900 mb-6">Architectural Position</h2>
         
-        <div class="bg-gray-50 border-l-4 border-orange-500 p-6 mb-6">
+        <div class="bg-gray-50 border-l-4 border-magento-orange-500 p-6 mb-6">
           <h3 class="text-lg font-semibold text-gray-900 mb-4">Layer Hierarchy</h3>
           <div class="space-y-2 text-sm">
-            <div class="bg-white p-3 border-l-4 border-yellow-500">
+            <div class="bg-white p-3 border-l-4 border-magento-gold-500">
               <strong>Controllers / API Endpoints / Commands</strong> → Call this interface
             </div>
             <div class="ml-4 text-gray-500">↓</div>
-            <div class="bg-white p-3 border-l-4 border-orange-500">
+            <div class="bg-white p-3 border-l-4 border-magento-orange-500">
               <strong>CustomerRepositoryInterface</strong> (Service Contract - You are here!)
             </div>
             <div class="ml-4 text-gray-500">↓</div>
-            <div class="bg-white p-3 border-l-4 border-yellow-500">
+            <div class="bg-white p-3 border-l-4 border-magento-gold-500">
               <strong>Model\ResourceModel\CustomerRepository</strong> (Implementation via DI)
             </div>
             <div class="ml-4 text-gray-500">↓</div>
-            <div class="bg-white p-3 border-l-4 border-charcoal-300">
+            <div class="bg-white p-3 border-l-4 border-magento-charcoal-300">
               <strong>Database</strong> (customer_entity + EAV tables)
             </div>
           </div>
         </div>
 
-        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6">
-          <h3 class="text-lg font-semibold text-charcoal-800 mb-3">Why Service Contracts?</h3>
-          <ul class="text-sm text-charcoal-700 space-y-2">
+        <div class="bg-magento-gold-50 border-l-4 border-magento-gold-500 p-6">
+          <h3 class="text-lg font-semibold text-magento-charcoal-800 mb-3">Why Service Contracts?</h3>
+          <ul class="text-sm text-magento-charcoal-700 space-y-2">
             <li><strong>Backward Compatibility:</strong> @api interfaces cannot change signatures</li>
             <li><strong>Decoupling:</strong> Controllers don't depend on implementation details</li>
             <li><strong>Plugin Intercept Points:</strong> Plugins can only intercept interfaces</li>
@@ -147,12 +141,12 @@
         <h2 class="text-3xl font-bold text-gray-900 mb-6">Plugins Intercepting This Interface</h2>
         
         <div class="grid md:grid-cols-2 gap-6">
-          <div class="bg-orange-500 border border-amaranth-200  p-4">
+          <div class="bg-magento-orange-50 border border-magento-orange-200 p-4">
             <div class="flex items-center mb-3">
-              <span class="bg-orange-800 text-white text-xs font-bold px-2 py-1 mr-2">sortOrder: -1</span>
-              <h3 class="text-lg font-semibold text-amaranth-900">TransactionWrapper</h3>
+              <span class="bg-magento-orange-600 text-white text-xs font-bold px-2 py-1 mr-2">sortOrder: -1</span>
+              <h3 class="text-lg font-semibold text-magento-orange-900">TransactionWrapper</h3>
             </div>
-            <ul class="text-sm text-amaranth-800 space-y-1">
+            <ul class="text-sm text-magento-orange-800 space-y-1">
               <li>Opens database transaction BEFORE save/delete</li>
               <li>Commits AFTER successful operation</li>
               <li>Rolls back on ANY exception</li>
@@ -160,17 +154,17 @@
             </ul>
           </div>
 
-          <div class="bg-yellow-50 border border-yellow-500  p-4">
+          <div class="bg-magento-gold-50 border border-magento-gold-500  p-4">
             <div class="flex items-center mb-3">
-              <span class="bg-charcoal-500 text-white text-xs font-bold px-2 py-1 mr-2">webapi_rest</span>
+              <span class="bg-magento-charcoal-500 text-white text-xs font-bold px-2 py-1 mr-2">webapi_rest</span>
               <h3 class="text-lg font-semibold text-brown">UpdateCustomer</h3>
             </div>
             <p class="text-sm text-brown">REST API specific: Merges request body into customer DTO</p>
           </div>
 
-          <div class="bg-yellow-50 border border-yellow-500  p-4">
+          <div class="bg-magento-gold-50 border border-magento-gold-500  p-4">
             <div class="flex items-center mb-3">
-              <span class="bg-charcoal-500 text-white text-xs font-bold px-2 py-1 mr-2">API areas</span>
+              <span class="bg-magento-charcoal-500 text-white text-xs font-bold px-2 py-1 mr-2">API areas</span>
               <h3 class="text-lg font-semibold text-purple-900">CustomerAuthorization</h3>
             </div>
             <ul class="text-sm text-purple-800 space-y-1">
@@ -179,12 +173,12 @@
             </ul>
           </div>
 
-          <div class="bg-yellow-500 border border-yellow-200  p-4">
+          <div class="bg-magento-gold-50 border border-magento-gold-200 p-4">
             <div class="flex items-center mb-3">
-              <span class="bg-charcoal-500 text-white text-xs font-bold px-2 py-1 mr-2">Third-party</span>
-              <h3 class="text-lg font-semibold text-yellow-900">Custom Plugins</h3>
+              <span class="bg-magento-charcoal-500 text-white text-xs font-bold px-2 py-1 mr-2">Third-party</span>
+              <h3 class="text-lg font-semibold text-magento-gold-900">Custom Plugins</h3>
             </div>
-            <p class="text-sm text-yellow-800">Data enrichment, validation, logging/audit, integration with external systems</p>
+            <p class="text-sm text-magento-gold-800">Data enrichment, validation, logging/audit, integration with external systems</p>
           </div>
         </div>
       </section>
@@ -192,8 +186,8 @@
       <section class="mb-12">
         <h2 class="text-3xl font-bold text-gray-900 mb-6">Method: save()</h2>
         
-        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-6">
-          <p class="text-sm text-yellow-800"><strong>Signature:</strong> <code class="bg-yellow-100 px-2 py-1">save(CustomerInterface $customer, $passwordHash = null): CustomerInterface</code></p>
+        <div class="bg-magento-gold-50 border-l-4 border-magento-gold-500 p-4 mb-6">
+          <p class="text-sm text-magento-gold-800"><strong>Signature:</strong> <code class="bg-magento-gold-100 px-2 py-1">save(CustomerInterface $customer, $passwordHash = null): CustomerInterface</code></p>
         </div>
 
         <div class="code-section mb-6">
@@ -237,19 +231,19 @@ public function save(
 );</code></pre>
         </div>
 
-        <div class="bg-orange-500 border-l-4 border-amaranth-500 p-6 mb-6">
-          <h3 class="text-lg font-semibold text-amaranth-900 mb-3">Critical Side Effect: Email Synchronization</h3>
-          <p class="text-sm text-amaranth-800 mb-3">When customer email changes, observers automatically update:</p>
-          <ul class="text-sm text-amaranth-800 list-disc list-inside space-y-1">
+        <div class="bg-magento-orange-50 border-l-4 border-magento-orange-500 p-6 mb-6 shadow-sm">
+          <h3 class="text-lg font-semibold text-magento-orange-900 mb-3">Critical Side Effect: Email Synchronization</h3>
+          <p class="text-sm text-magento-orange-800 mb-3">When customer email changes, observers automatically update:</p>
+          <ul class="text-sm text-magento-orange-800 list-disc list-inside space-y-1">
             <li>All historical orders get new email (UpgradeOrderCustomerEmailObserver)</li>
             <li>Active quote gets new email (UpgradeQuoteCustomerEmailObserver)</li>
             <li>This happens in the SAME transaction as customer save</li>
           </ul>
-          <pre class="text-xs bg-orange-500 p-3 mt-3 overflow-x-auto"><code>UPDATE sales_order SET customer_email = ? WHERE customer_id = ?
+          <pre class="text-xs bg-magento-orange-100 p-3 mt-3 overflow-x-auto"><code>UPDATE sales_order SET customer_email = ? WHERE customer_id = ?
 UPDATE quote SET customer_email = ? WHERE customer_id = ? AND is_active = 1</code></pre>
         </div>
 
-        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6">
+        <div class="bg-magento-gold-50 border-l-4 border-magento-gold-500 p-6">
           <h3 class="text-lg font-semibold text-brown mb-3">Error Handling</h3>
           <div class="code-section">
             <button class="copy-button bg-gray-700 hover:bg-gray-800 text-white text-xs px-3 py-1" onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent)">Copy</button>
@@ -278,9 +272,9 @@ UPDATE quote SET customer_email = ? WHERE customer_id = ? AND is_active = 1</cod
       <section class="mb-12">
         <h2 class="text-3xl font-bold text-gray-900 mb-6">Method: getById()</h2>
         
-        <div class="bg-yellow-500 border-l-4 border-yellow-500 p-4 mb-6">
-          <p class="text-sm text-yellow-800"><strong>Signature:</strong> <code class="bg-yellow-500 px-2 py-1">getById(int $customerId): CustomerInterface</code></p>
-          <p class="text-sm text-yellow-700 mt-2"><strong>Performance:</strong> This is the FASTEST way to load a customer (primary key lookup O(1))</p>
+        <div class="bg-magento-gold-50 border-l-4 border-magento-gold-500 p-4 mb-6 shadow-sm">
+          <p class="text-sm text-magento-gold-800"><strong>Signature:</strong> <code class="bg-magento-gold-100 px-2 py-1">getById(int $customerId): CustomerInterface</code></p>
+          <p class="text-sm text-magento-gold-700 mt-2"><strong>Performance:</strong> This is the FASTEST way to load a customer (primary key lookup O(1))</p>
         </div>
 
         <div class="code-section mb-6">
@@ -315,7 +309,7 @@ UPDATE quote SET customer_email = ? WHERE customer_id = ? AND is_active = 1</cod
 public function getById($customerId);</code></pre>
         </div>
 
-        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6">
+        <div class="bg-magento-gold-50 border-l-4 border-magento-gold-500 p-6">
           <h3 class="text-lg font-semibold text-purple-900 mb-3">Usage Example</h3>
           <div class="code-section">
             <button class="copy-button bg-gray-700 hover:bg-gray-800 text-white text-xs px-3 py-1" onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent)">Copy</button>
@@ -485,11 +479,11 @@ class CustomerService
 
   <footer class="bg-white border-t mt-16 py-8">
     <div class="max-w-7xl mx-auto px-4 text-center text-sm text-gray-500">
-      <p>Last Updated: 2025-12-03 | <a href="index.html" class="text-orange-800 hover:underline">Back to Home</a></p>
+      <p>Last Updated: 2025-12-03 | <a href="index.html" class="text-magento-orange-800 hover:underline transition-colors">Back to Home</a></p>
     </div>
   </footer>
 
-  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 bg-orange-600 text-white p-3  shadow-lg hover:bg-orange-700" aria-label="Back to top">
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 bg-magento-orange-600 text-white p-3  shadow-lg hover:bg-magento-orange-700" aria-label="Back to top">
     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
     </svg>

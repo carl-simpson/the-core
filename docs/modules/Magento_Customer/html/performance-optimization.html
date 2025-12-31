@@ -8,46 +8,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        jacarta: {
-                            50: '#e9ecfa', 100: '#d7dbf5', 200: '#b7bdec', 300: '#8c93dd',
-                            400: '#5d5ecc', 500: '#292562', 600: '#2b2551', 700: '#2c293e',
-                            800: '#252331', 900: '#201f26', 950: '#19181e'
-                        },
-                        amaranth: {
-                            50: '#feeff1', 100: '#fde2e6', 200: '#fbc9d2', 300: '#f89caf',
-                            400: '#f46484', 500: '#ec2254', 600: '#cc2254', 700: '#a21542',
-                            800: '#87153c', 900: '#731539', 950: '#41061b'
-                        },
-                        orange: {
-                            DEFAULT: '#F26423',
+                        'magento-orange': {
+                            DEFAULT: '#f26423',
                             50: '#fef5ee', 100: '#fee9d6', 200: '#fbd0ad', 300: '#f9ae78',
                             400: '#f58242', 500: '#f26423', 600: '#e34613', 700: '#bc3312',
                             800: '#962a16', 900: '#792515', 950: '#411009'
                         },
-                        yellow: {
-                            DEFAULT: '#F1BC1B',
+                        'magento-gold': {
+                            DEFAULT: '#f1bc1b',
                             50: '#fffdeb', 100: '#fdf9c8', 200: '#fbf38c', 300: '#f8e651',
                             400: '#f7d728', 500: '#f1bc1b', 600: '#d5900a', 700: '#b1670c',
                             800: '#8f5111', 900: '#764311', 950: '#442204'
                         },
-                        charcoal: {
+                        'magento-charcoal': {
                             DEFAULT: '#2c2c2c',
                             50: '#f1f1f1', 100: '#d9d9d9', 200: '#b6b6b6', 300: '#818181',
                             400: '#474747', 500: '#2c2c2c', 600: '#262626', 700: '#202020',
                             800: '#1c1c1c', 900: '#191919', 950: '#121212'
                         },
-                        alabaster: {
-                            50: '#ffffff', 100: '#ffffff', 200: '#ffffff', 300: '#ffffff',
-                            400: '#ffffff', 500: '#fafafa', 600: '#cccccc', 700: '#a5a5a5',
-                            800: '#8d8d8d', 900: '#7b7b7b', 950: '#535353'
-                        },
-                        brown: '#442204',
-                        'off-white': '#FAFAFA',
                     },
                     fontFamily: {
                         sans: ['Inter Tight', 'system-ui', 'sans-serif'],
@@ -56,70 +40,82 @@
             }
         }
     </script>
+    <style>
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
 </head>
-<body class="bg-off-white text-charcoal font-sans">
-    <!-- Hero Section -->
-    <header class="bg-gradient-to-br from-orange-600 via-orange-500 to-yellow-500 text-white py-16 px-4 sm:px-6 lg:px-8">
-        <div class="mx-auto max-w-screen-xl">
-            <div class="flex items-center gap-6">
-                <!-- Hexagon SVG -->
-                <svg class="w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M50 5L90 27.5V72.5L50 95L10 72.5V27.5L50 5Z" stroke="white" stroke-width="3" fill="rgba(255,255,255,0.1)"/>
-                    <text x="50" y="60" font-size="40" font-weight="700" fill="white" text-anchor="middle">⚡</text>
-                </svg>
+<body class="bg-[#FAFAFA] text-magento-charcoal font-sans">
+<!-- Skip to main content link for accessibility -->
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-magento-orange-500 focus:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-magento-orange-600">
+    Skip to main content
+</a>
 
-                <div>
-                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">Performance Optimization</h1>
-                    <p class="mt-2 text-lg sm:text-xl text-orange-50">Magento_Customer Module</p>
-                    <p class="mt-1 text-sm text-orange-100">Practical, actionable strategies with benchmarks and real-world case studies</p>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 py-12">
-        <!-- Breadcrumb Navigation -->
-        <nav class="mb-8 text-sm" aria-label="Breadcrumb">
-            <ol class="flex items-center gap-2 text-gray-600">
-                <li><a href="../../../index.html" class="hover:text-orange-800 transition-colors">Documentation</a></li>
-                <li><span class="text-gray-400">/</span></li>
-                <li><a href="../index.html" class="hover:text-orange-800 transition-colors">Magento_Customer</a></li>
-                <li><span class="text-gray-400">/</span></li>
-                <li class="text-charcoal font-medium">Performance Optimization</li>
+<header class="bg-gradient-to-br from-magento-charcoal-500 via-magento-charcoal-600 to-magento-charcoal-700 border-b-8 border-magento-orange-500">
+    <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+        <nav aria-label="Breadcrumb" class="mb-8">
+            <ol class="flex flex-wrap items-center gap-2 text-sm text-gray-400">
+                <li><a href="../../../index.html" class="hover:text-magento-orange-500 underline underline-offset-4 transition-colors">Home</a></li>
+                <li aria-hidden="true"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
+                <li><a href="index.html" class="hover:text-magento-orange-500 underline underline-offset-4 transition-colors">Magento_Customer</a></li>
+                <li aria-hidden="true"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
+                <li><span class="text-gray-300 font-medium" aria-current="page">Performance Optimization</span></li>
             </ol>
         </nav>
+        <div>
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">Performance Optimization</h1>
+            <p class="text-base sm:text-lg text-gray-300 max-w-2xl mb-6">Practical, actionable strategies with benchmarks and real-world case studies for Magento_Customer module.</p>
+            <div class="flex flex-wrap gap-3 text-sm">
+                <span class="inline-flex items-center gap-1.5 bg-magento-orange-500/20 text-magento-gold-400 px-3 py-1.5 border border-magento-orange-500/40">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    10 Strategies
+                </span>
+                <span class="inline-flex items-center gap-1.5 bg-white/10 text-gray-300 px-3 py-1.5 border border-white/20">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                    Benchmarks Included
+                </span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main id="main-content" class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
 
         <!-- Table of Contents -->
-        <section class="bg-white p-8 border-t-4 border-orange-500 shadow-sm mb-8">
-            <h2 class="text-2xl font-semibold text-charcoal mb-6 flex items-center gap-3">
-                <span class="w-1 h-8 bg-orange-500 "></span>
+        <section class="bg-white p-8 border-t-4 border-magento-orange-500 shadow-sm mb-8">
+            <h2 class="text-2xl font-semibold text-magento-charcoal mb-6 flex items-center gap-3">
+                <span class="w-1 h-8 bg-magento-orange-500 "></span>
                 Table of Contents
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                <a href="#metrics" class="px-4 py-2 bg-gray-50 hover:bg-orange-50 hover:border-l-4 hover:border-orange-500 transition-all text-charcoal hover:text-orange-700">Performance Metrics & Baselines</a>
-                <a href="#bottlenecks" class="px-4 py-2 bg-gray-50 hover:bg-orange-50 hover:border-l-4 hover:border-orange-500 transition-all text-charcoal hover:text-orange-700">Common Bottlenecks</a>
-                <a href="#database" class="px-4 py-2 bg-gray-50 hover:bg-orange-50 hover:border-l-4 hover:border-orange-500 transition-all text-charcoal hover:text-orange-700">Database Optimization</a>
-                <a href="#caching" class="px-4 py-2 bg-gray-50 hover:bg-orange-50 hover:border-l-4 hover:border-orange-500 transition-all text-charcoal hover:text-orange-700">Caching Strategies</a>
-                <a href="#queries" class="px-4 py-2 bg-gray-50 hover:bg-orange-50 hover:border-l-4 hover:border-orange-500 transition-all text-charcoal hover:text-orange-700">Query Optimization</a>
-                <a href="#observers" class="px-4 py-2 bg-gray-50 hover:bg-orange-50 hover:border-l-4 hover:border-orange-500 transition-all text-charcoal hover:text-orange-700">Observer Performance</a>
-                <a href="#sessions" class="px-4 py-2 bg-gray-50 hover:bg-orange-50 hover:border-l-4 hover:border-orange-500 transition-all text-charcoal hover:text-orange-700">Session Optimization</a>
-                <a href="#monitoring" class="px-4 py-2 bg-gray-50 hover:bg-orange-50 hover:border-l-4 hover:border-orange-500 transition-all text-charcoal hover:text-orange-700">Monitoring & Profiling</a>
-                <a href="#load-testing" class="px-4 py-2 bg-gray-50 hover:bg-orange-50 hover:border-l-4 hover:border-orange-500 transition-all text-charcoal hover:text-orange-700">Load Testing</a>
-                <a href="#case-studies" class="px-4 py-2 bg-gray-50 hover:bg-orange-50 hover:border-l-4 hover:border-orange-500 transition-all text-charcoal hover:text-orange-700">Case Studies</a>
+                <a href="#metrics" class="px-4 py-2 bg-gray-50 hover:bg-magento-orange-50 hover:border-l-4 hover:border-magento-orange-500 transition-all text-magento-charcoal hover:text-magento-orange-700">Performance Metrics & Baselines</a>
+                <a href="#bottlenecks" class="px-4 py-2 bg-gray-50 hover:bg-magento-orange-50 hover:border-l-4 hover:border-magento-orange-500 transition-all text-magento-charcoal hover:text-magento-orange-700">Common Bottlenecks</a>
+                <a href="#database" class="px-4 py-2 bg-gray-50 hover:bg-magento-orange-50 hover:border-l-4 hover:border-magento-orange-500 transition-all text-magento-charcoal hover:text-magento-orange-700">Database Optimization</a>
+                <a href="#caching" class="px-4 py-2 bg-gray-50 hover:bg-magento-orange-50 hover:border-l-4 hover:border-magento-orange-500 transition-all text-magento-charcoal hover:text-magento-orange-700">Caching Strategies</a>
+                <a href="#queries" class="px-4 py-2 bg-gray-50 hover:bg-magento-orange-50 hover:border-l-4 hover:border-magento-orange-500 transition-all text-magento-charcoal hover:text-magento-orange-700">Query Optimization</a>
+                <a href="#observers" class="px-4 py-2 bg-gray-50 hover:bg-magento-orange-50 hover:border-l-4 hover:border-magento-orange-500 transition-all text-magento-charcoal hover:text-magento-orange-700">Observer Performance</a>
+                <a href="#sessions" class="px-4 py-2 bg-gray-50 hover:bg-magento-orange-50 hover:border-l-4 hover:border-magento-orange-500 transition-all text-magento-charcoal hover:text-magento-orange-700">Session Optimization</a>
+                <a href="#monitoring" class="px-4 py-2 bg-gray-50 hover:bg-magento-orange-50 hover:border-l-4 hover:border-magento-orange-500 transition-all text-magento-charcoal hover:text-magento-orange-700">Monitoring & Profiling</a>
+                <a href="#load-testing" class="px-4 py-2 bg-gray-50 hover:bg-magento-orange-50 hover:border-l-4 hover:border-magento-orange-500 transition-all text-magento-charcoal hover:text-magento-orange-700">Load Testing</a>
+                <a href="#case-studies" class="px-4 py-2 bg-gray-50 hover:bg-magento-orange-50 hover:border-l-4 hover:border-magento-orange-500 transition-all text-magento-charcoal hover:text-magento-orange-700">Case Studies</a>
             </div>
         </section>
 
         <!-- Performance Metrics & Baselines -->
-        <section id="metrics" class="bg-white p-8 border-t-4 border-yellow-500 shadow-sm mb-8">
-            <h2 class="text-2xl font-semibold text-charcoal mb-6">Performance Metrics & Baselines</h2>
+        <section id="metrics" class="bg-white p-8 border-t-4 border-magento-gold-500 shadow-sm mb-8">
+            <h2 class="text-2xl font-semibold text-magento-charcoal mb-6">Performance Metrics & Baselines</h2>
 
-            <h3 class="text-xl font-semibold text-orange-800 mb-4">Target Performance Metrics</h3>
+            <h3 class="text-xl font-semibold text-magento-orange-800 mb-4">Target Performance Metrics</h3>
             <p class="text-gray-700 mb-6">Establish clear performance targets for all customer operations in production environments. These benchmarks are based on real-world production data from high-traffic Magento stores.</p>
 
             <div class="overflow-x-auto mb-6">
                 <table class="min-w-full border border-gray-200">
-                    <thead class="bg-charcoal text-white">
+                    <thead class="bg-magento-charcoal text-white">
                         <tr>
                             <th class="px-4 py-3 text-left text-sm font-semibold">Operation</th>
                             <th class="px-4 py-3 text-left text-sm font-semibold">Baseline</th>
@@ -133,50 +129,50 @@
                             <td class="px-4 py-3 text-sm font-medium">Customer Load (getById)</td>
                             <td class="px-4 py-3 text-sm">100ms</td>
                             <td class="px-4 py-3 text-sm">50ms</td>
-                            <td class="px-4 py-3 text-sm text-yellow-700">20ms</td>
-                            <td class="px-4 py-3 text-sm text-amaranth-700">500ms</td>
+                            <td class="px-4 py-3 text-sm text-magento-gold-700">20ms</td>
+                            <td class="px-4 py-3 text-sm text-magento-orange-700">500ms</td>
                         </tr>
                         <tr class="hover:bg-gray-50">
                             <td class="px-4 py-3 text-sm font-medium">Customer Save</td>
                             <td class="px-4 py-3 text-sm">200ms</td>
                             <td class="px-4 py-3 text-sm">100ms</td>
-                            <td class="px-4 py-3 text-sm text-yellow-700">50ms</td>
-                            <td class="px-4 py-3 text-sm text-amaranth-700">1000ms</td>
+                            <td class="px-4 py-3 text-sm text-magento-gold-700">50ms</td>
+                            <td class="px-4 py-3 text-sm text-magento-orange-700">1000ms</td>
                         </tr>
                         <tr class="hover:bg-gray-50">
                             <td class="px-4 py-3 text-sm font-medium">Customer Login</td>
                             <td class="px-4 py-3 text-sm">150ms</td>
                             <td class="px-4 py-3 text-sm">100ms</td>
-                            <td class="px-4 py-3 text-sm text-yellow-700">50ms</td>
-                            <td class="px-4 py-3 text-sm text-amaranth-700">500ms</td>
+                            <td class="px-4 py-3 text-sm text-magento-gold-700">50ms</td>
+                            <td class="px-4 py-3 text-sm text-magento-orange-700">500ms</td>
                         </tr>
                         <tr class="hover:bg-gray-50">
                             <td class="px-4 py-3 text-sm font-medium">Address Save</td>
                             <td class="px-4 py-3 text-sm">100ms</td>
                             <td class="px-4 py-3 text-sm">50ms</td>
-                            <td class="px-4 py-3 text-sm text-yellow-700">30ms</td>
-                            <td class="px-4 py-3 text-sm text-amaranth-700">500ms</td>
+                            <td class="px-4 py-3 text-sm text-magento-gold-700">30ms</td>
+                            <td class="px-4 py-3 text-sm text-magento-orange-700">500ms</td>
                         </tr>
                         <tr class="hover:bg-gray-50">
                             <td class="px-4 py-3 text-sm font-medium">Customer Collection (100 items)</td>
                             <td class="px-4 py-3 text-sm">500ms</td>
                             <td class="px-4 py-3 text-sm">250ms</td>
-                            <td class="px-4 py-3 text-sm text-yellow-700">100ms</td>
-                            <td class="px-4 py-3 text-sm text-amaranth-700">2000ms</td>
+                            <td class="px-4 py-3 text-sm text-magento-gold-700">100ms</td>
+                            <td class="px-4 py-3 text-sm text-magento-orange-700">2000ms</td>
                         </tr>
                         <tr class="hover:bg-gray-50">
                             <td class="px-4 py-3 text-sm font-medium">Customer Grid Load (admin)</td>
                             <td class="px-4 py-3 text-sm">800ms</td>
                             <td class="px-4 py-3 text-sm">400ms</td>
-                            <td class="px-4 py-3 text-sm text-yellow-700">200ms</td>
-                            <td class="px-4 py-3 text-sm text-amaranth-700">3000ms</td>
+                            <td class="px-4 py-3 text-sm text-magento-gold-700">200ms</td>
+                            <td class="px-4 py-3 text-sm text-magento-orange-700">3000ms</td>
                         </tr>
                         <tr class="hover:bg-gray-50">
                             <td class="px-4 py-3 text-sm font-medium">Password Reset Email</td>
                             <td class="px-4 py-3 text-sm">200ms</td>
                             <td class="px-4 py-3 text-sm">100ms</td>
-                            <td class="px-4 py-3 text-sm text-yellow-700">50ms</td>
-                            <td class="px-4 py-3 text-sm text-amaranth-700">1000ms</td>
+                            <td class="px-4 py-3 text-sm text-magento-gold-700">50ms</td>
+                            <td class="px-4 py-3 text-sm text-magento-orange-700">1000ms</td>
                         </tr>
                     </tbody>
                 </table>
@@ -194,7 +190,7 @@
                 </div>
             </div>
 
-            <h3 class="text-xl font-semibold text-orange-800 mb-4 mt-8">Baseline Measurement Script</h3>
+            <h3 class="text-xl font-semibold text-magento-orange-800 mb-4 mt-8">Baseline Measurement Script</h3>
             <p class="text-gray-700 mb-4">Create a custom CLI command to benchmark customer module operations and establish performance baselines.</p>
 
             <div class="bg-gray-900 text-gray-100 p-6 -lg overflow-x-auto mb-6">
@@ -268,10 +264,10 @@ class BenchmarkCustomer extends Command
         </section>
 
         <!-- Common Bottlenecks -->
-        <section id="bottlenecks" class="bg-white p-8 border-t-4 border-yellow-500 shadow-sm mb-8">
-            <h2 class="text-2xl font-semibold text-charcoal mb-6">Common Bottlenecks</h2>
+        <section id="bottlenecks" class="bg-white p-8 border-t-4 border-magento-gold-500 shadow-sm mb-8">
+            <h2 class="text-2xl font-semibold text-magento-charcoal mb-6">Common Bottlenecks</h2>
 
-            <h3 class="text-xl font-semibold text-orange-800 mb-4">Bottleneck #1: EAV Attribute Queries</h3>
+            <h3 class="text-xl font-semibold text-magento-orange-800 mb-4">Bottleneck #1: EAV Attribute Queries</h3>
             <p class="text-gray-700 mb-4"><strong>Problem:</strong> Multiple JOINs slow customer load operations when dealing with numerous custom attributes.</p>
 
             <p class="text-gray-700 mb-2"><strong>Symptom:</strong></p>
@@ -292,21 +288,21 @@ WHERE entity_type_id = (
 -- If &gt; 30 attributes, likely performance issue</code></pre>
             </div>
 
-            <div class="bg-amaranth-50 border-l-4 border-amaranth-500 p-6 mb-6">
+            <div class="bg-magento-orange-50 border-l-4 border-magento-orange-500 p-6 mb-6">
                 <div class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-amaranth-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-6 h-6 text-magento-orange-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
                     </svg>
                     <div>
-                        <h4 class="text-sm font-semibold text-amaranth-900 mb-2">Performance Warning</h4>
-                        <p class="text-sm text-amaranth-800">More than 30 custom EAV attributes will generate 30+ JOIN queries on every customer load. Consider migrating to extension attributes with custom tables for better performance.</p>
+                        <h4 class="text-sm font-semibold text-magento-orange-900 mb-2">Performance Warning</h4>
+                        <p class="text-sm text-magento-orange-800">More than 30 custom EAV attributes will generate 30+ JOIN queries on every customer load. Consider migrating to extension attributes with custom tables for better performance.</p>
                     </div>
                 </div>
             </div>
 
-            <p class="text-gray-700 mb-4"><strong>Performance Gain:</strong> <span class="inline-block px-3 py-1 bg-yellow-100 text-yellow-800 text-sm font-semibold ">10-50x faster</span> by using extension attributes with custom tables instead of EAV.</p>
+            <p class="text-gray-700 mb-4"><strong>Performance Gain:</strong> <span class="inline-block px-3 py-1 bg-magento-gold-100 text-magento-gold-800 text-sm font-semibold ">10-50x faster</span> by using extension attributes with custom tables instead of EAV.</p>
 
-            <h3 class="text-xl font-semibold text-orange-800 mb-4 mt-8">Bottleneck #2: Session Lock Contention</h3>
+            <h3 class="text-xl font-semibold text-magento-orange-800 mb-4 mt-8">Bottleneck #2: Session Lock Contention</h3>
             <p class="text-gray-700 mb-4"><strong>Problem:</strong> Concurrent AJAX requests wait for session lock release, creating a queue effect.</p>
 
             <p class="text-gray-700 mb-2"><strong>Symptom:</strong></p>
@@ -332,9 +328,9 @@ Request 3: 600ms (waits for Requests 1 & 2)</code></pre>
 ]</code></pre>
             </div>
 
-            <p class="text-gray-700 mb-4"><strong>Performance Gain:</strong> <span class="inline-block px-3 py-1 bg-yellow-100 text-yellow-800 text-sm font-semibold ">3-5x improvement</span> for concurrent requests</p>
+            <p class="text-gray-700 mb-4"><strong>Performance Gain:</strong> <span class="inline-block px-3 py-1 bg-magento-gold-100 text-magento-gold-800 text-sm font-semibold ">3-5x improvement</span> for concurrent requests</p>
 
-            <h3 class="text-xl font-semibold text-orange-800 mb-4 mt-8">Bottleneck #3: VAT Validation External API</h3>
+            <h3 class="text-xl font-semibold text-magento-orange-800 mb-4 mt-8">Bottleneck #3: VAT Validation External API</h3>
             <p class="text-gray-700 mb-4"><strong>Problem:</strong> Synchronous external API call during address save operation.</p>
 
             <p class="text-gray-700 mb-2"><strong>Symptom:</strong></p>
@@ -355,9 +351,9 @@ Address Save: 2800ms (VAT validation: 2500ms)</code></pre>
                 </div>
             </div>
 
-            <p class="text-gray-700 mb-4"><strong>Performance Gain:</strong> <span class="inline-block px-3 py-1 bg-yellow-100 text-yellow-800 text-sm font-semibold ">10-50x faster</span> address saves</p>
+            <p class="text-gray-700 mb-4"><strong>Performance Gain:</strong> <span class="inline-block px-3 py-1 bg-magento-gold-100 text-magento-gold-800 text-sm font-semibold ">10-50x faster</span> address saves</p>
 
-            <h3 class="text-xl font-semibold text-orange-800 mb-4 mt-8">Bottleneck #4: Full Customer Collection Loading</h3>
+            <h3 class="text-xl font-semibold text-magento-orange-800 mb-4 mt-8">Bottleneck #4: Full Customer Collection Loading</h3>
             <p class="text-gray-700 mb-4"><strong>Problem:</strong> Loading entire customer table without filters or pagination.</p>
 
             <p class="text-gray-700 mb-2"><strong>Symptom:</strong></p>
@@ -386,14 +382,14 @@ do {
 } while ($currentPage &lt;= $collection-&gt;getLastPageNumber());</code></pre>
             </div>
 
-            <p class="text-gray-700 mb-4"><strong>Performance Gain:</strong> <span class="inline-block px-3 py-1 bg-yellow-100 text-yellow-800 text-sm font-semibold ">Constant memory</span> usage, <span class="inline-block px-3 py-1 bg-yellow-100 text-yellow-800 text-sm font-semibold ">10-100x faster</span></p>
+            <p class="text-gray-700 mb-4"><strong>Performance Gain:</strong> <span class="inline-block px-3 py-1 bg-magento-gold-100 text-magento-gold-800 text-sm font-semibold ">Constant memory</span> usage, <span class="inline-block px-3 py-1 bg-magento-gold-100 text-magento-gold-800 text-sm font-semibold ">10-100x faster</span></p>
         </section>
 
         <!-- Database Optimization -->
-        <section id="database" class="bg-white p-8 border-t-4 border-yellow-500 shadow-sm mb-8">
-            <h2 class="text-2xl font-semibold text-charcoal mb-6">Database Optimization</h2>
+        <section id="database" class="bg-white p-8 border-t-4 border-magento-gold-500 shadow-sm mb-8">
+            <h2 class="text-2xl font-semibold text-magento-charcoal mb-6">Database Optimization</h2>
 
-            <h3 class="text-xl font-semibold text-orange-800 mb-4">Index Analysis</h3>
+            <h3 class="text-xl font-semibold text-magento-orange-800 mb-4">Index Analysis</h3>
             <p class="text-gray-700 mb-4">Proper database indexing is critical for customer module performance. Verify all required indexes exist and add custom indexes for common query patterns.</p>
 
             <p class="text-gray-700 mb-2"><strong>Check Missing Indexes:</strong></p>
@@ -412,7 +408,7 @@ EXPLAIN SELECT * FROM customer_entity WHERE email = 'test@example.com';
 -- Look for: type=ref, key=CUSTOMER_ENTITY_EMAIL_WEBSITE_ID</code></pre>
             </div>
 
-            <h4 class="text-lg font-semibold text-charcoal mb-3">Required Indexes</h4>
+            <h4 class="text-lg font-semibold text-magento-charcoal mb-3">Required Indexes</h4>
             <p class="text-gray-700 mb-2">Verify these essential indexes exist on customer tables:</p>
             <div class="bg-gray-900 text-gray-100 p-6 -lg overflow-x-auto mb-6">
                 <pre class="text-sm leading-relaxed"><code>-- Customer entity
@@ -431,7 +427,7 @@ SHOW INDEX FROM customer_address_entity;
 -- - CUSTOMER_ADDRESS_ENTITY_PARENT_ID (parent_id)</code></pre>
             </div>
 
-            <h4 class="text-lg font-semibold text-charcoal mb-3">Add Custom Indexes</h4>
+            <h4 class="text-lg font-semibold text-magento-charcoal mb-3">Add Custom Indexes</h4>
             <p class="text-gray-700 mb-2">Create additional indexes based on your query patterns:</p>
             <div class="bg-gray-900 text-gray-100 p-6 -lg overflow-x-auto mb-6">
                 <pre class="text-sm leading-relaxed"><code>-- Index on group_id for group-based queries
@@ -447,19 +443,19 @@ CREATE INDEX IDX_CUSTOMER_ENTITY_CREATED_AT
 ON customer_entity (created_at);</code></pre>
             </div>
 
-            <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-6">
+            <div class="bg-magento-gold-50 border-l-4 border-magento-gold-500 p-6 mb-6">
                 <div class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-yellow-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-6 h-6 text-magento-gold-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
                     <div>
-                        <h4 class="text-sm font-semibold text-yellow-900 mb-2">Best Practice</h4>
-                        <p class="text-sm text-yellow-800">After adding indexes, run EXPLAIN on your common queries to verify the new indexes are being used. Look for the key column in the EXPLAIN output matching your index name.</p>
+                        <h4 class="text-sm font-semibold text-magento-gold-900 mb-2">Best Practice</h4>
+                        <p class="text-sm text-magento-gold-800">After adding indexes, run EXPLAIN on your common queries to verify the new indexes are being used. Look for the key column in the EXPLAIN output matching your index name.</p>
                     </div>
                 </div>
             </div>
 
-            <h3 class="text-xl font-semibold text-orange-800 mb-4 mt-8">Database Table Maintenance</h3>
+            <h3 class="text-xl font-semibold text-magento-orange-800 mb-4 mt-8">Database Table Maintenance</h3>
             <p class="text-gray-700 mb-4">Regular maintenance keeps customer tables optimized and query plans accurate.</p>
 
             <p class="text-gray-700 mb-2"><strong>Analyze Tables (update statistics):</strong></p>
@@ -491,10 +487,10 @@ EOF</code></pre>
         </section>
 
         <!-- Caching Strategies -->
-        <section id="caching" class="bg-white p-8 border-t-4 border-yellow-500 shadow-sm mb-8">
-            <h2 class="text-2xl font-semibold text-charcoal mb-6">Caching Strategies</h2>
+        <section id="caching" class="bg-white p-8 border-t-4 border-magento-gold-500 shadow-sm mb-8">
+            <h2 class="text-2xl font-semibold text-magento-charcoal mb-6">Caching Strategies</h2>
 
-            <h3 class="text-xl font-semibold text-orange-800 mb-4">Customer Data Caching</h3>
+            <h3 class="text-xl font-semibold text-magento-orange-800 mb-4">Customer Data Caching</h3>
             <p class="text-gray-700 mb-4">Implement Redis caching for customer repository operations to dramatically reduce database queries.</p>
 
             <div class="bg-gray-900 text-gray-100 p-6 -lg overflow-x-auto mb-6">
@@ -556,9 +552,9 @@ class CacheCustomerDataExtend
 
             <p class="text-gray-700 mb-4"><strong>Performance Comparison:</strong></p>
             <ul class="list-disc list-inside text-gray-700 space-y-2 mb-6">
-                <li>Without Cache: <span class="inline-block px-3 py-1 bg-yellow-100 text-yellow-800 text-sm font-semibold ">100ms</span> (database + EAV queries)</li>
-                <li>With Cache: <span class="inline-block px-3 py-1 bg-yellow-100 text-yellow-800 text-sm font-semibold ">5ms</span> (Redis read)</li>
-                <li><strong>Result:</strong> <span class="inline-block px-3 py-1 bg-yellow-100 text-yellow-800 text-sm font-semibold ">20x improvement</span> for cached reads</li>
+                <li>Without Cache: <span class="inline-block px-3 py-1 bg-magento-gold-100 text-magento-gold-800 text-sm font-semibold ">100ms</span> (database + EAV queries)</li>
+                <li>With Cache: <span class="inline-block px-3 py-1 bg-magento-gold-100 text-magento-gold-800 text-sm font-semibold ">5ms</span> (Redis read)</li>
+                <li><strong>Result:</strong> <span class="inline-block px-3 py-1 bg-magento-gold-100 text-magento-gold-800 text-sm font-semibold ">20x improvement</span> for cached reads</li>
             </ul>
 
             <div class="bg-blue-50 border-l-4 border-blue-500 p-6">
@@ -575,15 +571,15 @@ class CacheCustomerDataExtend
         </section>
 
         <!-- Query Optimization -->
-        <section id="queries" class="bg-white p-8 border-t-4 border-yellow-500 shadow-sm mb-8">
-            <h2 class="text-2xl font-semibold text-charcoal mb-6">Query Optimization</h2>
+        <section id="queries" class="bg-white p-8 border-t-4 border-magento-gold-500 shadow-sm mb-8">
+            <h2 class="text-2xl font-semibold text-magento-charcoal mb-6">Query Optimization</h2>
 
-            <h3 class="text-xl font-semibold text-orange-800 mb-4">N+1 Query Prevention</h3>
+            <h3 class="text-xl font-semibold text-magento-orange-800 mb-4">N+1 Query Prevention</h3>
             <p class="text-gray-700 mb-4">The N+1 query problem is one of the most common performance issues in Magento applications. Detect and eliminate it with batch loading.</p>
 
             <p class="text-gray-700 mb-2"><strong>Bad Pattern (N+1 Queries):</strong></p>
-            <div class="bg-amaranth-50 border-l-4 border-amaranth-500 p-6 mb-4">
-                <pre class="text-sm text-charcoal"><code>// Loads orders, then customer for each order (N+1 queries)
+            <div class="bg-magento-orange-50 border-l-4 border-magento-orange-500 p-6 mb-4">
+                <pre class="text-sm text-magento-charcoal"><code>// Loads orders, then customer for each order (N+1 queries)
 $orders = $this-&gt;orderCollectionFactory-&gt;create();
 foreach ($orders as $order) {
     $customer = $this-&gt;customerRepository-&gt;getById($order-&gt;getCustomerId());
@@ -597,8 +593,8 @@ foreach ($orders as $order) {
             </div>
 
             <p class="text-gray-700 mb-2"><strong>Optimized Pattern (2 Queries):</strong></p>
-            <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-4">
-                <pre class="text-sm text-charcoal"><code>// Batch load customers
+            <div class="bg-magento-gold-50 border-l-4 border-magento-gold-500 p-6 mb-4">
+                <pre class="text-sm text-magento-charcoal"><code>// Batch load customers
 $orders = $this-&gt;orderCollectionFactory-&gt;create();
 
 $customerIds = [];
@@ -642,15 +638,15 @@ foreach ($orders as $order) {
         </section>
 
         <!-- Observer Performance -->
-        <section id="observers" class="bg-white p-8 border-t-4 border-yellow-500 shadow-sm mb-8">
-            <h2 class="text-2xl font-semibold text-charcoal mb-6">Observer Performance</h2>
+        <section id="observers" class="bg-white p-8 border-t-4 border-magento-gold-500 shadow-sm mb-8">
+            <h2 class="text-2xl font-semibold text-magento-charcoal mb-6">Observer Performance</h2>
 
-            <h3 class="text-xl font-semibold text-orange-800 mb-4">Async Observer Pattern</h3>
+            <h3 class="text-xl font-semibold text-magento-orange-800 mb-4">Async Observer Pattern</h3>
             <p class="text-gray-700 mb-4">Heavy processing in observers blocks the main operation. Move to async queues for better performance.</p>
 
             <p class="text-gray-700 mb-2"><strong>Bad: Synchronous Heavy Processing</strong></p>
-            <div class="bg-amaranth-50 border-l-4 border-amaranth-500 p-6 mb-4">
-                <pre class="text-sm text-charcoal"><code>// Observer executes immediately, blocks customer save
+            <div class="bg-magento-orange-50 border-l-4 border-magento-orange-500 p-6 mb-4">
+                <pre class="text-sm text-magento-charcoal"><code>// Observer executes immediately, blocks customer save
 public function execute(Observer $observer): void
 {
     $customer = $observer-&gt;getCustomer();
@@ -663,8 +659,8 @@ public function execute(Observer $observer): void
             </div>
 
             <p class="text-gray-700 mb-2"><strong>Good: Queue for Async Processing</strong></p>
-            <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-6">
-                <pre class="text-sm text-charcoal"><code>&lt;?php
+            <div class="bg-magento-gold-50 border-l-4 border-magento-gold-500 p-6 mb-6">
+                <pre class="text-sm text-magento-charcoal"><code>&lt;?php
 declare(strict_types=1);
 
 namespace Vendor\Performance\Observer;
@@ -705,10 +701,10 @@ class QueueCustomerProcessingObserver implements ObserverInterface
         </section>
 
         <!-- Session Optimization -->
-        <section id="sessions" class="bg-white p-8 border-t-4 border-yellow-500 shadow-sm mb-8">
-            <h2 class="text-2xl font-semibold text-charcoal mb-6">Session Optimization</h2>
+        <section id="sessions" class="bg-white p-8 border-t-4 border-magento-gold-500 shadow-sm mb-8">
+            <h2 class="text-2xl font-semibold text-magento-charcoal mb-6">Session Optimization</h2>
 
-            <h3 class="text-xl font-semibold text-orange-800 mb-4">Redis Session Configuration</h3>
+            <h3 class="text-xl font-semibold text-magento-orange-800 mb-4">Redis Session Configuration</h3>
             <p class="text-gray-700 mb-4">Optimal Redis session settings for high-traffic Magento stores:</p>
 
             <div class="bg-gray-900 text-gray-100 p-6 -lg overflow-x-auto mb-6">
@@ -738,14 +734,14 @@ class QueueCustomerProcessingObserver implements ObserverInterface
 ]</code></pre>
             </div>
 
-            <h4 class="text-lg font-semibold text-charcoal mb-3">Key Settings Explained</h4>
+            <h4 class="text-lg font-semibold text-magento-charcoal mb-3">Key Settings Explained</h4>
             <ul class="list-disc list-inside text-gray-700 space-y-2 mb-6">
                 <li><strong>max_concurrency:</strong> Number of processes that can read session concurrently (default: 6, increase for high traffic)</li>
                 <li><strong>break_after_frontend:</strong> Force release lock after N seconds (prevents deadlocks)</li>
                 <li><strong>compression_threshold:</strong> Compress session data greater than 2KB (saves Redis memory)</li>
             </ul>
 
-            <h3 class="text-xl font-semibold text-orange-800 mb-4 mt-8">Session Size Reduction</h3>
+            <h3 class="text-xl font-semibold text-magento-orange-800 mb-4 mt-8">Session Size Reduction</h3>
             <p class="text-gray-700 mb-4">Minimize session data to improve performance and reduce Redis memory usage:</p>
 
             <div class="bg-gray-900 text-gray-100 p-6 -lg overflow-x-auto mb-4">
@@ -763,10 +759,10 @@ $customer = $this-&gt;customerRepository-&gt;getById(
         </section>
 
         <!-- Monitoring & Profiling -->
-        <section id="monitoring" class="bg-white p-8 border-t-4 border-yellow-500 shadow-sm mb-8">
-            <h2 class="text-2xl font-semibold text-charcoal mb-6">Monitoring & Profiling</h2>
+        <section id="monitoring" class="bg-white p-8 border-t-4 border-magento-gold-500 shadow-sm mb-8">
+            <h2 class="text-2xl font-semibold text-magento-charcoal mb-6">Monitoring & Profiling</h2>
 
-            <h3 class="text-xl font-semibold text-orange-800 mb-4">MySQL Slow Query Log</h3>
+            <h3 class="text-xl font-semibold text-magento-orange-800 mb-4">MySQL Slow Query Log</h3>
             <p class="text-gray-700 mb-4">Enable and analyze slow query logging to identify performance bottlenecks:</p>
 
             <div class="bg-gray-900 text-gray-100 p-4 -lg mb-4">
@@ -787,7 +783,7 @@ grep "customer_entity" /var/log/mysql/slow-query.log | grep "Query_time"
 mysqldumpslow -s t -t 10 /var/log/mysql/slow-query.log | grep customer</code></pre>
             </div>
 
-            <h3 class="text-xl font-semibold text-orange-800 mb-4 mt-8">Custom Performance Logging</h3>
+            <h3 class="text-xl font-semibold text-magento-orange-800 mb-4 mt-8">Custom Performance Logging</h3>
             <p class="text-gray-700 mb-4">Implement custom logging to track customer operation performance:</p>
 
             <div class="bg-gray-900 text-gray-100 p-6 -lg overflow-x-auto mb-6">
@@ -833,10 +829,10 @@ class PerformanceLogger
         </section>
 
         <!-- Load Testing -->
-        <section id="load-testing" class="bg-white p-8 border-t-4 border-yellow-500 shadow-sm mb-8">
-            <h2 class="text-2xl font-semibold text-charcoal mb-6">Load Testing</h2>
+        <section id="load-testing" class="bg-white p-8 border-t-4 border-magento-gold-500 shadow-sm mb-8">
+            <h2 class="text-2xl font-semibold text-magento-charcoal mb-6">Load Testing</h2>
 
-            <h3 class="text-xl font-semibold text-orange-800 mb-4">Apache Bench (Simple Load Test)</h3>
+            <h3 class="text-xl font-semibold text-magento-orange-800 mb-4">Apache Bench (Simple Load Test)</h3>
             <p class="text-gray-700 mb-4">Quick performance testing with Apache Bench:</p>
 
             <div class="bg-gray-900 text-gray-100 p-4 -lg mb-6">
@@ -849,10 +845,10 @@ ab -n 1000 -c 10 -C "PHPSESSID=abc123" https://example.com/customer/account/
 # 95th percentile: 350ms</code></pre>
             </div>
 
-            <h3 class="text-xl font-semibold text-orange-800 mb-4">Target Benchmarks</h3>
+            <h3 class="text-xl font-semibold text-magento-orange-800 mb-4">Target Benchmarks</h3>
             <div class="overflow-x-auto mb-6">
                 <table class="min-w-full border border-gray-200">
-                    <thead class="bg-charcoal text-white">
+                    <thead class="bg-magento-charcoal text-white">
                         <tr>
                             <th class="px-4 py-3 text-left text-sm font-semibold">Concurrent Users</th>
                             <th class="px-4 py-3 text-left text-sm font-semibold">Requests/sec</th>
@@ -885,82 +881,82 @@ ab -n 1000 -c 10 -C "PHPSESSID=abc123" https://example.com/customer/account/
         </section>
 
         <!-- Case Studies -->
-        <section id="case-studies" class="bg-white p-8 border-t-4 border-yellow-500 shadow-sm mb-8">
-            <h2 class="text-2xl font-semibold text-charcoal mb-6">Case Studies</h2>
+        <section id="case-studies" class="bg-white p-8 border-t-4 border-magento-gold-500 shadow-sm mb-8">
+            <h2 class="text-2xl font-semibold text-magento-charcoal mb-6">Case Studies</h2>
 
-            <h3 class="text-xl font-semibold text-orange-800 mb-4">Case Study #1: EAV Attribute Optimization</h3>
+            <h3 class="text-xl font-semibold text-magento-orange-800 mb-4">Case Study #1: EAV Attribute Optimization</h3>
             <p class="text-gray-700 mb-4"><strong>Client:</strong> E-commerce site with 80 custom customer attributes</p>
 
-            <h4 class="text-lg font-semibold text-charcoal mb-3">Problem</h4>
+            <h4 class="text-lg font-semibold text-magento-charcoal mb-3">Problem</h4>
             <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
-                <li>Customer load time: <span class="inline-block px-3 py-1 bg-amaranth-100 text-amaranth-800 text-sm font-semibold ">2800ms</span></li>
+                <li>Customer load time: <span class="inline-block px-3 py-1 bg-magento-orange-100 text-magento-orange-800 text-sm font-semibold ">2800ms</span></li>
                 <li>Admin customer grid timeout (30+ seconds)</li>
                 <li>Database CPU: 85% constant</li>
             </ul>
 
-            <h4 class="text-lg font-semibold text-charcoal mb-3">Solution</h4>
+            <h4 class="text-lg font-semibold text-magento-charcoal mb-3">Solution</h4>
             <ol class="list-decimal list-inside text-gray-700 space-y-2 mb-4">
                 <li>Migrated 60 attributes to dedicated <code class="bg-gray-100 px-2 py-0.5 ">customer_extended</code> table</li>
                 <li>Kept 20 most critical attributes as EAV</li>
                 <li>Implemented extension attribute lazy loading</li>
             </ol>
 
-            <h4 class="text-lg font-semibold text-charcoal mb-3">Results</h4>
+            <h4 class="text-lg font-semibold text-magento-charcoal mb-3">Results</h4>
             <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
-                <li>Customer load: <span class="inline-block px-3 py-1 bg-amaranth-100 text-amaranth-800 text-sm font-semibold ">2800ms</span> → <span class="inline-block px-3 py-1 bg-yellow-100 text-yellow-800 text-sm font-semibold ">120ms</span> (23x improvement)</li>
-                <li>Admin grid: <span class="inline-block px-3 py-1 bg-amaranth-100 text-amaranth-800 text-sm font-semibold ">30s</span> → <span class="inline-block px-3 py-1 bg-yellow-100 text-yellow-800 text-sm font-semibold ">2s</span> (15x improvement)</li>
+                <li>Customer load: <span class="inline-block px-3 py-1 bg-magento-orange-100 text-magento-orange-800 text-sm font-semibold ">2800ms</span> → <span class="inline-block px-3 py-1 bg-magento-gold-100 text-magento-gold-800 text-sm font-semibold ">120ms</span> (23x improvement)</li>
+                <li>Admin grid: <span class="inline-block px-3 py-1 bg-magento-orange-100 text-magento-orange-800 text-sm font-semibold ">30s</span> → <span class="inline-block px-3 py-1 bg-magento-gold-100 text-magento-gold-800 text-sm font-semibold ">2s</span> (15x improvement)</li>
                 <li>Database CPU: 85% → 35%</li>
             </ul>
 
             <p class="text-gray-700 mb-8"><strong>ROI:</strong> Development cost $2000, saved $1500/month in server costs</p>
 
-            <h3 class="text-xl font-semibold text-orange-800 mb-4 mt-8">Case Study #2: Session Lock Optimization</h3>
+            <h3 class="text-xl font-semibold text-magento-orange-800 mb-4 mt-8">Case Study #2: Session Lock Optimization</h3>
             <p class="text-gray-700 mb-4"><strong>Client:</strong> High-traffic B2C site (5000 concurrent users)</p>
 
-            <h4 class="text-lg font-semibold text-charcoal mb-3">Problem</h4>
+            <h4 class="text-lg font-semibold text-magento-charcoal mb-3">Problem</h4>
             <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
                 <li>Concurrent AJAX requests queue up</li>
-                <li>Page load times: <span class="inline-block px-3 py-1 bg-amaranth-100 text-amaranth-800 text-sm font-semibold ">2-8 seconds</span> during peak</li>
+                <li>Page load times: <span class="inline-block px-3 py-1 bg-magento-orange-100 text-magento-orange-800 text-sm font-semibold ">2-8 seconds</span> during peak</li>
                 <li>PHP-FPM worker exhaustion</li>
             </ul>
 
-            <h4 class="text-lg font-semibold text-charcoal mb-3">Solution</h4>
+            <h4 class="text-lg font-semibold text-magento-charcoal mb-3">Solution</h4>
             <ol class="list-decimal list-inside text-gray-700 space-y-2 mb-4">
                 <li>Migrated from file-based sessions to Redis</li>
                 <li>Enabled optimistic locking (<code class="bg-gray-100 px-2 py-0.5 ">max_concurrency: 20</code>)</li>
                 <li>Implemented early session close for AJAX endpoints</li>
             </ol>
 
-            <h4 class="text-lg font-semibold text-charcoal mb-3">Results</h4>
+            <h4 class="text-lg font-semibold text-magento-charcoal mb-3">Results</h4>
             <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
-                <li>Page load: <span class="inline-block px-3 py-1 bg-amaranth-100 text-amaranth-800 text-sm font-semibold ">2-8s</span> → <span class="inline-block px-3 py-1 bg-yellow-100 text-yellow-800 text-sm font-semibold ">0.5-1.5s</span> (4-5x improvement)</li>
+                <li>Page load: <span class="inline-block px-3 py-1 bg-magento-orange-100 text-magento-orange-800 text-sm font-semibold ">2-8s</span> → <span class="inline-block px-3 py-1 bg-magento-gold-100 text-magento-gold-800 text-sm font-semibold ">0.5-1.5s</span> (4-5x improvement)</li>
                 <li>PHP-FPM workers: 95% utilization → 40%</li>
                 <li>Customer satisfaction: +15% (faster checkout)</li>
             </ul>
 
             <p class="text-gray-700 mb-8"><strong>ROI:</strong> 2 days implementation, 40% reduction in infrastructure costs</p>
 
-            <h3 class="text-xl font-semibold text-orange-800 mb-4 mt-8">Case Study #3: Customer Grid Performance</h3>
+            <h3 class="text-xl font-semibold text-magento-orange-800 mb-4 mt-8">Case Study #3: Customer Grid Performance</h3>
             <p class="text-gray-700 mb-4"><strong>Client:</strong> B2B platform with 250,000 customers</p>
 
-            <h4 class="text-lg font-semibold text-charcoal mb-3">Problem</h4>
+            <h4 class="text-lg font-semibold text-magento-charcoal mb-3">Problem</h4>
             <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
-                <li>Admin customer grid load: <span class="inline-block px-3 py-1 bg-amaranth-100 text-amaranth-800 text-sm font-semibold ">45 seconds</span></li>
+                <li>Admin customer grid load: <span class="inline-block px-3 py-1 bg-magento-orange-100 text-magento-orange-800 text-sm font-semibold ">45 seconds</span></li>
                 <li>Grid pagination unusable</li>
                 <li>Admin team productivity impacted</li>
             </ul>
 
-            <h4 class="text-lg font-semibold text-charcoal mb-3">Solution</h4>
+            <h4 class="text-lg font-semibold text-magento-charcoal mb-3">Solution</h4>
             <ol class="list-decimal list-inside text-gray-700 space-y-2 mb-4">
                 <li>Added composite indexes on frequently filtered columns</li>
                 <li>Implemented grid result caching (5 minute TTL)</li>
                 <li>Added search optimization for email/name</li>
             </ol>
 
-            <h4 class="text-lg font-semibold text-charcoal mb-3">Results</h4>
+            <h4 class="text-lg font-semibold text-magento-charcoal mb-3">Results</h4>
             <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
-                <li>Grid load: <span class="inline-block px-3 py-1 bg-amaranth-100 text-amaranth-800 text-sm font-semibold ">45s</span> → <span class="inline-block px-3 py-1 bg-yellow-100 text-yellow-800 text-sm font-semibold ">3s</span> (15x improvement)</li>
-                <li>Search: <span class="inline-block px-3 py-1 bg-amaranth-100 text-amaranth-800 text-sm font-semibold ">20s</span> → <span class="inline-block px-3 py-1 bg-yellow-100 text-yellow-800 text-sm font-semibold ">1s</span> (20x improvement)</li>
+                <li>Grid load: <span class="inline-block px-3 py-1 bg-magento-orange-100 text-magento-orange-800 text-sm font-semibold ">45s</span> → <span class="inline-block px-3 py-1 bg-magento-gold-100 text-magento-gold-800 text-sm font-semibold ">3s</span> (15x improvement)</li>
+                <li>Search: <span class="inline-block px-3 py-1 bg-magento-orange-100 text-magento-orange-800 text-sm font-semibold ">20s</span> → <span class="inline-block px-3 py-1 bg-magento-gold-100 text-magento-gold-800 text-sm font-semibold ">1s</span> (20x improvement)</li>
                 <li>Admin productivity: +50% (measured by customers processed/hour)</li>
             </ul>
 
@@ -980,7 +976,7 @@ ab -n 1000 -c 10 -C "PHPSESSID=abc123" https://example.com/customer/account/
         </section>
 
         <!-- Document Meta -->
-        <section class="bg-white p-8 border-t-4 border-yellow-500 shadow-sm">
+        <section class="bg-white p-8 border-t-4 border-magento-gold-500 shadow-sm">
             <p class="text-gray-700 mb-2"><strong>Document Version:</strong> 1.0.0</p>
             <p class="text-gray-700 mb-2"><strong>Last Updated:</strong> 2025-12-04</p>
             <p class="text-gray-700 mb-2"><strong>Magento Versions:</strong> 2.4.x</p>
@@ -989,7 +985,7 @@ ab -n 1000 -c 10 -C "PHPSESSID=abc123" https://example.com/customer/account/
     </main>
 
     <!-- Footer -->
-    <footer class="bg-charcoal text-gray-400 py-8 px-4 sm:px-6 lg:px-8 mt-16">
+    <footer class="bg-magento-charcoal text-gray-400 py-8 px-4 sm:px-6 lg:px-8 mt-16">
         <div class="mx-auto max-w-screen-xl text-center">
             <p class="text-sm mb-2">Magento_Customer Module Documentation - Performance Optimization Guide</p>
             <p class="text-sm mb-4">Part of the comprehensive Magento 2 Core Documentation & Mapping Tool</p>

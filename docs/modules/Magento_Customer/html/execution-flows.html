@@ -8,46 +8,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        jacarta: {
-                            50: '#e9ecfa', 100: '#d7dbf5', 200: '#b7bdec', 300: '#8c93dd',
-                            400: '#5d5ecc', 500: '#292562', 600: '#2b2551', 700: '#2c293e',
-                            800: '#252331', 900: '#201f26', 950: '#19181e'
-                        },
-                        amaranth: {
-                            50: '#feeff1', 100: '#fde2e6', 200: '#fbc9d2', 300: '#f89caf',
-                            400: '#f46484', 500: '#ec2254', 600: '#cc2254', 700: '#a21542',
-                            800: '#87153c', 900: '#731539', 950: '#41061b'
-                        },
-                        orange: {
-                            DEFAULT: '#F26423',
+                        'magento-orange': {
+                            DEFAULT: '#f26423',
                             50: '#fef5ee', 100: '#fee9d6', 200: '#fbd0ad', 300: '#f9ae78',
                             400: '#f58242', 500: '#f26423', 600: '#e34613', 700: '#bc3312',
                             800: '#962a16', 900: '#792515', 950: '#411009'
                         },
-                        yellow: {
-                            DEFAULT: '#F1BC1B',
+                        'magento-gold': {
+                            DEFAULT: '#f1bc1b',
                             50: '#fffdeb', 100: '#fdf9c8', 200: '#fbf38c', 300: '#f8e651',
                             400: '#f7d728', 500: '#f1bc1b', 600: '#d5900a', 700: '#b1670c',
                             800: '#8f5111', 900: '#764311', 950: '#442204'
                         },
-                        charcoal: {
+                        'magento-charcoal': {
                             DEFAULT: '#2c2c2c',
                             50: '#f1f1f1', 100: '#d9d9d9', 200: '#b6b6b6', 300: '#818181',
                             400: '#474747', 500: '#2c2c2c', 600: '#262626', 700: '#202020',
                             800: '#1c1c1c', 900: '#191919', 950: '#121212'
                         },
-                        alabaster: {
-                            50: '#ffffff', 100: '#ffffff', 200: '#ffffff', 300: '#ffffff',
-                            400: '#ffffff', 500: '#fafafa', 600: '#cccccc', 700: '#a5a5a5',
-                            800: '#8d8d8d', 900: '#7b7b7b', 950: '#535353'
-                        },
-                        brown: '#442204',
-                        'off-white': '#FAFAFA',
                     },
                     fontFamily: {
                         sans: ['Inter Tight', 'system-ui', 'sans-serif'],
@@ -56,16 +40,30 @@
             }
         }
     </script>
+    <style>
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
 </head>
-<body class="bg-off-white text-charcoal">
+<body class="bg-[#FAFAFA] text-magento-charcoal">
+<!-- Skip to main content link for accessibility -->
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-magento-orange-500 focus:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-magento-orange-600">
+    Skip to main content
+</a>
 
-<header class="bg-gradient-to-br from-charcoal-500 via-charcoal-600 to-charcoal-700 border-b-8 border-orange-500">
+
+<header class="bg-gradient-to-br from-magento-charcoal-500 via-magento-charcoal-600 to-magento-charcoal-700 border-b-8 border-magento-orange-500">
     <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
         <nav aria-label="Breadcrumb" class="mb-8">
             <ol class="flex flex-wrap items-center gap-2 text-sm text-gray-400">
-                <li><a href="../../../index.html" class="hover:text-orange-500 underline underline-offset-4">Home</a></li>
+                <li><a href="../../../index.html" class="hover:text-magento-orange-500 underline transition-colors underline-offset-4">Home</a></li>
                 <li aria-hidden="true"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
-                <li><a href="index.html" class="hover:text-orange-500 underline underline-offset-4">Magento_Customer</a></li>
+                <li><a href="index.html" class="hover:text-magento-orange-500 underline transition-colors underline-offset-4">Magento_Customer</a></li>
                 <li aria-hidden="true"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
                 <li><span class="text-gray-300 font-medium" aria-current="page">Execution Flows</span></li>
             </ol>
@@ -75,7 +73,7 @@
                 <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">Execution Flows</h1>
                 <p class="text-base sm:text-lg text-gray-300 max-w-2xl mb-6">Complete execution traces showing service contracts, plugins, events, observers, and database operations for key customer operations.</p>
                 <div class="flex flex-wrap gap-3 text-sm">
-                    <span class="inline-flex items-center gap-1.5 bg-orange-500/20 text-yellow-400 px-3 py-1.5 border border-orange-500/40">
+                    <span class="inline-flex items-center gap-1.5 bg-magento-orange-500/20 text-magento-gold-400 px-3 py-1.5 border border-magento-orange-500/40">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                         Step-by-Step
                     </span>
@@ -85,776 +83,1144 @@
                     </span>
                 </div>
             </div>
-            <div class="hidden lg:block">
-                <svg viewBox="0 0 400 300" class="w-full h-auto" aria-hidden="true">
-                    <rect x="20" y="20" width="80" height="80" fill="#F26423" opacity="0.2"/>
-                    <circle cx="340" cy="60" r="40" fill="#F1BC1B" opacity="0.15"/>
-                    <!-- Flow diagram -->
-                    <circle cx="80" cy="60" r="25" fill="#F26423" stroke="#F1BC1B" stroke-width="2"/>
-                    <text x="80" y="65" text-anchor="middle" fill="white" font-size="10" font-weight="600">Request</text>
-                    <path d="M105 60 L155 60" stroke="#F1BC1B" stroke-width="2" marker-end="url(#arrow)"/>
-                    <circle cx="180" cy="60" r="25" fill="#2C2C2C" stroke="#F1BC1B" stroke-width="2"/>
-                    <text x="180" y="65" text-anchor="middle" fill="#F1BC1B" font-size="10" font-weight="600">Plugin</text>
-                    <path d="M205 60 L255 60" stroke="#F1BC1B" stroke-width="2" marker-end="url(#arrow)"/>
-                    <circle cx="280" cy="60" r="25" fill="#2C2C2C" stroke="#F1BC1B" stroke-width="2"/>
-                    <text x="280" y="65" text-anchor="middle" fill="#F1BC1B" font-size="10" font-weight="600">Service</text>
-                    <path d="M280 85 L280 115" stroke="#F1BC1B" stroke-width="2" marker-end="url(#arrow)"/>
-                    <circle cx="280" cy="140" r="25" fill="#2C2C2C" stroke="#F1BC1B" stroke-width="2"/>
-                    <text x="280" y="145" text-anchor="middle" fill="#F1BC1B" font-size="10" font-weight="600">Model</text>
-                    <path d="M255 140 L205 140" stroke="#F1BC1B" stroke-width="2" marker-end="url(#arrow)"/>
-                    <circle cx="180" cy="140" r="25" fill="#2C2C2C" stroke="#F26423" stroke-width="2"/>
-                    <text x="180" y="145" text-anchor="middle" fill="#F26423" font-size="10" font-weight="600">DB</text>
-                    <path d="M180 165 L180 200" stroke="#F26423" stroke-width="2" marker-end="url(#arrow)"/>
-                    <rect x="130" y="210" width="100" height="30" fill="#F26423" stroke="#F1BC1B" stroke-width="2"/>
-                    <text x="180" y="230" text-anchor="middle" fill="white" font-size="11" font-weight="600">Event Dispatch</text>
-                    <defs><marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#F1BC1B"/></marker></defs>
-                </svg>
-            </div>
         </div>
     </div>
 </header>
 
-<main class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+<main id="main-content" class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
 
-    <div class="bg-white mb-12 p-8 border-t-4 border-yellow-500 shadow-sm">
-        <h2 class="text-2xl font-bold text-charcoal mb-4">Customer Registration Flow</h2>
+    <div class="bg-white mb-12 p-8 border-t-4 border-magento-gold-500 shadow-sm">
+        <h2 class="text-2xl font-bold text-magento-charcoal mb-4">Customer Registration Flow</h2>
 
-        <div class="border-l-4 border-orange-500 pl-4 mb-6">
-            <h3 class="text-lg font-semibold text-charcoal mb-2">Entry Point</h3>
-            <p class="text-sm text-charcoal/80 mb-1"><strong>Controller:</strong> <code class="bg-off-white px-2 py-1">Magento\Customer\Controller\Account\CreatePost::execute()</code></p>
-            <p class="text-sm text-charcoal/80 mb-1"><strong>Route:</strong> <code class="bg-off-white px-2 py-1">POST /customer/account/createPost</code></p>
-            <p class="text-sm text-charcoal/80"><strong>Area:</strong> frontend</p>
+        <div class="border-l-4 border-magento-orange-500 pl-4 mb-6">
+            <h3 class="text-lg font-semibold text-magento-charcoal mb-2">Entry Point</h3>
+            <p class="text-sm text-magento-charcoal/80 mb-1"><strong>Controller:</strong> <code class="bg-[#FAFAFA] px-2 py-1">Magento\Customer\Controller\Account\CreatePost::execute()</code></p>
+            <p class="text-sm text-magento-charcoal/80 mb-1"><strong>Route:</strong> <code class="bg-[#FAFAFA] px-2 py-1">POST /customer/account/createPost</code></p>
+            <p class="text-sm text-magento-charcoal/80"><strong>Area:</strong> frontend</p>
         </div>
 
-        <h3 class="text-xl font-semibold text-charcoal mb-3">Execution Sequence</h3>
+        <h3 class="text-xl font-semibold text-magento-charcoal mb-3">Execution Sequence</h3>
 
         <div class="space-y-4">
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">1. HTTP POST Request</h4>
-                <p class="text-sm text-charcoal/80">User submits registration form with customer details (firstname, lastname, email, password, addresses)</p>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">1</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">HTTP POST Request</h4>
+                </div>
+                <div class="ml-14">
+                    <p class="text-magento-charcoal-400 leading-relaxed">User submits registration form with customer details (firstname, lastname, email, password, addresses)</p>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">2. Controller Pre-checks</h4>
-                <ul class="space-y-1 text-sm text-charcoal/80">
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Check if already logged in (exit if true)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Verify registration is allowed in configuration</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Validate form_key (CSRF protection)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Regenerate session ID for security</li>
-                </ul>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">2</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Controller Pre-checks</h4>
+                </div>
+                <div class="ml-14">
+                    <ul class="space-y-2 text-magento-charcoal-400">
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Check if already logged in (exit if true)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Verify registration is allowed in configuration</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Validate form_key (CSRF protection)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Regenerate session ID for security</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">3. Extract Customer Data</h4>
-                <p class="text-sm text-charcoal/80 mb-2">Convert POST data to CustomerInterface DTO</p>
-                <ul class="space-y-1 text-sm text-charcoal/80">
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> CustomerExtractor::extract('customer_account_create')</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Build CustomerInterface DTO from POST data</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Extract address if 'create_address' checkbox checked</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Set newsletter subscription flag as extension attribute</li>
-                </ul>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">3</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Extract Customer Data</h4>
+                </div>
+                <div class="ml-14">
+                    <p class="text-magento-charcoal-400 leading-relaxed mb-3">Convert POST data to CustomerInterface DTO</p>
+                    <ul class="space-y-2 text-magento-charcoal-400">
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> CustomerExtractor::extract('customer_account_create')</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Build CustomerInterface DTO from POST data</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Extract address if 'create_address' checkbox checked</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Set newsletter subscription flag as extension attribute</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">4. Create Account</h4>
-                <p class="text-sm text-charcoal/80">Call service contract: <code class="bg-off-white px-2 py-1">AccountManagementInterface::createAccount($customer, $password, $redirectUrl)</code></p>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">4</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Create Account</h4>
+                </div>
+                <div class="ml-14">
+                    <p class="text-magento-charcoal-400 leading-relaxed">Call service contract: <code class="bg-white/50 px-2 py-1 text-magento-charcoal">AccountManagementInterface::createAccount($customer, $password, $redirectUrl)</code></p>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">5. AccountManagement Internal Logic</h4>
-                <ul class="space-y-1 text-sm text-charcoal/80">
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Validate password strength against security policy</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Check if email already exists (isEmailAvailable)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Hash password using Argon2ID13 algorithm</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Set customer group (default or auto-assigned)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Set website_id from current store</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Generate confirmation token if required</li>
-                </ul>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">5</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">AccountManagement Internal Logic</h4>
+                </div>
+                <div class="ml-14">
+                    <ul class="space-y-2 text-magento-charcoal-400">
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Validate password strength against security policy</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Check if email already exists (isEmailAvailable)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Hash password using Argon2ID13 algorithm</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Set customer group (default or auto-assigned)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Set website_id from current store</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Generate confirmation token if required</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">6. Repository Save</h4>
-                <p class="text-sm text-charcoal/80">Persist customer to database via <code class="bg-off-white px-2 py-1">CustomerRepositoryInterface::save($customer, $passwordHash)</code></p>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">6</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Repository Save</h4>
+                </div>
+                <div class="ml-14">
+                    <p class="text-magento-charcoal-400 leading-relaxed">Persist customer to database via <code class="bg-white/50 px-2 py-1 text-magento-charcoal">CustomerRepositoryInterface::save($customer, $passwordHash)</code></p>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">7. Transaction Wrapper Plugin (BEFORE)</h4>
-                <ul class="space-y-1 text-sm text-charcoal/80">
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Plugin: TransactionWrapper::beforeSave() [sortOrder: -1]</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Opens database transaction</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Ensures atomicity of customer + address save</li>
-                </ul>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">7</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Transaction Wrapper Plugin (BEFORE)</h4>
+                </div>
+                <div class="ml-14">
+                    <ul class="space-y-2 text-magento-charcoal-400">
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Plugin: TransactionWrapper::beforeSave() [sortOrder: -1]</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Opens database transaction</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Ensures atomicity of customer + address save</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">8. Database Persistence</h4>
-                <ul class="space-y-1 text-sm text-charcoal/80">
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Validate customer data (email format, required fields)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Check unique email constraint (email + website_id)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Convert DTO to Model (Customer\Model\Customer)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> INSERT into customer_entity (main table)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> INSERT into customer_entity_* (EAV attribute values)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> INSERT into customer_address_entity (if address provided)</li>
-                </ul>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">8</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Database Persistence</h4>
+                </div>
+                <div class="ml-14">
+                    <ul class="space-y-2 text-magento-charcoal-400">
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Validate customer data (email format, required fields)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Check unique email constraint (email + website_id)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Convert DTO to Model (Customer\Model\Customer)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> INSERT into customer_entity (main table)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> INSERT into customer_entity_* (EAV attribute values)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> INSERT into customer_address_entity (if address provided)</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">9. Event Dispatch: customer_save_after_data_object</h4>
-                <p class="text-sm text-charcoal/80">Event data: customerDataObject, origCustomerDataObject</p>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">9</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Event Dispatch: customer_save_after_data_object</h4>
+                </div>
+                <div class="ml-14">
+                    <p class="text-magento-charcoal-400 leading-relaxed">Event data: customerDataObject, origCustomerDataObject</p>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">10. Transaction Commit</h4>
-                <ul class="space-y-1 text-sm text-charcoal/80">
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Plugin: TransactionWrapper::afterSave()</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Commits database transaction</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Rolls back on any exception</li>
-                </ul>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">10</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Transaction Commit</h4>
+                </div>
+                <div class="ml-14">
+                    <ul class="space-y-2 text-magento-charcoal-400">
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Plugin: TransactionWrapper::afterSave()</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Commits database transaction</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Rolls back on any exception</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">11. Post-Save Actions</h4>
-                <ul class="space-y-1 text-sm text-charcoal/80">
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Process newsletter subscription (if opted in)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Send welcome email (or confirmation email if required)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Return saved CustomerInterface DTO</li>
-                </ul>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">11</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Post-Save Actions</h4>
+                </div>
+                <div class="ml-14">
+                    <ul class="space-y-2 text-magento-charcoal-400">
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Process newsletter subscription (if opted in)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Send welcome email (or confirmation email if required)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Return saved CustomerInterface DTO</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">12. Registration Success Event</h4>
-                <p class="text-sm text-charcoal/80 mb-2">Dispatch event: <code class="bg-off-white px-2 py-1">customer_register_success</code></p>
-                <ul class="space-y-1 text-sm text-charcoal/80">
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Check confirmation status</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> If confirmed: Log customer in automatically</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> If pending: Show "check email" message</li>
-                </ul>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">12</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Registration Success Event</h4>
+                </div>
+                <div class="ml-14">
+                    <p class="text-magento-charcoal-400 leading-relaxed mb-3">Dispatch event: <code class="bg-white/50 px-2 py-1 text-magento-charcoal">customer_register_success</code></p>
+                    <ul class="space-y-2 text-magento-charcoal-400">
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Check confirmation status</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> If confirmed: Log customer in automatically</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> If pending: Show "check email" message</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">13. Session Creation (if auto-confirmed)</h4>
-                <ul class="space-y-1 text-sm text-charcoal/80">
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Session::setCustomerDataAsLoggedIn($customer)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Dispatch event: customer_login</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Dispatch event: customer_data_object_login</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Delete mage-cache-sessid cookie (FPC invalidation)</li>
-                </ul>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">13</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Session Creation (if auto-confirmed)</h4>
+                </div>
+                <div class="ml-14">
+                    <ul class="space-y-2 text-magento-charcoal-400">
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Session::setCustomerDataAsLoggedIn($customer)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Dispatch event: customer_login</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Dispatch event: customer_data_object_login</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Delete mage-cache-sessid cookie (FPC invalidation)</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">14. HTTP Response</h4>
-                <p class="text-sm text-charcoal/80">Redirect to customer dashboard or requested URL</p>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">14</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">HTTP Response</h4>
+                </div>
+                <div class="ml-14">
+                    <p class="text-magento-charcoal-400 leading-relaxed">Redirect to customer dashboard or requested URL</p>
+                </div>
             </div>
         </div>
 
-        <div class="bg-white border-4 border-yellow-500 p-6 mt-8">
-            <h3 class="text-lg font-semibold text-charcoal mb-3">Key Points</h3>
-            <ul class="space-y-3 text-charcoal/90">
-                <li class="border-l-4 border-orange-500 pl-4">
-                    <strong>Transaction Safety:</strong> The TransactionWrapper plugin (sortOrder -1) runs BEFORE all other plugins and ensures customer + addresses are saved atomically. Rolls back on any validation or database error.
-                </li>
-                <li class="border-l-4 border-orange-500 pl-4">
-                    <strong>Email Confirmation:</strong> If customer/create_account/confirm is enabled, confirmation is required. Customer receives email with confirmation link. Account is inactive until confirmed.
-                </li>
-                <li class="border-l-4 border-orange-500 pl-4">
-                    <strong>Newsletter Subscription:</strong> Stored as extension attribute during registration. Processed by AccountManagement after customer save. Separate subscription record created in newsletter tables.
-                </li>
-            </ul>
+        <div class="bg-magento-gold-50 border-l-4 border-magento-gold-500 p-6 mt-8 shadow-sm">
+            <div class="flex items-center gap-3 mb-4">
+                <svg class="w-6 h-6 text-magento-gold-700 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                </svg>
+                <h3 class="text-lg font-bold text-magento-gold-900">Key Points</h3>
+            </div>
+            <div class="space-y-4 ml-9">
+                <div class="flex gap-3">
+                    <svg class="w-5 h-5 text-magento-gold-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <div>
+                        <p class="font-semibold text-magento-gold-900">Transaction Safety</p>
+                        <p class="text-sm text-magento-gold-800 leading-relaxed">The TransactionWrapper plugin (sortOrder -1) runs BEFORE all other plugins and ensures customer + addresses are saved atomically. Rolls back on any validation or database error.</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <svg class="w-5 h-5 text-magento-gold-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <div>
+                        <p class="font-semibold text-magento-gold-900">Email Confirmation</p>
+                        <p class="text-sm text-magento-gold-800 leading-relaxed">If customer/create_account/confirm is enabled, confirmation is required. Customer receives email with confirmation link. Account is inactive until confirmed.</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <svg class="w-5 h-5 text-magento-gold-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <div>
+                        <p class="font-semibold text-magento-gold-900">Newsletter Subscription</p>
+                        <p class="text-sm text-magento-gold-800 leading-relaxed">Stored as extension attribute during registration. Processed by AccountManagement after customer save. Separate subscription record created in newsletter tables.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="bg-white mb-12 p-8 border-t-4 border-yellow-500 shadow-sm">
-        <h2 class="text-2xl font-bold text-charcoal mb-4">Customer Login Flow</h2>
+    <div class="bg-white mb-12 p-8 border-t-4 border-magento-gold-500 shadow-sm">
+        <h2 class="text-2xl font-bold text-magento-charcoal mb-4">Customer Login Flow</h2>
 
-        <div class="border-l-4 border-orange-500 pl-4 mb-6">
-            <h3 class="text-lg font-semibold text-charcoal mb-2">Entry Point</h3>
-            <p class="text-sm text-charcoal/80 mb-1"><strong>Controller:</strong> <code class="bg-off-white px-2 py-1">Magento\Customer\Controller\Account\LoginPost::execute()</code></p>
-            <p class="text-sm text-charcoal/80 mb-1"><strong>Route:</strong> <code class="bg-off-white px-2 py-1">POST /customer/account/loginPost</code></p>
-            <p class="text-sm text-charcoal/80"><strong>Area:</strong> frontend</p>
+        <div class="border-l-4 border-magento-orange-500 pl-4 mb-6">
+            <h3 class="text-lg font-semibold text-magento-charcoal mb-2">Entry Point</h3>
+            <p class="text-sm text-magento-charcoal/80 mb-1"><strong>Controller:</strong> <code class="bg-[#FAFAFA] px-2 py-1">Magento\Customer\Controller\Account\LoginPost::execute()</code></p>
+            <p class="text-sm text-magento-charcoal/80 mb-1"><strong>Route:</strong> <code class="bg-[#FAFAFA] px-2 py-1">POST /customer/account/loginPost</code></p>
+            <p class="text-sm text-magento-charcoal/80"><strong>Area:</strong> frontend</p>
         </div>
 
-        <h3 class="text-xl font-semibold text-charcoal mb-3">Execution Sequence</h3>
+        <h3 class="text-xl font-semibold text-magento-charcoal mb-3">Execution Sequence</h3>
 
         <div class="space-y-4">
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">1. HTTP POST Request</h4>
-                <p class="text-sm text-charcoal/80">User submits login form credentials (login[username], login[password])</p>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">1</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">HTTP POST Request</h4>
+                </div>
+                <div class="ml-14">
+                    <p class="text-magento-charcoal-400 leading-relaxed">User submits login form credentials (login[username], login[password])</p>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">2. Controller Pre-checks</h4>
-                <ul class="space-y-1 text-sm text-charcoal/80">
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Validate form_key (CSRF protection)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Check if already logged in (exit if true)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Validate POST method</li>
-                </ul>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">2</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Controller Pre-checks</h4>
+                </div>
+                <div class="ml-14">
+                    <ul class="space-y-2 text-magento-charcoal-400">
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Validate form_key (CSRF protection)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Check if already logged in (exit if true)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Validate POST method</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">3. Authenticate Customer</h4>
-                <p class="text-sm text-charcoal/80">Call service contract: <code class="bg-off-white px-2 py-1">AccountManagementInterface::authenticate($email, $password)</code></p>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">3</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Authenticate Customer</h4>
+                </div>
+                <div class="ml-14">
+                    <p class="text-magento-charcoal-400 leading-relaxed">Call service contract: <code class="bg-white/50 px-2 py-1 text-magento-charcoal">AccountManagementInterface::authenticate($email, $password)</code></p>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">4. Authentication Logic</h4>
-                <ul class="space-y-1 text-sm text-charcoal/80">
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Load customer by email + website_id</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Check if customer account is active</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Check if email confirmation is pending</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Delegate to AuthenticationInterface for password verification</li>
-                </ul>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">4</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Authentication Logic</h4>
+                </div>
+                <div class="ml-14">
+                    <ul class="space-y-2 text-magento-charcoal-400">
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Load customer by email + website_id</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Check if customer account is active</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Check if email confirmation is pending</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Delegate to AuthenticationInterface for password verification</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">5. Password Validation</h4>
-                <ul class="space-y-1 text-sm text-charcoal/80">
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Load customer model by ID</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Retrieve password_hash from customer_entity</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Verify password using Encryptor::validateHash()</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Check if password hash algorithm is outdated</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Process lock mechanism (failed login attempts)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Throw exception if authentication fails</li>
-                </ul>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">5</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Password Validation</h4>
+                </div>
+                <div class="ml-14">
+                    <ul class="space-y-2 text-magento-charcoal-400">
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Load customer model by ID</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Retrieve password_hash from customer_entity</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Verify password using Encryptor::validateHash()</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Check if password hash algorithm is outdated</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Process lock mechanism (failed login attempts)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Throw exception if authentication fails</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">6. Authentication Event</h4>
-                <p class="text-sm text-charcoal/80 mb-2">Dispatch event: <code class="bg-off-white px-2 py-1">customer_customer_authenticated</code></p>
-                <p class="text-sm text-charcoal/80">Observer: CustomerGroupAuthenticate validates customer group is active</p>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">6</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Authentication Event</h4>
+                </div>
+                <div class="ml-14">
+                    <p class="text-magento-charcoal-400 leading-relaxed mb-3">Dispatch event: <code class="bg-white/50 px-2 py-1 text-magento-charcoal">customer_customer_authenticated</code></p>
+                    <p class="text-magento-charcoal-400 leading-relaxed">Observer: CustomerGroupAuthenticate validates customer group is active</p>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">7. Password Hash Upgrade (if needed)</h4>
-                <ul class="space-y-1 text-sm text-charcoal/80">
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> If hash uses old algorithm (SHA256, MD5)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Rehash with current algorithm (Argon2ID13)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> UPDATE customer_entity.password_hash</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Handled by UpgradeCustomerPasswordObserver</li>
-                </ul>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">7</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Password Hash Upgrade (if needed)</h4>
+                </div>
+                <div class="ml-14">
+                    <ul class="space-y-2 text-magento-charcoal-400">
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> If hash uses old algorithm (SHA256, MD5)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Rehash with current algorithm (Argon2ID13)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> UPDATE customer_entity.password_hash</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Handled by UpgradeCustomerPasswordObserver</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">8. Create Customer Session</h4>
-                <ul class="space-y-1 text-sm text-charcoal/80">
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Session::setCustomerDataAsLoggedIn($customer)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Store customer data in session storage</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Set customer_id, customer_group_id in session</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Regenerate session ID (prevent session fixation)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Set session cookie</li>
-                </ul>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">8</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Create Customer Session</h4>
+                </div>
+                <div class="ml-14">
+                    <ul class="space-y-2 text-magento-charcoal-400">
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Session::setCustomerDataAsLoggedIn($customer)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Store customer data in session storage</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Set customer_id, customer_group_id in session</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Regenerate session ID (prevent session fixation)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Set session cookie</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">9. Login Events</h4>
-                <p class="text-sm text-charcoal/80 mb-2">Dispatch events: <code class="bg-off-white px-2 py-1">customer_login</code>, <code class="bg-off-white px-2 py-1">customer_data_object_login</code></p>
-                <ul class="space-y-1 text-sm text-charcoal/80">
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Observer: LogLastLoginAtObserver - UPDATE customer_log SET last_login_at = NOW()</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Observer: Visitor\BindCustomerLoginObserver - UPDATE customer_visitor SET customer_id = ?</li>
-                </ul>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">9</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Login Events</h4>
+                </div>
+                <div class="ml-14">
+                    <p class="text-magento-charcoal-400 leading-relaxed mb-3">Dispatch events: <code class="bg-white/50 px-2 py-1 text-magento-charcoal">customer_login</code>, <code class="bg-white/50 px-2 py-1 text-magento-charcoal">customer_data_object_login</code></p>
+                    <ul class="space-y-2 text-magento-charcoal-400">
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Observer: LogLastLoginAtObserver - UPDATE customer_log SET last_login_at = NOW()</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Observer: Visitor\BindCustomerLoginObserver - UPDATE customer_visitor SET customer_id = ?</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">10. Post-Login Actions</h4>
-                <ul class="space-y-1 text-sm text-charcoal/80">
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Set success message</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Clear cart persistent data if needed</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Determine redirect URL (dashboard or referer)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Delete mage-cache-sessid cookie (FPC invalidation)</li>
-                </ul>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">10</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Post-Login Actions</h4>
+                </div>
+                <div class="ml-14">
+                    <ul class="space-y-2 text-magento-charcoal-400">
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Set success message</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Clear cart persistent data if needed</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Determine redirect URL (dashboard or referer)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Delete mage-cache-sessid cookie (FPC invalidation)</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">11. HTTP Response</h4>
-                <p class="text-sm text-charcoal/80">Redirect to dashboard or requested page</p>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">11</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">HTTP Response</h4>
+                </div>
+                <div class="ml-14">
+                    <p class="text-magento-charcoal-400 leading-relaxed">Redirect to dashboard or requested page</p>
+                </div>
             </div>
         </div>
 
-        <div class="bg-white border-4 border-yellow-500 p-6 mt-8">
-            <h3 class="text-lg font-semibold text-charcoal mb-3">Key Points</h3>
-            <ul class="space-y-3 text-charcoal/90">
-                <li class="border-l-4 border-orange-500 pl-4">
-                    <strong>Session Security:</strong> Session ID regenerated on login to prevent session fixation attacks. Session validated on each request. Customer group stored in session for performance.
-                </li>
-                <li class="border-l-4 border-orange-500 pl-4">
-                    <strong>Failed Login Attempts:</strong> Tracked in customer_entity.failures_num, first_failure, lock_expires. After X failures (configurable), account temporarily locked. Lock duration configurable in admin.
-                </li>
-                <li class="border-l-4 border-orange-500 pl-4">
-                    <strong>Database Updates:</strong> customer_log.last_login_at timestamp updated. customer_visitor.customer_id links visitor session to customer. customer_entity.password_hash upgraded if using old algorithm.
-                </li>
-            </ul>
+        <div class="bg-magento-gold-50 border-l-4 border-magento-gold-500 p-6 mt-8 shadow-sm">
+            <div class="flex items-center gap-3 mb-4">
+                <svg class="w-6 h-6 text-magento-gold-700 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                </svg>
+                <h3 class="text-lg font-bold text-magento-gold-900">Key Points</h3>
+            </div>
+            <div class="space-y-4 ml-9">
+                <div class="flex gap-3">
+                    <svg class="w-5 h-5 text-magento-gold-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <div>
+                        <p class="font-semibold text-magento-gold-900">Session Security</p>
+                        <p class="text-sm text-magento-gold-800 leading-relaxed">Session ID regenerated on login to prevent session fixation attacks. Session validated on each request. Customer group stored in session for performance.</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <svg class="w-5 h-5 text-magento-gold-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <div>
+                        <p class="font-semibold text-magento-gold-900">Failed Login Attempts</p>
+                        <p class="text-sm text-magento-gold-800 leading-relaxed">Tracked in customer_entity.failures_num, first_failure, lock_expires. After X failures (configurable), account temporarily locked. Lock duration configurable in admin.</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <svg class="w-5 h-5 text-magento-gold-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <div>
+                        <p class="font-semibold text-magento-gold-900">Database Updates</p>
+                        <p class="text-sm text-magento-gold-800 leading-relaxed">customer_log.last_login_at timestamp updated. customer_visitor.customer_id links visitor session to customer. customer_entity.password_hash upgraded if using old algorithm.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="bg-white mb-12 p-8 border-t-4 border-yellow-500 shadow-sm">
-        <h2 class="text-2xl font-bold text-charcoal mb-4">Customer Save Flow</h2>
+    <div class="bg-white mb-12 p-8 border-t-4 border-magento-gold-500 shadow-sm">
+        <h2 class="text-2xl font-bold text-magento-charcoal mb-4">Customer Save Flow</h2>
 
-        <div class="border-l-4 border-orange-500 pl-4 mb-6">
-            <h3 class="text-lg font-semibold text-charcoal mb-2">Entry Point</h3>
-            <p class="text-sm text-charcoal/80 mb-1"><strong>Service Contract:</strong> <code class="bg-off-white px-2 py-1">CustomerRepositoryInterface::save(CustomerInterface $customer, $passwordHash = null)</code></p>
-            <p class="text-sm text-charcoal/80 mb-1"><strong>Implementation:</strong> <code class="bg-off-white px-2 py-1">Model\ResourceModel\CustomerRepository</code></p>
-            <p class="text-sm text-charcoal/80"><strong>Note:</strong> Core flow for any customer update operation</p>
+        <div class="border-l-4 border-magento-orange-500 pl-4 mb-6">
+            <h3 class="text-lg font-semibold text-magento-charcoal mb-2">Entry Point</h3>
+            <p class="text-sm text-magento-charcoal/80 mb-1"><strong>Service Contract:</strong> <code class="bg-[#FAFAFA] px-2 py-1">CustomerRepositoryInterface::save(CustomerInterface $customer, $passwordHash = null)</code></p>
+            <p class="text-sm text-magento-charcoal/80 mb-1"><strong>Implementation:</strong> <code class="bg-[#FAFAFA] px-2 py-1">Model\ResourceModel\CustomerRepository</code></p>
+            <p class="text-sm text-magento-charcoal/80"><strong>Note:</strong> Core flow for any customer update operation</p>
         </div>
 
-        <h3 class="text-xl font-semibold text-charcoal mb-3">Execution Sequence</h3>
+        <h3 class="text-xl font-semibold text-magento-charcoal mb-3">Execution Sequence</h3>
 
         <div class="space-y-4">
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">1. Repository Save Called</h4>
-                <p class="text-sm text-charcoal/80">Origin: Controller, API, Command, Observer, etc.</p>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">1</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Repository Save Called</h4>
+                </div>
+                <div class="ml-14">
+                    <p class="text-magento-charcoal-400 leading-relaxed">Origin: Controller, API, Command, Observer, etc.</p>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">2. Transaction Wrapper (BEFORE)</h4>
-                <ul class="space-y-1 text-sm text-charcoal/80">
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Plugin: TransactionWrapper::beforeSave() [sortOrder: -1]</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Begin database transaction</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Store original customer data for rollback if needed</li>
-                </ul>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">2</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Transaction Wrapper (BEFORE)</h4>
+                </div>
+                <div class="ml-14">
+                    <ul class="space-y-2 text-magento-charcoal-400">
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Plugin: TransactionWrapper::beforeSave() [sortOrder: -1]</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Begin database transaction</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Store original customer data for rollback if needed</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">3. Load Original Customer</h4>
-                <ul class="space-y-1 text-sm text-charcoal/80">
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> If $customer->getId() exists: Load existing customer</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Store original for comparison in events</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> If new customer: Original is null</li>
-                </ul>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">3</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Load Original Customer</h4>
+                </div>
+                <div class="ml-14">
+                    <ul class="space-y-2 text-magento-charcoal-400">
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> If $customer->getId() exists: Load existing customer</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Store original for comparison in events</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> If new customer: Original is null</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">4. Validation</h4>
-                <ul class="space-y-1 text-sm text-charcoal/80">
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Validate email format</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Validate required fields (firstname, lastname, etc.)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Check email uniqueness (email + website_id)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Validate custom attribute values</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Throw InputException if validation fails</li>
-                </ul>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">4</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Validation</h4>
+                </div>
+                <div class="ml-14">
+                    <ul class="space-y-2 text-magento-charcoal-400">
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Validate email format</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Validate required fields (firstname, lastname, etc.)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Check email uniqueness (email + website_id)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Validate custom attribute values</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Throw InputException if validation fails</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">5. DTO to Model Conversion</h4>
-                <ul class="space-y-1 text-sm text-charcoal/80">
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Convert CustomerInterface DTO to Customer Model</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Set password_hash if provided</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Set custom EAV attributes</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Prepare for database persistence</li>
-                </ul>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">5</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">DTO to Model Conversion</h4>
+                </div>
+                <div class="ml-14">
+                    <ul class="space-y-2 text-magento-charcoal-400">
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Convert CustomerInterface DTO to Customer Model</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Set password_hash if provided</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Set custom EAV attributes</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Prepare for database persistence</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">6. Database Persistence</h4>
-                <ul class="space-y-1 text-sm text-charcoal/80">
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> ResourceModel\Customer::save($customerModel)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> UPDATE customer_entity (if existing) OR INSERT (if new)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> UPDATE/INSERT customer_entity_varchar (EAV attributes)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> UPDATE/INSERT customer_entity_int, _datetime, etc.</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Update updated_at timestamp</li>
-                </ul>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">6</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Database Persistence</h4>
+                </div>
+                <div class="ml-14">
+                    <ul class="space-y-2 text-magento-charcoal-400">
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> ResourceModel\Customer::save($customerModel)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> UPDATE customer_entity (if existing) OR INSERT (if new)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> UPDATE/INSERT customer_entity_varchar (EAV attributes)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> UPDATE/INSERT customer_entity_int, _datetime, etc.</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Update updated_at timestamp</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">7. Convert Back to DTO</h4>
-                <ul class="space-y-1 text-sm text-charcoal/80">
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Load fresh data from database (to get auto-IDs, etc.)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Convert Customer Model to CustomerInterface DTO</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Prepare for return and event dispatch</li>
-                </ul>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">7</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Convert Back to DTO</h4>
+                </div>
+                <div class="ml-14">
+                    <ul class="space-y-2 text-magento-charcoal-400">
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Load fresh data from database (to get auto-IDs, etc.)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Convert Customer Model to CustomerInterface DTO</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Prepare for return and event dispatch</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">8. Critical Event: customer_save_after_data_object</h4>
-                <p class="text-sm text-charcoal/80 mb-2">Event data: customerDataObject (new state), origCustomerDataObject (old state)</p>
-                <ul class="space-y-1 text-sm text-charcoal/80">
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Observer: UpgradeOrderCustomerEmailObserver - If email changed: UPDATE sales_order SET customer_email = new email</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Observer: UpgradeQuoteCustomerEmailObserver - If email changed: UPDATE quote SET customer_email = new email</li>
-                </ul>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">8</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Critical Event: customer_save_after_data_object</h4>
+                </div>
+                <div class="ml-14">
+                    <p class="text-magento-charcoal-400 leading-relaxed mb-3">Event data: customerDataObject (new state), origCustomerDataObject (old state)</p>
+                    <ul class="space-y-2 text-magento-charcoal-400">
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Observer: UpgradeOrderCustomerEmailObserver - If email changed: UPDATE sales_order SET customer_email = new email</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Observer: UpgradeQuoteCustomerEmailObserver - If email changed: UPDATE quote SET customer_email = new email</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">9. Transaction Commit</h4>
-                <ul class="space-y-1 text-sm text-charcoal/80">
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Plugin: TransactionWrapper::afterSave()</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Commit database transaction</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> All changes persisted atomically</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> On exception: Rollback transaction and re-throw</li>
-                </ul>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">9</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Transaction Commit</h4>
+                </div>
+                <div class="ml-14">
+                    <ul class="space-y-2 text-magento-charcoal-400">
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Plugin: TransactionWrapper::afterSave()</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Commit database transaction</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> All changes persisted atomically</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> On exception: Rollback transaction and re-throw</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">10. Return Updated DTO</h4>
-                <p class="text-sm text-charcoal/80">Returns CustomerInterface DTO to caller with updated data including auto-generated IDs</p>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">10</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Return Updated DTO</h4>
+                </div>
+                <div class="ml-14">
+                    <p class="text-magento-charcoal-400 leading-relaxed">Returns CustomerInterface DTO to caller with updated data including auto-generated IDs</p>
+                </div>
             </div>
         </div>
 
-        <div class="bg-white border-4 border-yellow-500 p-6 mt-8">
-            <h3 class="text-lg font-semibold text-charcoal mb-3">Key Points</h3>
-            <ul class="space-y-3 text-charcoal/90">
-                <li class="border-l-4 border-orange-500 pl-4">
-                    <strong>Transaction Wrapper Pattern:</strong> Critical plugin with sortOrder -1 runs first. Wraps entire save operation in database transaction. Ensures customer + addresses + EAV attributes saved atomically. Rolls back on ANY exception.
-                </li>
-                <li class="border-l-4 border-orange-500 pl-4">
-                    <strong>Email Synchronization Side Effect:</strong> When customer email changes, observers update related records. All historical orders get new email for customer lookup. Active quote gets new email for cart recovery emails. This is a side effect of customer save, not explicit business logic.
-                </li>
-                <li class="border-l-4 border-orange-500 pl-4">
-                    <strong>Database Tables Modified:</strong> customer_entity (main record), customer_entity_varchar/int/etc (EAV attributes), sales_order (email sync via observer), quote (email sync via observer)
-                </li>
-            </ul>
+        <div class="bg-magento-gold-50 border-l-4 border-magento-gold-500 p-6 mt-8 shadow-sm">
+            <div class="flex items-center gap-3 mb-4">
+                <svg class="w-6 h-6 text-magento-gold-700 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                </svg>
+                <h3 class="text-lg font-bold text-magento-gold-900">Key Points</h3>
+            </div>
+            <div class="space-y-4 ml-9">
+                <div class="flex gap-3">
+                    <svg class="w-5 h-5 text-magento-gold-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <div>
+                        <p class="font-semibold text-magento-gold-900">Transaction Wrapper Pattern</p>
+                        <p class="text-sm text-magento-gold-800 leading-relaxed">Critical plugin with sortOrder -1 runs first. Wraps entire save operation in database transaction. Ensures customer + addresses + EAV attributes saved atomically. Rolls back on ANY exception.</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <svg class="w-5 h-5 text-magento-gold-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <div>
+                        <p class="font-semibold text-magento-gold-900">Email Synchronization Side Effect</p>
+                        <p class="text-sm text-magento-gold-800 leading-relaxed">When customer email changes, observers update related records. All historical orders get new email for customer lookup. Active quote gets new email for cart recovery emails. This is a side effect of customer save, not explicit business logic.</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <svg class="w-5 h-5 text-magento-gold-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <div>
+                        <p class="font-semibold text-magento-gold-900">Database Tables Modified</p>
+                        <p class="text-sm text-magento-gold-800 leading-relaxed">customer_entity (main record), customer_entity_varchar/int/etc (EAV attributes), sales_order (email sync via observer), quote (email sync via observer)</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="bg-white mb-12 p-8 border-t-4 border-yellow-500 shadow-sm">
-        <h2 class="text-2xl font-bold text-charcoal mb-4">Customer Email Change Flow</h2>
+    <div class="bg-white mb-12 p-8 border-t-4 border-magento-gold-500 shadow-sm">
+        <h2 class="text-2xl font-bold text-magento-charcoal mb-4">Customer Email Change Flow</h2>
 
-        <div class="border-l-4 border-orange-500 pl-4 mb-6">
-            <h3 class="text-lg font-semibold text-charcoal mb-2">Entry Point</h3>
-            <p class="text-sm text-charcoal/80"><strong>Trigger:</strong> Any operation that calls CustomerRepositoryInterface::save() with a changed email</p>
-            <p class="text-sm text-charcoal/80"><strong>Note:</strong> Critical business flow - email is primary customer identifier</p>
+        <div class="border-l-4 border-magento-orange-500 pl-4 mb-6">
+            <h3 class="text-lg font-semibold text-magento-charcoal mb-2">Entry Point</h3>
+            <p class="text-sm text-magento-charcoal/80"><strong>Trigger:</strong> Any operation that calls CustomerRepositoryInterface::save() with a changed email</p>
+            <p class="text-sm text-magento-charcoal/80"><strong>Note:</strong> Critical business flow - email is primary customer identifier</p>
         </div>
 
-        <h3 class="text-xl font-semibold text-charcoal mb-3">Execution Sequence</h3>
+        <h3 class="text-xl font-semibold text-magento-charcoal mb-3">Execution Sequence</h3>
 
         <div class="space-y-4">
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">1. Customer Email Updated</h4>
-                <p class="text-sm text-charcoal/80">User updates email in profile or admin changes it via CustomerRepository::save()</p>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">1</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Customer Email Updated</h4>
+                </div>
+                <div class="ml-14">
+                    <p class="text-magento-charcoal-400 leading-relaxed">User updates email in profile or admin changes it via CustomerRepository::save()</p>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">2. Repository Save Process</h4>
-                <p class="text-sm text-charcoal/80">See "Customer Save Flow" above for full details. Database updated with new email.</p>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">2</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Repository Save Process</h4>
+                </div>
+                <div class="ml-14">
+                    <p class="text-magento-charcoal-400 leading-relaxed">See "Customer Save Flow" above for full details. Database updated with new email.</p>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">3. Email Change Event</h4>
-                <p class="text-sm text-charcoal/80 mb-2">Event: <code class="bg-off-white px-2 py-1">customer_save_after_data_object</code></p>
-                <p class="text-sm text-charcoal/80">customerDataObject.email = "new@example.com"</p>
-                <p class="text-sm text-charcoal/80">origCustomerDataObject.email = "old@example.com"</p>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">3</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Email Change Event</h4>
+                </div>
+                <div class="ml-14">
+                    <p class="text-magento-charcoal-400 leading-relaxed mb-3">Event: <code class="bg-white/50 px-2 py-1 text-magento-charcoal">customer_save_after_data_object</code></p>
+                    <p class="text-magento-charcoal-400 leading-relaxed">customerDataObject.email = "new@example.com"</p>
+                    <p class="text-magento-charcoal-400 leading-relaxed">origCustomerDataObject.email = "old@example.com"</p>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">4. Order Email Synchronization</h4>
-                <p class="text-sm text-charcoal/80 mb-2">Observer: UpgradeOrderCustomerEmailObserver</p>
-                <ul class="space-y-1 text-sm text-charcoal/80">
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Check if origCustomerDataObject exists (not new customer)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Compare old email vs. new email</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> If changed: Build SearchCriteria (customer_id + old email)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> OrderRepository::getList($searchCriteria)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Iterate all matching orders</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Set new email: $order->setCustomerEmail($newEmail)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Collection save: $orders->save()</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Side Effect: Historical orders now searchable by new email</li>
-                </ul>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">4</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Order Email Synchronization</h4>
+                </div>
+                <div class="ml-14">
+                    <p class="text-magento-charcoal-400 leading-relaxed mb-3">Observer: UpgradeOrderCustomerEmailObserver</p>
+                    <ul class="space-y-2 text-magento-charcoal-400">
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Check if origCustomerDataObject exists (not new customer)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Compare old email vs. new email</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> If changed: Build SearchCriteria (customer_id + old email)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> OrderRepository::getList($searchCriteria)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Iterate all matching orders</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Set new email: $order->setCustomerEmail($newEmail)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Collection save: $orders->save()</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Side Effect: Historical orders now searchable by new email</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">5. Quote Email Synchronization</h4>
-                <p class="text-sm text-charcoal/80 mb-2">Observer: UpgradeQuoteCustomerEmailObserver</p>
-                <ul class="space-y-1 text-sm text-charcoal/80">
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Check if origCustomerDataObject exists (not new customer)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Compare old email vs. new email</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> If changed: Try to load active quote</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> QuoteRepository::getForCustomer($customerId)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> If quote exists: $quote->setCustomerEmail($newEmail)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> QuoteRepository::save($quote)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Catch NoSuchEntityException (no active cart)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Side Effect: Cart recovery emails sent to new address</li>
-                </ul>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">5</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Quote Email Synchronization</h4>
+                </div>
+                <div class="ml-14">
+                    <p class="text-magento-charcoal-400 leading-relaxed mb-3">Observer: UpgradeQuoteCustomerEmailObserver</p>
+                    <ul class="space-y-2 text-magento-charcoal-400">
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Check if origCustomerDataObject exists (not new customer)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Compare old email vs. new email</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> If changed: Try to load active quote</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> QuoteRepository::getForCustomer($customerId)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> If quote exists: $quote->setCustomerEmail($newEmail)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> QuoteRepository::save($quote)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Catch NoSuchEntityException (no active cart)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Side Effect: Cart recovery emails sent to new address</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">6. Database State After Email Change</h4>
-                <ul class="space-y-1 text-sm text-charcoal/80">
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> customer_entity.email = "new@example.com"</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> sales_order.customer_email = "new@example.com" (all orders)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> quote.customer_email = "new@example.com" (active cart)</li>
-                </ul>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">6</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Database State After Email Change</h4>
+                </div>
+                <div class="ml-14">
+                    <ul class="space-y-2 text-magento-charcoal-400">
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> customer_entity.email = "new@example.com"</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> sales_order.customer_email = "new@example.com" (all orders)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> quote.customer_email = "new@example.com" (active cart)</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
-        <div class="bg-white border-4 border-yellow-500 p-6 mt-8">
-            <h3 class="text-lg font-semibold text-charcoal mb-3">Key Points</h3>
-            <ul class="space-y-3 text-charcoal/90">
-                <li class="border-l-4 border-orange-500 pl-4">
-                    <strong>Why Synchronize Email?</strong> Order Lookup: Admin "View Orders" searches by customer_email. Customer Reports: Order reports grouped by customer_email. Cart Recovery: Abandoned cart emails sent to quote.customer_email. Data Integrity: Email is denormalized across tables for performance.
-                </li>
-                <li class="border-l-4 border-orange-500 pl-4">
-                    <strong>Performance Implications:</strong> Order Sync may update many rows (customer with 100s of orders). Uses collection save for efficient bulk UPDATE. Runs in same transaction as customer save (atomic).
-                </li>
-                <li class="border-l-4 border-orange-500 pl-4">
-                    <strong>Email Uniqueness Constraint:</strong> Email must be unique within website scope. Validated BEFORE observers run. Constraint: UNIQUE KEY (email, website_id)
-                </li>
-            </ul>
+        <div class="bg-magento-gold-50 border-l-4 border-magento-gold-500 p-6 mt-8 shadow-sm">
+            <div class="flex items-center gap-3 mb-4">
+                <svg class="w-6 h-6 text-magento-gold-700 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                </svg>
+                <h3 class="text-lg font-bold text-magento-gold-900">Key Points</h3>
+            </div>
+            <div class="space-y-4 ml-9">
+                <div class="flex gap-3">
+                    <svg class="w-5 h-5 text-magento-gold-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <div>
+                        <p class="font-semibold text-magento-gold-900">Why Synchronize Email?</p>
+                        <p class="text-sm text-magento-gold-800 leading-relaxed">Order Lookup: Admin "View Orders" searches by customer_email. Customer Reports: Order reports grouped by customer_email. Cart Recovery: Abandoned cart emails sent to quote.customer_email. Data Integrity: Email is denormalized across tables for performance.</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <svg class="w-5 h-5 text-magento-gold-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <div>
+                        <p class="font-semibold text-magento-gold-900">Performance Implications</p>
+                        <p class="text-sm text-magento-gold-800 leading-relaxed">Order Sync may update many rows (customer with 100s of orders). Uses collection save for efficient bulk UPDATE. Runs in same transaction as customer save (atomic).</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <svg class="w-5 h-5 text-magento-gold-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <div>
+                        <p class="font-semibold text-magento-gold-900">Email Uniqueness Constraint</p>
+                        <p class="text-sm text-magento-gold-800 leading-relaxed">Email must be unique within website scope. Validated BEFORE observers run. Constraint: UNIQUE KEY (email, website_id)</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="bg-white mb-12 p-8 border-t-4 border-yellow-500 shadow-sm">
-        <h2 class="text-2xl font-bold text-charcoal mb-4">Address Save Flow</h2>
+    <div class="bg-white mb-12 p-8 border-t-4 border-magento-gold-500 shadow-sm">
+        <h2 class="text-2xl font-bold text-magento-charcoal mb-4">Address Save Flow</h2>
 
-        <div class="border-l-4 border-orange-500 pl-4 mb-6">
-            <h3 class="text-lg font-semibold text-charcoal mb-2">Entry Point</h3>
-            <p class="text-sm text-charcoal/80 mb-1"><strong>Service Contract:</strong> <code class="bg-off-white px-2 py-1">AddressRepositoryInterface::save(AddressInterface $address)</code></p>
-            <p class="text-sm text-charcoal/80"><strong>Implementation:</strong> <code class="bg-off-white px-2 py-1">Model\ResourceModel\AddressRepository</code></p>
+        <div class="border-l-4 border-magento-orange-500 pl-4 mb-6">
+            <h3 class="text-lg font-semibold text-magento-charcoal mb-2">Entry Point</h3>
+            <p class="text-sm text-magento-charcoal/80 mb-1"><strong>Service Contract:</strong> <code class="bg-[#FAFAFA] px-2 py-1">AddressRepositoryInterface::save(AddressInterface $address)</code></p>
+            <p class="text-sm text-magento-charcoal/80"><strong>Implementation:</strong> <code class="bg-[#FAFAFA] px-2 py-1">Model\ResourceModel\AddressRepository</code></p>
         </div>
 
-        <h3 class="text-xl font-semibold text-charcoal mb-3">Execution Sequence</h3>
+        <h3 class="text-xl font-semibold text-magento-charcoal mb-3">Execution Sequence</h3>
 
         <div class="space-y-4">
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">1. Address Save Called</h4>
-                <p class="text-sm text-charcoal/80">Origin: Frontend form, admin, API, checkout</p>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">1</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Address Save Called</h4>
+                </div>
+                <div class="ml-14">
+                    <p class="text-magento-charcoal-400 leading-relaxed">Origin: Frontend form, admin, API, checkout</p>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">2. Validation</h4>
-                <ul class="space-y-1 text-sm text-charcoal/80">
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Validate address has parent customer_id</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Validate region matches country</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Validate postal code format (if country requires)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Validate required fields (street, city, etc.)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Throw InputException if validation fails</li>
-                </ul>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">2</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Validation</h4>
+                </div>
+                <div class="ml-14">
+                    <ul class="space-y-2 text-magento-charcoal-400">
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Validate address has parent customer_id</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Validate region matches country</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Validate postal code format (if country requires)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Validate required fields (street, city, etc.)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Throw InputException if validation fails</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">3. Before Save Event</h4>
-                <p class="text-sm text-charcoal/80 mb-2">Event: <code class="bg-off-white px-2 py-1">customer_address_save_before</code></p>
-                <p class="text-sm text-charcoal/80">Observer: BeforeAddressSaveObserver validates VAT number if provided. Checks EU VAT validation service (if enabled). Sets vat_is_valid flag.</p>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">3</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Before Save Event</h4>
+                </div>
+                <div class="ml-14">
+                    <p class="text-magento-charcoal-400 leading-relaxed mb-3">Event: <code class="bg-white/50 px-2 py-1 text-magento-charcoal">customer_address_save_before</code></p>
+                    <p class="text-magento-charcoal-400 leading-relaxed">Observer: BeforeAddressSaveObserver validates VAT number if provided. Checks EU VAT validation service (if enabled). Sets vat_is_valid flag.</p>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">4. Database Persistence</h4>
-                <ul class="space-y-1 text-sm text-charcoal/80">
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> ResourceModel\Address::save($addressModel)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> UPDATE customer_address_entity (if existing) OR INSERT (if new)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> UPDATE/INSERT customer_address_entity_varchar (EAV)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> UPDATE/INSERT customer_address_entity_int, _text, etc.</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Update updated_at timestamp</li>
-                </ul>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">4</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Database Persistence</h4>
+                </div>
+                <div class="ml-14">
+                    <ul class="space-y-2 text-magento-charcoal-400">
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> ResourceModel\Address::save($addressModel)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> UPDATE customer_address_entity (if existing) OR INSERT (if new)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> UPDATE/INSERT customer_address_entity_varchar (EAV)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> UPDATE/INSERT customer_address_entity_int, _text, etc.</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Update updated_at timestamp</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">5. Update Default Address Flags</h4>
-                <ul class="space-y-1 text-sm text-charcoal/80">
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> If address marked as default_billing:</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> UPDATE customer_entity SET default_billing = $addressId</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> If address marked as default_shipping:</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> UPDATE customer_entity SET default_shipping = $addressId</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Ensures customer record points to default addresses</li>
-                </ul>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">5</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Update Default Address Flags</h4>
+                </div>
+                <div class="ml-14">
+                    <ul class="space-y-2 text-magento-charcoal-400">
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> If address marked as default_billing:</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> UPDATE customer_entity SET default_billing = $addressId</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> If address marked as default_shipping:</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> UPDATE customer_entity SET default_shipping = $addressId</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Ensures customer record points to default addresses</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">6. After Save Event - VAT Processing</h4>
-                <p class="text-sm text-charcoal/80 mb-2">Event: <code class="bg-off-white px-2 py-1">customer_address_save_after</code></p>
-                <p class="text-sm text-charcoal/80 mb-2">Observer: AfterAddressSaveObserver - Complex VAT handling logic. If VAT validation result changed, may trigger customer group change. Updates customer_entity.group_id. Invalidates customer session/cache.</p>
-                <p class="text-sm text-charcoal/80 font-semibold text-orange-500">IMPORTANT: Can modify customer during address save!</p>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">6</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">After Save Event - VAT Processing</h4>
+                </div>
+                <div class="ml-14">
+                    <p class="text-magento-charcoal-400 leading-relaxed mb-3">Event: <code class="bg-white/50 px-2 py-1 text-magento-charcoal">customer_address_save_after</code></p>
+                    <p class="text-magento-charcoal-400 leading-relaxed">Observer: AfterAddressSaveObserver - Complex VAT handling logic. If VAT validation result changed, may trigger customer group change. Updates customer_entity.group_id. Invalidates customer session/cache.</p>
+                </div>
+            </div>
+
+            <!-- IMPORTANT Banner (border-top style) -->
+            <div class="bg-magento-orange-100 border-t-4 border-magento-orange-500 p-4">
+                <div class="flex items-start gap-3">
+                    <svg class="w-5 h-5 text-magento-orange-700 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                    </svg>
+                    <div class="flex-1">
+                        <p class="font-bold text-magento-orange-900 text-sm uppercase tracking-wide">Important</p>
+                        <p class="text-magento-orange-800 text-sm leading-relaxed mt-1">Can modify customer during address save!</p>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="bg-white border-4 border-yellow-500 p-6 mt-8">
-            <h3 class="text-lg font-semibold text-charcoal mb-3">Key Points</h3>
-            <ul class="space-y-3 text-charcoal/90">
-                <li class="border-l-4 border-orange-500 pl-4">
-                    <strong>VAT Validation Side Effects:</strong> BeforeAddressSaveObserver validates VAT number with EU service. AfterAddressSaveObserver may change customer group based on VAT status. CRITICAL: Address save can trigger customer save (group change). This is B2B-specific functionality.
-                </li>
-                <li class="border-l-4 border-orange-500 pl-4">
-                    <strong>Default Address Handling:</strong> Customer can have one default billing and one default shipping address. Flags stored in customer_address_entity.is_default_billing/shipping. Customer entity also stores FKs: default_billing, default_shipping for fast lookup.
-                </li>
-            </ul>
+        <div class="bg-magento-gold-50 border-l-4 border-magento-gold-500 p-6 mt-8 shadow-sm">
+            <div class="flex items-center gap-3 mb-4">
+                <svg class="w-6 h-6 text-magento-gold-700 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                </svg>
+                <h3 class="text-lg font-bold text-magento-gold-900">Key Points</h3>
+            </div>
+            <div class="space-y-4 ml-9">
+                <div class="flex gap-3">
+                    <svg class="w-5 h-5 text-magento-gold-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <div>
+                        <p class="font-semibold text-magento-gold-900">VAT Validation Side Effects</p>
+                        <p class="text-sm text-magento-gold-800 leading-relaxed">BeforeAddressSaveObserver validates VAT number with EU service. AfterAddressSaveObserver may change customer group based on VAT status. CRITICAL: Address save can trigger customer save (group change). This is B2B-specific functionality.</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <svg class="w-5 h-5 text-magento-gold-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <div>
+                        <p class="font-semibold text-magento-gold-900">Default Address Handling</p>
+                        <p class="text-sm text-magento-gold-800 leading-relaxed">Customer can have one default billing and one default shipping address. Flags stored in customer_address_entity.is_default_billing/shipping. Customer entity also stores FKs: default_billing, default_shipping for fast lookup.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="bg-white mb-12 p-8 border-t-4 border-yellow-500 shadow-sm">
-        <h2 class="text-2xl font-bold text-charcoal mb-4">Password Reset Flow</h2>
+    <div class="bg-white mb-12 p-8 border-t-4 border-magento-gold-500 shadow-sm">
+        <h2 class="text-2xl font-bold text-magento-charcoal mb-4">Password Reset Flow</h2>
 
-        <div class="border-l-4 border-orange-500 pl-4 mb-6">
-            <h3 class="text-lg font-semibold text-charcoal mb-2">Entry Point</h3>
-            <p class="text-sm text-charcoal/80 mb-1"><strong>Controller:</strong> <code class="bg-off-white px-2 py-1">Magento\Customer\Controller\Account\ForgotPasswordPost::execute()</code></p>
-            <p class="text-sm text-charcoal/80"><strong>Route:</strong> <code class="bg-off-white px-2 py-1">POST /customer/account/forgotPasswordPost</code></p>
+        <div class="border-l-4 border-magento-orange-500 pl-4 mb-6">
+            <h3 class="text-lg font-semibold text-magento-charcoal mb-2">Entry Point</h3>
+            <p class="text-sm text-magento-charcoal/80 mb-1"><strong>Controller:</strong> <code class="bg-[#FAFAFA] px-2 py-1">Magento\Customer\Controller\Account\ForgotPasswordPost::execute()</code></p>
+            <p class="text-sm text-magento-charcoal/80"><strong>Route:</strong> <code class="bg-[#FAFAFA] px-2 py-1">POST /customer/account/forgotPasswordPost</code></p>
         </div>
 
-        <h3 class="text-xl font-semibold text-charcoal mb-3">Execution Sequence</h3>
+        <h3 class="text-xl font-semibold text-magento-charcoal mb-3">Execution Sequence</h3>
 
         <div class="space-y-4">
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">1. User Requests Password Reset</h4>
-                <p class="text-sm text-charcoal/80">Form data: email</p>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">1</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">User Requests Password Reset</h4>
+                </div>
+                <div class="ml-14">
+                    <p class="text-magento-charcoal-400 leading-relaxed">Form data: email</p>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">2. Generate Reset Token</h4>
-                <ul class="space-y-1 text-sm text-charcoal/80">
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> AccountManagementInterface::initiatePasswordReset()</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Load customer by email + website_id</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Generate random reset token (UUID)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Set expiration timestamp (default: 1 hour)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Update customer: rp_token = $token, rp_token_created_at = NOW()</li>
-                </ul>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">2</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Generate Reset Token</h4>
+                </div>
+                <div class="ml-14">
+                    <ul class="space-y-2 text-magento-charcoal-400">
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> AccountManagementInterface::initiatePasswordReset()</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Load customer by email + website_id</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Generate random reset token (UUID)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Set expiration timestamp (default: 1 hour)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Update customer: rp_token = $token, rp_token_created_at = NOW()</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">3. Send Password Reset Email</h4>
-                <p class="text-sm text-charcoal/80">Email contains link: /customer/account/createPassword?token=...&id=...</p>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">3</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">Send Password Reset Email</h4>
+                </div>
+                <div class="ml-14">
+                    <p class="text-magento-charcoal-400 leading-relaxed">Email contains link: /customer/account/createPassword?token=...&id=...</p>
+                </div>
             </div>
 
-            <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-semibold text-charcoal mb-2">4. User Submits New Password</h4>
-                <ul class="space-y-1 text-sm text-charcoal/80">
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> AccountManagementInterface::resetPassword($email, $token, $newPassword)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Validate token matches customer.rp_token</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Validate token not expired (created_at + expiry)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Hash new password (Argon2ID13)</li>
-                    <li class="flex gap-2"><span class="text-orange-500 font-bold">→</span> Update: password_hash = $newHash, rp_token = NULL</li>
-                </ul>
+            <div class="bg-gradient-to-r from-magento-orange-50 to-transparent border-l-4 border-magento-orange pl-6 pr-4 py-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-10 h-10 bg-magento-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">4</div>
+                    <h4 class="text-lg font-bold text-magento-charcoal m-0">User Submits New Password</h4>
+                </div>
+                <div class="ml-14">
+                    <ul class="space-y-2 text-magento-charcoal-400">
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> AccountManagementInterface::resetPassword($email, $token, $newPassword)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Validate token matches customer.rp_token</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Validate token not expired (created_at + expiry)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Hash new password (Argon2ID13)</li>
+                        <li class="flex gap-2"><span class="text-magento-orange-500 font-bold">→</span> Update: password_hash = $newHash, rp_token = NULL</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
-        <div class="bg-white border-4 border-yellow-500 p-6 mt-8">
-            <h3 class="text-lg font-semibold text-charcoal mb-3">Key Points</h3>
-            <ul class="space-y-3 text-charcoal/90">
-                <li class="border-l-4 border-orange-500 pl-4">
-                    <strong>Token Security:</strong> Token is random UUID (not predictable). Token stored in customer_entity.rp_token with expiration time (default 1 hour). Token invalidated (set to NULL) after successful use. One-time use only.
-                </li>
-                <li class="border-l-4 border-orange-500 pl-4">
-                    <strong>Security Considerations:</strong> Rate limiting on password reset requests (prevent email bombing). Token expiration prevents old emails being used. No indication if email exists (security - prevent enumeration).
-                </li>
-            </ul>
+        <div class="bg-magento-gold-50 border-l-4 border-magento-gold-500 p-6 mt-8 shadow-sm">
+            <div class="flex items-center gap-3 mb-4">
+                <svg class="w-6 h-6 text-magento-gold-700 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                </svg>
+                <h3 class="text-lg font-bold text-magento-gold-900">Key Points</h3>
+            </div>
+            <div class="space-y-4 ml-9">
+                <div class="flex gap-3">
+                    <svg class="w-5 h-5 text-magento-gold-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <div>
+                        <p class="font-semibold text-magento-gold-900">Token Security</p>
+                        <p class="text-sm text-magento-gold-800 leading-relaxed">Token is random UUID (not predictable). Token stored in customer_entity.rp_token with expiration time (default 1 hour). Token invalidated (set to NULL) after successful use. One-time use only.</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <svg class="w-5 h-5 text-magento-gold-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <div>
+                        <p class="font-semibold text-magento-gold-900">Security Considerations</p>
+                        <p class="text-sm text-magento-gold-800 leading-relaxed">Rate limiting on password reset requests (prevent email bombing). Token expiration prevents old emails being used. No indication if email exists (security - prevent enumeration).</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="bg-white mb-12 p-8 border-t-4 border-yellow-500 shadow-sm">
-        <h2 class="text-2xl font-bold text-charcoal mb-4">Event and Observer Reference</h2>
+    <div class="bg-white mb-12 p-8 border-t-4 border-magento-gold-500 shadow-sm">
+        <h2 class="text-2xl font-bold text-magento-charcoal mb-4">Event and Observer Reference</h2>
 
-        <h3 class="text-xl font-semibold text-charcoal mb-3">Events Dispatched by Customer Module</h3>
+        <h3 class="text-xl font-semibold text-magento-charcoal mb-3">Events Dispatched by Customer Module</h3>
 
         <div class="overflow-x-auto">
-            <table class="min-w-full text-sm border border-charcoal/20">
-                <thead class="bg-off-white">
+            <table class="min-w-full text-sm border border-magento-charcoal/20">
+                <thead class="bg-[#FAFAFA]">
                     <tr>
-                        <th class="px-3 py-2 text-left border-b border-charcoal/20 font-semibold text-charcoal">Event</th>
-                        <th class="px-3 py-2 text-left border-b border-charcoal/20 font-semibold text-charcoal">When</th>
-                        <th class="px-3 py-2 text-left border-b border-charcoal/20 font-semibold text-charcoal">Area</th>
+                        <th class="px-3 py-2 text-left border-b border-magento-charcoal/20 font-semibold text-magento-charcoal">Event</th>
+                        <th class="px-3 py-2 text-left border-b border-magento-charcoal/20 font-semibold text-magento-charcoal">When</th>
+                        <th class="px-3 py-2 text-left border-b border-magento-charcoal/20 font-semibold text-magento-charcoal">Area</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white">
                     <tr>
-                        <td class="px-3 py-2 border-b border-charcoal/10"><code>customer_register_success</code></td>
-                        <td class="px-3 py-2 border-b border-charcoal/10">After successful registration</td>
-                        <td class="px-3 py-2 border-b border-charcoal/10">frontend</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10"><code>customer_register_success</code></td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">After successful registration</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">frontend</td>
                     </tr>
                     <tr>
-                        <td class="px-3 py-2 border-b border-charcoal/10"><code>customer_save_after_data_object</code></td>
-                        <td class="px-3 py-2 border-b border-charcoal/10">After customer DTO save</td>
-                        <td class="px-3 py-2 border-b border-charcoal/10">global</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10"><code>customer_save_after_data_object</code></td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">After customer DTO save</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">global</td>
                     </tr>
                     <tr>
-                        <td class="px-3 py-2 border-b border-charcoal/10"><code>customer_login</code></td>
-                        <td class="px-3 py-2 border-b border-charcoal/10">After successful login</td>
-                        <td class="px-3 py-2 border-b border-charcoal/10">frontend</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10"><code>customer_login</code></td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">After successful login</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">frontend</td>
                     </tr>
                     <tr>
-                        <td class="px-3 py-2 border-b border-charcoal/10"><code>customer_data_object_login</code></td>
-                        <td class="px-3 py-2 border-b border-charcoal/10">After successful login (DTO)</td>
-                        <td class="px-3 py-2 border-b border-charcoal/10">frontend</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10"><code>customer_data_object_login</code></td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">After successful login (DTO)</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">frontend</td>
                     </tr>
                     <tr>
-                        <td class="px-3 py-2 border-b border-charcoal/10"><code>customer_logout</code></td>
-                        <td class="px-3 py-2 border-b border-charcoal/10">After logout</td>
-                        <td class="px-3 py-2 border-b border-charcoal/10">frontend</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10"><code>customer_logout</code></td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">After logout</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">frontend</td>
                     </tr>
                     <tr>
-                        <td class="px-3 py-2 border-b border-charcoal/10"><code>customer_customer_authenticated</code></td>
-                        <td class="px-3 py-2 border-b border-charcoal/10">During authentication</td>
-                        <td class="px-3 py-2 border-b border-charcoal/10">frontend</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10"><code>customer_customer_authenticated</code></td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">During authentication</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">frontend</td>
                     </tr>
                     <tr>
-                        <td class="px-3 py-2 border-b border-charcoal/10"><code>customer_address_save_before</code></td>
-                        <td class="px-3 py-2 border-b border-charcoal/10">Before address save</td>
-                        <td class="px-3 py-2 border-b border-charcoal/10">global</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10"><code>customer_address_save_before</code></td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">Before address save</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">global</td>
                     </tr>
                     <tr>
-                        <td class="px-3 py-2 border-b border-charcoal/10"><code>customer_address_save_after</code></td>
-                        <td class="px-3 py-2 border-b border-charcoal/10">After address save</td>
-                        <td class="px-3 py-2 border-b border-charcoal/10">global</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10"><code>customer_address_save_after</code></td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">After address save</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">global</td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <h3 class="text-xl font-semibold text-charcoal mb-3 mt-8">Critical Observers in Customer Module</h3>
+        <h3 class="text-xl font-semibold text-magento-charcoal mb-3 mt-8">Critical Observers in Customer Module</h3>
 
         <div class="overflow-x-auto">
-            <table class="min-w-full text-sm border border-charcoal/20">
-                <thead class="bg-off-white">
+            <table class="min-w-full text-sm border border-magento-charcoal/20">
+                <thead class="bg-[#FAFAFA]">
                     <tr>
-                        <th class="px-3 py-2 text-left border-b border-charcoal/20 font-semibold text-charcoal">Observer</th>
-                        <th class="px-3 py-2 text-left border-b border-charcoal/20 font-semibold text-charcoal">Event</th>
-                        <th class="px-3 py-2 text-left border-b border-charcoal/20 font-semibold text-charcoal">Side Effects</th>
+                        <th class="px-3 py-2 text-left border-b border-magento-charcoal/20 font-semibold text-magento-charcoal">Observer</th>
+                        <th class="px-3 py-2 text-left border-b border-magento-charcoal/20 font-semibold text-magento-charcoal">Event</th>
+                        <th class="px-3 py-2 text-left border-b border-magento-charcoal/20 font-semibold text-magento-charcoal">Side Effects</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white">
                     <tr>
-                        <td class="px-3 py-2 border-b border-charcoal/10">UpgradeOrderCustomerEmailObserver</td>
-                        <td class="px-3 py-2 border-b border-charcoal/10">customer_save_after_data_object</td>
-                        <td class="px-3 py-2 border-b border-charcoal/10">UPDATE sales_order</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">UpgradeOrderCustomerEmailObserver</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">customer_save_after_data_object</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">UPDATE sales_order</td>
                     </tr>
                     <tr>
-                        <td class="px-3 py-2 border-b border-charcoal/10">UpgradeQuoteCustomerEmailObserver</td>
-                        <td class="px-3 py-2 border-b border-charcoal/10">customer_save_after_data_object</td>
-                        <td class="px-3 py-2 border-b border-charcoal/10">UPDATE quote</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">UpgradeQuoteCustomerEmailObserver</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">customer_save_after_data_object</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">UPDATE quote</td>
                     </tr>
                     <tr>
-                        <td class="px-3 py-2 border-b border-charcoal/10">BeforeAddressSaveObserver</td>
-                        <td class="px-3 py-2 border-b border-charcoal/10">customer_address_save_before</td>
-                        <td class="px-3 py-2 border-b border-charcoal/10">May set VAT flags</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">BeforeAddressSaveObserver</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">customer_address_save_before</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">May set VAT flags</td>
                     </tr>
                     <tr>
-                        <td class="px-3 py-2 border-b border-charcoal/10">AfterAddressSaveObserver</td>
-                        <td class="px-3 py-2 border-b border-charcoal/10">customer_address_save_after</td>
-                        <td class="px-3 py-2 border-b border-charcoal/10">May change customer group!</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">AfterAddressSaveObserver</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">customer_address_save_after</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">May change customer group!</td>
                     </tr>
                     <tr>
-                        <td class="px-3 py-2 border-b border-charcoal/10">LogLastLoginAtObserver</td>
-                        <td class="px-3 py-2 border-b border-charcoal/10">customer_login</td>
-                        <td class="px-3 py-2 border-b border-charcoal/10">UPDATE customer_log</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">LogLastLoginAtObserver</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">customer_login</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">UPDATE customer_log</td>
                     </tr>
                     <tr>
-                        <td class="px-3 py-2 border-b border-charcoal/10">Visitor\BindCustomerLoginObserver</td>
-                        <td class="px-3 py-2 border-b border-charcoal/10">customer_data_object_login</td>
-                        <td class="px-3 py-2 border-b border-charcoal/10">UPDATE customer_visitor</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">Visitor\BindCustomerLoginObserver</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">customer_data_object_login</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">UPDATE customer_visitor</td>
                     </tr>
                     <tr>
-                        <td class="px-3 py-2 border-b border-charcoal/10">UpgradeCustomerPasswordObserver</td>
-                        <td class="px-3 py-2 border-b border-charcoal/10">customer_customer_authenticated</td>
-                        <td class="px-3 py-2 border-b border-charcoal/10">UPDATE customer_entity</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">UpgradeCustomerPasswordObserver</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">customer_customer_authenticated</td>
+                        <td class="px-3 py-2 border-b border-magento-charcoal/10">UPDATE customer_entity</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 
-    <footer class="mt-16 pt-8 border-t-4 border-yellow-500">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-charcoal/80">
+    <footer class="mt-16 pt-8 border-t-4 border-magento-gold-500">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-magento-charcoal/80">
             <div>
-                <h3 class="font-semibold text-charcoal mb-2">Document Info</h3>
+                <h3 class="font-semibold text-magento-charcoal mb-2">Document Info</h3>
                 <p>Version: 1.0.0</p>
                 <p>Last Updated: 2025-12-03</p>
                 <p>Magento Version: 2.4.8</p>
             </div>
             <div>
-                <h3 class="font-semibold text-charcoal mb-2">Related Documentation</h3>
+                <h3 class="font-semibold text-magento-charcoal mb-2">Related Documentation</h3>
                 <ul class="space-y-1">
-                    <li><a href="architecture.html" class="text-orange-500 hover:underline">Architecture</a></li>
-                    <li><a href="plugins-observers.html" class="text-orange-500 hover:underline">Plugins &amp; Observers</a></li>
-                    <li><a href="integrations.html" class="text-orange-500 hover:underline">Module Integrations</a></li>
+                    <li><a href="architecture.html" class="text-magento-orange-500 hover:underline transition-colors">Architecture</a></li>
+                    <li><a href="plugins-observers.html" class="text-magento-orange-500 hover:underline transition-colors">Plugins &amp; Observers</a></li>
+                    <li><a href="integrations.html" class="text-magento-orange-500 hover:underline transition-colors">Module Integrations</a></li>
                 </ul>
             </div>
             <div>
-                <h3 class="font-semibold text-charcoal mb-2">Navigation</h3>
+                <h3 class="font-semibold text-magento-charcoal mb-2">Navigation</h3>
                 <ul class="space-y-1">
-                    <li><a href="../../../index.html" class="text-orange-500 hover:underline">Home</a></li>
-                    <li><a href="../index.html" class="text-orange-500 hover:underline">Magento_Customer Module</a></li>
+                    <li><a href="../../../index.html" class="text-magento-orange-500 hover:underline transition-colors">Home</a></li>
+                    <li><a href="../index.html" class="text-magento-orange-500 hover:underline transition-colors">Magento_Customer Module</a></li>
                 </ul>
             </div>
         </div>
