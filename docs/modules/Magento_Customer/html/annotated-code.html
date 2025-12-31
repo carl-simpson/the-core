@@ -565,6 +565,130 @@ UPDATE quote SET customer_email = ? WHERE customer_id = ? AND is_active = 1</cod
         </h2>
         <p class="text-magento-charcoal-400 mb-8">This section documents all styling patterns used across the Magento Core documentation. Use these as templates when building new documentation pages.</p>
 
+        <!-- TAILWIND CONFIG & HEAD TEMPLATE -->
+        <div class="bg-white mb-8 p-8 border-t-4 border-magento-gold-500 shadow-sm">
+          <h3 class="text-2xl font-bold text-magento-charcoal mb-4">Tailwind Config & Head Template</h3>
+          <p class="text-magento-charcoal/80 mb-6">Copy this complete head section for new documentation pages. Includes Tailwind config, fonts, Alpine.js, and highlight.js.</p>
+
+          <div class="code-block mb-6 shadow-md overflow-hidden">
+            <div class="code-header bg-magento-charcoal-700 px-4 py-2 flex justify-between items-center border-b border-magento-charcoal-600">
+              <span class="text-magento-gold-400 text-sm font-semibold tracking-wide">HTML - Complete Head Template</span>
+              <button onclick="copyCode(this)" class="copy-btn flex items-center gap-1.5 text-gray-400 hover:text-white text-xs font-medium transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                </svg>
+                <span>Copy</span>
+              </button>
+            </div>
+            <pre class="bg-magento-charcoal-800 p-4 overflow-x-auto m-0 text-sm leading-relaxed"><code class="language-html text-gray-100">&lt;!DOCTYPE html&gt;
+&lt;html lang="en" class="scroll-smooth"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Page Title | Magento Core Documentation&lt;/title&gt;
+  &lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
+  &lt;script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"&gt;&lt;/script&gt;
+  &lt;script&gt;
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'magento-orange': {
+              DEFAULT: '#f26423',
+              50: '#fef5ee', 100: '#fee9d6', 200: '#fbd0ad', 300: '#f9ae78',
+              400: '#f58242', 500: '#f26423', 600: '#e34613', 700: '#bc3312',
+              800: '#962a16', 900: '#792515', 950: '#411009'
+            },
+            'magento-gold': {
+              DEFAULT: '#f1bc1b',
+              50: '#fffdeb', 100: '#fdf9c8', 200: '#fbf38c', 300: '#f8e651',
+              400: '#f7d728', 500: '#f1bc1b', 600: '#d5900a', 700: '#b1670c',
+              800: '#8f5111', 900: '#764311', 950: '#442204'
+            },
+            'magento-charcoal': {
+              DEFAULT: '#2c2c2c',
+              50: '#f1f1f1', 100: '#d9d9d9', 200: '#b6b6b6', 300: '#818181',
+              400: '#474747', 500: '#2c2c2c', 600: '#262626', 700: '#202020',
+              800: '#1c1c1c', 900: '#191919', 950: '#121212'
+            },
+          },
+          fontFamily: {
+            sans: ['Inter Tight', 'system-ui', 'sans-serif'],
+            mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
+          },
+        }
+      }
+    }
+  &lt;/script&gt;
+  &lt;style&gt;
+    @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&amp;display=swap');
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  &lt;/style&gt;
+  &lt;!-- Syntax Highlighting (include if page has code blocks) --&gt;
+  &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"&gt;&lt;/script&gt;
+  &lt;script&gt;hljs.highlightAll();&lt;/script&gt;
+  &lt;style&gt;
+    [x-cloak] { display: none !important; }
+    /* VS Code Dark+ Theme */
+    .hljs { background: transparent; }
+    .hljs-comment { color: #6a9955; }
+    .hljs-keyword { color: #569cd6; }
+    .hljs-function .hljs-title, .hljs-title.function_ { color: #dcdcaa; }
+    .hljs-variable, .hljs-variable.language_ { color: #9cdcfe; }
+    .hljs-string { color: #ce9178; }
+    .hljs-number { color: #b5cea8; }
+    .hljs-literal, .hljs-built_in { color: #569cd6; }
+    .hljs-type, .hljs-title.class_ { color: #4ec9b0; }
+    .hljs-tag, .hljs-name { color: #569cd6; }
+  &lt;/style&gt;
+&lt;/head&gt;</code></pre>
+          </div>
+
+          <h4 class="text-lg font-semibold text-magento-charcoal mb-3">Brand Color Reference</h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div class="border border-magento-charcoal/20 p-4">
+              <div class="flex gap-2 mb-3">
+                <div class="w-8 h-8 bg-magento-orange-500 border border-magento-charcoal/20"></div>
+                <div class="w-8 h-8 bg-magento-orange-600 border border-magento-charcoal/20"></div>
+                <div class="w-8 h-8 bg-magento-orange-700 border border-magento-charcoal/20"></div>
+              </div>
+              <p class="font-semibold text-magento-charcoal">magento-orange</p>
+              <p class="text-sm text-magento-charcoal/70">Primary accent, CTAs, borders</p>
+              <code class="text-xs bg-magento-charcoal-50 px-1">#f26423</code>
+            </div>
+            <div class="border border-magento-charcoal/20 p-4">
+              <div class="flex gap-2 mb-3">
+                <div class="w-8 h-8 bg-magento-gold-400 border border-magento-charcoal/20"></div>
+                <div class="w-8 h-8 bg-magento-gold-500 border border-magento-charcoal/20"></div>
+                <div class="w-8 h-8 bg-magento-gold-600 border border-magento-charcoal/20"></div>
+              </div>
+              <p class="font-semibold text-magento-charcoal">magento-gold</p>
+              <p class="text-sm text-magento-charcoal/70">Callouts, tips, highlights</p>
+              <code class="text-xs bg-magento-charcoal-50 px-1">#f1bc1b</code>
+            </div>
+            <div class="border border-magento-charcoal/20 p-4">
+              <div class="flex gap-2 mb-3">
+                <div class="w-8 h-8 bg-magento-charcoal-500 border border-magento-charcoal/20"></div>
+                <div class="w-8 h-8 bg-magento-charcoal-700 border border-magento-charcoal/20"></div>
+                <div class="w-8 h-8 bg-magento-charcoal-800 border border-magento-charcoal/20"></div>
+              </div>
+              <p class="font-semibold text-magento-charcoal">magento-charcoal</p>
+              <p class="text-sm text-magento-charcoal/70">Text, headers, code blocks</p>
+              <code class="text-xs bg-magento-charcoal-50 px-1">#2c2c2c</code>
+            </div>
+          </div>
+
+          <div class="bg-magento-orange-50 border-l-4 border-magento-orange-500 p-4">
+            <p class="text-sm text-magento-orange-800"><strong>Important:</strong> Only use these three brand colors. Never use vanilla Tailwind colors like <code class="bg-white/50 px-1">blue-500</code>, <code class="bg-white/50 px-1">purple-600</code>, or <code class="bg-white/50 px-1">green-500</code>.</p>
+          </div>
+        </div>
+
         <!-- EXECUTION FLOW STEPS -->
         <div class="bg-white mb-8 p-8 border-t-4 border-magento-gold-500 shadow-sm">
           <h3 class="text-2xl font-bold text-magento-charcoal mb-4">Execution Flow Steps</h3>
