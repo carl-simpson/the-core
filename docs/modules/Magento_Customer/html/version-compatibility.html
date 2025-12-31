@@ -120,12 +120,12 @@
           <h2 class="text-3xl font-bold text-gray-900 mb-6">Version Support Matrix</h2>
 
           <div class="bg-magento-gold-50 border-l-4 border-magento-gold-500 p-4 mb-6">
-            <h3 class="font-semibold text-brown mb-2">Current Support Status (as of 2025-12-04)</h3>
+            <h3 class="font-semibold text-magento-gold-900 mb-2">Current Support Status (as of 2025-12-04)</h3>
             <div class="flex gap-4 text-sm">
-              <div class="flex items-center"><span class="w-3 h-3 status-current  mr-2"></span><span class="text-brown">Current</span></div>
-              <div class="flex items-center"><span class="w-3 h-3 status-supported  mr-2"></span><span class="text-brown">Supported</span></div>
-              <div class="flex items-center"><span class="w-3 h-3 status-security  mr-2"></span><span class="text-brown">Security Only</span></div>
-              <div class="flex items-center"><span class="w-3 h-3 status-eol  mr-2"></span><span class="text-brown">End of Life</span></div>
+              <div class="flex items-center"><span class="w-3 h-3 status-current  mr-2"></span><span class="text-magento-gold-900">Current</span></div>
+              <div class="flex items-center"><span class="w-3 h-3 status-supported  mr-2"></span><span class="text-magento-gold-900">Supported</span></div>
+              <div class="flex items-center"><span class="w-3 h-3 status-security  mr-2"></span><span class="text-magento-gold-900">Security Only</span></div>
+              <div class="flex items-center"><span class="w-3 h-3 status-eol  mr-2"></span><span class="text-magento-gold-900">End of Life</span></div>
             </div>
           </div>
 
@@ -345,8 +345,8 @@
           </div>
 
           <div class="mt-6 bg-magento-gold-50 border-l-4 border-magento-gold-500 p-4">
-            <h4 class="font-semibold text-brown mb-2">Recommendation</h4>
-            <p class="text-brown text-sm">For maximum compatibility with Customer module extensions, use <strong>PHP 8.2</strong> with Magento 2.4.7+.</p>
+            <h4 class="font-semibold text-magento-gold-900 mb-2">Recommendation</h4>
+            <p class="text-magento-gold-900 text-sm">For maximum compatibility with Customer module extensions, use <strong>PHP 8.2</strong> with Magento 2.4.7+.</p>
           </div>
         </section>
 
@@ -404,7 +404,7 @@ $validator->isValid('user..name@domain.com'); // false</code></pre>
                   <p class="text-magento-orange-900 text-sm"><strong>CRITICAL Impact:</strong> Customer registration may fail for previously accepted emails. Review existing customer emails before upgrading!</p>
                 </div>
                 <div class="bg-magento-gold-50 border-l-4 border-magento-gold-500 p-3">
-                  <h5 class="font-semibold text-brown mb-2 text-sm">Migration Script:</h5>
+                  <h5 class="font-semibold text-magento-gold-900 mb-2 text-sm">Migration Script:</h5>
                   <pre class="bg-gray-900 text-gray-100 p-3 text-xs"><code class="language-bash"># Find invalid emails before upgrading
 bin/magento customer:email:validate
 cat var/log/invalid_emails.log
