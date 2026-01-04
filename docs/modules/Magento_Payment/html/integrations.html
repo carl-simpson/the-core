@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,46 +11,50 @@
             theme: {
                 extend: {
                     colors: {
-                        orange: {
-                            DEFAULT: '#F26423',
+                        'magento-orange': {
+                            DEFAULT: '#f26423',
                             50: '#fef5ee', 100: '#fee9d6', 200: '#fbd0ad', 300: '#f9ae78',
                             400: '#f58242', 500: '#f26423', 600: '#e34613', 700: '#bc3312',
                             800: '#962a16', 900: '#792515', 950: '#411009'
                         },
-                        yellow: {
-                            DEFAULT: '#F1BC1B',
+                        'magento-gold': {
+                            DEFAULT: '#f1bc1b',
                             50: '#fffdeb', 100: '#fdf9c8', 200: '#fbf38c', 300: '#f8e651',
                             400: '#f7d728', 500: '#f1bc1b', 600: '#d5900a', 700: '#b1670c',
                             800: '#8f5111', 900: '#764311', 950: '#442204'
                         },
-                        charcoal: {
+                        'magento-charcoal': {
                             DEFAULT: '#2c2c2c',
                             50: '#f1f1f1', 100: '#d9d9d9', 200: '#b6b6b6', 300: '#818181',
                             400: '#474747', 500: '#2c2c2c', 600: '#262626', 700: '#202020',
                             800: '#1c1c1c', 900: '#191919', 950: '#121212'
                         },
-                        'off-white': '#FAFAFA',
                     },
                     fontFamily: {
                         sans: ['Inter Tight', 'system-ui', 'sans-serif'],
+                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
                     },
                 }
             }
         }
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter Tight', system-ui, sans-serif; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap');
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
         pre { background: #1c1c1c; border-radius: 0; }
         code { font-family: 'JetBrains Mono', 'Fira Code', monospace; }
     </style>
 </head>
-<body class="bg-off-white text-charcoal">
+<body class="bg-[#FAFAFA] text-magento-charcoal">
 
     <!-- Header -->
-    <header class="bg-gradient-to-br from-charcoal-500 via-charcoal-600 to-charcoal-700 border-b-8 border-orange-500">
+    <header class="bg-gradient-to-br from-magento-charcoal-500 via-magento-charcoal-600 to-magento-charcoal-700 border-b-8 border-magento-orange-500">
         <div class="max-w-6xl mx-auto px-6 py-8">
             <nav class="mb-4" aria-label="Breadcrumb">
                 <ol class="flex items-center gap-2 text-sm text-gray-400">
@@ -58,7 +62,7 @@
                     <li><span class="mx-2">/</span></li>
                     <li><a href="index.html" class="hover:text-white transition-colors">Magento_Payment</a></li>
                     <li><span class="mx-2">/</span></li>
-                    <li><span class="text-orange-400">Integrations</span></li>
+                    <li><span class="text-magento-orange-400">Integrations</span></li>
                 </ol>
             </nav>
             <h1 class="text-3xl font-bold text-white">Integrations</h1>
@@ -70,8 +74,8 @@
     <div class="max-w-6xl mx-auto px-6 py-12">
 
         <!-- Module Dependencies -->
-        <section class="bg-white p-8 shadow-sm mb-8 border-l-4 border-orange-500">
-            <h2 class="text-2xl font-bold text-charcoal mb-6">Module Dependencies</h2>
+        <section class="bg-white p-8 shadow-sm mb-8 border-l-4 border-magento-orange-500">
+            <h2 class="text-2xl font-bold text-magento-charcoal mb-6">Module Dependencies</h2>
 
             <div class="bg-charcoal text-gray-100 p-6 mb-6 overflow-x-auto">
                 <pre class="text-sm"><code>                    ┌─────────────────┐
@@ -138,15 +142,15 @@
         </section>
 
         <!-- Quote Integration -->
-        <section class="bg-white p-8 shadow-sm mb-8 border-l-4 border-yellow-500">
-            <h2 class="text-2xl font-bold text-charcoal mb-6">Quote Module Integration</h2>
+        <section class="bg-white p-8 shadow-sm mb-8 border-l-4 border-magento-gold-500">
+            <h2 class="text-2xl font-bold text-magento-charcoal mb-6">Quote Module Integration</h2>
             <p class="text-gray-700 mb-6">
                 Payment methods are selected and validated at the quote level before order placement.
             </p>
 
             <div class="grid md:grid-cols-2 gap-6">
                 <div>
-                    <h3 class="font-semibold text-charcoal mb-3">Data Flow: Quote to Payment</h3>
+                    <h3 class="font-semibold text-magento-charcoal mb-3">Data Flow: Quote to Payment</h3>
                     <div class="bg-charcoal text-gray-100 p-3 text-xs overflow-x-auto">
                         <pre><code>// Quote\Model\Quote\Payment
 $quote->getPayment()->setMethod('checkmo');
@@ -165,7 +169,7 @@ $method->validate();</code></pre>
                     </div>
                 </div>
                 <div>
-                    <h3 class="font-semibold text-charcoal mb-3">Key Quote-Payment Classes</h3>
+                    <h3 class="font-semibold text-magento-charcoal mb-3">Key Quote-Payment Classes</h3>
                     <ul class="space-y-2 text-sm text-gray-700">
                         <li class="flex items-start gap-2">
                             <span class="font-mono text-xs bg-gray-100 px-1">Quote\Model\Quote\Payment</span>
@@ -183,7 +187,7 @@ $method->validate();</code></pre>
                 </div>
             </div>
 
-            <h3 class="font-semibold text-charcoal mt-6 mb-3">Quote Payment Database Table</h3>
+            <h3 class="font-semibold text-magento-charcoal mt-6 mb-3">Quote Payment Database Table</h3>
             <div class="overflow-x-auto">
                 <table class="w-full text-sm border border-gray-200">
                     <thead class="bg-gray-50">
@@ -221,7 +225,7 @@ $method->validate();</code></pre>
 
         <!-- Sales Integration -->
         <section class="bg-white p-8 shadow-sm mb-8 border-l-4 border-charcoal">
-            <h2 class="text-2xl font-bold text-charcoal mb-6">Sales Module Integration</h2>
+            <h2 class="text-2xl font-bold text-magento-charcoal mb-6">Sales Module Integration</h2>
             <p class="text-gray-700 mb-6">
                 Order payment entity executes payment gateway commands and manages transactions.
             </p>
@@ -252,7 +256,7 @@ $method->validate();</code></pre>
 └──────────────────────────────────────────────────────────────────┘</code></pre>
             </div>
 
-            <h3 class="font-semibold text-charcoal mb-3">Order Payment Entity Mapping</h3>
+            <h3 class="font-semibold text-magento-charcoal mb-3">Order Payment Entity Mapping</h3>
             <div class="overflow-x-auto">
                 <table class="w-full text-sm border border-gray-200">
                     <thead class="bg-gray-50">
@@ -287,40 +291,40 @@ $method->validate();</code></pre>
                 </table>
             </div>
 
-            <h3 class="font-semibold text-charcoal mt-6 mb-3">Transaction Management</h3>
+            <h3 class="font-semibold text-magento-charcoal mt-6 mb-3">Transaction Management</h3>
             <p class="text-sm text-gray-700 mb-4">
                 The Sales module's <code class="bg-gray-100 px-1">sales_payment_transaction</code> table tracks all payment operations.
             </p>
             <div class="grid md:grid-cols-4 gap-4">
-                <div class="bg-orange-50 p-3 border border-orange-200 text-center">
-                    <div class="font-mono text-sm text-orange-800">authorization</div>
+                <div class="bg-magento-orange-50 p-3 border border-magento-orange-200 text-center">
+                    <div class="font-mono text-sm text-magento-orange-800">authorization</div>
                     <div class="text-xs text-gray-600 mt-1">Initial auth</div>
                 </div>
-                <div class="bg-yellow-50 p-3 border border-yellow-200 text-center">
-                    <div class="font-mono text-sm text-yellow-800">capture</div>
+                <div class="bg-magento-gold-50 p-3 border border-magento-gold-200 text-center">
+                    <div class="font-mono text-sm text-magento-gold-800">capture</div>
                     <div class="text-xs text-gray-600 mt-1">Funds captured</div>
                 </div>
                 <div class="bg-gray-50 p-3 border border-gray-200 text-center">
-                    <div class="font-mono text-sm text-charcoal">void</div>
+                    <div class="font-mono text-sm text-magento-charcoal">void</div>
                     <div class="text-xs text-gray-600 mt-1">Auth cancelled</div>
                 </div>
-                <div class="bg-orange-50 p-3 border border-orange-200 text-center">
-                    <div class="font-mono text-sm text-orange-800">refund</div>
+                <div class="bg-magento-orange-50 p-3 border border-magento-orange-200 text-center">
+                    <div class="font-mono text-sm text-magento-orange-800">refund</div>
                     <div class="text-xs text-gray-600 mt-1">Money returned</div>
                 </div>
             </div>
         </section>
 
         <!-- Checkout Integration -->
-        <section class="bg-white p-8 shadow-sm mb-8 border-l-4 border-orange-500">
-            <h2 class="text-2xl font-bold text-charcoal mb-6">Checkout Module Integration</h2>
+        <section class="bg-white p-8 shadow-sm mb-8 border-l-4 border-magento-orange-500">
+            <h2 class="text-2xl font-bold text-magento-charcoal mb-6">Checkout Module Integration</h2>
             <p class="text-gray-700 mb-6">
                 Checkout renders payment methods in the payment step and handles method selection.
             </p>
 
             <div class="grid md:grid-cols-2 gap-6">
                 <div>
-                    <h3 class="font-semibold text-charcoal mb-3">Config Provider Chain</h3>
+                    <h3 class="font-semibold text-magento-charcoal mb-3">Config Provider Chain</h3>
                     <div class="bg-charcoal text-gray-100 p-3 text-xs overflow-x-auto">
                         <pre><code>// frontend/di.xml
 &lt;type name="Magento\Checkout\Model\
@@ -339,7 +343,7 @@ $method->validate();</code></pre>
                     </div>
                 </div>
                 <div>
-                    <h3 class="font-semibold text-charcoal mb-3">JS Component Structure</h3>
+                    <h3 class="font-semibold text-magento-charcoal mb-3">JS Component Structure</h3>
                     <div class="bg-charcoal text-gray-100 p-3 text-xs overflow-x-auto">
                         <pre><code>checkout/
 └── steps/
@@ -353,52 +357,52 @@ $method->validate();</code></pre>
                 </div>
             </div>
 
-            <h3 class="font-semibold text-charcoal mt-6 mb-3">Payment Step Flow</h3>
+            <h3 class="font-semibold text-magento-charcoal mt-6 mb-3">Payment Step Flow</h3>
             <ol class="space-y-3 text-sm text-gray-700">
                 <li class="flex items-start gap-3">
-                    <span class="flex-shrink-0 w-6 h-6 bg-orange-500 text-white rounded-full flex items-center justify-center text-xs font-bold">1</span>
+                    <span class="flex-shrink-0 w-6 h-6 bg-magento-orange-500 text-white rounded-full flex items-center justify-center text-xs font-bold">1</span>
                     <span><strong>LayoutProcessor plugin</strong> injects payment config into jsLayout</span>
                 </li>
                 <li class="flex items-start gap-3">
-                    <span class="flex-shrink-0 w-6 h-6 bg-orange-500 text-white rounded-full flex items-center justify-center text-xs font-bold">2</span>
+                    <span class="flex-shrink-0 w-6 h-6 bg-magento-orange-500 text-white rounded-full flex items-center justify-center text-xs font-bold">2</span>
                     <span><strong>PaymentMethodList</strong> returns available methods for quote</span>
                 </li>
                 <li class="flex items-start gap-3">
-                    <span class="flex-shrink-0 w-6 h-6 bg-orange-500 text-white rounded-full flex items-center justify-center text-xs font-bold">3</span>
+                    <span class="flex-shrink-0 w-6 h-6 bg-magento-orange-500 text-white rounded-full flex items-center justify-center text-xs font-bold">3</span>
                     <span><strong>JS components</strong> render each method's form</span>
                 </li>
                 <li class="flex items-start gap-3">
-                    <span class="flex-shrink-0 w-6 h-6 bg-orange-500 text-white rounded-full flex items-center justify-center text-xs font-bold">4</span>
+                    <span class="flex-shrink-0 w-6 h-6 bg-magento-orange-500 text-white rounded-full flex items-center justify-center text-xs font-bold">4</span>
                     <span><strong>PaymentMethodManagement</strong> saves selected method to quote</span>
                 </li>
             </ol>
         </section>
 
         <!-- Vault Integration -->
-        <section class="bg-white p-8 shadow-sm mb-8 border-l-4 border-yellow-500">
-            <h2 class="text-2xl font-bold text-charcoal mb-6">Vault Module Integration</h2>
+        <section class="bg-white p-8 shadow-sm mb-8 border-l-4 border-magento-gold-500">
+            <h2 class="text-2xl font-bold text-magento-charcoal mb-6">Vault Module Integration</h2>
             <p class="text-gray-700 mb-6">
                 Magento_Vault extends Payment to provide tokenization and stored payment methods.
             </p>
 
             <div class="grid md:grid-cols-2 gap-6">
                 <div>
-                    <h3 class="font-semibold text-charcoal mb-3">Token Storage</h3>
+                    <h3 class="font-semibold text-magento-charcoal mb-3">Token Storage</h3>
                     <ul class="space-y-2 text-sm text-gray-700">
                         <li class="flex items-start gap-2">
-                            <svg class="w-4 h-4 text-yellow-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-4 h-4 text-magento-gold-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                             </svg>
                             <span>PaymentTokenRepository stores encrypted tokens</span>
                         </li>
                         <li class="flex items-start gap-2">
-                            <svg class="w-4 h-4 text-yellow-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-4 h-4 text-magento-gold-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                             </svg>
                             <span>Tokens linked to customer_id and payment method</span>
                         </li>
                         <li class="flex items-start gap-2">
-                            <svg class="w-4 h-4 text-yellow-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-4 h-4 text-magento-gold-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                             </svg>
                             <span>Automatic expiry handling</span>
@@ -406,7 +410,7 @@ $method->validate();</code></pre>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="font-semibold text-charcoal mb-3">Vault Method Pattern</h3>
+                    <h3 class="font-semibold text-magento-charcoal mb-3">Vault Method Pattern</h3>
                     <div class="bg-charcoal text-gray-100 p-3 text-xs overflow-x-auto">
                         <pre><code>// Vault payment method code
 {original_method_code}_vault
@@ -418,7 +422,7 @@ paypal → paypal_vault</code></pre>
                 </div>
             </div>
 
-            <h3 class="font-semibold text-charcoal mt-6 mb-3">Vault Database Schema</h3>
+            <h3 class="font-semibold text-magento-charcoal mt-6 mb-3">Vault Database Schema</h3>
             <div class="overflow-x-auto">
                 <table class="w-full text-sm border border-gray-200">
                     <thead class="bg-gray-50">
@@ -449,8 +453,8 @@ paypal → paypal_vault</code></pre>
             </p>
 
             <div class="grid md:grid-cols-3 gap-4">
-                <div class="bg-charcoal-600 p-4 border border-charcoal-400">
-                    <h3 class="font-bold text-orange-400 mb-2">Braintree</h3>
+                <div class="bg-magento-charcoal-600 p-4 border border-magento-charcoal-400">
+                    <h3 class="font-bold text-magento-orange-400 mb-2">Braintree</h3>
                     <p class="text-sm text-gray-300 mb-2">Full Gateway implementation</p>
                     <ul class="text-xs text-gray-400 space-y-1">
                         <li>Credit card + Vault</li>
@@ -458,8 +462,8 @@ paypal → paypal_vault</code></pre>
                         <li>3D Secure support</li>
                     </ul>
                 </div>
-                <div class="bg-charcoal-600 p-4 border border-charcoal-400">
-                    <h3 class="font-bold text-yellow-400 mb-2">PayPal</h3>
+                <div class="bg-magento-charcoal-600 p-4 border border-magento-charcoal-400">
+                    <h3 class="font-bold text-magento-gold-400 mb-2">PayPal</h3>
                     <p class="text-sm text-gray-300 mb-2">Multiple integration types</p>
                     <ul class="text-xs text-gray-400 space-y-1">
                         <li>Express Checkout</li>
@@ -467,7 +471,7 @@ paypal → paypal_vault</code></pre>
                         <li>Billing Agreements</li>
                     </ul>
                 </div>
-                <div class="bg-charcoal-600 p-4 border border-charcoal-400">
+                <div class="bg-magento-charcoal-600 p-4 border border-magento-charcoal-400">
                     <h3 class="font-bold text-gray-200 mb-2">Offline Payments</h3>
                     <p class="text-sm text-gray-300 mb-2">Non-gateway methods</p>
                     <ul class="text-xs text-gray-400 space-y-1">
@@ -480,8 +484,8 @@ paypal → paypal_vault</code></pre>
         </section>
 
         <!-- REST API Endpoints -->
-        <section class="bg-white p-8 shadow-sm mb-8 border-l-4 border-orange-500">
-            <h2 class="text-2xl font-bold text-charcoal mb-6">Payment-Related REST APIs</h2>
+        <section class="bg-white p-8 shadow-sm mb-8 border-l-4 border-magento-orange-500">
+            <h2 class="text-2xl font-bold text-magento-charcoal mb-6">Payment-Related REST APIs</h2>
             <p class="text-gray-700 mb-6">
                 Payment endpoints are primarily handled by Quote and Checkout modules, not Payment directly.
             </p>
@@ -511,7 +515,7 @@ paypal → paypal_vault</code></pre>
                         </tr>
                         <tr class="border-b border-gray-100">
                             <td class="p-3 font-mono text-xs">/V1/carts/mine/payment-information</td>
-                            <td class="p-3"><span class="bg-orange-100 text-orange-800 px-2 py-0.5 text-xs">POST</span></td>
+                            <td class="p-3"><span class="bg-magento-orange-100 text-magento-orange-800 px-2 py-0.5 text-xs">POST</span></td>
                             <td class="p-3 text-gray-600">Checkout</td>
                             <td class="p-3 text-gray-700">Save payment info + place order</td>
                         </tr>
@@ -528,13 +532,13 @@ paypal → paypal_vault</code></pre>
 
         <!-- Navigation -->
         <nav class="flex flex-wrap gap-4 justify-between items-center pt-8 border-t border-gray-200">
-            <a href="plugins-observers.html" class="inline-flex items-center gap-2 text-charcoal hover:text-orange-600 transition-colors">
+            <a href="plugins-observers.html" class="inline-flex items-center gap-2 text-magento-charcoal hover:text-magento-orange-600 transition-colors">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
                 </svg>
                 Plugins & Observers
             </a>
-            <a href="known-issues.html" class="inline-flex items-center gap-2 text-orange-600 hover:text-orange-700 font-semibold transition-colors">
+            <a href="known-issues.html" class="inline-flex items-center gap-2 text-magento-orange-600 hover:text-magento-orange-700 font-semibold transition-colors">
                 Known Issues
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
