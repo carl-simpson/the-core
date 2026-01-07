@@ -1,0 +1,266 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Payment/html/plugins-observers.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/the-core/magento2-source
+summary:
+  total_claims: 31
+  validated: 31
+  found: 24
+  not_found: 7
+  confidence_distribution:
+    high: 19
+    medium: 12
+    low: 0
+results_by_type:
+  php_classes:
+    total: 18
+    found: 12
+    not_found: 6
+    results:
+    - claim: Magento\Checkout\Block\Checkout\LayoutProcessor
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Block/Checkout/LayoutProcessor.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Framework\Config\GenericSchemaLocator
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/the-core/magento2-source/app/code/Magento/Framework/Config/GenericSchemaLocator.php
+        does not exist
+    - claim: Magento\Framework\Config\Reader\Filesystem
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/RemoteStorage/Filesystem.php:19
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Deploy/Model/Filesystem.php:23
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Deploy/Test/Unit/Model/FilesystemTest.php:28
+      notes: Found via pattern search
+    - claim: Magento\Framework\Logger\Handler\Base
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Test/Unit/Block/Adminhtml/Frontend/Currency/BaseTest.php:23
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Block/Adminhtml/Frontend/Currency/Base.php:12
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/BaseUrlChecker.php:13
+      notes: Found via pattern search
+    - claim: Magento\Framework\Logger\Monolog
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/the-core/magento2-source/app/code/Magento/Framework/Logger/Monolog.php
+        does not exist
+    - claim: Magento\Payment\Block\Form
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Block/Form.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Payment\Block\Form\Container
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Block/Form/Container.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Payment\Block\Info
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Block/Info.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Payment\Gateway\Command\CommandPool
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Gateway/Command/CommandPool.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Payment\Gateway\Config\ValueHandlerPool
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Gateway/Config/ValueHandlerPool.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Payment\Gateway\ErrorMapper\VirtualConfigReader
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Gateway/ErrorMapper/VirtualConfigReader.php
+        does not exist
+    - claim: Magento\Payment\Gateway\ErrorMapper\VirtualSchemaLocator
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Gateway/ErrorMapper/VirtualSchemaLocator.php
+        does not exist
+    - claim: Magento\Payment\Gateway\ErrorMapper\XmlToArrayConverter
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Gateway/ErrorMapper/XmlToArrayConverter.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Payment\Model\Method\Adapter
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Model/Method/Adapter.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Payment\Model\Method\VirtualDebug
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Model/Method/VirtualDebug.php
+        does not exist
+    - claim: Magento\Payment\Model\Method\VirtualLogger
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Model/Method/VirtualLogger.php
+        does not exist
+    - claim: Magento\Payment\Plugin\PaymentConfigurationProcess
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Plugin/PaymentConfigurationProcess.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Payment\Plugin\PaymentMethodProcess
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Vault/Plugin/PaymentMethodProcess.php:14
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Vault/Test/Unit/Plugin/PaymentMethodProcessTest.php:20
+      notes: Found via pattern search
+  methods:
+    total: 8
+    found: 8
+    not_found: 0
+    results:
+    - claim: execute
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/GetIptcMetadata.php:42
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/AddXmpMetadata.php:30
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/AddIptcMetadata.php:79
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/GetXmpMetadata.php:41
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/Gif/Segment/ReadXmp.php:54
+      notes: Found 1957 occurrences
+    - claim: getEvent
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/NewRelicReporting/Model/CronEvent.php:74
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/AbstractModel.php:55
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Item.php:1036
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Api/Data/OrderItemInterface.php:633
+      notes: Found 4 occurrences
+    - claim: getOrder
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Report/Product/Viewed/Collection.php:31
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Quote/Item/Collection.php:148
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Model/Checkout/Type/Multishipping.php:1064
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Test/Unit/Model/Checkout/Type/MultishippingTest.php:747
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Test/Unit/Model/Checkout/Type/MultishippingTest.php:921
+      notes: Found 215 occurrences
+    - claim: getPayment
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Test/Unit/Plugin/MultishippingQuoteRepositoryTest.php:281
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Test/Unit/Model/Checkout/Type/MultishippingTest.php:771
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Block/Checkout/Overview.php:172
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Block/Checkout/Overview.php:182
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Block/Checkout/Payment/Info.php:44
+      notes: Found 99 occurrences
+    - claim: getState
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/NewRelicReporting/Model/Module/Collect.php:176
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/NewRelicReporting/Test/Unit/Model/Module/CollectTest.php:449
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/Controller/Adminhtml/Cache/MassEnable.php:83
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/Controller/Adminhtml/Cache/MassDisable.php:84
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Layer/Context.php:62
+      notes: Found 34 occurrences
+    - claim: getStatus
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Analytics/Model/SubscriptionStatusProvider.php:79
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Analytics/Model/SubscriptionStatusProvider.php:94
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Analytics/Model/SubscriptionStatusProvider.php:116
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Analytics/Test/Unit/Model/SubscriptionStatusProviderTest.php:93
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Analytics/Test/Unit/Model/SubscriptionStatusProviderTest.php:133
+      notes: Found 62 occurrences
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Template/Filter.php:130
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Email/Model/Template/Filter.php:550
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Cms/Model/Template/Filter.php:19
+      notes: Found 4 occurrences
+    - claim: url
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/Model/PathConfigTest.php:136
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/App/Response/RedirectTest.php:131
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Wishlist/Test/Unit/Model/Validator/MessageValidatorTest.php:212
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogUrlRewrite/Test/Unit/Observer/ProductProcessUrlRewriteSavingObserverTest.php:138
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CardinalCommerce/Model/JwtManagement.php:124
+      notes: Found 6 occurrences
+  events:
+    total: 2
+    found: 2
+    not_found: 0
+    results:
+    - claim: payment_sales_order_save_before
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/etc/events.xml:10
+      notes: Found 1 references
+    - claim: sales_order_save_before
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/etc/events.xml:9
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/etc/events.xml:10
+      notes: Found 2 references
+  database_tables:
+    total: 3
+    found: 2
+    not_found: 1
+    results:
+    - claim: sales_order_save_before
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order.php:58
+      notes: Found 1 references
+    - claim: sales_order_status_unassign
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Status.php:120
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Test/Unit/Model/Order/StatusTest.php:84
+      notes: Found 2 references
+    - claim: sales_order_status_update
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Table not found in core
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+  file_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

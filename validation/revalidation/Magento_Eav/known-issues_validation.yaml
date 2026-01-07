@@ -1,0 +1,269 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Eav/html/known-issues.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/the-core/magento2-source
+summary:
+  total_claims: 33
+  validated: 33
+  found: 23
+  not_found: 10
+  confidence_distribution:
+    high: 12
+    medium: 21
+    low: 0
+results_by_type:
+  php_classes:
+    total: 9
+    found: 9
+    not_found: 0
+    results:
+    - claim: Magento\Catalog\Model\Indexer\Category\Flat
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Indexer/Category/Flat.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Catalog\Model\Indexer\Product\Flat
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Indexer/Product/Flat.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Eav\Model\Config
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Eav/Model/Config.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Eav\Model\Entity\AbstractEntity
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Eav/Model/Entity/AbstractEntity.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Eav\Model\Entity\Attribute\AbstractAttribute
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Eav/Model/Entity/Attribute/AbstractAttribute.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Eav\Model\Entity\Attribute\Backend\AbstractBackend
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Eav/Model/Entity/Attribute/Backend/AbstractBackend.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Eav\Model\Entity\Attribute\Source\Table
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Eav/Model/Entity/Attribute/Source/Table.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Eav\Model\Entity\Collection\AbstractCollection
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Eav/Model/Entity/Collection/AbstractCollection.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\ImportExport\Model\Import\Entity\AbstractEntity
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ImportExport/Model/Import/Entity/AbstractEntity.php:1
+      notes: Class file exists and contains class definition
+  methods:
+    total: 21
+    found: 11
+    not_found: 10
+    results:
+    - claim: addAttributeToSelect
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Eav/Model/Entity/Collection/AbstractCollection.php:506
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/ResourceModel/AbstractCollection.php:79
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/ResourceModel/Product/Collection.php:682
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/ResourceModel/Category/Flat/Collection.php:259
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Test/Unit/Block/Adminhtml/Category/Checkboxes/TreeTest.php:75
+      notes: Found 7 occurrences
+    - claim: attributes
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/GroupedImportExport/Test/Unit/Model/Import/Product/Type/Grouped/LinksTest.php:131
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Eav/Model/Entity/AbstractEntity.php:603
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Product/Type/AbstractType.php:311
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogUrlRewrite/Test/Unit/Plugin/Catalog/Block/Adminhtml/Category/Tab/AttributesTest.php:111
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Test/Unit/Block/Adminhtml/Product/Steps/SelectAttributesTest.php:105
+      notes: Found 7 occurrences
+    - claim: changes
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: conflicts
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: creation
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: deletion
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: getValue
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Analytics/ReportXml/DB/ConditionResolver.php:76
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaContentCatalog/Model/ResourceModel/GetAssetIdsByEavContentField.php:113
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/App/Config.php:39
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/App/ConfigInterface.php:23
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/Block/Widget/Form/Element/Gallery.php:79
+      notes: Found 171 occurrences
+    - claim: gradient
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: load
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ReleaseNotification/Model/ResourceModel/Viewer/Logger.php:94
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogWidget/Model/Rule/Condition/Product.php:85
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Refresh/Collection.php:63
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Report/Collection.php:388
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/Grouped/Collection.php:50
+      notes: Found 344 occurrences
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Template/Filter.php:130
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Email/Model/Template/Filter.php:550
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Cms/Model/Template/Filter.php:19
+      notes: Found 4 occurrences
+    - claim: operations
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: programmatically
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: repeat
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: rgba
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: save
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MessageQueue/Model/ResourceModel/Lock.php:86
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Observer/EventSaver.php:60
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Product/Index/AbstractIndex.php:127
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/Currency/Import/FixerIoApiLayer.php:163
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/ResourceModel/Currency.php:141
+      notes: Found 403 occurrences
+    - claim: sources
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: type
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Test/Unit/Model/ResourceModel/HelperTest.php:129
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/Test/Unit/Block/Widget/Grid/Column/Renderer/ConcatTest.php:39
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Indexer/Test/Unit/Block/Backend/Grid/Column/Renderer/ScheduledTest.php:46
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Weee/Helper/Data.php:240
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Weee/Pricing/Render/TaxAdjustment.php:68
+      notes: Found 6 occurrences
+    - claim: validate
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MessageQueue/Setup/ConfigOptionsList.php:99
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/Country/Postcode/ValidatorInterface.php:25
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/Country/Postcode/Validator.php:26
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/Currency/Import/FixerIoApiLayer.php:224
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/Currency/Import/FixerIo.php:186
+      notes: Found 575 occurrences
+    - claim: value
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/NewRelicReporting/Test/Unit/Model/ServiceShellUserTest.php:55
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Elasticsearch/Test/Unit/SearchAdapter/Query/ValueTransformer/TextTransformerTest.php:72
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Elasticsearch/Test/Unit/SearchAdapter/Query/ValueTransformer/IntegerTransformerTest.php:54
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogGraphQl/DataProvider/CategoryAttributesMapper.php:86
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogImportExport/Test/Unit/Model/Import/ProductTest.php:2113
+      notes: Found 5 occurrences
+    - claim: values
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/NewRelicReporting/Test/Unit/Model/ServiceShellUserTest.php:55
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Elasticsearch/Test/Unit/SearchAdapter/Query/ValueTransformer/TextTransformerTest.php:72
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Elasticsearch/Test/Unit/SearchAdapter/Query/ValueTransformer/IntegerTransformerTest.php:54
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogImportExport/Test/Unit/Model/Import/ProductTest.php:2113
+      notes: Found 4 occurrences
+    - claim: var
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Paypal/Test/Unit/Model/Payflow/Service/Response/Validator/IAVSResponseTest.php:55
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Variable/Ui/Component/VariablesDataProvider.php:92
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Test/Unit/Model/Product/Type/VariationMatrixTest.php:48
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Email/Model/Template/Filter.php:674
+      notes: Found 4 occurrences
+  database_tables:
+    total: 3
+    found: 3
+    not_found: 0
+    results:
+    - claim: eav_attribute_label
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Eav/Model/ResourceModel/Entity/Attribute.php:293
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Eav/Model/ResourceModel/Entity/Attribute.php:300
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Eav/Model/ResourceModel/Entity/Attribute.php:775
+      notes: Found 12 references
+    - claim: eav_attribute_option
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Eav/Setup/AddOptionToAttribute.php:43
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Eav/Setup/AddOptionToAttribute.php:44
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Eav/Model/ResourceModel/Entity/Attribute.php:500
+      notes: Found 51 references
+    - claim: eav_entity_attribute
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Eav/Setup/EavSetup.php:783
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Eav/Setup/EavSetup.php:930
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Eav/Setup/EavSetup.php:1217
+      notes: Found 39 references
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

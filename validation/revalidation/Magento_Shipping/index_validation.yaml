@@ -1,0 +1,186 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Shipping/html/index.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/the-core/magento2-source
+summary:
+  total_claims: 19
+  validated: 19
+  found: 15
+  not_found: 4
+  confidence_distribution:
+    high: 0
+    medium: 19
+    low: 0
+results_by_type:
+  methods:
+    total: 19
+    found: 15
+    not_found: 4
+    results:
+    - claim: address
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Paypal/Test/Unit/Model/Hostedpro/RequestTest.php:93
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Customer/ViewModel/Address.php:63
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Customer/ViewModel/Address.php:77
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Customer/ViewModel/Address.php:87
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/Quote.php:2513
+      notes: Found 5 occurrences
+    - claim: carriers
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: checkAvailableShipCountries
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrierInterface.php:78
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrier.php:280
+      notes: Found 2 occurrences
+    - claim: collectRates
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/OfflineShipping/Model/Carrier/Freeshipping.php:88
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/OfflineShipping/Model/Carrier/Tablerate.php:94
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/OfflineShipping/Model/Carrier/Flatrate.php:79
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/OfflineShipping/Model/Carrier/Pickup.php:67
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/OfflineShipping/Test/Unit/Model/Carrier/FlatrateTest.php:240
+      notes: Found 20 occurrences
+    - claim: getConfigData
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ReleaseNotification/Ui/DataProvider/NotificationDataProvider.php:124
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/Controller/Store/RedirectTest.php:335
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Vault/Model/Method/NullPaymentProvider.php:438
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Vault/Model/Method/Vault.php:626
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/Test/Unit/App/ConfigTest.php:111
+      notes: Found 31 occurrences
+    - claim: getContainerTypes
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Usps/Model/Carrier.php:2194
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Usps/Model/Carrier.php:2208
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Usps/Model/Carrier.php:2218
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Dhl/Model/Carrier.php:1772
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Ups/Model/Carrier.php:2847
+      notes: Found 12 occurrences
+    - claim: getDeliveryConfirmationTypes
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Usps/Model/Carrier.php:2229
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Ups/Model/Carrier.php:2928
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrierInterface.php:70
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrier.php:268
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Block/Adminhtml/Order/Packaging.php:288
+      notes: Found 6 occurrences
+    - claim: getFinalPriceWithHandlingFee
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrierInterface.php:129
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrier.php:492
+      notes: Found 2 occurrences
+    - claim: getTotalNumOfBoxes
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrierInterface.php:137
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrier.php:555
+      notes: Found 2 occurrences
+    - claim: gradient
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: isActive
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Store.php:1261
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Translation/Model/Inline/Config.php:40
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Vault/Model/Method/NullPaymentProvider.php:472
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Vault/Model/Method/Vault.php:672
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/Model/Translate/Inline/Config.php:40
+      notes: Found 21 occurrences
+    - claim: isShippingLabelsAvailable
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Usps/Model/Carrier.php:488
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrierOnline.php:250
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrierInterface.php:114
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrier.php:386
+      notes: Found 4 occurrences
+    - claim: isTrackingAvailable
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrierOnline.php:215
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/CarrierInterface.php:22
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrierInterface.php:107
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrier.php:376
+      notes: Found 4 occurrences
+    - claim: proccessAdditionalValidation
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Dhl/Model/Carrier.php:1727
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrierOnline.php:300
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrierInterface.php:86
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrier.php:344
+      notes: Found 4 occurrences
+    - claim: requestToShipment
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Dhl/Model/Carrier.php:2699
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Ups/Model/Carrier.php:2497
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Ups/Test/Unit/Model/CarrierTest.php:394
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Shipping/Labels.php:84
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrierOnline.php:462
+      notes: Found 9 occurrences
+    - claim: reservations
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: returnOfShipment
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Ups/Model/Carrier.php:2833
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrierOnline.php:510
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrierInterface.php:47
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrier.php:179
+      notes: Found 4 occurrences
+    - claim: rules
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: url
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/Model/PathConfigTest.php:136
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/App/Response/RedirectTest.php:131
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Wishlist/Test/Unit/Model/Validator/MessageValidatorTest.php:212
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogUrlRewrite/Test/Unit/Observer/ProductProcessUrlRewriteSavingObserverTest.php:138
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CardinalCommerce/Model/JwtManagement.php:124
+      notes: Found 6 occurrences
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+  file_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

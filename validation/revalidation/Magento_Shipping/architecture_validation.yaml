@@ -1,0 +1,350 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Shipping/html/architecture.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/the-core/magento2-source
+summary:
+  total_claims: 44
+  validated: 44
+  found: 26
+  not_found: 18
+  confidence_distribution:
+    high: 3
+    medium: 41
+    low: 0
+results_by_type:
+  php_classes:
+    total: 3
+    found: 3
+    not_found: 0
+    results:
+    - claim: Magento\Shipping\Model\Shipping
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Shipping.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Shipping\Model\Shipping\Labels
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Shipping/Labels.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Ups\Model\Carrier
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Ups/Model/Carrier.php:1
+      notes: Class file exists and contains class definition
+  methods:
+    total: 41
+    found: 23
+    not_found: 18
+    results:
+    - claim: ablerate
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: appendResult
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Rate/CarrierResult.php:28
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ProductVideo/Controller/Adminhtml/Product/Gallery/RetrieveImage.php:182
+      notes: Found 2 occurrences
+    - claim: arrier
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: bstractCarrier
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: bstractCarrierInterface
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: bstractCarrierOnline
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: carriers
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: class
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: collectCarrierRates
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Shipping.php:308
+      notes: Found 1 occurrences
+    - claim: collectRates
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/OfflineShipping/Model/Carrier/Freeshipping.php:88
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/OfflineShipping/Model/Carrier/Tablerate.php:94
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/OfflineShipping/Model/Carrier/Flatrate.php:79
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/OfflineShipping/Model/Carrier/Pickup.php:67
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/OfflineShipping/Test/Unit/Model/Carrier/FlatrateTest.php:240
+      notes: Found 20 occurrences
+    - claim: composePackagesForCarrier
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Shipping.php:360
+      notes: Found 1 occurrences
+    - claim: create
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/Gif/Segment/WriteXmp.php:139
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/Png/Segment/WriteIptc.php:113
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/Png/Segment/WriteXmp.php:122
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/Jpeg/Segment/WriteXmp.php:118
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/AwsS3/Driver/AwsS3.php:168
+      notes: Found 698 occurrences
+    - claim: decreasing
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: descending
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: foreach
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: getAllItems
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrierOnline.php:264
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/Quote.php:1432
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/Quote/Address.php:652
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Test/Unit/Helper/QuoteTestHelper.php:542
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Model/Cart.php:232
+      notes: Found 13 occurrences
+    - claim: getBasePrice
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Helper/Data.php:198
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Product/Type/Price.php:170
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Pricing/Price/TierPrice.php:235
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Pricing/Price/FinalPrice.php:93
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/Cart/Totals/Item.php:65
+      notes: Found 21 occurrences
+    - claim: getConfigData
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ReleaseNotification/Ui/DataProvider/NotificationDataProvider.php:124
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/Controller/Store/RedirectTest.php:335
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Vault/Model/Method/NullPaymentProvider.php:438
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Vault/Model/Method/Vault.php:626
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/Test/Unit/App/ConfigTest.php:111
+      notes: Found 31 occurrences
+    - claim: getLimitCarrier
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: getResult
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Analytics/Model/Connector/Http/ResponseResolver.php:41
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Marketplace/Controller/Adminhtml/Index/Index.php:44
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/Model/Menu/Builder.php:57
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/Model/Search/Config.php:77
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Usps/Model/Carrier.php:478
+      notes: Found 32 occurrences
+    - claim: getShippingMethod
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/TotalsInformation.php:35
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/ShippingInformation.php:51
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Api/Data/TotalsInformationInterface.php:46
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Api/Data/ShippingInformationInterface.php:63
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/InstantPurchase/Model/InstantPurchaseOption.php:152
+      notes: Found 13 occurrences
+    - claim: getTracking
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Usps/Model/Carrier.php:1213
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Usps/Test/Unit/Model/TrackingServiceTest.php:274
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Usps/Test/Unit/Model/TrackingServiceTest.php:288
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Dhl/Model/Carrier.php:2351
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Ups/Model/Carrier.php:1463
+      notes: Found 19 occurrences
+    - claim: getValue
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Analytics/ReportXml/DB/ConditionResolver.php:76
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaContentCatalog/Model/ResourceModel/GetAssetIdsByEavContentField.php:113
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/App/Config.php:39
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/App/ConfigInterface.php:23
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/Block/Widget/Form/Element/Gallery.php:79
+      notes: Found 171 occurrences
+    - claim: gradient
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: isShippingLabelsAvailable
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Usps/Model/Carrier.php:488
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrierOnline.php:250
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrierInterface.php:114
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrier.php:386
+      notes: Found 4 occurrences
+    - claim: latrate
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: makePieces
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: ocalizedException
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: prepareCarrier
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Shipping.php:274
+      notes: Found 1 occurrences
+    - claim: reeshipping
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: requestToShipment
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Dhl/Model/Carrier.php:2699
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Ups/Model/Carrier.php:2497
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Ups/Test/Unit/Model/CarrierTest.php:394
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Shipping/Labels.php:84
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrierOnline.php:462
+      notes: Found 9 occurrences
+    - claim: setCountryId
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Customer/Model/Data/Address.php:293
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Customer/Api/Data/AddressInterface.php:113
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/EstimateAddress.php:72
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/Quote/Address.php:1459
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Test/Unit/Helper/AddressShippingInfoTestHelper.php:56
+      notes: Found 9 occurrences
+    - claim: setId
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/Data/CountryInformation.php:34
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/Data/RegionInformation.php:31
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Api/Data/CountryInformationInterface.php:29
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Api/Data/RegionInformationInterface.php:29
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Data/StoreConfig.php:49
+      notes: Found 66 occurrences
+    - claim: setOrderShipment
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: setPackages
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Shipment.php:566
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Api/Data/ShipmentInterface.php:174
+      notes: Found 2 occurrences
+    - claim: setPostcode
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Customer/Model/Data/Address.php:351
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Customer/Api/Data/AddressInterface.php:188
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/EstimateAddress.php:93
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/Quote/Address.php:1541
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Api/Data/AddressInterface.php:212
+      notes: Found 8 occurrences
+    - claim: setRegionId
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Customer/Model/Address.php:314
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Customer/Model/Data/Address.php:282
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Customer/Model/Data/Region.php:73
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Customer/Api/Data/RegionInterface.php:68
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Customer/Api/Data/AddressInterface.php:98
+      notes: Found 11 occurrences
+    - claim: setShippingLabel
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Shipment.php:518
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Api/Data/ShipmentInterface.php:356
+      notes: Found 2 occurrences
+    - claim: setStore
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Accounts/Collection.php:61
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Product/Sold/Collection.php:99
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Customer/Totals/Collection.php:54
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Customer/Orders/Collection.php:54
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Report/Collection.php:287
+      notes: Found 157 occurrences
+    - claim: url
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/Model/PathConfigTest.php:136
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/App/Response/RedirectTest.php:131
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Wishlist/Test/Unit/Model/Validator/MessageValidatorTest.php:212
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogUrlRewrite/Test/Unit/Observer/ProductProcessUrlRewriteSavingObserverTest.php:138
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CardinalCommerce/Model/JwtManagement.php:124
+      notes: Found 6 occurrences
+    - claim: usort
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+  file_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

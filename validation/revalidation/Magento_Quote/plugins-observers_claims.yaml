@@ -1,0 +1,35 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Quote/html/plugins-observers.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes: []
+  php_interfaces: []
+  methods:
+  - actions
+  - afterDelete
+  - afterSave
+  - collectTotals
+  - eclarations
+  - execute
+  - getEvent
+  - getOrder
+  - getQuote
+  - media
+  - ollectTotalsObserver
+  - url
+  events:
+  - clean_quote_items_after_product_delete
+  - sales_quote_address_collect_totals_before
+  - update_quote_items_after_product_save
+  - update_quote_items_after_tier_prices_update
+  database_tables:
+  - sales_model_service_quote_submit_success
+  - sales_order_invoice_pay
+  - sales_quote_address_collect_totals_before
+  acl_resources: []
+  config_paths:
+  - status/attribute
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

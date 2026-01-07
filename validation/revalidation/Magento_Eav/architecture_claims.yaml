@@ -1,0 +1,84 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Eav/html/architecture.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\Catalog\Model\ResourceModel\Eav\Attribute
+  - Magento\Catalog\Model\ResourceModel\Product
+  - Magento\Catalog\Model\ResourceModel\Product\Attribute\Collection
+  php_interfaces: []
+  methods:
+  - afterSave
+  - alue
+  - atetime
+  - attribute_code
+  - attribute_group_id
+  - attribute_id
+  - attribute_label_id
+  - attribute_model
+  - attribute_set_id
+  - backend_model
+  - backend_type
+  - beforeSave
+  - child
+  - create
+  - entity
+  - entity_attribute_id
+  - entity_model
+  - entity_table
+  - entity_type_code
+  - entity_type_id
+  - frontend_input
+  - frontend_model
+  - getAllOptions
+  - getOptionText
+  - getValue
+  - gradient
+  - key
+  - mage
+  - media
+  - option_id
+  - property
+  - repeat
+  - source_model
+  - store
+  - store_id
+  - table
+  - validate
+  - value
+  - value_id
+  - var
+  events:
+  - customer_address
+  - customer_entity
+  - customer_id
+  database_tables:
+  - customer_address
+  - customer_entity
+  - customer_id
+  - eav_attribute
+  - eav_attribute_group
+  - eav_attribute_label
+  - eav_attribute_option
+  - eav_attribute_option_value
+  - eav_attribute_set
+  - eav_entity_
+  - eav_entity_attribute
+  - eav_entity_datetime
+  - eav_entity_decimal
+  - eav_entity_int
+  - eav_entity_text
+  - eav_entity_type
+  - eav_entity_varchar
+  acl_resources: []
+  config_paths:
+  - default/admin
+  - select/multiselect
+  - sets/groups
+  - text/datetime/static
+  - text/select/multiselect
+  - varchar/int/decimal
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

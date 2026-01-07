@@ -1,0 +1,69 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Shipping/html/architecture.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\Shipping\Model\Shipping
+  - Magento\Shipping\Model\Shipping\Labels
+  - Magento\Ups\Model\Carrier
+  php_interfaces: []
+  methods:
+  - ablerate
+  - appendResult
+  - arrier
+  - bstractCarrier
+  - bstractCarrierInterface
+  - bstractCarrierOnline
+  - carriers
+  - class
+  - collectCarrierRates
+  - collectRates
+  - composePackagesForCarrier
+  - create
+  - decreasing
+  - descending
+  - foreach
+  - getAllItems
+  - getBasePrice
+  - getConfigData
+  - getLimitCarrier
+  - getResult
+  - getShippingMethod
+  - getTracking
+  - getValue
+  - gradient
+  - isShippingLabelsAvailable
+  - latrate
+  - makePieces
+  - ocalizedException
+  - prepareCarrier
+  - reeshipping
+  - requestToShipment
+  - setCountryId
+  - setId
+  - setOrderShipment
+  - setPackages
+  - setPostcode
+  - setRegionId
+  - setShippingLabel
+  - setStore
+  - url
+  - usort
+  events: []
+  database_tables: []
+  acl_resources: []
+  config_paths:
+  - adminhtml/di
+  - request/item
+  - templates/layouts
+  - ups/etc/config
+  file_paths:
+  - Model/Quote/Address/RateResult/Error.php
+  - Model/Rate/CarrierResult.php
+  - Model/Rate/PackageResult.php
+  - Model/Rate/Result.php
+  - Model/Rate/Result/Method.php
+  - etc/config.xml
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

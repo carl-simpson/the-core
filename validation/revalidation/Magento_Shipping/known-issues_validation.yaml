@@ -1,0 +1,109 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Shipping/html/known-issues.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/the-core/magento2-source
+summary:
+  total_claims: 11
+  validated: 11
+  found: 9
+  not_found: 2
+  confidence_distribution:
+    high: 0
+    medium: 11
+    low: 0
+results_by_type:
+  methods:
+    total: 11
+    found: 9
+    not_found: 2
+    results:
+    - claim: catch
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/App/UserConfig.php:86
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Indexer/App/Indexer.php:77
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaStorage/App/Media.php:280
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaStorage/Test/Unit/App/MediaTest.php:250
+      notes: Found 4 occurrences
+    - claim: collectCarrierRates
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Shipping.php:308
+      notes: Found 1 occurrences
+    - claim: composePackagesForCarrier
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Shipping.php:360
+      notes: Found 1 occurrences
+    - claim: getResult
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Analytics/Model/Connector/Http/ResponseResolver.php:41
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Marketplace/Controller/Adminhtml/Index/Index.php:44
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/Model/Menu/Builder.php:57
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/Model/Search/Config.php:77
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Usps/Model/Carrier.php:478
+      notes: Found 32 occurrences
+    - claim: incomplete
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: prepareCarrier
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Shipping.php:274
+      notes: Found 1 occurrences
+    - claim: proccessAdditionalValidation
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Dhl/Model/Carrier.php:1727
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrierOnline.php:300
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrierInterface.php:86
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrier.php:344
+      notes: Found 4 occurrences
+    - claim: processAdditionalValidation
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Dhl/Model/Carrier.php:1738
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrierOnline.php:314
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrier.php:331
+      notes: Found 3 occurrences
+    - claim: typo
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: url
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/Model/PathConfigTest.php:136
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/App/Response/RedirectTest.php:131
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Wishlist/Test/Unit/Model/Validator/MessageValidatorTest.php:212
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogUrlRewrite/Test/Unit/Observer/ProductProcessUrlRewriteSavingObserverTest.php:138
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CardinalCommerce/Model/JwtManagement.php:124
+      notes: Found 6 occurrences
+    - claim: xml
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Simplexml/Element.php:53
+      notes: Found 1 occurrences
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+  file_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

@@ -1,0 +1,31 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Quote/html/known-issues.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes: []
+  php_interfaces: []
+  methods:
+  - collectShippingRates
+  - collectTotals
+  - execute
+  - exposure
+  - get
+  - isVirtual
+  - media
+  - ocalizedException
+  - placeOrder
+  - save
+  - setCollectShippingRates
+  - setTotalsCollectedFlag
+  - url
+  - use
+  events: []
+  database_tables:
+  - sales_clean_quotes
+  acl_resources: []
+  config_paths:
+  - country/region
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

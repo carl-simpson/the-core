@@ -1,0 +1,31 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Customer/html/integrations.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes: []
+  php_interfaces: []
+  methods:
+  - class
+  - colors
+  - customer
+  - highlightAll
+  - media
+  - updateCustomer
+  - url
+  - ustomer
+  - validation
+  events:
+  - customer_eav_attribute
+  - customer_id
+  database_tables:
+  - customer_eav_attribute
+  - customer_id
+  - eav_attribute
+  - eav_entity_type
+  acl_resources: []
+  config_paths:
+  - billing/shipping
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

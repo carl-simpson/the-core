@@ -1,0 +1,45 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Catalog/html/integrations.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\Catalog\Model\ResourceModel\Eav\Attribute
+  - Magento\Catalog\Model\ResourceModel\Product
+  - Magento\Catalog\Setup\Patch\Data
+  php_interfaces: []
+  methods:
+  - adapters
+  - addProduct
+  - anonymous
+  - catalog_product_entity_datetime
+  - catalog_product_entity_decimal
+  - catalog_product_entity_int
+  - catalog_product_entity_text
+  - catalog_product_entity_varchar
+  - categories
+  - dropdowns
+  - earch
+  - etProduct
+  - getActiveForCustomer
+  - getExtensionAttributes
+  - getProduct
+  - getProductId
+  - getQty
+  - getSku
+  - getStockItem
+  - isSalable
+  - nventory
+  - products
+  - quotes
+  - save
+  events: []
+  database_tables:
+  - eav_entity_type
+  acl_resources: []
+  config_paths:
+  - above/below
+  - products/attributes
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

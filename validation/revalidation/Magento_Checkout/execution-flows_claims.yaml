@@ -1,0 +1,43 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Checkout/html/execution-flows.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes: []
+  php_interfaces: []
+  methods:
+  - calc
+  - calculate
+  - checkout
+  - collectTotals
+  - create
+  - ethod
+  - getActive
+  - getQuoteId
+  - isValid
+  - load
+  - media
+  - placeOrder
+  - quotes
+  - save
+  - saveAddressInformation
+  - savePaymentInformation
+  - savePaymentInformationAndPlaceOrder
+  - sent
+  - url
+  events:
+  - customer_is_guest
+  - sales_quote_save_after
+  database_tables:
+  - customer_is_guest
+  - sales_quote_save_after
+  acl_resources: []
+  config_paths:
+  - authorization/capture
+  - carts/mine/payment
+  - carts/mine/shipping
+  - carts/mine/totals
+  - country/region
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

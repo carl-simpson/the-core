@@ -1,0 +1,306 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Store/html/plugins-observers.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/the-core/magento2-source
+summary:
+  total_claims: 42
+  validated: 42
+  found: 25
+  not_found: 17
+  confidence_distribution:
+    high: 30
+    medium: 12
+    low: 0
+results_by_type:
+  php_classes:
+    total: 24
+    found: 19
+    not_found: 5
+    results:
+    - claim: Magento\Framework\App\Cache\Type\Collection
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Accounts/Collection.php:16
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Product/Sold/Collection.php:22
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Product/Index/Viewed/Collection.php:16
+      notes: Found via pattern search
+    - claim: Magento\Framework\App\Response\HeaderManager
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/the-core/magento2-source/app/code/Magento/Framework/App/Response/HeaderManager.php
+        does not exist
+    - claim: Magento\Framework\Logger\Monolog
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/the-core/magento2-source/app/code/Magento/Framework/Logger/Monolog.php
+        does not exist
+    - claim: Magento\Store\App\FrontController\Plugin\RequestPreprocessor
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/App/FrontController/Plugin/RequestPreprocessor.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Model\Data\StoreConfig
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Data/StoreConfig.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Model\Group
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Group.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Model\GroupRepository
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/GroupRepository.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Model\HeaderProvider\UpgradeInsecure
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/HeaderProvider/UpgradeInsecure.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Model\Plugin\StoreCookie
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Plugin/StoreCookie.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Model\Resolver\Locale
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Wishlist/Model/LocaleQuantityProcessor.php:12
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Wishlist/Test/Unit/Model/LocaleQuantityProcessorTest.php:17
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Paypal/Model/Express/LocaleResolver.php:17
+      notes: Found via pattern search
+    - claim: Magento\Store\Model\Resolver\Store
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Resolver/Store.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Model\ResourceModel\Group\Collection\FetchStrategy
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/ResourceModel/Group/Collection/FetchStrategy.php
+        does not exist
+    - claim: Magento\Store\Model\ResourceModel\Store\Collection\FetchStrategy
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/ResourceModel/Store/Collection/FetchStrategy.php
+        does not exist
+    - claim: Magento\Store\Model\ResourceModel\Website\Collection\FetchStrategy
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/ResourceModel/Website/Collection/FetchStrategy.php
+        does not exist
+    - claim: Magento\Store\Model\Service\StoreConfigManager
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Service/StoreConfigManager.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Model\Store
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Store.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Model\StoreCookieManager
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreCookieManager.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Model\StoreManager
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreManager.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Model\StoreRepository
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreRepository.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Model\StoreResolver
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreResolver.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Model\Website
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Website.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Model\WebsiteRepository
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/WebsiteRepository.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Url\Plugin\RouteParamsResolver
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Url/Plugin/RouteParamsResolver.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Url\Plugin\SecurityInfo
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Url/Plugin/SecurityInfo.php:1
+      notes: Class file exists and contains class definition
+  php_interfaces:
+    total: 5
+    found: 0
+    not_found: 5
+    results:
+    - claim: Magento\Framework\App\FrontControllerInterface
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/the-core/magento2-source/app/code/Magento/Framework/App/FrontControllerInterface.php
+        does not exist
+    - claim: Magento\Framework\Url\RouteParamsResolverInterface
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/the-core/magento2-source/app/code/Magento/Framework/Url/RouteParamsResolverInterface.php
+        does not exist
+    - claim: Magento\Framework\Url\SecurityInfoInterface
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/the-core/magento2-source/app/code/Magento/Framework/Url/SecurityInfoInterface.php
+        does not exist
+    - claim: Magento\Store\Api\StoreResolverInterface
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Api/StoreResolverInterface.php
+        does not exist
+    - claim: Magento\Store\Model\StoreManagerInterface
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreManagerInterface.php
+        does not exist
+  methods:
+    total: 10
+    found: 5
+    not_found: 5
+    results:
+    - claim: afterDelete
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Group.php:453
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Store.php:1298
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Website.php:606
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Integration/Plugin/Model/CustomerUser.php:51
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Integration/Plugin/Model/AdminUser.php:44
+      notes: Found 62 occurrences
+    - claim: afterSave
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Developer/Model/Config/Backend/WorkflowType.php:68
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Group.php:480
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Store.php:1078
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Website.php:626
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Analytics/Model/Config/Backend/Enabled.php:65
+      notes: Found 151 occurrences
+    - claim: child
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: gradient
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: invalid
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/Test/Unit/Model/Menu/Item/ValidatorTest.php:118
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Usps/Test/Unit/Model/Config/Backend/UspsUrlTest.php:117
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Eav/Test/Unit/Model/Entity/Attribute/SetTest.php:74
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Observer/MoveStoreLevelCatalogDataToWebsiteScopeOnSingleStoreMode.php:63
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Test/Unit/Model/Category/Attribute/Backend/ImageTest.php:126
+      notes: Found 33 occurrences
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Template/Filter.php:130
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Email/Model/Template/Filter.php:550
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Cms/Model/Template/Filter.php:19
+      notes: Found 4 occurrences
+    - claim: operations
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: repeat
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: system
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: var
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Paypal/Test/Unit/Model/Payflow/Service/Response/Validator/IAVSResponseTest.php:55
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Variable/Ui/Component/VariablesDataProvider.php:92
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Test/Unit/Model/Product/Type/VariationMatrixTest.php:48
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Email/Model/Template/Filter.php:674
+      notes: Found 4 occurrences
+  events:
+    total: 3
+    found: 1
+    not_found: 2
+    results:
+    - claim: store_delete
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/SalesSequence/etc/events.xml:9
+      notes: Found 1 references
+    - claim: store_group_save
+      found: false
+      confidence: high
+      evidence: []
+      notes: Event not found in core
+    - claim: website_save_after
+      found: false
+      confidence: high
+      evidence: []
+      notes: Event not found in core
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

@@ -1,0 +1,35 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Checkout/html/known-issues.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes: []
+  php_interfaces: []
+  methods:
+  - backend
+  - checkout
+  - frontend
+  - handlers
+  - indicator
+  - media
+  - placeOrder
+  - requests
+  - returns
+  - service
+  - ssues
+  - stopLoader
+  - totals
+  - url
+  events: []
+  database_tables: []
+  acl_resources: []
+  config_paths:
+  - carts/mine/payment
+  - country/region
+  - frontend/backend
+  - js/action/select
+  - js/view/checkout
+  - loss/security
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

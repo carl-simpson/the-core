@@ -1,0 +1,32 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Checkout/html/plugins-observers.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\Checkout\Model\Plugin\RecollectQuoteOnCustomerGroupChange
+  - Magento\Customer\Model\ResourceModel\Customer
+  php_interfaces: []
+  methods:
+  - afterSave
+  - changed
+  - eclarations
+  - lasses
+  - media
+  - submission
+  - url
+  events:
+  - checkout_cart_update_items_after
+  - checkout_submit_all_after
+  - recollect_quote_on_customer_group_change
+  - sales_quote_save_after
+  database_tables:
+  - sales_quote_save_after
+  acl_resources: []
+  config_paths:
+  - add/modify
+  - payment/shipping
+  - plugins/observers
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

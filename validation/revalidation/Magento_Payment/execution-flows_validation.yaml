@@ -1,0 +1,307 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Payment/html/execution-flows.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/the-core/magento2-source
+summary:
+  total_claims: 32
+  validated: 32
+  found: 30
+  not_found: 2
+  confidence_distribution:
+    high: 4
+    medium: 28
+    low: 0
+results_by_type:
+  php_classes:
+    total: 1
+    found: 1
+    not_found: 0
+    results:
+    - claim: Magento\Framework\DataObject
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Webapi/Test/Unit/Model/DataObjectProcessorTest.php:22
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Test/Unit/Helper/DataObjectTestHelper.php:17
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/LoginAsCustomerGraphQl/Plugin/DataObjectHelperPlugin.php:16
+      notes: Found via pattern search
+  methods:
+    total: 27
+    found: 25
+    not_found: 2
+    results:
+    - claim: authorize
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Vault/Model/Method/NullPaymentProvider.php:339
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Vault/Model/Method/Vault.php:435
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Product/Authorization.php:148
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Category/Authorization.php:135
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Paypal/Model/Direct.php:302
+      notes: Found 18 occurrences
+    - claim: cancel
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Vault/Model/Method/NullPaymentProvider.php:377
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Vault/Model/Method/Vault.php:581
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Paypal/Helper/Checkout.php:35
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Paypal/Model/Direct.php:355
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Paypal/Model/Express.php:550
+      notes: Found 28 occurrences
+    - claim: capture
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Vault/Model/Method/NullPaymentProvider.php:352
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Vault/Model/Method/Vault.php:466
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/OfflineShipping/Test/Unit/Model/Carrier/FlatrateTest.php:228
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/OfflineShipping/Test/Unit/Model/Carrier/TablerateTest.php:221
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Paypal/Model/Direct.php:327
+      notes: Found 18 occurrences
+    - claim: createResult
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/OfflineShipping/Model/Carrier/Flatrate.php:175
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Usps/Test/Unit/Model/CarrierTest.php:466
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Gateway/Validator/AbstractValidator.php:41
+      notes: Found 3 occurrences
+    - claim: executeCommand
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Model/Method/Adapter.php:526
+      notes: Found 1 occurrences
+    - claim: getActiveList
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Vault/Model/PaymentMethodList.php:51
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Vault/Api/PaymentMethodListInterface.php:32
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Model/PaymentMethodList.php:85
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Test/Unit/Model/PaymentMethodListTest.php:201
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Api/PaymentMethodListInterface.php:32
+      notes: Found 5 occurrences
+    - claim: getBaseCurrencyCode
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Helper/Data.php:317
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/Data/CurrencyInformation.php:26
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Api/Data/CurrencyInformationInterface.php:21
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Store.php:845
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Website.php:642
+      notes: Found 23 occurrences
+    - claim: getBaseGrandTotal
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Test/Unit/Helper/TotalsInterfaceTestHelper.php:65
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/Cart/Totals.php:45
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Test/Unit/Helper/TotalTestHelper.php:73
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Api/Data/TotalsInterface.php:94
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order.php:2442
+      notes: Found 10 occurrences
+    - claim: getFailsDescription
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Gateway/Validator/Result.php:53
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Gateway/Validator/ResultInterface.php:30
+      notes: Found 2 occurrences
+    - claim: getIncrementId
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/EntityInterface.php:19
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order.php:2247
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Creditmemo.php:653
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Shipment.php:545
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Invoice.php:828
+      notes: Found 10 occurrences
+    - claim: getLastTransId
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Payment.php:1949
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Api/Data/OrderPaymentInterface.php:579
+      notes: Found 2 occurrences
+    - claim: getParentTransactionId
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Payment.php:270
+      notes: Found 1 occurrences
+    - claim: getRefundTransactionId
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: isActive
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Store.php:1261
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Translation/Model/Inline/Config.php:40
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Vault/Model/Method/NullPaymentProvider.php:472
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Vault/Model/Method/Vault.php:672
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/Model/Translate/Inline/Config.php:40
+      notes: Found 21 occurrences
+    - claim: isAvailable
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Vault/Model/Method/NullPaymentProvider.php:461
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Vault/Model/Method/Vault.php:662
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Vault/Test/Unit/Model/Method/VaultTest.php:391
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/Block/Widget/Grid/Massaction/AbstractMassaction.php:177
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/Block/Widget/Grid/Massaction/Extended.php:167
+      notes: Found 37 occurrences
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Template/Filter.php:130
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Email/Model/Template/Filter.php:550
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Cms/Model/Template/Filter.php:19
+      notes: Found 4 occurrences
+    - claim: ommandException
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: place
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Model/Checkout/Type/Multishipping/PlaceOrderInterface.php:27
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Model/Checkout/Type/Multishipping/PlaceOrderDefault.php:34
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Test/Unit/Model/GuestPaymentInformationManagementTest.php:301
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Test/Unit/Model/PaymentInformationManagementTest.php:316
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/InstantPurchase/Model/PlaceOrder.php:96
+      notes: Found 23 occurrences
+    - claim: refund
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Vault/Model/Method/NullPaymentProvider.php:365
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Vault/Model/Method/Vault.php:572
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Paypal/Model/Direct.php:343
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Paypal/Model/Express.php:538
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Paypal/Model/Payflowpro.php:531
+      notes: Found 16 occurrences
+    - claim: setAdditionalInformation
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Model/InfoInterface.php:39
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Model/Info.php:154
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Payment/Transaction/Builder.php:126
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Payment/Transaction/BuilderInterface.php:80
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Payment/Info.php:159
+      notes: Found 8 occurrences
+    - claim: setIsClosed
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Payment/Transaction.php:977
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Api/Data/TransactionInterface.php:238
+      notes: Found 2 occurrences
+    - claim: setIsTransactionClosed
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Payment.php:258
+      notes: Found 1 occurrences
+    - claim: setParentTransactionId
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Payment.php:282
+      notes: Found 1 occurrences
+    - claim: setTransactionId
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Creditmemo.php:1210
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Payment.php:235
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Payment.php:2567
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Invoice.php:1265
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Payment/Transaction/Builder.php:117
+      notes: Found 10 occurrences
+    - claim: url
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/Model/PathConfigTest.php:136
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/App/Response/RedirectTest.php:131
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Wishlist/Test/Unit/Model/Validator/MessageValidatorTest.php:212
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogUrlRewrite/Test/Unit/Observer/ProductProcessUrlRewriteSavingObserverTest.php:138
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CardinalCommerce/Model/JwtManagement.php:124
+      notes: Found 6 occurrences
+    - claim: validate
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MessageQueue/Setup/ConfigOptionsList.php:99
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/Country/Postcode/ValidatorInterface.php:25
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/Country/Postcode/Validator.php:26
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/Currency/Import/FixerIoApiLayer.php:224
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/Currency/Import/FixerIo.php:186
+      notes: Found 575 occurrences
+    - claim: void
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Vault/Model/Method/NullPaymentProvider.php:389
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Vault/Model/Method/Vault.php:590
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Paypal/Model/Direct.php:314
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Paypal/Model/Express.php:417
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Paypal/Model/Payflowpro.php:462
+      notes: Found 12 occurrences
+  events:
+    total: 1
+    found: 1
+    not_found: 0
+    results:
+    - claim: sales_order_save_before
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/etc/events.xml:9
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/etc/events.xml:10
+      notes: Found 2 references
+  database_tables:
+    total: 3
+    found: 3
+    not_found: 0
+    results:
+    - claim: sales_order_payment_
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/ResourceModel/Order/Payment.php:28
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/ResourceModel/Order/Payment/Collection.php:21
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Payment.php:354
+      notes: Found 15 references
+    - claim: sales_order_save_before
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order.php:58
+      notes: Found 1 references
+    - claim: sales_order_status_unassign
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Status.php:120
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Test/Unit/Model/Order/StatusTest.php:84
+      notes: Found 2 references
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

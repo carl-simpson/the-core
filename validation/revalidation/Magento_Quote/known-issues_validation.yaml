@@ -1,0 +1,154 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Quote/html/known-issues.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/the-core/magento2-source
+summary:
+  total_claims: 15
+  validated: 15
+  found: 12
+  not_found: 3
+  confidence_distribution:
+    high: 0
+    medium: 15
+    low: 0
+results_by_type:
+  methods:
+    total: 14
+    found: 12
+    not_found: 2
+    results:
+    - claim: collectShippingRates
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/Quote/Address.php:1003
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Test/Unit/Helper/AddressTestHelper.php:102
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/AdminOrder/Create.php:1695
+      notes: Found 3 occurrences
+    - claim: collectTotals
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/Plugin/RecollectQuoteOnCustomerGroupChange.php:136
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/Quote.php:2045
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/GuestCart/GuestCartTotalManagement.php:41
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/Cart/CartTotalManagement.php:56
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/ResourceModel/Quote/Address/Attribute/Backend.php:20
+      notes: Found 11 occurrences
+    - claim: execute
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/GetIptcMetadata.php:42
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/AddXmpMetadata.php:30
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/AddIptcMetadata.php:79
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/GetXmpMetadata.php:41
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/Gif/Segment/ReadXmp.php:54
+      notes: Found 1957 occurrences
+    - claim: exposure
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: get
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/File.php:51
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/File.php:59
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/File.php:67
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/Metadata.php:59
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/Metadata.php:67
+      notes: Found 17027 occurrences
+    - claim: isVirtual
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Developer/Model/Di/Information.php:173
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Model/Cart/MultishippingClearItemAddress.php:141
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Block/Cart/Item/Renderer/Actions/Generic.php:59
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Product/Type/AbstractType.php:356
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Product/Type/Virtual.php:22
+      notes: Found 16 occurrences
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Template/Filter.php:130
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Email/Model/Template/Filter.php:550
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Cms/Model/Template/Filter.php:19
+      notes: Found 4 occurrences
+    - claim: ocalizedException
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: placeOrder
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Test/Unit/Model/GuestPaymentInformationManagementTest.php:301
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Test/Unit/Model/PaymentInformationManagementTest.php:316
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/InstantPurchase/Model/PlaceOrder.php:96
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/GuestCart/GuestCartManagement.php:81
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/QuoteManagement.php:400
+      notes: Found 8 occurrences
+    - claim: save
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MessageQueue/Model/ResourceModel/Lock.php:86
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Observer/EventSaver.php:60
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Product/Index/AbstractIndex.php:127
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/Currency/Import/FixerIoApiLayer.php:163
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/ResourceModel/Currency.php:141
+      notes: Found 403 occurrences
+    - claim: setCollectShippingRates
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Test/Unit/Helper/AddressShippingInfoTestHelper.php:113
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Test/Unit/Helper/QuoteAddressTestHelper.php:133
+      notes: Found 2 occurrences
+    - claim: setTotalsCollectedFlag
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Test/Unit/Helper/QuoteTestHelper.php:168
+      notes: Found 1 occurrences
+    - claim: url
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/Model/PathConfigTest.php:136
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/App/Response/RedirectTest.php:131
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Wishlist/Test/Unit/Model/Validator/MessageValidatorTest.php:212
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogUrlRewrite/Test/Unit/Observer/ProductProcessUrlRewriteSavingObserverTest.php:138
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CardinalCommerce/Model/JwtManagement.php:124
+      notes: Found 6 occurrences
+    - claim: use
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Product/Lowstock/Collection.php:281
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Product/Lowstock/Collection.php:299
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Test/Unit/Model/ResourceModel/Order/CollectionTest.php:465
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Swagger/Test/Unit/Model/ConfigTest.php:58
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Test/Unit/Model/CartTest.php:312
+      notes: Found 33 occurrences
+  database_tables:
+    total: 1
+    found: 0
+    not_found: 1
+    results:
+    - claim: sales_clean_quotes
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Table not found in core
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

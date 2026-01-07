@@ -1,0 +1,125 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_ConfigurableProduct/html/plugins-observers.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/the-core/magento2-source
+summary:
+  total_claims: 15
+  validated: 15
+  found: 8
+  not_found: 7
+  confidence_distribution:
+    high: 0
+    medium: 15
+    low: 0
+results_by_type:
+  php_classes:
+    total: 3
+    found: 3
+    not_found: 0
+    results:
+    - claim: Magento\Catalog\Pricing\Price\Pool
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Product/Type/Pool.php:12
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Product/Option/Validator/Pool.php:11
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Test/Unit/Model/Product/Option/Validator/PoolTest.php:16
+      notes: Found via pattern search
+    - claim: Magento\ConfigurableProduct\Pricing\Price\Pool
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Product/Type/Pool.php:12
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Product/Option/Validator/Pool.php:11
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Test/Unit/Model/Product/Option/Validator/PoolTest.php:16
+      notes: Found via pattern search
+    - claim: Magento\Framework\Pricing\Price\Pool
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Product/Type/Pool.php:12
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Product/Option/Validator/Pool.php:11
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Test/Unit/Model/Product/Option/Validator/PoolTest.php:16
+      notes: Found via pattern search
+  methods:
+    total: 12
+    found: 5
+    not_found: 7
+    results:
+    - claim: artItemProcessor
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: attributes
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/GroupedImportExport/Test/Unit/Model/Import/Product/Type/Grouped/LinksTest.php:131
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Eav/Model/Entity/AbstractEntity.php:603
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Product/Type/AbstractType.php:311
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogUrlRewrite/Test/Unit/Plugin/Catalog/Block/Adminhtml/Category/Tab/AttributesTest.php:111
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Test/Unit/Block/Adminhtml/Product/Steps/SelectAttributesTest.php:105
+      notes: Found 7 occurrences
+    - claim: child
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: links
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/GroupedImportExport/Test/Unit/Model/Import/Product/Type/Grouped/LinksTest.php:73
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/GroupedProduct/Test/Unit/Model/Product/Initialization/Helper/ProductLinks/Plugin/GroupedTest.php:136
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/DownloadableImportExport/Model/Import/Product/Type/Downloadable.php:496
+      notes: Found 3 occurrences
+    - claim: lugins
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Template/Filter.php:130
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Email/Model/Template/Filter.php:550
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Cms/Model/Template/Filter.php:19
+      notes: Found 4 occurrences
+    - claim: options
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Test/Unit/Model/AttributeOptionProviderTest.php:208
+      notes: Found 1 occurrences
+    - claim: references
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: rgba
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: roductRepositorySave
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: ttributeValidation
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: var
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Paypal/Test/Unit/Model/Payflow/Service/Response/Validator/IAVSResponseTest.php:55
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Variable/Ui/Component/VariablesDataProvider.php:92
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Test/Unit/Model/Product/Type/VariationMatrixTest.php:48
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Email/Model/Template/Filter.php:674
+      notes: Found 4 occurrences
+detailed_results: []

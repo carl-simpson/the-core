@@ -1,0 +1,30 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_ConfigurableProduct/html/plugins-observers.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\Catalog\Pricing\Price\Pool
+  - Magento\ConfigurableProduct\Pricing\Price\Pool
+  - Magento\Framework\Pricing\Price\Pool
+  php_interfaces: []
+  methods:
+  - artItemProcessor
+  - attributes
+  - child
+  - links
+  - lugins
+  - media
+  - options
+  - references
+  - rgba
+  - roductRepositorySave
+  - ttributeValidation
+  - var
+  events: []
+  database_tables: []
+  acl_resources: []
+  config_paths: []
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

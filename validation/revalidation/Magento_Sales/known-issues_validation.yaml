@@ -1,0 +1,154 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Sales/html/known-issues.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/the-core/magento2-source
+summary:
+  total_claims: 18
+  validated: 18
+  found: 9
+  not_found: 9
+  confidence_distribution:
+    high: 2
+    medium: 16
+    low: 0
+results_by_type:
+  methods:
+    total: 16
+    found: 7
+    not_found: 9
+    results:
+    - claim: aroundGetStatus
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: directly
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: eneration
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: first
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Test/Unit/Model/ResourceModel/Order/CollectionTest.php:477
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/Test/Unit/Model/Auth/SessionTest.php:305
+      notes: Found 2 occurrences
+    - claim: functionality
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: getData
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/Segment.php:59
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ReleaseNotification/Ui/DataProvider/NotificationDataProvider.php:91
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Setup/Patch/Data/AddDataForItaly.php:63
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Setup/Patch/Data/AddRegionsForIndia.php:65
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Setup/Patch/Data/AddDataForChile.php:64
+      notes: Found 244 occurrences
+    - claim: ile
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Template/Filter.php:130
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Email/Model/Template/Filter.php:550
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Cms/Model/Template/Filter.php:19
+      notes: Found 4 occurrences
+    - claim: pdate
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: return
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaContentApi/Model/GetAssetIdsByContentFieldInterface.php:20
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaContentApi/Api/GetAssetIdsByContentFieldInterface.php:19
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/Block/Widget/Button/SplitButton.php:215
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Controller/Adminhtml/Product/Attribute/Save.php:365
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Ups/Model/Carrier.php:2833
+      notes: Found 12 occurrences
+    - claim: sales_order_status_history
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: states
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Test/Unit/Model/Order/StatusResolverTest.php:44
+      notes: Found 1 occurrences
+    - claim: tate
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: tatus
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: total
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Test/Unit/Model/ResourceModel/Order/CollectionTest.php:505
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Test/Unit/Block/Order/Create/TotalsTest.php:106
+      notes: Found 2 occurrences
+    - claim: url
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/Model/PathConfigTest.php:136
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/App/Response/RedirectTest.php:131
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Wishlist/Test/Unit/Model/Validator/MessageValidatorTest.php:212
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogUrlRewrite/Test/Unit/Observer/ProductProcessUrlRewriteSavingObserverTest.php:138
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CardinalCommerce/Model/JwtManagement.php:124
+      notes: Found 6 occurrences
+  database_tables:
+    total: 2
+    found: 2
+    not_found: 0
+    results:
+    - claim: sales_order
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Product/Sold/Collection.php:70
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Product/Sold/Collection.php:77
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Customer/Collection.php:204
+      notes: Found 306 references
+    - claim: sales_order_status_history
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Setup/SalesSetup.php:94
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/ResourceModel/Order/Status/History/Collection.php:21
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/ResourceModel/Order/Status/History.php:55
+      notes: Found 6 references
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+  file_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

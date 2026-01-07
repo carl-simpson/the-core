@@ -1,0 +1,325 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Checkout/html/architecture.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/the-core/magento2-source
+summary:
+  total_claims: 35
+  validated: 35
+  found: 29
+  not_found: 6
+  confidence_distribution:
+    high: 3
+    medium: 32
+    low: 0
+results_by_type:
+  php_classes:
+    total: 3
+    found: 3
+    not_found: 0
+    results:
+    - claim: Magento\Checkout\Model\Session
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/Session.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Checkout\Model\Session\Storage
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogUrlRewrite/Model/Category/Plugin/Storage.php:18
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogUrlRewrite/Test/Unit/Model/Category/Plugin/StorageTest.php:22
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CustomerImportExport/Model/ResourceModel/Import/Address/Storage.php:21
+      notes: Found via pattern search
+    - claim: Magento\Framework\Session\Storage
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogUrlRewrite/Model/Category/Plugin/Storage.php:18
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogUrlRewrite/Test/Unit/Model/Category/Plugin/StorageTest.php:22
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CustomerImportExport/Model/ResourceModel/Import/Address/Storage.php:21
+      notes: Found via pattern search
+  methods:
+    total: 30
+    found: 24
+    not_found: 6
+    results:
+    - claim: calculate
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/Product/Index/AbstractIndex.php:198
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Order/Collection.php:501
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Order/Collection.php:601
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/SalesSequence/Model/Sequence.php:95
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/TotalsInformationManagement.php:45
+      notes: Found 72 occurrences
+    - claim: clearQuote
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/Session.php:487
+      notes: Found 1 occurrences
+    - claim: ections
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: getAddress
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Block/Checkout/Address/Select.php:97
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Block/Checkout/Address/Select.php:123
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Block/Checkout/Overview.php:336
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Block/Checkout/Billing.php:106
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Block/Checkout/Addresses.php:113
+      notes: Found 86 occurrences
+    - claim: getBillingAddress
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Block/Checkout/Overview.php:162
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Block/Checkout/Overview.php:452
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/ShippingInformation.php:35
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Block/Checkout/LayoutProcessor.php:293
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Api/Data/ShippingInformationInterface.php:48
+      notes: Found 31 occurrences
+    - claim: getLastRealOrderId
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: getLastSuccessQuoteId
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: getPaymentInformation
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/PaymentInformationManagement.php:240
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/GuestPaymentInformationManagement.php:227
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Api/PaymentInformationManagementInterface.php:51
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Api/GuestPaymentInformationManagementInterface.php:55
+      notes: Found 4 occurrences
+    - claim: getPaymentMethods
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/PaymentDetails.php:17
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/DefaultConfigProvider.php:709
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Api/Data/PaymentDetailsInterface.php:27
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Helper/Data.php:248
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/QuoteGraphQl/Model/Resolver/AvailablePaymentMethods.php:75
+      notes: Found 5 occurrences
+    - claim: getQuote
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Helper/Data.php:48
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Plugin/MultishippingQuoteRepository.php:140
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Model/Checkout/Type/Multishipping.php:411
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Model/Checkout/Type/Multishipping.php:1147
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Model/Checkout/Type/Multishipping.php:1157
+      notes: Found 93 occurrences
+    - claim: getQuoteId
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/Session.php:372
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Paypal/Block/Express/InContext/Minicart/SmartButton.php:213
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/Quote/Item.php:1040
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Test/Unit/Helper/CartItemTestHelper.php:649
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Test/Unit/Helper/QuoteAddressTestHelper.php:144
+      notes: Found 9 occurrences
+    - claim: getShippingAddress
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Block/Checkout/Overview.php:192
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Block/Checkout/Overview.php:202
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Block/Checkout/Overview.php:219
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Block/Checkout/Overview.php:295
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Block/Checkout/Overview.php:306
+      notes: Found 32 occurrences
+    - claim: getShippingCarrierCode
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/TotalsInformation.php:51
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/ShippingInformation.php:67
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Api/Data/TotalsInformationInterface.php:61
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Api/Data/ShippingInformationInterface.php:78
+      notes: Found 4 occurrences
+    - claim: getShippingMethodCode
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/TotalsInformation.php:35
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/ShippingInformation.php:51
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Api/Data/TotalsInformationInterface.php:46
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Api/Data/ShippingInformationInterface.php:63
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/InstantPurchase/Model/QuoteManagement/ShippingConfiguration.php:70
+      notes: Found 5 occurrences
+    - claim: getTotals
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Order/Collection.php:830
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Order/Collection.php:853
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Test/Unit/Block/Checkout/OverviewTest.php:163
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/PaymentDetails.php:33
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/DefaultConfigProvider.php:648
+      notes: Found 38 occurrences
+    - claim: info
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/AwsS3/Test/Mftf/Helper/MockTestLogger.php:94
+      notes: Found 1 occurrences
+    - claim: interfaces
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: isValid
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Validation/StoreNameValidator.php:35
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Validation/StoreCodeValidator.php:35
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Validation/StoreValidator.php:42
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/ScopeValidator.php:31
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/Model/Validation/StoreValidatorTest.php:88
+      notes: Found 114 occurrences
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Template/Filter.php:130
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Email/Model/Template/Filter.php:550
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Cms/Model/Template/Filter.php:19
+      notes: Found 4 occurrences
+    - claim: ontracts
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: order
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Customer/Collection.php:247
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Order/Collection.php:879
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Order/Collection.php:891
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Order/Collection.php:903
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Order/Collection.php:915
+      notes: Found 20 occurrences
+    - claim: rchitecture
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: saveAddressInformation
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/ShippingInformationManagement.php:181
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/GuestShippingInformationManagement.php:38
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Api/GuestShippingInformationManagementInterface.php:20
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Api/ShippingInformationManagementInterface.php:20
+      notes: Found 4 occurrences
+    - claim: savePaymentInformation
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/PaymentInformationManagement.php:152
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/PaymentInformationManagement.php:195
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/GuestPaymentInformationManagement.php:138
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/GuestPaymentInformationManagement.php:181
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Api/PaymentInformationManagementInterface.php:24
+      notes: Found 8 occurrences
+    - claim: savePaymentInformationAndPlaceOrder
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/PaymentInformationManagement.php:152
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/GuestPaymentInformationManagement.php:138
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Api/PaymentInformationManagementInterface.php:24
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Api/GuestPaymentInformationManagementInterface.php:25
+      notes: Found 4 occurrences
+    - claim: session
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Test/Unit/Controller/Index/IndexTest.php:245
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Customer/Model/Visitor.php:251
+      notes: Found 2 occurrences
+    - claim: setQuoteId
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/Session.php:361
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/Quote/Item.php:1048
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Test/Unit/Helper/QuoteIdMaskTestHelper.php:63
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Test/Unit/Helper/CartItemTestHelper.php:660
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Test/Unit/Model/GuestCart/QuoteIdMaskTestHelper.php:49
+      notes: Found 9 occurrences
+    - claim: shipping
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Usps/Test/Unit/Helper/DataTest.php:53
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Tax/Helper/Data.php:392
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Tax/Model/Config.php:345
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/Quote/Address.php:1198
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Test/Unit/Helper/AddressRelationModelTestHelper.php:36
+      notes: Found 5 occurrences
+    - claim: totals
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Test/Unit/Model/ResourceModel/Order/CollectionTest.php:505
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Test/Unit/Block/Order/Create/TotalsTest.php:106
+      notes: Found 2 occurrences
+    - claim: url
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/Model/PathConfigTest.php:136
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/App/Response/RedirectTest.php:131
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Wishlist/Test/Unit/Model/Validator/MessageValidatorTest.php:212
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogUrlRewrite/Test/Unit/Observer/ProductProcessUrlRewriteSavingObserverTest.php:138
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CardinalCommerce/Model/JwtManagement.php:124
+      notes: Found 6 occurrences
+  events:
+    total: 1
+    found: 1
+    not_found: 0
+    results:
+    - claim: sales_quote_save_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/etc/events.xml:9
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Customer/etc/events.xml:15
+      notes: Found 2 references
+  database_tables:
+    total: 1
+    found: 1
+    not_found: 0
+    results:
+    - claim: sales_quote_save_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/Quote.php:30
+      notes: Found 1 references
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

@@ -1,0 +1,52 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Store/html/known-issues.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\Store\Model\StoreManager
+  - Magento\Store\Model\StoreResolver
+  - Magento\Store\Model\StoresData
+  php_interfaces: []
+  methods:
+  - aming
+  - contexts
+  - dmin
+  - doSomething
+  - ebsite
+  - foreach
+  - frequently
+  - getCurrentStoreId
+  - getId
+  - getStore
+  - getStoresData
+  - gradient
+  - hasSingleStore
+  - iddle
+  - instead
+  - level
+  - media
+  - onfusion
+  - ottom
+  - reinitStores
+  - repeat
+  - roup
+  - setCurrentStore
+  - startEnvironmentEmulation
+  - stopEnvironmentEmulation
+  - store
+  - tore
+  - updateStore
+  - var
+  - website
+  events: []
+  database_tables: []
+  acl_resources: []
+  config_paths:
+  - bin/magento
+  - com/german/products
+  - payment/checkmo/active
+  - web/url/use_store
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

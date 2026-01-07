@@ -1,0 +1,50 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Eav/html/integrations.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\Catalog\Ui\Component\Form\AttributeMapper
+  - Magento\Eav\Model\Config
+  - Magento\Eav\Model\Entity\AbstractEntity
+  - Magento\Eav\Model\Entity\Attribute\Backend\AbstractBackend
+  - Magento\Eav\Model\Entity\Attribute\Frontend\AbstractFrontend
+  - Magento\Framework\EntityManager\Operation\AttributePool
+  php_interfaces:
+  - Magento\Eav\Model\Entity\Attribute\Source\SourceInterface
+  methods:
+  - add
+  - afterLoad
+  - child
+  - contracts
+  - create
+  - delete
+  - display
+  - get
+  - getItems
+  - getList
+  - load
+  - media
+  - ontracts
+  - repeat
+  - rgba
+  - rotate
+  - save
+  - var
+  events:
+  - customer_address
+  database_tables:
+  - customer_address
+  - eav_entity
+  - eav_form
+  acl_resources: []
+  config_paths:
+  - eav/attribute
+  - model/resource
+  - product/customer
+  - save/load
+  - select/multiselect
+  - sets/list
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

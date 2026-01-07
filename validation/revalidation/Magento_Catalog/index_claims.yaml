@@ -1,0 +1,18 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Catalog/html/index.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes: []
+  php_interfaces: []
+  methods:
+  - getPrice
+  - rgba
+  - translateY
+  events: []
+  database_tables: []
+  acl_resources: []
+  config_paths: []
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

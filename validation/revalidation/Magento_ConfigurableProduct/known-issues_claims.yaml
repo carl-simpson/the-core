@@ -1,0 +1,29 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_ConfigurableProduct/html/known-issues.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\ConfigurableProduct\Block\Product\View\Type\Configurable
+  - Magento\ConfigurableProduct\Model\ResourceModel\Product\Indexer\Price\Configurable
+  php_interfaces: []
+  methods:
+  - directly
+  - getAllowProducts
+  - gradient
+  - media
+  - repeat
+  - representProduct
+  - rgba
+  - scenarios
+  - var
+  events:
+  - cataloginventory_stock
+  database_tables: []
+  acl_resources: []
+  config_paths:
+  - bin/magento
+  - swatch/dropdown
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

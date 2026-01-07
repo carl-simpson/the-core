@@ -1,0 +1,204 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Payment/html/architecture.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/the-core/magento2-source
+summary:
+  total_claims: 24
+  validated: 24
+  found: 17
+  not_found: 7
+  confidence_distribution:
+    high: 6
+    medium: 18
+    low: 0
+results_by_type:
+  php_classes:
+    total: 6
+    found: 6
+    not_found: 0
+    results:
+    - claim: Magento\Payment\Block\Form\Cc
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Block/Form/Cc.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Payment\Block\Info
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Block/Info.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Payment\Gateway\Command\CommandPool
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Gateway/Command/CommandPool.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Payment\Gateway\Config\ConfigValueHandler
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Gateway/Config/ConfigValueHandler.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Payment\Gateway\Config\ValueHandlerPool
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Gateway/Config/ValueHandlerPool.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Payment\Model\Method\Adapter
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Model/Method/Adapter.php:1
+      notes: Class file exists and contains class definition
+  methods:
+    total: 18
+    found: 11
+    not_found: 7
+    results:
+    - claim: bstractMethod
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: build
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ReleaseNotification/Ui/Renderer/NotificationRenderer.php:79
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ReleaseNotification/Ui/Renderer/NotificationRenderer.php:93
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ReleaseNotification/Ui/Renderer/NotificationRenderer.php:116
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ReleaseNotification/Ui/Renderer/NotificationRenderer.php:137
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ReleaseNotification/Ui/Renderer/NotificationRenderer.php:167
+      notes: Found 193 occurrences
+    - claim: context
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: dapter
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: ethodInterface
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: getCcNumber
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Payment.php:1796
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Api/Data/OrderPaymentInterface.php:456
+      notes: Found 2 occurrences
+    - claim: getCurrencyCode
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/Currency/Import/FixerIoApiLayer.php:247
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/Currency.php:180
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/Currency.php:287
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/ProductRender.php:181
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Api/Data/ProductRenderInterface.php:209
+      notes: Found 9 occurrences
+    - claim: getGrandTotalAmount
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Gateway/Data/Quote/QuoteAdapter.php:127
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Gateway/Data/OrderAdapterInterface.php:69
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Gateway/Data/Order/OrderAdapter.php:126
+      notes: Found 3 occurrences
+    - claim: getOrder
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Report/Product/Viewed/Collection.php:31
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Quote/Item/Collection.php:148
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Model/Checkout/Type/Multishipping.php:1064
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Test/Unit/Model/Checkout/Type/MultishippingTest.php:747
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Test/Unit/Model/Checkout/Type/MultishippingTest.php:921
+      notes: Found 215 occurrences
+    - claim: getOrderIncrementId
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Gateway/Data/Quote/QuoteAdapter.php:55
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Gateway/Data/OrderAdapterInterface.php:27
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Gateway/Data/Order/OrderAdapter.php:54
+      notes: Found 3 occurrences
+    - claim: getPayment
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Test/Unit/Plugin/MultishippingQuoteRepositoryTest.php:281
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Test/Unit/Model/Checkout/Type/MultishippingTest.php:771
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Block/Checkout/Overview.php:172
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Block/Checkout/Overview.php:182
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Block/Checkout/Payment/Info.php:44
+      notes: Found 99 occurrences
+    - claim: getQuote
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Helper/Data.php:48
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Plugin/MultishippingQuoteRepository.php:140
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Model/Checkout/Type/Multishipping.php:411
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Model/Checkout/Type/Multishipping.php:1147
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Model/Checkout/Type/Multishipping.php:1157
+      notes: Found 93 occurrences
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Template/Filter.php:130
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Email/Model/Template/Filter.php:550
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Cms/Model/Template/Filter.php:19
+      notes: Found 4 occurrences
+    - claim: ontracts
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: readPayment
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Observer/AbstractDataAssignObserver.php:46
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Gateway/Helper/SubjectReader.php:26
+      notes: Found 2 occurrences
+    - claim: ree
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: uoteAdapterInterface
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: url
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/Model/PathConfigTest.php:136
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/App/Response/RedirectTest.php:131
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Wishlist/Test/Unit/Model/Validator/MessageValidatorTest.php:212
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogUrlRewrite/Test/Unit/Observer/ProductProcessUrlRewriteSavingObserverTest.php:138
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CardinalCommerce/Model/JwtManagement.php:124
+      notes: Found 6 occurrences
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+  file_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

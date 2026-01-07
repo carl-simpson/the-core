@@ -1,0 +1,401 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_ConfigurableProduct/html/execution-flows.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/the-core/magento2-source
+summary:
+  total_claims: 49
+  validated: 49
+  found: 40
+  not_found: 9
+  confidence_distribution:
+    high: 15
+    medium: 34
+    low: 0
+results_by_type:
+  php_classes:
+    total: 10
+    found: 10
+    not_found: 0
+    results:
+    - claim: Magento\Catalog\Pricing\Render\FinalPriceBox
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Pricing/Render/FinalPriceBox.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Checkout\Controller\Cart\Add
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Controller/Cart/Add.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\ConfigurableProduct\Block\Product\View\Type\Configurable
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Block/Product/View/Type/Configurable.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\ConfigurableProduct\Model\Plugin\ProductRepositorySave
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Model/Plugin/ProductRepositorySave.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\ConfigurableProduct\Model\ProductOptionProcessor
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Model/ProductOptionProcessor.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\ConfigurableProduct\Model\Product\SaveHandler
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Model/Product/SaveHandler.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\ConfigurableProduct\Model\Product\Type\Configurable
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Model/Product/Type/Configurable.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\ConfigurableProduct\Pricing\Price\FinalPrice
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Pricing/Price/FinalPrice.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Quote\Model\Quote
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/Quote.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Quote\Model\Quote\Item\ToOrderItem
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/Quote/Item/ToOrderItem.php:1
+      notes: Class file exists and contains class definition
+  methods:
+    total: 34
+    found: 25
+    not_found: 9
+    results:
+    - claim: addProduct
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Review/Collection.php:34
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/GoogleOptimizer/Ui/DataProvider/Product/Form/Modifier/GoogleOptimizer.php:142
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/Cart.php:380
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/Cart.php:433
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/Cart/CartInterface.php:28
+      notes: Found 30 occurrences
+    - claim: afterSave
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Developer/Model/Config/Backend/WorkflowType.php:68
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Group.php:480
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Store.php:1078
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Website.php:626
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Analytics/Model/Config/Backend/Enabled.php:65
+      notes: Found 151 occurrences
+    - claim: arent
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: chain
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/Model/Menu/Builder/AbstractCommand.php:67
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/Model/Menu/Builder/Command/Add.php:29
+      notes: Found 2 occurrences
+    - claim: convert
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/Country/Postcode/Config/Converter.php:29
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/Currency/Import/FixerIoApiLayer.php:113
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/Currency/Import/FixerIo.php:98
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/Currency/Import/CurrencyConverterApi.php:93
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/PriceCurrency.php:51
+      notes: Found 191 occurrences
+    - claim: convertToProductOption
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/ProductOptionProcessorInterface.php:33
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/ProductOptionProcessor.php:87
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Model/ProductOptionProcessor.php:81
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Downloadable/Model/ProductOptionProcessor.php:85
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Bundle/Model/ProductOptionProcessor.php:85
+      notes: Found 5 occurrences
+    - claim: execute
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/GetIptcMetadata.php:42
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/AddXmpMetadata.php:30
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/AddIptcMetadata.php:79
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/GetXmpMetadata.php:41
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/Gif/Segment/ReadXmp.php:54
+      notes: Found 1957 occurrences
+    - claim: filter
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Product/Lowstock/Collection.php:255
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Product/Lowstock/Collection.php:269
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/Currency/Filter.php:91
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Developer/Model/Setup/Declaration/Schema/WhitelistGenerator.php:262
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Vault/Model/PaymentMethodList.php:61
+      notes: Found 102 occurrences
+    - claim: filters
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: getAllowProducts
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProductGraphQl/Model/Options/Metadata.php:118
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Block/Product/View/Type/Configurable.php:178
+      notes: Found 2 occurrences
+    - claim: getJsonConfig
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Block/Product/View/Options.php:228
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Block/Product/View.php:175
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/ViewModel/Product/Breadcrumbs.php:109
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Ui/DataProvider/Product/Form/Modifier/Data/AssociatedProducts.php:278
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Block/Product/View/Type/Configurable.php:220
+      notes: Found 11 occurrences
+    - claim: getOptionPrices
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Block/Product/View/Type/Configurable.php:286
+      notes: Found 1 occurrences
+    - claim: getOptions
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MessageQueue/Setup/ConfigOptionsList.php:50
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogWidget/Block/Product/ProductsList.php:336
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/Config/Backend/WeightUnit.php:78
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/Setup/ConfigOptionsList.php:34
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/Ui/Component/Control/SaveSplitButton.php:67
+      notes: Found 116 occurrences
+    - claim: getPrice
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogWidget/Block/Product/ProductsList.php:558
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Helper/Data.php:166
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Block/Cart/Item/Renderer.php:479
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/OfflineShipping/Model/ResourceModel/Carrier/Tablerate/CSV/RowParser.php:219
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Wishlist/Block/Customer/Sidebar.php:66
+      notes: Found 146 occurrences
+    - claim: getPriceInfo
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Product/Type.php:172
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Product.php:1141
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/ProductRender.php:53
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Test/Unit/Helper/ProductTestHelper.php:291
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Api/Data/ProductRenderInterface.php:63
+      notes: Found 6 occurrences
+    - claim: getProductByAttributes
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Model/Product/Type/Configurable.php:920
+      notes: Found 1 occurrences
+    - claim: getProducts
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogWidget/Block/Product/ProductsList.php:442
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogWidget/Block/Product/ProductsList.php:460
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/GroupedProduct/Model/Product/Type/Grouped.php:465
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Helper/Product/Edit/Action/Attribute.php:100
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Helper/Product/Edit/Action/Attribute.php:156
+      notes: Found 52 occurrences
+    - claim: getSalableUsedProducts
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Model/Product/Type/Configurable.php:1432
+      notes: Found 1 occurrences
+    - claim: getValue
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Analytics/ReportXml/DB/ConditionResolver.php:76
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaContentCatalog/Model/ResourceModel/GetAssetIdsByEavContentField.php:113
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/App/Config.php:39
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/App/ConfigInterface.php:23
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/Block/Widget/Form/Element/Gallery.php:79
+      notes: Found 171 occurrences
+    - claim: hild
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: isSalable
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Wishlist/Model/Wishlist.php:661
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Product/Type/AbstractType.php:367
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Product/Pricing/Renderer/SalableResolver.php:20
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Product/Pricing/Renderer/SalableResolverInterface.php:22
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Product.php:1704
+      notes: Found 11 occurrences
+    - claim: ize
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: lack
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: mall
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Template/Filter.php:130
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Email/Model/Template/Filter.php:550
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Cms/Model/Template/Filter.php:19
+      notes: Found 4 occurrences
+    - claim: olor
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: options
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Test/Unit/Model/AttributeOptionProviderTest.php:208
+      notes: Found 1 occurrences
+    - claim: prepareForCartAdvanced
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/GroupedProduct/Test/Unit/Model/Product/Type/GroupedTest.php:719
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Product/Type/AbstractType.php:473
+      notes: Found 2 occurrences
+    - claim: renderAmount
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Pricing/Render/FinalPriceBox.php:129
+      notes: Found 1 occurrences
+    - claim: resolvePrice
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Test/Unit/Pricing/Price/ConfigurablePriceResolverTest.php:96
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Pricing/Price/FinalPriceResolver.php:17
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Pricing/Price/PriceResolverInterface.php:19
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Pricing/Price/ConfigurablePriceResolver.php:61
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Pricing/Price/RegularPriceResolver.php:15
+      notes: Found 5 occurrences
+    - claim: rgba
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: salable
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: save
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MessageQueue/Model/ResourceModel/Lock.php:86
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Observer/EventSaver.php:60
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Product/Index/AbstractIndex.php:127
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/Currency/Import/FixerIoApiLayer.php:163
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/ResourceModel/Currency.php:141
+      notes: Found 403 occurrences
+    - claim: var
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Paypal/Test/Unit/Model/Payflow/Service/Response/Validator/IAVSResponseTest.php:55
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Variable/Ui/Component/VariablesDataProvider.php:92
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Test/Unit/Model/Product/Type/VariationMatrixTest.php:48
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Email/Model/Template/Filter.php:674
+      notes: Found 4 occurrences
+  events:
+    total: 2
+    found: 2
+    not_found: 0
+    results:
+    - claim: customer_group_id
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CustomerGraphQl/etc/extension_attributes.xml:11
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/etc/fieldset.xml:31
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/etc/db_schema.xml:793
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/etc/db_schema.xml:807
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/etc/db_schema.xml:808
+      notes: Found 172 references
+    - claim: sales_quote_product_add_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/Quote.php:1730
+      notes: Found 1 references
+  database_tables:
+    total: 3
+    found: 3
+    not_found: 0
+    results:
+    - claim: customer_group_id
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CustomerGraphQl/Model/Context/AddCustomerGroupToContext.php:48
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/GroupedProduct/Model/ResourceModel/Product/Indexer/Price/Grouped.php:95
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/GroupedProduct/Model/ResourceModel/Product/Indexer/Price/Grouped.php:110
+      notes: Found 300 references
+    - claim: quote_item_option
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Product/Option/Type/DefaultType.php:142
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Product/Option/Type/DefaultType.php:143
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Setup/Patch/Data/WishlistDataCleanUp.php:85
+      notes: Found 7 references
+    - claim: sales_quote_product_add_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/Quote.php:1730
+      notes: Found 1 references
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

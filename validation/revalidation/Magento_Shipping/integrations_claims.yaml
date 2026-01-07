@@ -1,0 +1,46 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Shipping/html/integrations.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\Ups\Model\Carrier
+  php_interfaces: []
+  methods:
+  - collectRates
+  - collectShippingRates
+  - create
+  - estimateByAddress
+  - getId
+  - getResult
+  - getStore
+  - nventory
+  - processing
+  - setAllItems
+  - setDestCountryId
+  - setDestPostcode
+  - setDestRegionId
+  - setPackageQty
+  - setPackageValue
+  - setPackageWeight
+  - setStoreId
+  - url
+  events:
+  - sales_order_place_after
+  - save_after
+  - save_before
+  database_tables:
+  - sales_order_place_after
+  - sales_order_shipment_
+  - sales_shipment
+  - sales_shipment_comment
+  - sales_shipment_item
+  - sales_shipment_track
+  - sales_shipping_
+  acl_resources: []
+  config_paths:
+  - ups/etc/config
+  file_paths:
+  - etc/config.xml
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

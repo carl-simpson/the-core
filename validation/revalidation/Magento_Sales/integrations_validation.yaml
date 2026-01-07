@@ -1,0 +1,290 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Sales/html/integrations.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/the-core/magento2-source
+summary:
+  total_claims: 34
+  validated: 34
+  found: 25
+  not_found: 9
+  confidence_distribution:
+    high: 15
+    medium: 19
+    low: 0
+results_by_type:
+  methods:
+    total: 19
+    found: 10
+    not_found: 9
+    results:
+    - claim: agento_Inventory
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: ales
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: apture
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: ata
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: cart
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Test/Unit/Model/Cart/RequestQuantityProcessorTest.php:55
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Test/Unit/Model/CartTest.php:159
+      notes: Found 2 occurrences
+    - claim: customers
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: dispatch
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Controller/Checkout/Address.php:16
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Controller/Checkout.php:83
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Swagger/Controller/Index/Index.php:68
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Vault/Controller/CardsManagement.php:40
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Controller/Onepage.php:144
+      notes: Found 25 occurrences
+    - claim: efund
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: efundOrderInventoryObserver
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: get
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/File.php:51
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/File.php:59
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/File.php:67
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/Metadata.php:59
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/Metadata.php:67
+      notes: Found 17027 occurrences
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Template/Filter.php:130
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Email/Model/Template/Filter.php:550
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Cms/Model/Template/Filter.php:19
+      notes: Found 4 occurrences
+    - claim: order
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Customer/Collection.php:247
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Order/Collection.php:879
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Order/Collection.php:891
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Order/Collection.php:903
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Order/Collection.php:915
+      notes: Found 20 occurrences
+    - claim: paid
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: publish
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Indexer/Category/Product/Action/Full.php:221
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Controller/Adminhtml/Product/Action/Attribute/Save.php:264
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Stomp/Model/Publisher.php:77
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Stomp/Model/Bulk/Publisher.php:89
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Stomp/Model/MassPublisher.php:92
+      notes: Found 10 occurrences
+    - claim: quotes
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: setName
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/Data/RegionInformation.php:63
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Api/Data/RegionInformationInterface.php:59
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Group.php:537
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Store.php:535
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Website.php:580
+      notes: Found 53 occurrences
+    - claim: setPrice
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Product/Attribute/Backend/GroupPrice/AbstractGroupPrice.php:351
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Product/Price/SpecialPrice.php:19
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Product/Price/SpecialPrice.php:67
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Product/Price/SpecialPrice.php:83
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Product/Price/TierPrice.php:19
+      notes: Found 74 occurrences
+    - claim: submit
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/QuoteManagement.php:511
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/QuoteManagement.php:561
+      notes: Found 2 occurrences
+    - claim: url
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/Model/PathConfigTest.php:136
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/App/Response/RedirectTest.php:131
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Wishlist/Test/Unit/Model/Validator/MessageValidatorTest.php:212
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogUrlRewrite/Test/Unit/Observer/ProductProcessUrlRewriteSavingObserverTest.php:138
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CardinalCommerce/Model/JwtManagement.php:124
+      notes: Found 6 occurrences
+  events:
+    total: 6
+    found: 6
+    not_found: 0
+    results:
+    - claim: customer_email
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Translation/Test/Mftf/Metadata/TranslationMeta.xml:10
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Translation/Test/Mftf/Data/TranslationData.xml:12
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/etc/fieldset.xml:28
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/etc/fieldset.xml:82
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Test/Mftf/Test/CheckCheckoutSuccessPageTest/CheckCheckoutSuccessPageAsGuestTest.xml:35
+      notes: Found 40 references
+    - claim: customer_group_id
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CustomerGraphQl/etc/extension_attributes.xml:11
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/etc/fieldset.xml:31
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/etc/db_schema.xml:793
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/etc/db_schema.xml:807
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/etc/db_schema.xml:808
+      notes: Found 172 references
+    - claim: customer_id
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/etc/db_schema.xml:16
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/etc/db_schema.xml:28
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/etc/db_schema.xml:41
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/etc/db_schema.xml:60
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/etc/db_schema.xml:72
+      notes: Found 114 references
+    - claim: customer_is_guest
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/etc/db_schema.xml:62
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/etc/fieldset.xml:153
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/etc/fieldset.xml:399
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/etc/db_schema.xml:143
+      notes: Found 4 references
+    - claim: sales_order_place_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/NewRelicReporting/etc/events.xml:9
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/etc/events.xml:9
+      notes: Found 2 references
+    - claim: sales_order_shipment_save_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Observer/GridSyncInsertObserver.php:52
+      notes: Found 1 references
+  database_tables:
+    total: 9
+    found: 9
+    not_found: 0
+    results:
+    - claim: customer_email
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CustomerGraphQl/Model/GetGuestOrdersByEmail.php:40
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/User/Block/User/Edit/Tab/Main.php:131
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Paypal/Model/ResourceModel/Billing/Agreement/Collection.php:23
+      notes: Found 21 references
+    - claim: customer_group_id
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CustomerGraphQl/Model/Context/AddCustomerGroupToContext.php:48
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/GroupedProduct/Model/ResourceModel/Product/Indexer/Price/Grouped.php:95
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/GroupedProduct/Model/ResourceModel/Product/Indexer/Price/Grouped.php:110
+      notes: Found 300 references
+    - claim: customer_id
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Observer/CatalogProductCompareAddProductObserver.php:78
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Observer/CatalogProductViewObserver.php:92
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/Product/Index/AbstractIndex.php:140
+      notes: Found 389 references
+    - claim: customer_is_guest
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CustomerGraphQl/Model/GetGuestOrdersByEmail.php:41
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Api/Data/CartInterface.php:52
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order.php:2876
+      notes: Found 6 references
+    - claim: quote_id
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Product/Collection.php:295
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Quote/Item/Collection.php:129
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/PaymentInformationManagement.php:171
+      notes: Found 76 references
+    - claim: sales_order_creditmemo_refund
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Creditmemo/RefundOperation.php:120
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Test/Unit/Model/Order/Creditmemo/RefundOperationTest.php:223
+      notes: Found 2 references
+    - claim: sales_order_invoice_pay
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Invoice.php:379
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Test/Unit/Model/Order/InvoiceTest.php:358
+      notes: Found 2 references
+    - claim: sales_order_place_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order.php:1285
+      notes: Found 1 references
+    - claim: sales_order_shipment_save_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Observer/GridSyncInsertObserver.php:52
+      notes: Found 1 references
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

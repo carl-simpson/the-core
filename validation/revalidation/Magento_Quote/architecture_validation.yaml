@@ -1,0 +1,217 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Quote/html/architecture.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/the-core/magento2-source
+summary:
+  total_claims: 25
+  validated: 25
+  found: 16
+  not_found: 9
+  confidence_distribution:
+    high: 13
+    medium: 12
+    low: 0
+results_by_type:
+  php_classes:
+    total: 1
+    found: 1
+    not_found: 0
+    results:
+    - claim: Magento\Quote\Model\ValidationRules\QuoteValidationComposite
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/ValidationRules/QuoteValidationComposite.php:1
+      notes: Class file exists and contains class definition
+  methods:
+    total: 12
+    found: 3
+    not_found: 9
+    results:
+    - claim: contracts
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: hipping
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: iscount
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: logic
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Template/Filter.php:130
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Email/Model/Template/Filter.php:550
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Cms/Model/Template/Filter.php:19
+      notes: Found 4 occurrences
+    - claim: ndpoints
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: nterceptors
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: observers
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: otal
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: setTotalsCollectedFlag
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Test/Unit/Helper/QuoteTestHelper.php:168
+      notes: Found 1 occurrences
+    - claim: ubtotal
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: url
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/Model/PathConfigTest.php:136
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/App/Response/RedirectTest.php:131
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Wishlist/Test/Unit/Model/Validator/MessageValidatorTest.php:212
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogUrlRewrite/Test/Unit/Observer/ProductProcessUrlRewriteSavingObserverTest.php:138
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CardinalCommerce/Model/JwtManagement.php:124
+      notes: Found 6 occurrences
+  events:
+    total: 1
+    found: 1
+    not_found: 0
+    results:
+    - claim: customer_id
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/etc/db_schema.xml:16
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/etc/db_schema.xml:28
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/etc/db_schema.xml:41
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/etc/db_schema.xml:60
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/etc/db_schema.xml:72
+      notes: Found 114 references
+  database_tables:
+    total: 11
+    found: 11
+    not_found: 0
+    results:
+    - claim: customer_id
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Observer/CatalogProductCompareAddProductObserver.php:78
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Observer/CatalogProductViewObserver.php:92
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/Product/Index/AbstractIndex.php:140
+      notes: Found 389 references
+    - claim: quote_address
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/Type/Onepage.php:345
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/OfflineShipping/Setup/Patch/Data/UpdateQuoteShippingAddresses.php:62
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/GiftMessage/Setup/Patch/Data/AddGiftMessageAttributes.php:66
+      notes: Found 54 references
+    - claim: quote_address_id
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/QuoteManagement.php:593
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/QuoteManagement.php:605
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/ResourceModel/Quote/Address/Item/Collection.php:55
+      notes: Found 18 references
+    - claim: quote_address_item
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/GiftMessage/Setup/Patch/Data/AddGiftMessageAttributes.php:66
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/GiftMessage/Model/TypeFactory.php:25
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/GiftMessage/Model/GiftMessageManager.php:55
+      notes: Found 7 references
+    - claim: quote_id
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Product/Collection.php:295
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Quote/Item/Collection.php:129
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/PaymentInformationManagement.php:171
+      notes: Found 76 references
+    - claim: quote_id_mask
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/QuoteMutex.php:43
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/ResourceModel/Quote/QuoteIdMask.php:23
+      notes: Found 2 references
+    - claim: quote_item
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Product/Collection.php:291
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Product/Collection.php:292
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Product/Collection.php:295
+      notes: Found 120 references
+    - claim: quote_item_id
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Customer/Block/Adminhtml/Edit/Tab/Cart.php:199
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Tax/Model/Sales/Total/Quote/CommonTaxCollector.php:982
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Test/Unit/Model/Quote/Address/Total/SubtotalTest.php:248
+      notes: Found 23 references
+    - claim: quote_item_option
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Product/Option/Type/DefaultType.php:142
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Product/Option/Type/DefaultType.php:143
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Setup/Patch/Data/WishlistDataCleanUp.php:85
+      notes: Found 7 references
+    - claim: quote_payment
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Paypal/Setup/Patch/Data/AddPaypalOrderStatuses.php:66
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Paypal/Setup/Patch/Data/AddPaypalOrderStatuses.php:69
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Paypal/Setup/Patch/Data/AddPaypalOrderStatuses.php:70
+      notes: Found 14 references
+    - claim: quote_shipping_rate
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Setup/QuoteSetup.php:70
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/ResourceModel/Quote/Address/Rate.php:22
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/ResourceModel/Quote/Address/Rate/Delete.php:15
+      notes: Found 3 references
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+  file_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

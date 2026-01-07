@@ -1,0 +1,117 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_ConfigurableProduct/html/index.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/the-core/magento2-source
+summary:
+  total_claims: 13
+  validated: 13
+  found: 7
+  not_found: 6
+  confidence_distribution:
+    high: 1
+    medium: 12
+    low: 0
+results_by_type:
+  php_classes:
+    total: 1
+    found: 1
+    not_found: 0
+    results:
+    - claim: Magento\ConfigurableProduct\Model\Product\Type\Configurable
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Model/Product/Type/Configurable.php:1
+      notes: Class file exists and contains class definition
+  methods:
+    total: 12
+    found: 6
+    not_found: 6
+    results:
+    - claim: child
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Template/Filter.php:130
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Email/Model/Template/Filter.php:550
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Cms/Model/Template/Filter.php:19
+      notes: Found 4 occurrences
+    - claim: modules
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: option
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Eav/Test/Unit/Model/Entity/Attribute/OptionManagementTest.php:140
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Test/Unit/Model/AttributeOptionProviderTest.php:208
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Rule/Test/Unit/Model/Condition/CombineTest.php:81
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Customer/Test/Unit/Block/Adminhtml/Edit/Tab/View/Grid/Renderer/ItemTest.php:116
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/DownloadableImportExport/Model/Export/RowCustomizer.php:121
+      notes: Found 7 occurrences
+    - claim: options
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Test/Unit/Model/AttributeOptionProviderTest.php:208
+      notes: Found 1 occurrences
+    - claim: product_id
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: products
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogInventory/Test/Unit/Model/StockManagementTest.php:222
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogInventory/Test/Unit/Model/StockManagementTest.php:262
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogInventory/Test/Unit/Model/ResourceModel/StockTest.php:210
+      notes: Found 3 occurrences
+    - claim: repeat
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: rgba
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: translateY
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: value
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/NewRelicReporting/Test/Unit/Model/ServiceShellUserTest.php:55
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Elasticsearch/Test/Unit/SearchAdapter/Query/ValueTransformer/TextTransformerTest.php:72
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Elasticsearch/Test/Unit/SearchAdapter/Query/ValueTransformer/IntegerTransformerTest.php:54
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogGraphQl/DataProvider/CategoryAttributesMapper.php:86
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogImportExport/Test/Unit/Model/Import/ProductTest.php:2113
+      notes: Found 5 occurrences
+    - claim: var
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Paypal/Test/Unit/Model/Payflow/Service/Response/Validator/IAVSResponseTest.php:55
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Variable/Ui/Component/VariablesDataProvider.php:92
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Test/Unit/Model/Product/Type/VariationMatrixTest.php:48
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Email/Model/Template/Filter.php:674
+      notes: Found 4 occurrences
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

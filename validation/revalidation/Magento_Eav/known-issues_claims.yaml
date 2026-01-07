@@ -1,0 +1,50 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Eav/html/known-issues.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\Catalog\Model\Indexer\Category\Flat
+  - Magento\Catalog\Model\Indexer\Product\Flat
+  - Magento\Eav\Model\Config
+  - Magento\Eav\Model\Entity\AbstractEntity
+  - Magento\Eav\Model\Entity\Attribute\AbstractAttribute
+  - Magento\Eav\Model\Entity\Attribute\Backend\AbstractBackend
+  - Magento\Eav\Model\Entity\Attribute\Source\Table
+  - Magento\Eav\Model\Entity\Collection\AbstractCollection
+  - Magento\ImportExport\Model\Import\Entity\AbstractEntity
+  php_interfaces: []
+  methods:
+  - addAttributeToSelect
+  - attributes
+  - changes
+  - conflicts
+  - creation
+  - deletion
+  - getValue
+  - gradient
+  - load
+  - media
+  - operations
+  - programmatically
+  - repeat
+  - rgba
+  - save
+  - sources
+  - type
+  - validate
+  - value
+  - values
+  - var
+  events: []
+  database_tables:
+  - eav_attribute_label
+  - eav_attribute_option
+  - eav_entity_attribute
+  acl_resources: []
+  config_paths:
+  - bin/magento
+  - creating/updating
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

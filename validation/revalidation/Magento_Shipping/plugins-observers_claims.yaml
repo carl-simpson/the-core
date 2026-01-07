@@ -1,0 +1,50 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Shipping/html/plugins-observers.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\Framework\Logger\Handler\Base
+  - Magento\Framework\Logger\Monolog
+  - Magento\Framework\Url
+  - Magento\Shipping\Helper\Data
+  - Magento\Shipping\Model\Carrier\AbstractCarrier
+  - Magento\Shipping\Model\Carrier\VirtualDebug
+  - Magento\Shipping\Model\Method\VirtualLogger
+  - Magento\Shipping\Model\Observer
+  php_interfaces: []
+  methods:
+  - code
+  - collectRates
+  - debug
+  - directly
+  - ettings
+  - modules
+  - preference
+  - preferences
+  - references
+  - requestToShipment
+  - url
+  events: []
+  database_tables: []
+  acl_resources:
+  - Magento_Backend::admin
+  - Magento_Backend::stores
+  - Magento_Backend::stores_settings
+  - Magento_Config::config
+  - Magento_Shipping::carriers
+  - Magento_Shipping::config_shipping
+  config_paths:
+  - country/weight
+  - etc/acl
+  - etc/adminhtml/di
+  - etc/crontab
+  - etc/di
+  - var/log/shipping
+  file_paths:
+  - etc/acl.xml
+  - etc/adminhtml/di.xml
+  - etc/crontab.xml
+  - etc/di.xml
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

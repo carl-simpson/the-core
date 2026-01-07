@@ -1,0 +1,169 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Store/html/integrations.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/the-core/magento2-source
+summary:
+  total_claims: 18
+  validated: 18
+  found: 12
+  not_found: 6
+  confidence_distribution:
+    high: 3
+    medium: 14
+    low: 1
+results_by_type:
+  php_classes:
+    total: 1
+    found: 0
+    not_found: 1
+    results:
+    - claim: Magento\Framework
+      found: false
+      confidence: low
+      evidence: []
+      notes: Invalid class name format
+  methods:
+    total: 14
+    found: 9
+    not_found: 5
+    results:
+    - claim: admin
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/Test/Unit/Model/Config/SessionLifetime/BackendModelTest.php:39
+      notes: Found 1 occurrences
+    - claim: child
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: getUrl
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ReleaseNotification/Model/ContentProvider/Http/UrlBuilder.php:54
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ReleaseNotification/Test/Unit/Model/ContentProvider/Http/UrlBuilderTest.php:67
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Store.php:589
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Analytics/Model/ReportUrlProvider.php:81
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Analytics/Model/Link.php:38
+      notes: Found 98 occurrences
+    - claim: getValue
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Analytics/ReportXml/DB/ConditionResolver.php:76
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaContentCatalog/Model/ResourceModel/GetAssetIdsByEavContentField.php:113
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/App/Config.php:39
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/App/ConfigInterface.php:23
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/Block/Widget/Form/Element/Gallery.php:79
+      notes: Found 171 occurrences
+    - claim: gradient
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: isSetFlag
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/App/Config.php:63
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/App/ConfigInterface.php:43
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/Test/Unit/App/ConfigTest.php:93
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/InstantPurchase/Model/Config.php:80
+      notes: Found 4 occurrences
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Template/Filter.php:130
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Email/Model/Template/Filter.php:550
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Cms/Model/Template/Filter.php:19
+      notes: Found 4 occurrences
+    - claim: plugin
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Test/Unit/Plugin/MultishippingQuoteRepositoryTest.php:304
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Test/Unit/Plugin/DisableMultishippingModeTest.php:98
+      notes: Found 2 occurrences
+    - claim: reinitStores
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreManager.php:237
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreManagerInterface.php:92
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Config/Importer.php:129
+      notes: Found 3 occurrences
+    - claim: repeat
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: security
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: store_id
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: stores
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Test/Unit/Model/ResourceModel/Order/CollectionTest.php:531
+      notes: Found 1 occurrences
+    - claim: var
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Paypal/Test/Unit/Model/Payflow/Service/Response/Validator/IAVSResponseTest.php:55
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Variable/Ui/Component/VariablesDataProvider.php:92
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Test/Unit/Model/Product/Type/VariationMatrixTest.php:48
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Email/Model/Template/Filter.php:674
+      notes: Found 4 occurrences
+  events:
+    total: 1
+    found: 1
+    not_found: 0
+    results:
+    - claim: customer_entity
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/etc/db_schema.xml:28
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/etc/db_schema.xml:72
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Analytics/Test/Unit/ReportXml/Config/_files/valid_reports.xml:18
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Vault/etc/db_schema.xml:32
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Integration/etc/db_schema.xml:69
+      notes: Found 45 references
+  database_tables:
+    total: 2
+    found: 2
+    not_found: 0
+    results:
+    - claim: customer_entity
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Review/Customer/Collection.php:93
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Quote/Collection.php:118
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Quote/Collection.php:185
+      notes: Found 54 references
+    - claim: sales_order
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Product/Sold/Collection.php:70
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Product/Sold/Collection.php:77
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Customer/Collection.php:204
+      notes: Found 306 references
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

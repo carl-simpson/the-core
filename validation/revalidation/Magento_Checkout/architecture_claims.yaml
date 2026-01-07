@@ -1,0 +1,55 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Checkout/html/architecture.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\Checkout\Model\Session
+  - Magento\Checkout\Model\Session\Storage
+  - Magento\Framework\Session\Storage
+  php_interfaces: []
+  methods:
+  - calculate
+  - clearQuote
+  - ections
+  - getAddress
+  - getBillingAddress
+  - getLastRealOrderId
+  - getLastSuccessQuoteId
+  - getPaymentInformation
+  - getPaymentMethods
+  - getQuote
+  - getQuoteId
+  - getShippingAddress
+  - getShippingCarrierCode
+  - getShippingMethodCode
+  - getTotals
+  - info
+  - interfaces
+  - isValid
+  - media
+  - ontracts
+  - order
+  - rchitecture
+  - saveAddressInformation
+  - savePaymentInformation
+  - savePaymentInformationAndPlaceOrder
+  - session
+  - setQuoteId
+  - shipping
+  - totals
+  - url
+  events:
+  - sales_quote_save_after
+  database_tables:
+  - sales_quote_save_after
+  acl_resources: []
+  config_paths:
+  - carts/mine/payment
+  - carts/mine/set
+  - carts/mine/shipping
+  - carts/mine/totals
+  - payment/review
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

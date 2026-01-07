@@ -1,0 +1,115 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Checkout/html/known-issues.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/the-core/magento2-source
+summary:
+  total_claims: 14
+  validated: 14
+  found: 6
+  not_found: 8
+  confidence_distribution:
+    high: 0
+    medium: 14
+    low: 0
+results_by_type:
+  methods:
+    total: 14
+    found: 6
+    not_found: 8
+    results:
+    - claim: backend
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: checkout
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: frontend
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Eav/Model/Entity/Increment/AbstractIncrement.php:69
+      notes: Found 1 occurrences
+    - claim: handlers
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: indicator
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Template/Filter.php:130
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Email/Model/Template/Filter.php:550
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Cms/Model/Template/Filter.php:19
+      notes: Found 4 occurrences
+    - claim: placeOrder
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Test/Unit/Model/GuestPaymentInformationManagementTest.php:301
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Test/Unit/Model/PaymentInformationManagementTest.php:316
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/InstantPurchase/Model/PlaceOrder.php:96
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/GuestCart/GuestCartManagement.php:81
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/QuoteManagement.php:400
+      notes: Found 8 occurrences
+    - claim: requests
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: returns
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaContentApi/Model/GetAssetIdsByContentFieldInterface.php:20
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaContentApi/Api/GetAssetIdsByContentFieldInterface.php:19
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/Block/Widget/Button/SplitButton.php:215
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Ui/Component/Control/SplitButton.php:255
+      notes: Found 4 occurrences
+    - claim: service
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: ssues
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: stopLoader
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: totals
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Test/Unit/Model/ResourceModel/Order/CollectionTest.php:505
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Test/Unit/Block/Order/Create/TotalsTest.php:106
+      notes: Found 2 occurrences
+    - claim: url
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/Model/PathConfigTest.php:136
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/App/Response/RedirectTest.php:131
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Wishlist/Test/Unit/Model/Validator/MessageValidatorTest.php:212
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogUrlRewrite/Test/Unit/Observer/ProductProcessUrlRewriteSavingObserverTest.php:138
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CardinalCommerce/Model/JwtManagement.php:124
+      notes: Found 6 occurrences
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

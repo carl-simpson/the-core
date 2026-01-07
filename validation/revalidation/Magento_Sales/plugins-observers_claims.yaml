@@ -1,0 +1,78 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Sales/html/plugins-observers.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\Sales\Controller\Order\Plugin\Authentication
+  - Magento\Sales\Model\ResourceModel\Order
+  - Magento\Sales\Model\Service\InvoiceService
+  php_interfaces:
+  - Magento\Framework\App\ActionInterface
+  - Magento\Sales\Api\ShipmentRepositoryInterface
+  methods:
+  - addEventListener
+  - areas
+  - beforeExecute
+  - bservers
+  - catch
+  - customers
+  - details
+  - dispatched
+  - error
+  - execute
+  - get
+  - getCustomerId
+  - getEvent
+  - getOrder
+  - getParam
+  - getRequest
+  - highlightAll
+  - lugin
+  - lugins
+  - media
+  - notify
+  - notifyOrderPlaced
+  - orders
+  - otFoundException
+  - publish
+  - save
+  - sensitive
+  - tables
+  - url
+  events:
+  - customer_id
+  - customer_is_guest
+  - customer_save_after_data_object
+  - sales_quote_address_collect_totals_after
+  database_tables:
+  - customer_id
+  - customer_is_guest
+  - customer_save_after_data_object
+  - sales_creditmemo_grid
+  - sales_email
+  - sales_invoice_grid
+  - sales_order
+  - sales_order_creditmemo_process_relation
+  - sales_order_grid
+  - sales_order_invoice_process_relation
+  - sales_order_process_relation
+  - sales_order_shipment_process_relation
+  - sales_quote_address_collect_totals_after
+  - sales_shipment_grid
+  acl_resources:
+  - Magento_Sales::actions_edit
+  config_paths:
+  - bin/magento
+  - dev/grid/async_indexing
+  - etc/di
+  - etc/frontend/di
+  - general/async_sending
+  - order/invoice/shipment
+  - sales/order/view
+  - save/delete
+  file_paths:
+  - etc/di.xml
+  - etc/frontend/di.xml
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

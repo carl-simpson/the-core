@@ -1,0 +1,284 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Catalog/html/plugins-observers.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/the-core/magento2-source
+summary:
+  total_claims: 36
+  validated: 36
+  found: 33
+  not_found: 3
+  confidence_distribution:
+    high: 26
+    medium: 10
+    low: 0
+results_by_type:
+  php_classes:
+    total: 10
+    found: 10
+    not_found: 0
+    results:
+    - claim: Magento\Catalog\Model\Category\DataProvider
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Category/DataProvider.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Catalog\Model\Plugin\Log
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Plugin/Log.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Catalog\Model\Plugin\QuoteItemProductOption
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Plugin/QuoteItemProductOption.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Catalog\Model\Plugin\SetPageLayoutDefaultValue
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Plugin/SetPageLayoutDefaultValue.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Catalog\Model\Plugin\ShowOutOfStockConfig
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Plugin/ShowOutOfStockConfig.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Catalog\Plugin\Block\Topmenu
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Plugin/Block/Topmenu.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Catalog\Plugin\Model\Attribute\Backend\AttributeValidation
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Plugin/Model/Attribute/Backend/AttributeValidation.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Config\Model\Config
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Config/Model/Config.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Customer\Model\ResourceModel\Visitor
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Customer/Model/ResourceModel/Visitor.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Theme\Block\Html\Topmenu
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Theme/Block/Html/Topmenu.php:1
+      notes: Class file exists and contains class definition
+  methods:
+    total: 10
+    found: 7
+    not_found: 3
+    results:
+    - claim: afterClean
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/Plugin/Log.php:51
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Plugin/Log.php:33
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaStorage/Model/Asset/Plugin/CleanMergedJsCss.php:43
+      notes: Found 3 occurrences
+    - claim: afterGetData
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/LoginAsCustomerAssistance/Plugin/LoginAsCustomerButtonDataProviderPlugin.php:41
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/LoginAsCustomerAssistance/Plugin/DataProviderWithDefaultAddressesPlugin.php:59
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Wishlist/Plugin/Ui/DataProvider/WishlistSettings.php:40
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Plugin/Ui/DataProvider/Product/ProductDataProvider.php:40
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Test/Unit/Model/Indexer/Product/Flat/Plugin/IndexerConfigDataTest.php:72
+      notes: Found 7 occurrences
+    - claim: afterGetIdentities
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/StoreGraphQl/Plugin/Group.php:24
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/StoreGraphQl/Plugin/Store.php:24
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/StoreGraphQl/Plugin/Website.php:24
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Model/Plugin/ProductIdentitiesExtender.php:66
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/EavGraphQl/Plugin/Eav/AttributePlugin.php:26
+      notes: Found 8 occurrences
+    - claim: areas
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: aroundConvertItem
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: aroundSave
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/Plugin/RecollectQuoteOnCustomerGroupChange.php:83
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Plugin/ProductRepositorySaveOperationSynchronizer.php:38
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Plugin/ProductRepository/TransactionWrapper.php:38
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Indexer/Product/Price/Plugin/CustomerGroup.php:81
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Test/Unit/Model/Indexer/Product/Price/Plugin/CustomerGroupTest.php:118
+      notes: Found 15 occurrences
+    - claim: aroundValidate
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Plugin/Model/Attribute/Backend/AttributeValidation.php:46
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Test/Unit/Plugin/Model/Attribute/Backend/AttributeValidationTest.php:170
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Paypal/Plugin/CustomerManagementPlugin.php:41
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Plugin/Model/Attribute/Backend/AttributeValidation.php:49
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Model/Plugin/PriceBackend.php:27
+      notes: Found 9 occurrences
+    - claim: beforeGetHtml
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Plugin/Block/Topmenu.php:62
+      notes: Found 1 occurrences
+    - claim: bservers
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: rea
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/Gif/ReadFile.php:230
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/Gif/ReadFile.php:284
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/Gif/ReadFile.php:302
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/Gif/ReadFile.php:322
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/File/ExtractMetadata.php:79
+      notes: Found 69 occurrences
+  events:
+    total: 16
+    found: 16
+    not_found: 0
+    results:
+    - claim: catalog_category_prepare_save
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/etc/events.xml:67
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogUrlRewrite/etc/events.xml:9
+      notes: Found 2 references
+    - claim: catalog_category_save_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaContentCatalog/etc/events.xml:9
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaContentCatalog/etc/events.xml:10
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/GoogleOptimizer/etc/events.xml:15
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogUrlRewrite/etc/events.xml:12
+      notes: Found 4 references
+    - claim: catalog_product_save_before
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/NewRelicReporting/etc/adminhtml/events.xml:17
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/etc/events.xml:58
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogUrlRewrite/etc/events.xml:24
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogInventory/etc/events.xml:33
+      notes: Found 4 references
+    - claim: catalog_product_save_commit_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/etc/events.xml:64
+      notes: Found 1 references
+    - claim: commit_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/etc/events.xml:64
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/SalesRule/etc/events.xml:33
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/SalesRule/etc/events.xml:36
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/PageCache/etc/events.xml:48
+      notes: Found 4 references
+    - claim: magento_catalog_api_data_categoryinterface_delete_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/etc/events.xml:34
+      notes: Found 1 references
+    - claim: magento_catalog_api_data_categoryinterface_delete_before
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/etc/events.xml:31
+      notes: Found 1 references
+    - claim: magento_catalog_api_data_categoryinterface_load_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/etc/events.xml:37
+      notes: Found 1 references
+    - claim: magento_catalog_api_data_categoryinterface_save_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/etc/events.xml:27
+      notes: Found 1 references
+    - claim: magento_catalog_api_data_categoryinterface_save_before
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/etc/events.xml:24
+      notes: Found 1 references
+    - claim: magento_catalog_api_data_productinterface_delete_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/etc/events.xml:18
+      notes: Found 1 references
+    - claim: magento_catalog_api_data_productinterface_delete_before
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/etc/events.xml:15
+      notes: Found 1 references
+    - claim: magento_catalog_api_data_productinterface_load_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/etc/events.xml:21
+      notes: Found 1 references
+    - claim: magento_catalog_api_data_productinterface_save_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/etc/events.xml:12
+      notes: Found 1 references
+    - claim: magento_catalog_api_data_productinterface_save_before
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/etc/events.xml:9
+      notes: Found 1 references
+    - claim: store_save_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/etc/events.xml:61
+      notes: Found 1 references
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+  file_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

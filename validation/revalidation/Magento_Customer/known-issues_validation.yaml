@@ -1,0 +1,189 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Customer/html/known-issues.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/the-core/magento2-source
+summary:
+  total_claims: 22
+  validated: 22
+  found: 11
+  not_found: 11
+  confidence_distribution:
+    high: 3
+    medium: 19
+    low: 0
+results_by_type:
+  php_classes:
+    total: 1
+    found: 1
+    not_found: 0
+    results:
+    - claim: Magento\Customer\Block\Form\Login\Info
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Customer/Block/Form/Login/Info.php:1
+      notes: Class file exists and contains class definition
+  methods:
+    total: 19
+    found: 8
+    not_found: 11
+    results:
+    - claim: checkout
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: colors
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: confusion
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: content
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryRenditions/Test/Integration/Model/ExtractAssetsFromContentWithRenditionTest.php:62
+      notes: Found 1 occurrences
+    - claim: ebsite
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: endpoints
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: fix
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/AwsS3/Driver/AwsS3.php:931
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/SalesRule/Model/Rule/Action/Discount/ByFixed.php:47
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/SalesRule/Model/Rule/Action/Discount/ByPercent.php:33
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/SalesRule/Model/Rule/Action/Discount/DiscountInterface.php:27
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/SalesRule/Model/Rule/Action/Discount/AbstractDiscount.php:53
+      notes: Found 8 occurrences
+    - claim: getConfig
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ReleaseNotification/Ui/DataProvider/NotificationDataProvider.php:124
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ReportStatus.php:53
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/CurrencyConfig.php:58
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/CurrencyConfig.php:74
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/CurrencyConfig.php:91
+      notes: Found 251 occurrences
+    - claim: highlightAll
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: idn_to_ascii
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: isGlobalScopeEnabled
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Customer/ViewModel/Customer/StoreConfig.php:38
+      notes: Found 1 occurrences
+    - claim: load
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ReleaseNotification/Model/ResourceModel/Viewer/Logger.php:94
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogWidget/Model/Rule/Condition/Product.php:85
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Refresh/Collection.php:63
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Report/Collection.php:388
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/Grouped/Collection.php:50
+      notes: Found 344 occurrences
+    - claim: lobal
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Template/Filter.php:130
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Email/Model/Template/Filter.php:550
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Cms/Model/Template/Filter.php:19
+      notes: Found 4 occurrences
+    - claim: operations
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: seconds
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: session_start
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: toHtml
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/GoogleOptimizer/Block/Adminhtml/Catalog/Category/Edit/Googleoptimizer.php:14
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Test/Unit/Block/LinkTest.php:101
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Block/Registration.php:101
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/Test/Unit/Helper/ButtonTestHelper.php:82
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/LoginAsCustomerAssistance/Block/Adminhtml/NotAllowedPopup.php:65
+      notes: Found 17 occurrences
+    - claim: url
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/Model/PathConfigTest.php:136
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/App/Response/RedirectTest.php:131
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Wishlist/Test/Unit/Model/Validator/MessageValidatorTest.php:212
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogUrlRewrite/Test/Unit/Observer/ProductProcessUrlRewriteSavingObserverTest.php:138
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CardinalCommerce/Model/JwtManagement.php:124
+      notes: Found 6 occurrences
+  events:
+    total: 1
+    found: 1
+    not_found: 0
+    results:
+    - claim: customer_entity
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/etc/db_schema.xml:28
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/etc/db_schema.xml:72
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Analytics/Test/Unit/ReportXml/Config/_files/valid_reports.xml:18
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Vault/etc/db_schema.xml:32
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Integration/etc/db_schema.xml:69
+      notes: Found 45 references
+  database_tables:
+    total: 1
+    found: 1
+    not_found: 0
+    results:
+    - claim: customer_entity
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Review/Customer/Collection.php:93
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Quote/Collection.php:118
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Quote/Collection.php:185
+      notes: Found 54 references
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

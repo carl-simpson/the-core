@@ -1,0 +1,53 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Store/html/architecture.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes: []
+  php_interfaces: []
+  methods:
+  - category
+  - child
+  - clean
+  - code
+  - deleteStoreCookie
+  - get
+  - getActiveStoreByCode
+  - getActiveStoreById
+  - getById
+  - getCurrentStoreId
+  - getDefault
+  - getDefaultStoreView
+  - getGroup
+  - getGroups
+  - getList
+  - getStore
+  - getStoreCodeFromCookie
+  - getStores
+  - getWebsite
+  - getWebsites
+  - gradient
+  - hasSingleStore
+  - isSingleStoreMode
+  - is_numeric
+  - isset
+  - media
+  - reinitStores
+  - repeat
+  - rotate
+  - setCurrentStore
+  - setStoreCookie
+  - type
+  - var
+  - varchar
+  events: []
+  database_tables: []
+  acl_resources: []
+  config_paths:
+  - general/locale/code
+  - general/single_store_mode/enabled
+  - language/locale
+  - store/website
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

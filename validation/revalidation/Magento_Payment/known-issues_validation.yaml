@@ -1,0 +1,172 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Payment/html/known-issues.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/the-core/magento2-source
+summary:
+  total_claims: 17
+  validated: 17
+  found: 15
+  not_found: 2
+  confidence_distribution:
+    high: 1
+    medium: 16
+    low: 0
+results_by_type:
+  php_classes:
+    total: 1
+    found: 1
+    not_found: 0
+    results:
+    - claim: Magento\Quote\Model\QuoteManagement
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/QuoteManagement.php:1
+      notes: Class file exists and contains class definition
+  methods:
+    total: 16
+    found: 14
+    not_found: 2
+    results:
+    - claim: beforePlace
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Plugin/Api/VerifyIsGuestCheckoutEnabledBeforePlaceOrder.php:59
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/QuoteGraphQl/Plugin/Quote/ValidatePaymentOnPlaceOrder.php:39
+      notes: Found 2 occurrences
+    - claim: catch
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/App/UserConfig.php:86
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Indexer/App/Indexer.php:77
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaStorage/App/Media.php:280
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaStorage/Test/Unit/App/MediaTest.php:250
+      notes: Found 4 occurrences
+    - claim: change
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/AwsS3/Driver/AwsS3.php:649
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/AwsS3/Driver/AwsS3.php:657
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Config/Importer/DataDifferenceCalculator.php:180
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/GroupedProduct/Model/Inventory/ChangeParentStockStatus.php:101
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Setup/Patch/Data/ChangePriceAttributeDefaultScope.php:59
+      notes: Found 32 occurrences
+    - claim: create
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/Gif/Segment/WriteXmp.php:139
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/Png/Segment/WriteIptc.php:113
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/Png/Segment/WriteXmp.php:122
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/Jpeg/Segment/WriteXmp.php:118
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/AwsS3/Driver/AwsS3.php:168
+      notes: Found 698 occurrences
+    - claim: execute
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/GetIptcMetadata.php:42
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/AddXmpMetadata.php:30
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/AddIptcMetadata.php:79
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/GetXmpMetadata.php:41
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/Gif/Segment/ReadXmp.php:54
+      notes: Found 1957 occurrences
+    - claim: generic
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: getMethod
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Block/Cart.php:204
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Block/Cart.php:220
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Usps/Model/ShippingMethodManager.php:316
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Usps/Model/ShippingMethodManager.php:343
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Usps/Model/ShippingMethodManager.php:355
+      notes: Found 55 occurrences
+    - claim: getPayment
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Test/Unit/Plugin/MultishippingQuoteRepositoryTest.php:281
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Test/Unit/Model/Checkout/Type/MultishippingTest.php:771
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Block/Checkout/Overview.php:172
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Block/Checkout/Overview.php:182
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Block/Checkout/Payment/Info.php:44
+      notes: Found 99 occurrences
+    - claim: handle
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Analytics/Model/Connector/Http/ResponseHandlerInterface.php:19
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Analytics/Model/Connector/ResponseHandler/Update.php:18
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Analytics/Model/Connector/ResponseHandler/SignUp.php:33
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Analytics/Model/Connector/ResponseHandler/ReSignUp.php:51
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Analytics/Model/Connector/ResponseHandler/OTP.php:18
+      notes: Found 35 occurrences
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Template/Filter.php:130
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Email/Model/Template/Filter.php:550
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Cms/Model/Template/Filter.php:19
+      notes: Found 4 occurrences
+    - claim: number
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ImportExport/Test/Unit/Block/Adminhtml/Export/FilterTest.php:297
+      notes: Found 1 occurrences
+    - claim: ocalizedException
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: processResponse
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Translation/Model/Inline/Parser.php:274
+      notes: Found 1 occurrences
+    - claim: setAdditionalInformation
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Model/InfoInterface.php:39
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Payment/Model/Info.php:154
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Payment/Transaction/Builder.php:126
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Payment/Transaction/BuilderInterface.php:80
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Payment/Info.php:159
+      notes: Found 8 occurrences
+    - claim: setTransactionId
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Creditmemo.php:1210
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Payment.php:235
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Payment.php:2567
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Invoice.php:1265
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Model/Order/Payment/Transaction/Builder.php:117
+      notes: Found 10 occurrences
+    - claim: url
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/Model/PathConfigTest.php:136
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/App/Response/RedirectTest.php:131
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Wishlist/Test/Unit/Model/Validator/MessageValidatorTest.php:212
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogUrlRewrite/Test/Unit/Observer/ProductProcessUrlRewriteSavingObserverTest.php:138
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CardinalCommerce/Model/JwtManagement.php:124
+      notes: Found 6 occurrences
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

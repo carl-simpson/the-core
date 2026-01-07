@@ -1,0 +1,22 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Quote/html/index.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes: []
+  php_interfaces: []
+  methods:
+  - entity
+  - media
+  - url
+  events: []
+  database_tables: []
+  acl_resources: []
+  config_paths:
+  - add/update/delete
+  - carts/mine
+  - carts/mine/items
+  - carts/mine/totals
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

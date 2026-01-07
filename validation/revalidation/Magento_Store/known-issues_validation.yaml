@@ -1,0 +1,242 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Store/html/known-issues.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/the-core/magento2-source
+summary:
+  total_claims: 33
+  validated: 33
+  found: 17
+  not_found: 16
+  confidence_distribution:
+    high: 3
+    medium: 30
+    low: 0
+results_by_type:
+  php_classes:
+    total: 3
+    found: 3
+    not_found: 0
+    results:
+    - claim: Magento\Store\Model\StoreManager
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreManager.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Model\StoreResolver
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreResolver.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Model\StoresData
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoresData.php:1
+      notes: Class file exists and contains class definition
+  methods:
+    total: 30
+    found: 14
+    not_found: 16
+    results:
+    - claim: aming
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: contexts
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: dmin
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: doSomething
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: ebsite
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: foreach
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: frequently
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: getCurrentStoreId
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Event.php:134
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreResolver.php:124
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Block/Store/Switcher.php:158
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Block/Switcher.php:84
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Api/StoreResolverInterface.php:26
+      notes: Found 8 occurrences
+    - claim: getId
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ReleaseNotification/Model/Viewer/Log.php:24
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogWidget/Block/Product/ProductsList.php:526
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Block/Product/Viewed.php:77
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/Data/CountryInformation.php:26
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/Data/RegionInformation.php:23
+      notes: Found 234 occurrences
+    - claim: getStore
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/Product/Index/AbstractIndex.php:153
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Report/AbstractReport.php:380
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Report/Collection.php:300
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Block/Adminhtml/Grid.php:264
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Block/Adminhtml/Grid.php:275
+      notes: Found 349 occurrences
+    - claim: getStoresData
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoresData.php:57
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreResolver.php:166
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/Model/StoreManagerTest.php:190
+      notes: Found 3 occurrences
+    - claim: gradient
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: hasSingleStore
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreManager.php:138
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreManagerInterface.php:42
+      notes: Found 2 occurrences
+    - claim: iddle
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: instead
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: level
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Template/Filter.php:130
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Email/Model/Template/Filter.php:550
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Cms/Model/Template/Filter.php:19
+      notes: Found 4 occurrences
+    - claim: onfusion
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: ottom
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: reinitStores
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreManager.php:237
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreManagerInterface.php:92
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Config/Importer.php:129
+      notes: Found 3 occurrences
+    - claim: repeat
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: roup
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: setCurrentStore
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreManager.php:122
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreManagerInterface.php:123
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Indexer/Category/Product/AbstractAction.php:217
+      notes: Found 3 occurrences
+    - claim: startEnvironmentEmulation
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/App/Emulation.php:140
+      notes: Found 1 occurrences
+    - claim: stopEnvironmentEmulation
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/App/Emulation.php:194
+      notes: Found 1 occurrences
+    - claim: store
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/AwsS3/Test/Mftf/Helper/DummyMetadataCache.php:83
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Test/Unit/Model/ResourceModel/Order/CollectionTest.php:531
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/App/Emulation.php:216
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Analytics/Model/AnalyticsToken.php:77
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Template/Filter.php:147
+      notes: Found 17 occurrences
+    - claim: tore
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: updateStore
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Setup/Patch/Data/UpdateStoreGroupCodes.php:45
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Config/Importer/Processor/Update.php:151
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Quote/Model/Quote/Plugin/UpdateQuoteStoreId.php:90
+      notes: Found 3 occurrences
+    - claim: var
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Paypal/Test/Unit/Model/Payflow/Service/Response/Validator/IAVSResponseTest.php:55
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Variable/Ui/Component/VariablesDataProvider.php:92
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Test/Unit/Model/Product/Type/VariationMatrixTest.php:48
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Email/Model/Template/Filter.php:674
+      notes: Found 4 occurrences
+    - claim: website
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Test/Unit/Model/ProductRepositoryTest.php:1436
+      notes: Found 1 occurrences
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

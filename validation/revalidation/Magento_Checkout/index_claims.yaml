@@ -1,0 +1,20 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Checkout/html/index.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes: []
+  php_interfaces: []
+  methods:
+  - media
+  - modules
+  - url
+  events: []
+  database_tables: []
+  acl_resources: []
+  config_paths:
+  - carts/mine/payment
+  - carts/mine/shipping
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

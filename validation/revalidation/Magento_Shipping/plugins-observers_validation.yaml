@@ -1,0 +1,215 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Shipping/html/plugins-observers.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/the-core/magento2-source
+summary:
+  total_claims: 25
+  validated: 25
+  found: 16
+  not_found: 9
+  confidence_distribution:
+    high: 12
+    medium: 13
+    low: 0
+results_by_type:
+  php_classes:
+    total: 8
+    found: 5
+    not_found: 3
+    results:
+    - claim: Magento\Framework\Logger\Handler\Base
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Test/Unit/Block/Adminhtml/Frontend/Currency/BaseTest.php:23
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Block/Adminhtml/Frontend/Currency/Base.php:12
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/BaseUrlChecker.php:13
+      notes: Found via pattern search
+    - claim: Magento\Framework\Logger\Monolog
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/the-core/magento2-source/app/code/Magento/Framework/Logger/Monolog.php
+        does not exist
+    - claim: Magento\Framework\Url
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ReleaseNotification/Model/ContentProvider/Http/UrlBuilder.php:17
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ReleaseNotification/Test/Unit/Model/ContentProvider/Http/UrlBuilderTest.php:17
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Multishipping/Helper/Url.php:12
+      notes: Found via pattern search
+    - claim: Magento\Shipping\Helper\Data
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Helper/Data.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Shipping\Model\Carrier\AbstractCarrier
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrier.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Shipping\Model\Carrier\VirtualDebug
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/VirtualDebug.php
+        does not exist
+    - claim: Magento\Shipping\Model\Method\VirtualLogger
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Method/VirtualLogger.php
+        does not exist
+    - claim: Magento\Shipping\Model\Observer
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Observer.php:1
+      notes: Class file exists and contains class definition
+  methods:
+    total: 11
+    found: 5
+    not_found: 6
+    results:
+    - claim: code
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Usps/Test/Unit/Model/CarrierTest.php:238
+      notes: Found 1 occurrences
+    - claim: collectRates
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/OfflineShipping/Model/Carrier/Freeshipping.php:88
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/OfflineShipping/Model/Carrier/Tablerate.php:94
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/OfflineShipping/Model/Carrier/Flatrate.php:79
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/OfflineShipping/Model/Carrier/Pickup.php:67
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/OfflineShipping/Test/Unit/Model/Carrier/FlatrateTest.php:240
+      notes: Found 20 occurrences
+    - claim: debug
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/AwsS3/Test/Mftf/Helper/MockTestLogger.php:105
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CardinalCommerce/Model/Response/JwtParser.php:98
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrierOnline.php:685
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrierInterface.php:167
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrier.php:632
+      notes: Found 7 occurrences
+    - claim: directly
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: ettings
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: modules
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: preference
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: preferences
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: references
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: requestToShipment
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Dhl/Model/Carrier.php:2699
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Ups/Model/Carrier.php:2497
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Ups/Test/Unit/Model/CarrierTest.php:394
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Shipping/Labels.php:84
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/Model/Carrier/AbstractCarrierOnline.php:462
+      notes: Found 9 occurrences
+    - claim: url
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/Model/PathConfigTest.php:136
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/App/Response/RedirectTest.php:131
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Wishlist/Test/Unit/Model/Validator/MessageValidatorTest.php:212
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogUrlRewrite/Test/Unit/Observer/ProductProcessUrlRewriteSavingObserverTest.php:138
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CardinalCommerce/Model/JwtManagement.php:124
+      notes: Found 6 occurrences
+  acl_resources:
+    total: 6
+    found: 6
+    not_found: 0
+    results:
+    - claim: Magento_Backend::admin
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryUiApi/etc/acl.xml:11
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/etc/acl.xml:11
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Analytics/etc/acl.xml:11
+      notes: Found 64 references
+    - claim: Magento_Backend::stores
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/etc/acl.xml:48
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/etc/acl.xml:49
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Analytics/etc/acl.xml:15
+      notes: Found 93 references
+    - claim: Magento_Backend::stores_settings
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/etc/acl.xml:49
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Analytics/etc/acl.xml:16
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Analytics/Test/Mftf/Data/UserRoleData.xml:86
+      notes: Found 38 references
+    - claim: Magento_Config::config
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/etc/acl.xml:50
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Analytics/etc/acl.xml:17
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Analytics/Test/Mftf/Data/UserRoleData.xml:88
+      notes: Found 49 references
+    - claim: Magento_Shipping::carriers
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Analytics/Test/Mftf/Data/UserRoleData.xml:101
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/etc/acl.xml:17
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/etc/adminhtml/system.xml:51
+      notes: Found 3 references
+    - claim: Magento_Shipping::config_shipping
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Analytics/Test/Mftf/Data/UserRoleData.xml:99
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/etc/acl.xml:15
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Shipping/etc/adminhtml/system.xml:13
+      notes: Found 3 references
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+  file_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

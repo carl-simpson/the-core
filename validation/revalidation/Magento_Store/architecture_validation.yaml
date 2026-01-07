@@ -1,0 +1,299 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Store/html/architecture.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/the-core/magento2-source
+summary:
+  total_claims: 34
+  validated: 34
+  found: 29
+  not_found: 5
+  confidence_distribution:
+    high: 0
+    medium: 34
+    low: 0
+results_by_type:
+  methods:
+    total: 34
+    found: 29
+    not_found: 5
+    results:
+    - claim: category
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Helper/Output.php:209
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/ViewModel/Category/Output.php:42
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sitemap/Test/Unit/Model/ItemProvider/CategoryTest.php:63
+      notes: Found 3 occurrences
+    - claim: child
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: clean
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/Product/Index/AbstractIndex.php:244
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Product/Index/AbstractIndex.php:155
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Event.php:180
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/Event.php:124
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/WebsiteRepository.php:163
+      notes: Found 71 occurrences
+    - claim: code
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Usps/Test/Unit/Model/CarrierTest.php:238
+      notes: Found 1 occurrences
+    - claim: deleteStoreCookie
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreCookieManager.php:72
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Api/StoreCookieManagerInterface.php:33
+      notes: Found 2 occurrences
+    - claim: get
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/File.php:51
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/File.php:59
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/File.php:67
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/Metadata.php:59
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/Metadata.php:67
+      notes: Found 17027 occurrences
+    - claim: getActiveStoreByCode
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreRepository.php:87
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Api/StoreRepositoryInterface.php:36
+      notes: Found 2 occurrences
+    - claim: getActiveStoreById
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreRepository.php:125
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Api/StoreRepositoryInterface.php:46
+      notes: Found 2 occurrences
+    - claim: getById
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/WebsiteRepository.php:97
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreRepository.php:100
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Api/StoreRepositoryInterface.php:55
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Api/WebsiteRepositoryInterface.php:34
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Vault/Model/PaymentTokenRepository.php:114
+      notes: Found 29 occurrences
+    - claim: getCurrentStoreId
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Event.php:134
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreResolver.php:124
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Block/Store/Switcher.php:158
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Block/Switcher.php:84
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Api/StoreResolverInterface.php:26
+      notes: Found 8 occurrences
+    - claim: getDefault
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Helper/Data.php:331
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/Currency/Import/FixerIoApiLayer.php:257
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/Currency/DefaultLocator.php:42
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/Data/CurrencyInformation.php:58
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/Data/CurrencyInformation.php:74
+      notes: Found 161 occurrences
+    - claim: getDefaultStoreView
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreManager.php:253
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreManagerInterface.php:99
+      notes: Found 2 occurrences
+    - claim: getGroup
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreManager.php:263
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreManager.php:278
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Store.php:1051
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Store.php:1109
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreManagerInterface.php:107
+      notes: Found 54 occurrences
+    - claim: getGroups
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreManager.php:278
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreManagerInterface.php:115
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Website.php:353
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Website.php:379
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Config/Importer.php:153
+      notes: Found 8 occurrences
+    - claim: getList
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/WebsiteRepository.php:121
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/GroupRepository.php:79
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreRepository.php:138
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Api/StoreRepositoryInterface.php:62
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Api/WebsiteRepositoryInterface.php:41
+      notes: Found 161 occurrences
+    - claim: getStore
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/Product/Index/AbstractIndex.php:153
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Report/AbstractReport.php:380
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Report/Collection.php:300
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Block/Adminhtml/Grid.php:264
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Block/Adminhtml/Grid.php:275
+      notes: Found 349 occurrences
+    - claim: getStoreCodeFromCookie
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreCookieManager.php:50
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Api/StoreCookieManagerInterface.php:21
+      notes: Found 2 occurrences
+    - claim: getStores
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoresConfig.php:43
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreManager.php:179
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Group.php:242
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Group.php:281
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Group.php:333
+      notes: Found 37 occurrences
+    - claim: getWebsite
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/Product/DataRetriever.php:77
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreManager.php:198
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreManager.php:218
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Group.php:361
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Group.php:424
+      notes: Found 119 occurrences
+    - claim: getWebsites
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreManager.php:218
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Indexer/WebsiteDimensionProvider.php:62
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreManagerInterface.php:85
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/Block/Store/Switcher.php:154
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Product/Website.php:76
+      notes: Found 21 occurrences
+    - claim: gradient
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: hasSingleStore
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreManager.php:138
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreManagerInterface.php:42
+      notes: Found 2 occurrences
+    - claim: isSingleStoreMode
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreManager.php:147
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreManager.php:298
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreManagerInterface.php:49
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/Block/Page.php:67
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Block/Adminhtml/Product/Edit/Tab/Inventory.php:240
+      notes: Found 13 occurrences
+    - claim: is_numeric
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CmsGraphQl/Model/Resolver/Blocks.php:17
+      notes: Found 1 occurrences
+    - claim: isset
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Template/Filter.php:130
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Email/Model/Template/Filter.php:550
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Cms/Model/Template/Filter.php:19
+      notes: Found 4 occurrences
+    - claim: reinitStores
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreManager.php:237
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreManagerInterface.php:92
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/Config/Importer.php:129
+      notes: Found 3 occurrences
+    - claim: repeat
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: rotate
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Helper/Image.php:401
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Product/Image.php:535
+      notes: Found 2 occurrences
+    - claim: setCurrentStore
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreManager.php:122
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreManagerInterface.php:123
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Indexer/Category/Product/AbstractAction.php:217
+      notes: Found 3 occurrences
+    - claim: setStoreCookie
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreCookieManager.php:58
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Api/StoreCookieManagerInterface.php:27
+      notes: Found 2 occurrences
+    - claim: type
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Test/Unit/Model/ResourceModel/HelperTest.php:129
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Backend/Test/Unit/Block/Widget/Grid/Column/Renderer/ConcatTest.php:39
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Indexer/Test/Unit/Block/Backend/Grid/Column/Renderer/ScheduledTest.php:46
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Weee/Helper/Data.php:240
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Weee/Pricing/Render/TaxAdjustment.php:68
+      notes: Found 6 occurrences
+    - claim: var
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Paypal/Test/Unit/Model/Payflow/Service/Response/Validator/IAVSResponseTest.php:55
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Variable/Ui/Component/VariablesDataProvider.php:92
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Test/Unit/Model/Product/Type/VariationMatrixTest.php:48
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Email/Model/Template/Filter.php:674
+      notes: Found 4 occurrences
+    - claim: varchar
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

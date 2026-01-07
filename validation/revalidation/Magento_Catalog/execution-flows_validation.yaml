@@ -1,0 +1,221 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Catalog/html/execution-flows.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/the-core/magento2-source
+summary:
+  total_claims: 24
+  validated: 24
+  found: 19
+  not_found: 5
+  confidence_distribution:
+    high: 7
+    medium: 17
+    low: 0
+results_by_type:
+  php_classes:
+    total: 2
+    found: 2
+    not_found: 0
+    results:
+    - claim: Magento\Catalog\Controller\Product\View
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Controller/Product/View.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Catalog\Model\ProductRepository
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/ProductRepository.php:1
+      notes: Class file exists and contains class definition
+  methods:
+    total: 17
+    found: 12
+    not_found: 5
+    results:
+    - claim: addAttributeToSelect
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Eav/Model/Entity/Collection/AbstractCollection.php:506
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/ResourceModel/AbstractCollection.php:79
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/ResourceModel/Product/Collection.php:682
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/ResourceModel/Category/Flat/Collection.php:259
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Test/Unit/Block/Adminhtml/Category/Checkboxes/TreeTest.php:75
+      notes: Found 7 occurrences
+    - claim: attributes
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/GroupedImportExport/Test/Unit/Model/Import/Product/Type/Grouped/LinksTest.php:131
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Eav/Model/Entity/AbstractEntity.php:603
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Product/Type/AbstractType.php:311
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogUrlRewrite/Test/Unit/Plugin/Catalog/Block/Adminhtml/Category/Tab/AttributesTest.php:111
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Test/Unit/Block/Adminhtml/Product/Steps/SelectAttributesTest.php:105
+      notes: Found 7 occurrences
+    - claim: catalog_product_entity
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: catalog_product_entity_decimal
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: catalog_product_entity_int
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: catalog_product_entity_varchar
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: catalog_product_flat
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: data
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Test/Unit/Block/DataTest.php:242
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/Model/ScopeFallbackResolverTest.php:79
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/GoogleOptimizer/Test/Unit/Helper/DataTest.php:86
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/GoogleOptimizer/Test/Unit/Helper/DataTest.php:129
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/GoogleOptimizer/Test/Unit/Observer/Product/SaveGoogleExperimentScriptObserverTest.php:199
+      notes: Found 231 occurrences
+    - claim: get
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/File.php:51
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/File.php:59
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/File.php:67
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/Metadata.php:59
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaGalleryMetadata/Model/Metadata.php:67
+      notes: Found 17027 occurrences
+    - claim: getById
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/WebsiteRepository.php:97
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Model/StoreRepository.php:100
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Api/StoreRepositoryInterface.php:55
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Api/WebsiteRepositoryInterface.php:34
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Vault/Model/PaymentTokenRepository.php:114
+      notes: Found 29 occurrences
+    - claim: getFinalPrice
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/GroupedProduct/Model/Product/Type/Grouped/Price.php:17
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/GroupedProduct/Test/Unit/Model/Product/Type/Grouped/PriceTest.php:190
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Helper/Product.php:210
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Product/Type/Price.php:186
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/ProductRender/FormattedPriceInfo.php:20
+      notes: Found 15 occurrences
+    - claim: getPrice
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogWidget/Block/Product/ProductsList.php:558
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Helper/Data.php:166
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Block/Cart/Item/Renderer.php:479
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/OfflineShipping/Model/ResourceModel/Carrier/Tablerate/CSV/RowParser.php:219
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Wishlist/Block/Customer/Sidebar.php:66
+      notes: Found 146 occurrences
+    - claim: load
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ReleaseNotification/Model/ResourceModel/Viewer/Logger.php:94
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogWidget/Model/Rule/Condition/Product.php:85
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Refresh/Collection.php:63
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Report/Collection.php:388
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/Grouped/Collection.php:50
+      notes: Found 344 occurrences
+    - claim: options
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Test/Unit/Model/AttributeOptionProviderTest.php:208
+      notes: Found 1 occurrences
+    - claim: prepareAndRender
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Helper/Product/View.php:243
+      notes: Found 1 occurrences
+    - claim: reindexRow
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Indexer/Product/Flat/Processor.php:45
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Indexer/Category/Flat/Processor.php:31
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Indexer/Model/Indexer.php:562
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Indexer/Model/Indexer/DependencyDecorator.php:273
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogRule/Model/Indexer/Rule/RuleProductProcessor.php:60
+      notes: Found 7 occurrences
+    - claim: save
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MessageQueue/Model/ResourceModel/Lock.php:86
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Observer/EventSaver.php:60
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Product/Index/AbstractIndex.php:127
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/Currency/Import/FixerIoApiLayer.php:163
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Directory/Model/ResourceModel/Currency.php:141
+      notes: Found 403 occurrences
+  events:
+    total: 5
+    found: 5
+    not_found: 0
+    results:
+    - claim: catalog_category_prepare_save
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/etc/events.xml:67
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogUrlRewrite/etc/events.xml:9
+      notes: Found 2 references
+    - claim: catalog_category_save_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaContentCatalog/etc/events.xml:9
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaContentCatalog/etc/events.xml:10
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/GoogleOptimizer/etc/events.xml:15
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogUrlRewrite/etc/events.xml:12
+      notes: Found 4 references
+    - claim: catalog_category_save_before
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogUrlRewrite/etc/events.xml:33
+      notes: Found 1 references
+    - claim: catalog_product_load_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogInventory/etc/events.xml:12
+      notes: Found 1 references
+    - claim: catalog_product_save_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaContentCatalog/etc/events.xml:18
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/MediaContentCatalog/etc/events.xml:19
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/GoogleOptimizer/etc/events.xml:9
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogUrlRewrite/etc/events.xml:27
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/etc/adminhtml/events.xml:18
+      notes: Found 6 references
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

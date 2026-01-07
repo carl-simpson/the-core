@@ -1,0 +1,30 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Quote/html/integrations.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes: []
+  php_interfaces: []
+  methods:
+  - eference
+  - getFinalPrice
+  - media
+  - placeOrder
+  - url
+  events: []
+  database_tables: []
+  acl_resources: []
+  config_paths:
+  - carts/mine
+  - carts/mine/billing
+  - carts/mine/coupons
+  - carts/mine/items
+  - carts/mine/order
+  - carts/mine/payment
+  - carts/mine/shipping
+  - carts/mine/totals
+  - etc/fieldset
+  file_paths:
+  - etc/fieldset.xml
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

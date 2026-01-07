@@ -1,0 +1,45 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Eav/html/plugins-observers.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\Eav\Model\AttributeManagement
+  - Magento\Eav\Model\AttributeRepository
+  - Magento\Eav\Model\AttributeSetManagement
+  - Magento\Eav\Model\AttributeSetRepository
+  - Magento\Eav\Model\Attribute\GroupRepository
+  - Magento\Eav\Model\Entity\AbstractEntity
+  - Magento\Eav\Model\Entity\Attribute
+  - Magento\Eav\Model\Entity\AttributeLoader
+  - Magento\Eav\Model\Entity\Attribute\FrontendLabel
+  - Magento\Eav\Model\Entity\Attribute\Group
+  - Magento\Eav\Model\Entity\Attribute\Option
+  - Magento\Eav\Model\Entity\Attribute\OptionLabel
+  - Magento\Eav\Model\Entity\Attribute\OptionManagement
+  - Magento\Eav\Model\Entity\Attribute\Set
+  - Magento\Eav\Model\Entity\Attribute\UniqueValidator
+  - Magento\Eav\Model\Entity\Setup\PropertyMapper\Composite
+  - Magento\Eav\Model\ReservedAttributeChecker
+  - Magento\Eav\Model\ResourceModel\CreateHandler
+  - Magento\Eav\Model\ResourceModel\Entity\Attribute
+  - Magento\Eav\Model\ResourceModel\ReadHandler
+  - Magento\Eav\Model\ResourceModel\UpdateHandler
+  - Magento\Eav\Model\TypeLocator
+  - Magento\Eav\Plugin\Model\ResourceModel\Entity\Attribute
+  - Magento\Framework\App\Cache\FlushCacheByTags
+  - Magento\Framework\EntityManager\Operation\AttributePool
+  php_interfaces: []
+  methods:
+  - child
+  - gradient
+  - media
+  - repeat
+  - var
+  events: []
+  database_tables: []
+  acl_resources: []
+  config_paths: []
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

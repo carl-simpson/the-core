@@ -1,0 +1,51 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Store/html/execution-flows.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes: []
+  php_interfaces: []
+  methods:
+  - admin
+  - child
+  - count
+  - counter
+  - data
+  - efault
+  - getActiveStoreByCode
+  - getActiveStoreById
+  - getCurrentStoreId
+  - getParam
+  - getStore
+  - getStoreCodeFromCookie
+  - getValidStoreCode
+  - getValue
+  - gradient
+  - hasSingleStore
+  - isCurrentlySecure
+  - isSingleStoreModeEnabled
+  - launch
+  - media
+  - params
+  - setStoreCookie
+  - store
+  - stores
+  - tore
+  - var
+  events: []
+  database_tables: []
+  acl_resources: []
+  config_paths:
+  - bin/magento
+  - catalog/product
+  - french/catalog/product
+  - french/products
+  - general/single_store_mode/enabled
+  - path/to/config
+  - stores/store/redirect
+  - web/secure/base_url
+  - web/unsecure/base_url
+  - web/url/use_store
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

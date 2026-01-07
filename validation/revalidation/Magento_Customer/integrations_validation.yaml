@@ -1,0 +1,155 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Customer/html/integrations.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/the-core/magento2-source
+summary:
+  total_claims: 15
+  validated: 15
+  found: 11
+  not_found: 4
+  confidence_distribution:
+    high: 6
+    medium: 9
+    low: 0
+results_by_type:
+  methods:
+    total: 9
+    found: 5
+    not_found: 4
+    results:
+    - claim: class
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: colors
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: customer
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Vault/Test/Unit/Model/Ui/VaultConfigProviderTest.php:116
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CustomerImportExport/Test/Unit/Model/Import/Customer/StorageTest.php:87
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Customer/Test/Unit/Plugin/AsyncRequestCustomerGroupAuthorizationTest.php:102
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Customer/Test/Unit/Model/AccountManagementApiTest.php:490
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Customer/Test/Unit/Model/EmailNotificationTest.php:835
+      notes: Found 9 occurrences
+    - claim: highlightAll
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Template/Filter.php:130
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Email/Model/Template/Filter.php:550
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Cms/Model/Template/Filter.php:19
+      notes: Found 4 occurrences
+    - claim: updateCustomer
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/Product/Index/AbstractIndex.php:166
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Product/Index/AbstractIndex.php:45
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/ResourceModel/Event.php:64
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/Event.php:104
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Model/PaymentInformationManagement.php:292
+      notes: Found 18 occurrences
+    - claim: url
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/Model/PathConfigTest.php:136
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/App/Response/RedirectTest.php:131
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Wishlist/Test/Unit/Model/Validator/MessageValidatorTest.php:212
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogUrlRewrite/Test/Unit/Observer/ProductProcessUrlRewriteSavingObserverTest.php:138
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CardinalCommerce/Model/JwtManagement.php:124
+      notes: Found 6 occurrences
+    - claim: ustomer
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: validation
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Store/Test/Unit/Model/StoreSwitcher/RedirectDataValidatorTest.php:96
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Checkout/Test/Unit/Block/Checkout/AttributeMergerTest.php:116
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Eav/Test/Unit/Model/Entity/Attribute/Frontend/DefaultFrontendTest.php:159
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Test/Unit/Model/Product/Option/Validator/DefaultValidatorTest.php:157
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Test/Unit/Controller/Adminhtml/Product/NewActionTest.php:140
+      notes: Found 13 occurrences
+  events:
+    total: 2
+    found: 2
+    not_found: 0
+    results:
+    - claim: customer_eav_attribute
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Customer/etc/db_schema.xml:437
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Customer/etc/db_schema.xml:465
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Customer/etc/db_schema.xml:486
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Customer/etc/db_schema.xml:504
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Customer/etc/db_schema.xml:507
+      notes: Found 5 references
+    - claim: customer_id
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/etc/db_schema.xml:16
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/etc/db_schema.xml:28
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/etc/db_schema.xml:41
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/etc/db_schema.xml:60
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/etc/db_schema.xml:72
+      notes: Found 114 references
+  database_tables:
+    total: 4
+    found: 4
+    not_found: 0
+    results:
+    - claim: customer_eav_attribute
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Customer/Setup/Patch/Data/ConvertValidationRulesFromSerializedToJson.php:51
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Customer/Setup/Patch/Data/DefaultCustomerGroupsAndAttributes.php:143
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Customer/Setup/CustomerSetup.php:158
+      notes: Found 8 references
+    - claim: customer_id
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Observer/CatalogProductCompareAddProductObserver.php:78
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Observer/CatalogProductViewObserver.php:92
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Reports/Model/Product/Index/AbstractIndex.php:140
+      notes: Found 389 references
+    - claim: eav_attribute
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Eav/Setup/AddOptionToAttribute.php:43
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Eav/Setup/AddOptionToAttribute.php:44
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Eav/Setup/EavSetup.php:181
+      notes: Found 223 references
+    - claim: eav_entity_type
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Eav/Setup/EavSetup.php:244
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Eav/Setup/EavSetup.php:271
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Eav/Setup/EavSetup.php:290
+      notes: Found 21 references
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

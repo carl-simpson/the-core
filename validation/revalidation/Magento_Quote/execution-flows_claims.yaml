@@ -1,0 +1,74 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Quote/html/execution-flows.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes: []
+  php_interfaces: []
+  methods:
+  - addProduct
+  - assignCustomer
+  - collectTotals
+  - conditions
+  - create
+  - createEmptyCart
+  - deduction
+  - execute
+  - foreach
+  - getActive
+  - getById
+  - getGrandTotal
+  - getShippingAddress
+  - getStoreId
+  - getSubtotal
+  - media
+  - met
+  - oSuchEntityException
+  - ocalizedException
+  - placeOrder
+  - placement
+  - save
+  - set
+  - setBaseSubtotal
+  - setCollectShippingRates
+  - setCouponCode
+  - setGrandTotal
+  - setIsActive
+  - setMaskedId
+  - setQuoteId
+  - setReservedOrderId
+  - setSubtotal
+  - setTotalsCollectedFlag
+  - submit
+  - submitQuote
+  - url
+  - use
+  - validate
+  events:
+  - customer_id
+  - sales_model_service_quote_submit_before
+  - sales_order_place_after
+  - sales_quote_collect_totals_after
+  - sales_quote_collect_totals_before
+  - sales_quote_item_qty_set_after
+  - sales_quote_product_add_after
+  - sales_quote_save_after
+  database_tables:
+  - customer_id
+  - sales_model_service_quote_submit_before
+  - sales_model_service_quote_submit_success
+  - sales_order_place_after
+  - sales_quote_collect_totals_after
+  - sales_quote_collect_totals_before
+  - sales_quote_item_qty_set_after
+  - sales_quote_product_add_after
+  - sales_quote_save_after
+  acl_resources: []
+  config_paths:
+  - customer/guest
+  - item/shipping
+  - quote/address
+  - rules/coupons
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

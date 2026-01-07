@@ -1,0 +1,80 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Store/html/index.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/the-core/magento2-source
+summary:
+  total_claims: 9
+  validated: 9
+  found: 3
+  not_found: 6
+  confidence_distribution:
+    high: 0
+    medium: 9
+    low: 0
+results_by_type:
+  methods:
+    total: 9
+    found: 3
+    not_found: 6
+    results:
+    - claim: child
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: gradient
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: group_id
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Catalog/Model/Template/Filter.php:130
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Email/Model/Template/Filter.php:550
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Cms/Model/Template/Filter.php:19
+      notes: Found 4 occurrences
+    - claim: repeat
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: tier
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/AdvancedPricingImportExport/Model/Export/AdvancedPricing.php:430
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/CatalogImportExport/Test/Unit/Model/Import/Product/Validator/TierPriceTest.php:109
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Sales/Test/Unit/Block/Adminhtml/Order/Create/Items/GridTest.php:199
+      notes: Found 3 occurrences
+    - claim: translateX
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: var
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Paypal/Test/Unit/Model/Payflow/Service/Response/Validator/IAVSResponseTest.php:55
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Variable/Ui/Component/VariablesDataProvider.php:92
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/ConfigurableProduct/Test/Unit/Model/Product/Type/VariationMatrixTest.php:48
+      - /home/carl/Documents/the-core/magento2-source/app/code/Magento/Email/Model/Template/Filter.php:674
+      notes: Found 4 occurrences
+    - claim: website_id
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

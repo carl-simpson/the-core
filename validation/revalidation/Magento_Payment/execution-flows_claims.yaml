@@ -1,0 +1,53 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Payment/html/execution-flows.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\Framework\DataObject
+  php_interfaces: []
+  methods:
+  - authorize
+  - cancel
+  - capture
+  - createResult
+  - executeCommand
+  - getActiveList
+  - getBaseCurrencyCode
+  - getBaseGrandTotal
+  - getFailsDescription
+  - getIncrementId
+  - getLastTransId
+  - getParentTransactionId
+  - getRefundTransactionId
+  - isActive
+  - isAvailable
+  - media
+  - ommandException
+  - place
+  - refund
+  - setAdditionalInformation
+  - setIsClosed
+  - setIsTransactionClosed
+  - setParentTransactionId
+  - setTransactionId
+  - url
+  - validate
+  - void
+  events:
+  - sales_order_save_before
+  database_tables:
+  - sales_order_payment_
+  - sales_order_save_before
+  - sales_order_status_unassign
+  acl_resources: []
+  config_paths:
+  - application/json
+  - checkout/index/index
+  - com/authorize
+  - enable/disable
+  - js/view/payment
+  - min/max
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

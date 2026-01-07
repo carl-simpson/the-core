@@ -1,0 +1,37 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Store/html/integrations.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\Framework
+  php_interfaces: []
+  methods:
+  - admin
+  - child
+  - getUrl
+  - getValue
+  - gradient
+  - isSetFlag
+  - media
+  - plugin
+  - reinitStores
+  - repeat
+  - security
+  - store_id
+  - stores
+  - var
+  events:
+  - customer_entity
+  database_tables:
+  - customer_entity
+  - sales_order
+  acl_resources: []
+  config_paths:
+  - com/media
+  - general/locale/code
+  - model/repository
+  - pages/blocks
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

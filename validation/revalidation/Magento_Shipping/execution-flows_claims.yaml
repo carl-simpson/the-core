@@ -1,0 +1,60 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Shipping/html/execution-flows.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\Shipping\Model\Observer
+  php_interfaces: []
+  methods:
+  - ackages
+  - aggregate
+  - alidation
+  - append
+  - appendResult
+  - ata
+  - checkAvailableShipCountries
+  - collectCarrierRates
+  - collectRates
+  - collectShippingRates
+  - create
+  - esult
+  - format
+  - getErrors
+  - getResult
+  - getShippingLabel
+  - getTrackingInfo
+  - getValue
+  - ggregation
+  - hipCountries
+  - hipment
+  - load
+  - ollection
+  - ookup
+  - prepareCarrier
+  - reation
+  - requestToShipment
+  - save
+  - setCarrier
+  - setCarrierTitle
+  - setErrorMessage
+  - setShippingLabel
+  - setShippingRates
+  - setTracking
+  - silently
+  - url
+  events:
+  - save_after
+  database_tables:
+  - sales_order_shipment_
+  - sales_shipment
+  - sales_shipping_aggregated
+  acl_resources: []
+  config_paths:
+  - etc/crontab
+  - methods/error
+  - order/shipment/track
+  file_paths:
+  - etc/crontab.xml
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null
