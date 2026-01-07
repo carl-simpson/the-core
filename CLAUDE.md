@@ -94,6 +94,24 @@ All HTML documentation uses Tailwind CSS with the Magento brand palette. Key req
 ### Forbidden Colors
 Never use: purple (#292562), red (#ec2254), blues, greens, or pink/magenta
 
+## Magento 2 Source (Ground Truth)
+
+Official Magento 2 source for documentation validation:
+```
+/home/carl/Documents/the-core/magento2-source/app/code/Magento/
+```
+
+Validation tools use this path to verify all documentation claims (classes, events, methods, etc.)
+
+### Validation Commands
+```bash
+# Extract claims from documentation
+python3 validation/tools/extract_claims.py docs/modules/Magento_Customer/html/architecture.html output.yaml
+
+# Validate claims against Magento source
+python3 validation/tools/validate_claims.py output.yaml magento2-source/app/code/Magento results.yaml
+```
+
 ## Environment Configuration
 
 Copy `.env.example` to `.env` and set:

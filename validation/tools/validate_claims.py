@@ -36,22 +36,30 @@ class MagentoValidator:
 
     def __init__(self, magento_root: Path):
         self.magento_root = magento_root
+        self.path_style = None  # 'vendor' (module-customer) or 'app' (Customer)
 
-        # Support both Magento and Mage-OS vendor paths
+        # Support multiple Magento source structures
         possible_paths = [
-            magento_root / "vendor" / "magento",
-            magento_root / "vendor" / "mage-os",
-            magento_root,  # Direct path to vendor dir
+            (magento_root / "app" / "code" / "Magento", "app"),  # Official Magento 2 repo
+            (magento_root / "vendor" / "magento", "vendor"),     # Composer install
+            (magento_root / "vendor" / "mage-os", "vendor"),     # Mage-OS
+            (magento_root, "vendor"),                             # Direct path
         ]
 
         self.vendor_path = None
-        for path in possible_paths:
-            if path.exists() and (path / "module-customer").exists():
+        for path, style in possible_paths:
+            # Check for Customer module in appropriate format
+            if style == "app" and path.exists() and (path / "Customer").exists():
                 self.vendor_path = path
+                self.path_style = style
+                break
+            elif style == "vendor" and path.exists() and (path / "module-customer").exists():
+                self.vendor_path = path
+                self.path_style = style
                 break
 
         if not self.vendor_path:
-            raise FileNotFoundError(f"Magento/Mage-OS vendor path not found. Tried: {possible_paths}")
+            raise FileNotFoundError(f"Magento source not found. Tried: {[p[0] for p in possible_paths]}")
 
     def _search_in_files(self, pattern: str, module_dir: Path = None, file_pattern: str = "*.php") -> List[Tuple[Path, int]]:
         """Search for pattern in files using ripgrep or grep"""
@@ -96,10 +104,19 @@ class MagentoValidator:
                     continue
         return results
 
+    def _get_module_path(self, module_name: str) -> Path:
+        """Convert module name to directory path based on source structure"""
+        if self.path_style == "app":
+            # Official Magento 2 repo: Customer, Sales, etc.
+            return self.vendor_path / module_name
+        else:
+            # Composer/Mage-OS: module-customer, module-sales, etc.
+            return self.vendor_path / f"module-{module_name.lower()}"
+
     def validate_class(self, class_name: str) -> ValidationResult:
         """Validate a PHP class exists"""
 
-        # Convert Magento\Customer\Model\Customer to module-customer/Model/Customer.php
+        # Convert Magento\Customer\Model\Customer to appropriate path
         parts = class_name.replace('Magento\\', '').split('\\')
 
         if len(parts) < 2:
@@ -111,11 +128,11 @@ class MagentoValidator:
                 notes='Invalid class name format'
             )
 
-        module_name = 'module-' + parts[0].lower()
+        module_dir = self._get_module_path(parts[0])
         file_path = '/'.join(parts[1:]) + '.php'
 
         # Check if file exists
-        expected_path = self.vendor_path / module_name / file_path
+        expected_path = module_dir / file_path
 
         if expected_path.exists():
             # Verify class definition in file

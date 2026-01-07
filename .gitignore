@@ -55,3 +55,4 @@ temp/
 !snapshots/.gitkeep
 !backups/.gitkeep
 !docker-data/.gitkeep
+magento2-source/
