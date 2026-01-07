@@ -1,0 +1,77 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_ConfigurableProduct/html/integrations.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os
+summary:
+  total_claims: 7
+  validated: 7
+  found: 5
+  not_found: 2
+  confidence_distribution:
+    high: 0
+    medium: 7
+    low: 0
+results_by_type:
+  methods:
+    total: 7
+    found: 5
+    not_found: 2
+    results:
+    - claim: attributes
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-ui/Component/Control/Button.php:174
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Catalog/Model/ResourceModel/Attribute/CollectionTest.php:60
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog-url-rewrite/Test/Unit/Plugin/Catalog/Block/Adminhtml/Category/Tab/AttributesTest.php:112
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog-search/Test/Unit/Model/Search/RequestGeneratorTest.php:70
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Model/Entity/AbstractEntity.php:603
+      notes: Found 8 occurrences
+    - claim: child
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/ConfigurableProduct/ConfigurableProductMultipleStoreViewTest.php:67
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Swatches/Block/Product/Renderer/Configurable/PriceTest.php:94
+      notes: Found 2 occurrences
+    - claim: extensions
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Downloadable/Controller/Adminhtml/Downloadable/FileTest.php:108
+      notes: Found 1 occurrences
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/Model/Template/Filter.php:19
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-email/Model/Template/Filter.php:546
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/CatalogImportExport/Model/Import/ProductTestBase.php:164
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/CatalogImportExport/Model/Import/ProductTestBase.php:219
+      notes: Found 8 occurrences
+    - claim: repeat
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: rgba
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: var
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-email/Model/Template/Filter.php:670
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-variable/Ui/Component/VariablesDataProvider.php:92
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-paypal/Test/Unit/Model/Payflow/Service/Response/Validator/IAVSResponseTest.php:58
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-configurable-product/Test/Unit/Model/Product/Type/VariationMatrixTest.php:45
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/App/DeploymentConfig/Writer/PhpFormatter.php:84
+      notes: Found 6 occurrences
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

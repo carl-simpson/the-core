@@ -1,0 +1,55 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Eav/html/execution-flows.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes: []
+  php_interfaces: []
+  methods:
+  - addAttributeToSelect
+  - array_filter
+  - attribute
+  - backend
+  - backend_type
+  - child
+  - counter
+  - default
+  - empty
+  - fields
+  - getAllOptions
+  - getAttribute
+  - getAttributeCode
+  - getAttributes
+  - getData
+  - getEntityType
+  - getFrontendLabel
+  - getIsRequired
+  - getSource
+  - gradient
+  - is_array
+  - media
+  - save
+  - set
+  - setData
+  - setStoreId
+  - tabs
+  - type
+  - value
+  - values
+  - var
+  events:
+  - model_save_after
+  database_tables:
+  - eav_attribute
+  - eav_attribute_group
+  - eav_attribute_option_value
+  - eav_entity_attribute
+  - eav_entity_type
+  acl_resources: []
+  config_paths:
+  - adding/modifying
+  - bin/magento
+  - select/multiselect
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

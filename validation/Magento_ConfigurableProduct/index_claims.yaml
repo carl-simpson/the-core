@@ -1,0 +1,34 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_ConfigurableProduct/html/index.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\ConfigurableProduct\Model\Product\Type\Configurable
+  php_interfaces: []
+  methods:
+  - child
+  - media
+  - modules
+  - option
+  - options
+  - product_id
+  - products
+  - repeat
+  - rgba
+  - translateY
+  - value
+  - var
+  events: []
+  database_tables: []
+  acl_resources: []
+  config_paths:
+  - color/image
+  - products/variation
+  - sku/child
+  - sku/children
+  - sku/options
+  - sku/options/all
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

@@ -1,0 +1,251 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Store/html/known-issues.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os
+summary:
+  total_claims: 33
+  validated: 33
+  found: 19
+  not_found: 14
+  confidence_distribution:
+    high: 3
+    medium: 30
+    low: 0
+results_by_type:
+  php_classes:
+    total: 3
+    found: 3
+    not_found: 0
+    results:
+    - claim: Magento\Store\Model\StoreManager
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/StoreManager.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Model\StoreResolver
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/StoreResolver.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Model\StoresData
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/StoresData.php:1
+      notes: Class file exists and contains class definition
+  methods:
+    total: 30
+    found: 16
+    not_found: 14
+    results:
+    - claim: aming
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: contexts
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: dmin
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: doSomething
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Test/Unit/Interception/Sample/Interceptor.php:37
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Test/Unit/Interception/Sample/Entity.php:25
+      notes: Found 2 occurrences
+    - claim: ebsite
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: foreach
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: frequently
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: getCurrentStoreId
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/Block/BlockByIdentifier.php:140
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/StoreResolver.php:95
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Block/Store/Switcher.php:153
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Block/Switcher.php:84
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Api/StoreResolverInterface.php:26
+      notes: Found 8 occurrences
+    - claim: getId
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Model/Policy/SandboxPolicy.php:225
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Model/Policy/FlagPolicy.php:36
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Model/Policy/FetchPolicy.php:133
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Model/Policy/PluginTypesPolicy.php:34
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Api/Data/PolicyInterface.php:24
+      notes: Found 385 occurrences
+    - claim: getStore
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-url-rewrite/Service/V1/Data/UrlRewrite.php:183
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/Model/Block.php:301
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/Model/ResourceModel/Page.php:389
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/Model/Page.php:150
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-vault/Model/Method/NullPaymentProvider.php:63
+      notes: Found 361 occurrences
+    - claim: getStoresData
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/StoresData.php:57
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/StoreResolver.php:136
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Test/Unit/Model/StoreManagerTest.php:172
+      notes: Found 3 occurrences
+    - claim: gradient
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: hasSingleStore
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/framework/Magento/TestFramework/Store/StoreManager.php:66
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/StoreManager.php:137
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/StoreManagerInterface.php:42
+      notes: Found 3 occurrences
+    - claim: iddle
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: instead
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/php-compatibility-fork/PHPCompatibility/Sniffs/ParameterValues/NewPasswordAlgoConstantValuesSniff.php:132
+      notes: Found 1 occurrences
+    - claim: level
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/Model/Template/Filter.php:19
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-email/Model/Template/Filter.php:546
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/CatalogImportExport/Model/Import/ProductTestBase.php:164
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/CatalogImportExport/Model/Import/ProductTestBase.php:219
+      notes: Found 8 occurrences
+    - claim: onfusion
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: ottom
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: reinitStores
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/framework/Magento/TestFramework/Store/StoreManager.php:126
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/StoreManager.php:236
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/StoreManagerInterface.php:92
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/Config/Importer.php:129
+      notes: Found 4 occurrences
+    - claim: repeat
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: roup
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: setCurrentStore
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/framework/Magento/TestFramework/Store/StoreManager.php:48
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/StoreManager.php:121
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/StoreManagerInterface.php:123
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog/Model/Indexer/Category/Product/AbstractAction.php:206
+      notes: Found 4 occurrences
+    - claim: startEnvironmentEmulation
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/App/Emulation.php:140
+      notes: Found 1 occurrences
+    - claim: stopEnvironmentEmulation
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/App/Emulation.php:194
+      notes: Found 1 occurrences
+    - claim: store
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-page-builder/Controller/Adminhtml/Template/Save.php:223
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-email/Model/Template/Filter.php:562
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/Integration/Model/CustomerTokenServiceTest.php:117
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/Review/GetProductReviewsTest.php:344
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/WebapiAsync/Model/AsyncScheduleMultiStoreTest.php:299
+      notes: Found 27 occurrences
+    - claim: tore
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: updateStore
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Setup/Patch/Data/UpdateStoreGroupCodes.php:45
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/Config/Importer/Processor/Update.php:151
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Model/AbstractModel.php:1003
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-quote/Model/Quote/Plugin/UpdateQuoteStoreId.php:90
+      notes: Found 4 occurrences
+    - claim: var
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-email/Model/Template/Filter.php:670
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-variable/Ui/Component/VariablesDataProvider.php:92
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-paypal/Test/Unit/Model/Payflow/Service/Response/Validator/IAVSResponseTest.php:58
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-configurable-product/Test/Unit/Model/Product/Type/VariationMatrixTest.php:45
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/App/DeploymentConfig/Writer/PhpFormatter.php:84
+      notes: Found 6 occurrences
+    - claim: website
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog/Test/Unit/Model/ProductRepositoryTest.php:1442
+      notes: Found 1 occurrences
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

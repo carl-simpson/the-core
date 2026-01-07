@@ -1,0 +1,38 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Eav/html/index.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes: []
+  php_interfaces: []
+  methods:
+  - child
+  - definitions
+  - gradient
+  - media
+  - repeat
+  - sets
+  - translateX
+  - type
+  - var
+  events: []
+  database_tables:
+  - eav_attribute
+  - eav_attribute_group
+  - eav_attribute_label
+  - eav_attribute_option
+  - eav_attribute_option_value
+  - eav_attribute_set
+  - eav_entity_
+  - eav_entity_attribute
+  - eav_entity_type
+  acl_resources: []
+  config_paths:
+  - backend/frontend/source
+  - eav/attribute
+  - select/multiselect
+  - sets/groups
+  - sets/list
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

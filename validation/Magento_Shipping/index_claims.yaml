@@ -1,0 +1,47 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Shipping/html/index.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes: []
+  php_interfaces: []
+  methods:
+  - address
+  - carriers
+  - checkAvailableShipCountries
+  - collectRates
+  - getConfigData
+  - getContainerTypes
+  - getDeliveryConfirmationTypes
+  - getFinalPriceWithHandlingFee
+  - getTotalNumOfBoxes
+  - gradient
+  - isActive
+  - isShippingLabelsAvailable
+  - isTrackingAvailable
+  - proccessAdditionalValidation
+  - requestToShipment
+  - reservations
+  - returnOfShipment
+  - rules
+  - url
+  events: []
+  database_tables: []
+  acl_resources: []
+  config_paths:
+  - etc/adminhtml/system
+  - etc/di
+  - shipping/origin
+  - shipping/shipping_policy
+  - var/log/shipping
+  file_paths:
+  - Model/Carrier/AbstractCarrier.php
+  - Model/Carrier/AbstractCarrierOnline.php
+  - Model/CarrierFactory.php
+  - Model/Shipping.php
+  - Model/Shipping/Labels.php
+  - Model/Tracking/Result.php
+  - etc/adminhtml/system.xml
+  - etc/di.xml
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

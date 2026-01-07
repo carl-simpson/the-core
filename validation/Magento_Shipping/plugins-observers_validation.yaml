@@ -1,0 +1,223 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Shipping/html/plugins-observers.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os
+summary:
+  total_claims: 25
+  validated: 25
+  found: 18
+  not_found: 7
+  confidence_distribution:
+    high: 11
+    medium: 14
+    low: 0
+results_by_type:
+  php_classes:
+    total: 8
+    found: 6
+    not_found: 2
+    results:
+    - claim: Magento\Framework\Logger\Handler\Base
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/Catalog/Api/BasePriceStorageTest.php:22
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/Webapi/Routing/BaseService.php:14
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Analytics/Model/Plugin/BaseUrlConfigPluginTest.php:21
+      notes: Found via pattern search
+    - claim: Magento\Framework\Logger\Monolog
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Logger/Monolog.php:16
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Logger/Test/Unit/MonologTest.php:16
+      notes: Found via pattern search
+    - claim: Magento\Framework\Url
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-url-rewrite/Helper/UrlRewrite.php:12
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-url-rewrite/Model/Message/UrlRewriteExceptionMessageFactory.php:15
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-url-rewrite/Model/UrlRewrite.php:43
+      notes: Found via pattern search
+    - claim: Magento\Shipping\Helper\Data
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-shipping/Helper/Data.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Shipping\Model\Carrier\AbstractCarrier
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-shipping/Model/Carrier/AbstractCarrier.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Shipping\Model\Carrier\VirtualDebug
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-shipping/Model/Carrier/VirtualDebug.php
+        does not exist
+    - claim: Magento\Shipping\Model\Method\VirtualLogger
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-shipping/Model/Method/VirtualLogger.php
+        does not exist
+    - claim: Magento\Shipping\Model\Observer
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-shipping/Model/Observer.php:1
+      notes: Class file exists and contains class definition
+  methods:
+    total: 11
+    found: 6
+    not_found: 5
+    results:
+    - claim: code
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-functional-testing-framework/src/Magento/FunctionalTestingFramework/Console/BaseGenerateCommand.php:289
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-usps/Test/Unit/Model/CarrierTest.php:242
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Setup/BackupRollback.php:101
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Setup/BackupRollback.php:143
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Test/Unit/EscaperTest.php:74
+      notes: Found 5 occurrences
+    - claim: collectRates
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Dhl/Model/CarrierTest.php:555
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Dhl/Model/CarrierTest.php:638
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Ups/Model/CarrierTest.php:302
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-dhl/Model/Carrier.php:396
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-ups/Model/UpsAuth.php:116
+      notes: Found 21 occurrences
+    - claim: debug
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cardinal-commerce/Model/Response/JwtParser.php:98
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-functional-testing-framework/src/Magento/FunctionalTestingFramework/Util/TestGenerator.php:480
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-aws-s3/Test/Mftf/Helper/MockTestLogger.php:105
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/Model/Method/AbstractMethod.php:874
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/Model/Method/Logger.php:51
+      notes: Found 12 occurrences
+    - claim: directly
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: ettings
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: modules
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: preference
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: preferences
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: references
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Test/Integrity/StaticFilesTest.php:188
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Test/Integrity/StaticFilesTest.php:254
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Test/Integrity/StaticFilesTest.php:302
+      notes: Found 3 occurrences
+    - claim: requestToShipment
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Dhl/Model/CarrierTest.php:375
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-dhl/Model/Carrier.php:2057
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-ups/Model/Carrier.php:2497
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-ups/Test/Unit/Model/CarrierTest.php:394
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-shipping/Model/Shipping/Labels.php:84
+      notes: Found 10 occurrences
+    - claim: url
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cardinal-commerce/Model/JwtManagement.php:124
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cardinal-commerce/Model/JwtManagement.php:139
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/UrlRewrite/UrlResolverTest.php:108
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/UrlRewrite/RouteTest.php:385
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/PageCache/UrlRewrite/RouteCacheTest.php:379
+      notes: Found 9 occurrences
+  acl_resources:
+    total: 6
+    found: 6
+    not_found: 0
+    results:
+    - claim: Magento_Backend::admin
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/etc/acl.xml:11
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-url-rewrite/etc/acl.xml:11
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-import-export/etc/acl.xml:11
+      notes: Found 82 references
+    - claim: Magento_Backend::stores
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/etc/acl.xml:12
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/etc/acl.xml:13
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/etc/acl.xml:24
+      notes: Found 107 references
+    - claim: Magento_Backend::stores_settings
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/etc/acl.xml:13
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/etc/acl.xml:25
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-checkout/etc/acl.xml:13
+      notes: Found 43 references
+    - claim: Magento_Config::config
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/etc/acl.xml:14
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/etc/acl.xml:26
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-checkout/etc/acl.xml:14
+      notes: Found 54 references
+    - claim: Magento_Shipping::carriers
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-in-store-pickup-api/etc/acl.xml:15
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-in-store-pickup-sales-api/etc/acl.xml:15
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-analytics/Test/Mftf/Data/UserRoleData.xml:101
+      notes: Found 5 references
+    - claim: Magento_Shipping::config_shipping
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-analytics/Test/Mftf/Data/UserRoleData.xml:99
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-shipping/etc/acl.xml:15
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-shipping/etc/adminhtml/system.xml:13
+      notes: Found 3 references
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+  file_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

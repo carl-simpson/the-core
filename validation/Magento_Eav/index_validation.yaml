@@ -1,0 +1,168 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Eav/html/index.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os
+summary:
+  total_claims: 18
+  validated: 18
+  found: 15
+  not_found: 3
+  confidence_distribution:
+    high: 9
+    medium: 9
+    low: 0
+results_by_type:
+  methods:
+    total: 9
+    found: 6
+    not_found: 3
+    results:
+    - claim: child
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/ConfigurableProduct/ConfigurableProductMultipleStoreViewTest.php:67
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Swatches/Block/Product/Renderer/Configurable/PriceTest.php:94
+      notes: Found 2 occurrences
+    - claim: definitions
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/php-compatibility-fork/PHPCompatibility/Sniffs/InitialValue/NewConstantArraysUsingDefineSniff.php:97
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento-coding-standard/Magento2/Sniffs/Functions/StaticFunctionSniff.php:12
+      notes: Found 2 occurrences
+    - claim: gradient
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/Model/Template/Filter.php:19
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-email/Model/Template/Filter.php:546
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/CatalogImportExport/Model/Import/ProductTestBase.php:164
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/CatalogImportExport/Model/Import/ProductTestBase.php:219
+      notes: Found 8 occurrences
+    - claim: repeat
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: sets
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-newsletter/Model/Queue/TransportBuilder.php:188
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Mail/Template/TransportBuilder.php:246
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Mail/Message.php:98
+      notes: Found 3 occurrences
+    - claim: translateX
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: type
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-reports/Test/Unit/Model/ResourceModel/HelperTest.php:128
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-indexer/Test/Unit/Block/Backend/Grid/Column/Renderer/ScheduledTest.php:46
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Interception/Test/Unit/Code/Generator/_files/TSample.php:45
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Interception/Test/Unit/Code/Generator/_files/TSample.php:54
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Reflection/Test/Unit/TypeCasterTest.php:80
+      notes: Found 9 occurrences
+    - claim: var
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-email/Model/Template/Filter.php:670
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-variable/Ui/Component/VariablesDataProvider.php:92
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-paypal/Test/Unit/Model/Payflow/Service/Response/Validator/IAVSResponseTest.php:58
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-configurable-product/Test/Unit/Model/Product/Type/VariationMatrixTest.php:45
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/App/DeploymentConfig/Writer/PhpFormatter.php:84
+      notes: Found 6 occurrences
+  database_tables:
+    total: 9
+    found: 9
+    not_found: 0
+    results:
+    - claim: eav_attribute
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-configurable-import-export/Model/Import/Product/Type/Configurable.php:461
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales-rule/Model/ResourceModel/Rule.php:316
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales-rule/Model/ResourceModel/Rule.php:342
+      notes: Found 233 references
+    - claim: eav_attribute_group
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Setup/EavSetup.php:181
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Setup/EavSetup.php:190
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Setup/EavSetup.php:197
+      notes: Found 14 references
+    - claim: eav_attribute_label
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog-graph-ql/DataProvider/Product/LayeredNavigation/AttributeOptionProvider.php:72
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Model/ResourceModel/Entity/Attribute.php:293
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Model/ResourceModel/Entity/Attribute.php:300
+      notes: Found 12 references
+    - claim: eav_attribute_option
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-configurable-import-export/Model/Import/Product/Type/Configurable.php:461
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Eav/Setup/AddOptionToAttributeTest.php:70
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Eav/Setup/AddOptionToAttributeTest.php:71
+      notes: Found 54 references
+    - claim: eav_attribute_option_value
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Eav/Setup/AddOptionToAttributeTest.php:71
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Catalog/Controller/Adminhtml/Product/Attribute/Update/AbstractUpdateAttributeTest.php:465
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog-graph-ql/DataProvider/Product/LayeredNavigation/AttributeOptionProvider.php:89
+      notes: Found 26 references
+    - claim: eav_attribute_set
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/framework/Magento/TestFramework/Annotation/TestsIsolation.php:44
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Setup/EavSetup.php:347
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Setup/EavSetup.php:385
+      notes: Found 13 references
+    - claim: eav_entity_
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Weee/Model/ResourceModel/AttributeTest.php:76
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Weee/Model/ResourceModel/AttributeTest.php:103
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Weee/Model/ResourceModel/AttributeTest.php:116
+      notes: Found 71 references
+    - claim: eav_entity_attribute
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Weee/Model/ResourceModel/AttributeTest.php:76
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Weee/Model/ResourceModel/AttributeTest.php:103
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Weee/Model/ResourceModel/AttributeTest.php:116
+      notes: Found 43 references
+    - claim: eav_entity_type
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/setup/src/Magento/Setup/Model/Installer.php:1270
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Setup/EavSetup.php:244
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Setup/EavSetup.php:271
+      notes: Found 22 references
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

@@ -1,0 +1,213 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Eav/html/plugins-observers.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os
+summary:
+  total_claims: 30
+  validated: 30
+  found: 28
+  not_found: 2
+  confidence_distribution:
+    high: 23
+    medium: 7
+    low: 0
+results_by_type:
+  php_classes:
+    total: 25
+    found: 25
+    not_found: 0
+    results:
+    - claim: Magento\Eav\Model\AttributeManagement
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Model/AttributeManagement.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Eav\Model\AttributeRepository
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Model/AttributeRepository.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Eav\Model\AttributeSetManagement
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Model/AttributeSetManagement.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Eav\Model\AttributeSetRepository
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Model/AttributeSetRepository.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Eav\Model\Attribute\GroupRepository
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Model/Attribute/GroupRepository.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Eav\Model\Entity\AbstractEntity
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Model/Entity/AbstractEntity.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Eav\Model\Entity\Attribute
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Model/Entity/Attribute.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Eav\Model\Entity\AttributeLoader
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Model/Entity/AttributeLoader.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Eav\Model\Entity\Attribute\FrontendLabel
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Model/Entity/Attribute/FrontendLabel.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Eav\Model\Entity\Attribute\Group
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Model/Entity/Attribute/Group.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Eav\Model\Entity\Attribute\Option
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Model/Entity/Attribute/Option.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Eav\Model\Entity\Attribute\OptionLabel
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Model/Entity/Attribute/OptionLabel.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Eav\Model\Entity\Attribute\OptionManagement
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Model/Entity/Attribute/OptionManagement.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Eav\Model\Entity\Attribute\Set
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Model/Entity/Attribute/Set.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Eav\Model\Entity\Attribute\UniqueValidator
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Model/Entity/Attribute/UniqueValidator.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Eav\Model\Entity\Setup\PropertyMapper\Composite
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Model/Entity/Setup/PropertyMapper/Composite.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Eav\Model\ReservedAttributeChecker
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Model/ReservedAttributeChecker.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Eav\Model\ResourceModel\CreateHandler
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Model/ResourceModel/CreateHandler.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Eav\Model\ResourceModel\Entity\Attribute
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Model/ResourceModel/Entity/Attribute.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Eav\Model\ResourceModel\ReadHandler
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Model/ResourceModel/ReadHandler.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Eav\Model\ResourceModel\UpdateHandler
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Model/ResourceModel/UpdateHandler.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Eav\Model\TypeLocator
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Model/TypeLocator.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Eav\Plugin\Model\ResourceModel\Entity\Attribute
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Plugin/Model/ResourceModel/Entity/Attribute.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Framework\App\Cache\FlushCacheByTags
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/App/Cache/FlushCacheByTags.php:18
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/App/Test/Unit/Cache/FlushCacheByTagsTest.php:22
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-page-cache/Observer/FlushCacheByTags.php:21
+      notes: Found via pattern search
+    - claim: Magento\Framework\EntityManager\Operation\AttributePool
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/EntityManager/Operation/AttributePool.php:14
+      notes: Found via pattern search
+  methods:
+    total: 5
+    found: 3
+    not_found: 2
+    results:
+    - claim: child
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/ConfigurableProduct/ConfigurableProductMultipleStoreViewTest.php:67
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Swatches/Block/Product/Renderer/Configurable/PriceTest.php:94
+      notes: Found 2 occurrences
+    - claim: gradient
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/Model/Template/Filter.php:19
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-email/Model/Template/Filter.php:546
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/CatalogImportExport/Model/Import/ProductTestBase.php:164
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/CatalogImportExport/Model/Import/ProductTestBase.php:219
+      notes: Found 8 occurrences
+    - claim: repeat
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: var
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-email/Model/Template/Filter.php:670
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-variable/Ui/Component/VariablesDataProvider.php:92
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-paypal/Test/Unit/Model/Payflow/Service/Response/Validator/IAVSResponseTest.php:58
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-configurable-product/Test/Unit/Model/Product/Type/VariationMatrixTest.php:45
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/App/DeploymentConfig/Writer/PhpFormatter.php:84
+      notes: Found 6 occurrences
+detailed_results: []

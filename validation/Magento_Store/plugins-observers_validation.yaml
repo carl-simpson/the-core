@@ -1,0 +1,311 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Store/html/plugins-observers.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os
+summary:
+  total_claims: 42
+  validated: 42
+  found: 28
+  not_found: 14
+  confidence_distribution:
+    high: 28
+    medium: 14
+    low: 0
+results_by_type:
+  php_classes:
+    total: 24
+    found: 21
+    not_found: 3
+    results:
+    - claim: Magento\Framework\App\Cache\Type\Collection
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-catalog/Plugin/Catalog/Model/ResourceModel/Product/CollectionPlugin.php:19
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-catalog/Test/Unit/Plugin/Catalog/Model/ResourceModel/Product/CollectionPluginTest.php:23
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-import-export/Model/ResourceModel/History/Collection.php:16
+      notes: Found via pattern search
+    - claim: Magento\Framework\App\Response\HeaderManager
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/App/Response/HeaderManager.php:13
+      notes: Found via pattern search
+    - claim: Magento\Framework\Logger\Monolog
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Logger/Monolog.php:16
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Logger/Test/Unit/MonologTest.php:16
+      notes: Found via pattern search
+    - claim: Magento\Store\App\FrontController\Plugin\RequestPreprocessor
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/App/FrontController/Plugin/RequestPreprocessor.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Model\Data\StoreConfig
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/Data/StoreConfig.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Model\Group
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/Group.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Model\GroupRepository
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/GroupRepository.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Model\HeaderProvider\UpgradeInsecure
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/HeaderProvider/UpgradeInsecure.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Model\Plugin\StoreCookie
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/Plugin/StoreCookie.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Model\Resolver\Locale
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-import-export/Model/LocaleEmulator.php:15
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-import-export/Test/Unit/Model/LocaleEmulatorTest.php:18
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/setup/src/Magento/Setup/Module/I18n/Locale.php:11
+      notes: Found via pattern search
+    - claim: Magento\Store\Model\Resolver\Store
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/Resolver/Store.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Model\ResourceModel\Group\Collection\FetchStrategy
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/ResourceModel/Group/Collection/FetchStrategy.php
+        does not exist
+    - claim: Magento\Store\Model\ResourceModel\Store\Collection\FetchStrategy
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/ResourceModel/Store/Collection/FetchStrategy.php
+        does not exist
+    - claim: Magento\Store\Model\ResourceModel\Website\Collection\FetchStrategy
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/ResourceModel/Website/Collection/FetchStrategy.php
+        does not exist
+    - claim: Magento\Store\Model\Service\StoreConfigManager
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/Service/StoreConfigManager.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Model\Store
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/Store.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Model\StoreCookieManager
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/StoreCookieManager.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Model\StoreManager
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/StoreManager.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Model\StoreRepository
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/StoreRepository.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Model\StoreResolver
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/StoreResolver.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Model\Website
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/Website.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Model\WebsiteRepository
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/WebsiteRepository.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Url\Plugin\RouteParamsResolver
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Url/Plugin/RouteParamsResolver.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Store\Url\Plugin\SecurityInfo
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Url/Plugin/SecurityInfo.php:1
+      notes: Class file exists and contains class definition
+  php_interfaces:
+    total: 5
+    found: 0
+    not_found: 5
+    results:
+    - claim: Magento\Framework\App\FrontControllerInterface
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-framework/App/FrontControllerInterface.php
+        does not exist
+    - claim: Magento\Framework\Url\RouteParamsResolverInterface
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-framework/Url/RouteParamsResolverInterface.php
+        does not exist
+    - claim: Magento\Framework\Url\SecurityInfoInterface
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-framework/Url/SecurityInfoInterface.php
+        does not exist
+    - claim: Magento\Store\Api\StoreResolverInterface
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Api/StoreResolverInterface.php
+        does not exist
+    - claim: Magento\Store\Model\StoreManagerInterface
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/StoreManagerInterface.php
+        does not exist
+  methods:
+    total: 10
+    found: 6
+    not_found: 4
+    results:
+    - claim: afterDelete
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-catalog/Plugin/Catalog/Model/ResourceModel/Product/DeleteSourceItemsPlugin.php:42
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-url-rewrite/Model/UrlRewrite.php:224
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog-rule/Plugin/Indexer/Product/Attribute.php:71
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog-rule/Plugin/Indexer/CustomerGroup.php:33
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog-rule/Plugin/Indexer/Category.php:52
+      notes: Found 71 occurrences
+    - claim: afterSave
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-catalog/Plugin/Catalog/Model/ResourceModel/Product/ProcessSourceItemsPlugin.php:49
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-catalog/Plugin/Catalog/Model/ResourceModel/Product/CreateSourceItemsPlugin.php:60
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-url-rewrite/Model/UrlRewrite.php:233
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-grouped-product/Model/ResourceModel/Product/Link/RelationPersister.php:49
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog-inventory/Model/Indexer/Stock/Plugin/StoreGroup.php:38
+      notes: Found 169 occurrences
+    - claim: child
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/ConfigurableProduct/ConfigurableProductMultipleStoreViewTest.php:67
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Swatches/Block/Product/Renderer/Configurable/PriceTest.php:94
+      notes: Found 2 occurrences
+    - claim: gradient
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: invalid
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-import-export/Model/Import.php:760
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-import-export/Model/History.php:144
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-import-export/Test/Unit/Controller/Adminhtml/Export/File/DownloadTest.php:197
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-email/Test/Unit/Model/AbstractTemplateTest.php:400
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/CustomerGraphQl/Model/Resolver/CustomerTest.php:621
+      notes: Found 56 occurrences
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/Model/Template/Filter.php:19
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-email/Model/Template/Filter.php:546
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/CatalogImportExport/Model/Import/ProductTestBase.php:164
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/CatalogImportExport/Model/Import/ProductTestBase.php:219
+      notes: Found 8 occurrences
+    - claim: operations
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: repeat
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: system
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: var
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-email/Model/Template/Filter.php:670
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-variable/Ui/Component/VariablesDataProvider.php:92
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-paypal/Test/Unit/Model/Payflow/Service/Response/Validator/IAVSResponseTest.php:58
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-configurable-product/Test/Unit/Model/Product/Type/VariationMatrixTest.php:45
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/App/DeploymentConfig/Writer/PhpFormatter.php:84
+      notes: Found 6 occurrences
+  events:
+    total: 3
+    found: 1
+    not_found: 2
+    results:
+    - claim: store_delete
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales-sequence/etc/events.xml:9
+      notes: Found 1 references
+    - claim: store_group_save
+      found: false
+      confidence: high
+      evidence: []
+      notes: Event not found in core
+    - claim: website_save_after
+      found: false
+      confidence: high
+      evidence: []
+      notes: Event not found in core
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

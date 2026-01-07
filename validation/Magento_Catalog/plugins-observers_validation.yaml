@@ -1,0 +1,286 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Catalog/html/plugins-observers.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os
+summary:
+  total_claims: 36
+  validated: 36
+  found: 34
+  not_found: 2
+  confidence_distribution:
+    high: 26
+    medium: 10
+    low: 0
+results_by_type:
+  php_classes:
+    total: 10
+    found: 10
+    not_found: 0
+    results:
+    - claim: Magento\Catalog\Model\Category\DataProvider
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog/Model/Category/DataProvider.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Catalog\Model\Plugin\Log
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog/Model/Plugin/Log.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Catalog\Model\Plugin\QuoteItemProductOption
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog/Model/Plugin/QuoteItemProductOption.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Catalog\Model\Plugin\SetPageLayoutDefaultValue
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog/Model/Plugin/SetPageLayoutDefaultValue.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Catalog\Model\Plugin\ShowOutOfStockConfig
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog/Model/Plugin/ShowOutOfStockConfig.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Catalog\Plugin\Block\Topmenu
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog/Plugin/Block/Topmenu.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Catalog\Plugin\Model\Attribute\Backend\AttributeValidation
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog/Plugin/Model/Attribute/Backend/AttributeValidation.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Config\Model\Config
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-config/Model/Config.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Customer\Model\ResourceModel\Visitor
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Model/ResourceModel/Visitor.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Theme\Block\Html\Topmenu
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-theme/Block/Html/Topmenu.php:1
+      notes: Class file exists and contains class definition
+  methods:
+    total: 10
+    found: 8
+    not_found: 2
+    results:
+    - claim: afterClean
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-reports/Model/Plugin/Log.php:53
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-media-storage/Model/Asset/Plugin/CleanMergedJsCss.php:43
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog/Model/Plugin/Log.php:35
+      notes: Found 3 occurrences
+    - claim: afterGetData
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-in-store-pickup-admin-ui/Plugin/Ui/DataProvider/ConvertBooleanToStringPlugin.php:33
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-tax/Plugin/Ui/DataProvider/TaxSettings.php:40
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-grouped-product-admin-ui/Plugin/Ui/DataProvider/Product/Form/AddQuantityPerSourceToProductsData.php:50
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-wishlist/Plugin/Ui/DataProvider/WishlistSettings.php:40
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-login-as-customer-assistance/Plugin/LoginAsCustomerButtonDataProviderPlugin.php:41
+      notes: Found 11 occurrences
+    - claim: afterGetIdentities
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/Model/Plugin/Product.php:38
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-page-builder/Plugin/Catalog/Block/Product/ProductsListPlugin.php:108
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-bundle/Model/Plugin/Frontend/ProductIdentitiesExtender.php:44
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-bundle/Model/Plugin/ProductIdentitiesExtender.php:44
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store-graph-ql/Plugin/Group.php:24
+      notes: Found 9 occurrences
+    - claim: areas
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Test/Integrity/LayoutTest.php:85
+      notes: Found 1 occurrences
+    - claim: aroundConvertItem
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: aroundSave
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-catalog/Plugin/CatalogInventory/UpdateSourceItemAtLegacyStockItemSavePlugin.php:79
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-advanced-search/Model/Indexer/Fulltext/Plugin/CustomerGroup.php:44
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-advanced-search/Test/Unit/Model/Indexer/Fulltext/Plugin/CustomerGroupTest.php:121
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-checkout/Model/Plugin/RecollectQuoteOnCustomerGroupChange.php:61
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-indexer/Plugin/InventoryApi/InvalidateAfterEnablingOrDisablingSourcePlugin.php:52
+      notes: Found 17 occurrences
+    - claim: aroundValidate
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-bundle/Model/Plugin/PriceBackend.php:25
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-bundle/Test/Unit/Model/Plugin/PriceBackendTest.php:77
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-configurable-product/Plugin/Model/Attribute/Backend/AttributeValidation.php:49
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-configurable-product/Model/Plugin/PriceBackend.php:27
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-configurable-product/Test/Unit/Model/Plugin/PriceBackendTest.php:85
+      notes: Found 9 occurrences
+    - claim: beforeGetHtml
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog/Plugin/Block/Topmenu.php:62
+      notes: Found 1 occurrences
+    - claim: bservers
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: rea
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-message-queue/Model/ResourceModel/Lock.php:74
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Model/Collector/Config/PolicyReaderInterface.php:26
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Model/Collector/Config/SandboxPolicyReader.php:21
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Model/Collector/Config/FlagPolicyReader.php:21
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Model/Collector/Config/PluginTypesPolicyReader.php:21
+      notes: Found 231 occurrences
+  events:
+    total: 16
+    found: 16
+    not_found: 0
+    results:
+    - claim: catalog_category_prepare_save
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog-url-rewrite/etc/events.xml:9
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog/etc/events.xml:67
+      notes: Found 2 references
+    - claim: catalog_category_save_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-media-content-catalog/etc/events.xml:9
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-media-content-catalog/etc/events.xml:10
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog-url-rewrite/etc/events.xml:12
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-google-optimizer/etc/events.xml:15
+      notes: Found 4 references
+    - claim: catalog_product_save_before
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog-inventory/etc/events.xml:33
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog-url-rewrite/etc/events.xml:24
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog/etc/events.xml:58
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-new-relic-reporting/etc/adminhtml/events.xml:17
+      notes: Found 4 references
+    - claim: catalog_product_save_commit_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog/etc/events.xml:64
+      notes: Found 1 references
+    - claim: commit_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales-rule/etc/events.xml:33
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales-rule/etc/events.xml:36
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-indexer/etc/events.xml:9
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog/etc/events.xml:64
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-page-cache/etc/events.xml:48
+      notes: Found 5 references
+    - claim: magento_catalog_api_data_categoryinterface_delete_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog/etc/events.xml:34
+      notes: Found 1 references
+    - claim: magento_catalog_api_data_categoryinterface_delete_before
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog/etc/events.xml:31
+      notes: Found 1 references
+    - claim: magento_catalog_api_data_categoryinterface_load_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog/etc/events.xml:37
+      notes: Found 1 references
+    - claim: magento_catalog_api_data_categoryinterface_save_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog/etc/events.xml:27
+      notes: Found 1 references
+    - claim: magento_catalog_api_data_categoryinterface_save_before
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog/etc/events.xml:24
+      notes: Found 1 references
+    - claim: magento_catalog_api_data_productinterface_delete_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog/etc/events.xml:18
+      notes: Found 1 references
+    - claim: magento_catalog_api_data_productinterface_delete_before
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog/etc/events.xml:15
+      notes: Found 1 references
+    - claim: magento_catalog_api_data_productinterface_load_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog/etc/events.xml:21
+      notes: Found 1 references
+    - claim: magento_catalog_api_data_productinterface_save_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog/etc/events.xml:12
+      notes: Found 1 references
+    - claim: magento_catalog_api_data_productinterface_save_before
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog/etc/events.xml:9
+      notes: Found 1 references
+    - claim: store_save_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog/etc/events.xml:61
+      notes: Found 1 references
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+  file_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

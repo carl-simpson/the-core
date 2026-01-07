@@ -1,0 +1,119 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_ConfigurableProduct/html/known-issues.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os
+summary:
+  total_claims: 12
+  validated: 12
+  found: 7
+  not_found: 5
+  confidence_distribution:
+    high: 1
+    medium: 11
+    low: 0
+results_by_type:
+  php_classes:
+    total: 2
+    found: 2
+    not_found: 0
+    results:
+    - claim: Magento\ConfigurableProduct\Block\Product\View\Type\Configurable
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-configurable-import-export/Model/Import/Product/Type/Configurable.php:22
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-configurable-import-export/Model/Export/Product/Type/Configurable.php:8
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-configurable-import-export/Test/Unit/Model/Import/Product/Type/ConfigurableTest.php:33
+      notes: Found via pattern search
+    - claim: Magento\ConfigurableProduct\Model\ResourceModel\Product\Indexer\Price\Configurable
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-configurable-import-export/Model/Import/Product/Type/Configurable.php:22
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-configurable-import-export/Model/Export/Product/Type/Configurable.php:8
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-configurable-import-export/Test/Unit/Model/Import/Product/Type/ConfigurableTest.php:33
+      notes: Found via pattern search
+  methods:
+    total: 9
+    found: 4
+    not_found: 5
+    results:
+    - claim: directly
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: getAllowProducts
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-configurable-product/Block/Product/View/Type/Configurable.php:177
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-configurable-product-graph-ql/Model/Options/Metadata.php:118
+      notes: Found 2 occurrences
+    - claim: gradient
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/Model/Template/Filter.php:19
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-email/Model/Template/Filter.php:546
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/CatalogImportExport/Model/Import/ProductTestBase.php:164
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/CatalogImportExport/Model/Import/ProductTestBase.php:219
+      notes: Found 8 occurrences
+    - claim: repeat
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: representProduct
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-wishlist/Model/Item.php:575
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-quote/Model/Quote/Item.php:472
+      notes: Found 2 occurrences
+    - claim: rgba
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: scenarios
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: var
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-email/Model/Template/Filter.php:670
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-variable/Ui/Component/VariablesDataProvider.php:92
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-paypal/Test/Unit/Model/Payflow/Service/Response/Validator/IAVSResponseTest.php:58
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-configurable-product/Test/Unit/Model/Product/Type/VariationMatrixTest.php:45
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/App/DeploymentConfig/Writer/PhpFormatter.php:84
+      notes: Found 6 occurrences
+  events:
+    total: 1
+    found: 1
+    not_found: 0
+    results:
+    - claim: cataloginventory_stock
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-checkout/Test/Mftf/Test/DeleteBundleFixedProductFromShoppingCartTest.xml:38
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-checkout/Test/Mftf/Test/StorefrontAddBundleDynamicProductToShoppingCartTest.xml:55
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-checkout/Test/Mftf/Test/StorefrontAddBundleDynamicProductToShoppingCartWithDisableMiniCartSidebarTest.xml:53
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-checkout/Test/Mftf/Test/StorefrontDeleteBundleProductFromMiniShoppingCartTest.xml:45
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-checkout/Test/Mftf/Test/StorefrontGuestCheckoutTest/StoreFrontValidateDynamicChangeOfShippingRateForGuestUserTest.xml:47
+      notes: Found 48 references
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

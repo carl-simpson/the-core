@@ -1,0 +1,227 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Catalog/html/architecture.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os
+summary:
+  total_claims: 33
+  validated: 33
+  found: 9
+  not_found: 24
+  confidence_distribution:
+    high: 3
+    medium: 30
+    low: 0
+results_by_type:
+  php_classes:
+    total: 2
+    found: 2
+    not_found: 0
+    results:
+    - claim: Magento\Catalog\Model\Product\Type\Simple
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog/Model/Product/Type/Simple.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Catalog\Model\Product\Type\Virtual
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog/Model/Product/Type/Virtual.php:1
+      notes: Class file exists and contains class definition
+  methods:
+    total: 30
+    found: 6
+    not_found: 24
+    results:
+    - claim: ables
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: allery
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: alue
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: ancestry
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: association
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: ategory
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: category_id
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: chema
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: elationships
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: entity_id
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: ependencies
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: field
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Developer/Model/Config/Backend/AllowedIpsTest.php:34
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Framework/Data/Form/Element/FieldsetTest.php:62
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/UrlRewrite/Block/Edit/FormTest.php:162
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav-graph-ql/Model/Resolver/EntityFieldChecker.php:46
+      notes: Found 4 occurrences
+    - claim: interfaces
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: modules
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: ndex
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: ndexers
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: nterfaces
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: omen
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: ontracts
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: ops
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: ottoms
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: product_id
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: record
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-analytics/Model/FileRecorder.php:69
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-analytics/Test/Unit/Model/FileRecorderTest.php:192
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-user/Model/ResourceModel/User.php:118
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Css/PreProcessor/Instruction/Import.php:120
+      notes: Found 4 occurrences
+    - claim: resses
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: table
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Reports/Model/ResourceModel/Report/Product/Viewed/CollectionTest.php:99
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Sales/Model/ResourceModel/Report/Bestsellers/CollectionTest.php:67
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/setup/src/Magento/Setup/Console/Style/MagentoStyle.php:227
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Setup/Test/Unit/Declaration/Schema/Declaration/SchemaBuilderTest.php:114
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Setup/SetupInterface.php:55
+      notes: Found 8 occurrences
+    - claim: text
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/setup/src/Magento/Setup/Console/Style/MagentoStyle.php:163
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/View/Test/Unit/Layout/Argument/Interpreter/ObjectTest.php:63
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/View/Test/Unit/Layout/Argument/Interpreter/ObjectTest.php:78
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog-import-export/Model/Import/Product/Validator.php:87
+      notes: Found 4 occurrences
+    - claim: translateX
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: tree
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/Catalog/Api/CategoryManagementTest.php:65
+      notes: Found 1 occurrences
+    - claim: values
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/BundleImportExport/Model/Import/Product/Type/BundleTest.php:270
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-two-factor-auth/Test/Unit/Model/Config/Backend/Duo/ApiHostnameTest.php:43
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-elasticsearch/Test/Unit/SearchAdapter/Query/ValueTransformer/TextTransformerTest.php:71
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-elasticsearch/Test/Unit/SearchAdapter/Query/ValueTransformer/IntegerTransformerTest.php:53
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog-import-export/Test/Unit/Model/Import/ProductTest.php:2220
+      notes: Found 5 occurrences
+    - claim: ypes
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+  database_tables:
+    total: 1
+    found: 1
+    not_found: 0
+    results:
+    - claim: eav_attribute
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-configurable-import-export/Model/Import/Product/Type/Configurable.php:461
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales-rule/Model/ResourceModel/Rule.php:316
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales-rule/Model/ResourceModel/Rule.php:342
+      notes: Found 233 references
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

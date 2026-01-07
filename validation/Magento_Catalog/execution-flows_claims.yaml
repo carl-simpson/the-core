@@ -1,0 +1,42 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Catalog/html/execution-flows.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\Catalog\Controller\Product\View
+  - Magento\Catalog\Model\ProductRepository
+  php_interfaces: []
+  methods:
+  - addAttributeToSelect
+  - attributes
+  - catalog_product_entity
+  - catalog_product_entity_decimal
+  - catalog_product_entity_int
+  - catalog_product_entity_varchar
+  - catalog_product_flat
+  - data
+  - get
+  - getById
+  - getFinalPrice
+  - getPrice
+  - load
+  - options
+  - prepareAndRender
+  - reindexRow
+  - save
+  events:
+  - catalog_category_prepare_save
+  - catalog_category_save_after
+  - catalog_category_save_before
+  - catalog_category_save_commit_after
+  - catalog_product_load_after
+  - catalog_product_save_after
+  database_tables: []
+  acl_resources: []
+  config_paths:
+  - bin/magento
+  - catalog/product/view
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

@@ -1,0 +1,356 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Shipping/html/execution-flows.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os
+summary:
+  total_claims: 41
+  validated: 41
+  found: 29
+  not_found: 12
+  confidence_distribution:
+    high: 5
+    medium: 36
+    low: 0
+results_by_type:
+  php_classes:
+    total: 1
+    found: 1
+    not_found: 0
+    results:
+    - claim: Magento\Shipping\Model\Observer
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-shipping/Model/Observer.php:1
+      notes: Class file exists and contains class definition
+  methods:
+    total: 36
+    found: 24
+    not_found: 12
+    results:
+    - claim: ackages
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: aggregate
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-ui/DataProvider/EavValidationRules.php:52
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales-rule/Model/Quote/Discount.php:250
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales-rule/Model/Quote/Discount.php:331
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales-rule/Model/ResourceModel/Report/Rule/Createdat.php:33
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales-rule/Model/ResourceModel/Report/Rule/Updatedat.php:32
+      notes: Found 39 occurrences
+    - claim: alidation
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: append
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-ui/TemplateEngine/Xhtml/Result.php:99
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-ui/Config/Reader/Dom.php:177
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-ui/Config/Reader/Dom.php:194
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-page-builder/Model/Dom/Element.php:55
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-page-builder/Model/Dom/DocumentFragment.php:47
+      notes: Found 48 occurrences
+    - claim: appendResult
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-shipping/Model/Rate/CarrierResult.php:28
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-product-video/Controller/Adminhtml/Product/Gallery/RetrieveImage.php:182
+      notes: Found 2 occurrences
+    - claim: ata
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: checkAvailableShipCountries
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-shipping/Model/Carrier/AbstractCarrierInterface.php:78
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-shipping/Model/Carrier/AbstractCarrier.php:280
+      notes: Found 2 occurrences
+    - claim: collectCarrierRates
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-shipping/Model/Shipping.php:308
+      notes: Found 1 occurrences
+    - claim: collectRates
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Dhl/Model/CarrierTest.php:555
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Dhl/Model/CarrierTest.php:638
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Ups/Model/CarrierTest.php:302
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-dhl/Model/Carrier.php:396
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-ups/Model/UpsAuth.php:116
+      notes: Found 21 occurrences
+    - claim: collectShippingRates
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Model/AdminOrder/Create.php:1655
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-quote/Model/Quote/Address.php:1003
+      notes: Found 2 occurrences
+    - claim: create
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-message-queue/Setup/ConfigOptionsList.php:75
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-url-rewrite/Model/Storage/DbStorage.php:455
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-url-rewrite/Model/Storage/AbstractStorage.php:105
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-url-rewrite/Model/Message/UrlRewriteExceptionMessageFactory.php:42
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-import-export/Model/Import/RenderErrorMessages.php:142
+      notes: Found 1583 occurrences
+    - claim: esult
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: format
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-checkout/Helper/Data.php:123
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales-rule/Model/Converter/ToModel.php:230
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/Quote/Api/CartTotalRepositoryTest.php:220
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/Quote/Api/GuestCartTotalRepositoryTest.php:149
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/static/framework/Magento/PhpStan/Formatters/FilteredErrorFormatter.php:62
+      notes: Found 163 occurrences
+    - claim: getErrors
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-import-export/Model/Import/ErrorProcessing/ProcessingErrorAggregatorInterface.php:116
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-import-export/Model/Import/ErrorProcessing/ProcessingErrorAggregatorInterface.php:153
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-import-export/Model/Import/ErrorProcessing/ProcessingErrorAggregator.php:259
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-import-export/Model/Import/ErrorProcessing/ProcessingErrorAggregator.php:339
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-import-export/Model/Export/Entity/AbstractEntity.php:508
+      notes: Found 42 occurrences
+    - claim: getResult
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-catalog/Model/ResourceModel/GetProductTypesBySkus.php:67
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-import-export/Controller/Adminhtml/Import/Download.php:123
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-widget/Controller/Adminhtml/Widget/Instance/MassDelete.php:121
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-search/Helper/Data.php:110
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-search/Model/QueryResult.php:45
+      notes: Found 43 occurrences
+    - claim: getShippingLabel
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Model/Order/Shipment.php:529
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Block/Adminhtml/Order/Creditmemo/Create/Adjustments.php:124
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Api/Data/ShipmentInterface.php:193
+      notes: Found 3 occurrences
+    - claim: getTrackingInfo
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-shipping/Model/Info.php:102
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-shipping/Model/Info.php:145
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-shipping/Model/Info.php:171
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-shipping/Model/Info.php:194
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-shipping/Model/Carrier/AbstractCarrierOnline.php:192
+      notes: Found 6 occurrences
+    - claim: getValue
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Model/Policy/SandboxPolicy.php:235
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Model/Policy/FlagPolicy.php:44
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Model/Policy/FetchPolicy.php:205
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Model/Policy/PluginTypesPolicy.php:42
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Api/Data/PolicyInterface.php:31
+      notes: Found 278 occurrences
+    - claim: ggregation
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: hipCountries
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: hipment
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: load
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Model/BlockCache.php:61
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-import-export/Model/History.php:306
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-import-export/Model/ResourceModel/Export/AttributeGridCollection.php:59
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/Model/ResourceModel/Block.php:135
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/Model/ResourceModel/Page.php:173
+      notes: Found 554 occurrences
+    - claim: ollection
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: ookup
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: prepareCarrier
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-shipping/Model/Shipping.php:274
+      notes: Found 1 occurrences
+    - claim: reation
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: requestToShipment
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Dhl/Model/CarrierTest.php:375
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-dhl/Model/Carrier.php:2057
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-ups/Model/Carrier.php:2497
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-ups/Test/Unit/Model/CarrierTest.php:394
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-shipping/Model/Shipping/Labels.php:84
+      notes: Found 10 occurrences
+    - claim: save
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-message-queue/Model/ResourceModel/Lock.php:86
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Model/SubresourceIntegrityRepository.php:123
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Model/SubresourceIntegrityRepository.php:145
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Model/BlockCache.php:100
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-import-export/Model/ResourceModel/Import/Data.php:275
+      notes: Found 594 occurrences
+    - claim: setCarrier
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-api/Api/Data/SourceInterface.php:303
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-api/Api/Data/SourceCarrierLinkInterface.php:40
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Model/Order/Shipment/Track.php:391
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Model/Order/Shipment/TrackCreation.php:82
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Api/Data/TrackInterface.php:57
+      notes: Found 12 occurrences
+    - claim: setCarrierTitle
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-quote/Model/Cart/ShippingMethod.php:76
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-quote/Api/Data/ShippingMethodInterface.php:108
+      notes: Found 2 occurrences
+    - claim: setErrorMessage
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Backup/AbstractBackup.php:255
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-asynchronous-operations/Model/ItemStatus.php:75
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-asynchronous-operations/Api/Data/ItemStatusInterface.php:96
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-quote/Model/Cart/ShippingMethod.php:182
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-quote/Api/Data/ShippingMethodInterface.php:201
+      notes: Found 5 occurrences
+    - claim: setShippingLabel
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Model/Order/Shipment.php:518
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Api/Data/ShipmentInterface.php:354
+      notes: Found 2 occurrences
+    - claim: setShippingRates
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: setTracking
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-ups/Model/Carrier.php:1816
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-usps/Model/Carrier.php:1108
+      notes: Found 2 occurrences
+    - claim: silently
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: url
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cardinal-commerce/Model/JwtManagement.php:124
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cardinal-commerce/Model/JwtManagement.php:139
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/UrlRewrite/UrlResolverTest.php:108
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/UrlRewrite/RouteTest.php:385
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/PageCache/UrlRewrite/RouteCacheTest.php:379
+      notes: Found 9 occurrences
+  events:
+    total: 1
+    found: 1
+    not_found: 0
+    results:
+    - claim: save_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/etc/events.xml:12
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/etc/events.xml:27
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-vault/etc/events.xml:9
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-advanced-search/etc/adminhtml/events.xml:10
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-checkout/etc/events.xml:9
+      notes: Found 52 references
+  database_tables:
+    total: 3
+    found: 3
+    not_found: 0
+    results:
+    - claim: sales_order_shipment_
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Sales/Controller/Adminhtml/Order/Shipment/ExportTest.php:79
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Sales/Controller/Adminhtml/Order/Shipment/ExportTest.php:89
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Observer/GridSyncInsertObserver.php:52
+      notes: Found 13 references
+    - claim: sales_shipment
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-shipping-admin-ui/Model/ResourceModel/GetAllocatedSourcesForOrder.php:42
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-shipping-admin-ui/Model/ResourceModel/GetAllocatedSourcesForOrder.php:46
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-shipping-admin-ui/Model/ResourceModel/GetAllocatedSourcesForOrder.php:47
+      notes: Found 31 references
+    - claim: sales_shipping_aggregated
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Model/ResourceModel/Report/Shipping/Collection/Shipment.php:32
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Model/ResourceModel/Report/Shipping/Collection/Order.php:45
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Model/ResourceModel/Report/Shipping.php:50
+      notes: Found 4 references
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+  file_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

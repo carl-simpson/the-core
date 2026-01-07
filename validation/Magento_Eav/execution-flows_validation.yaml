@@ -1,0 +1,345 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Eav/html/execution-flows.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os
+summary:
+  total_claims: 37
+  validated: 37
+  found: 30
+  not_found: 7
+  confidence_distribution:
+    high: 6
+    medium: 31
+    low: 0
+results_by_type:
+  methods:
+    total: 31
+    found: 24
+    not_found: 7
+    results:
+    - claim: addAttributeToSelect
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Model/ResourceModel/Collection/AbstractCollection.php:80
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Model/Entity/Collection/AbstractCollection.php:506
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog/Model/ResourceModel/AbstractCollection.php:79
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog/Model/ResourceModel/Product/Collection.php:683
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog/Model/ResourceModel/Category/Flat/Collection.php:255
+      notes: Found 5 occurrences
+    - claim: array_filter
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: attribute
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-import-export/Test/Unit/Model/Import/EntityAbstractTest.php:423
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-ui/Component/Control/Button.php:174
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/Catalog/ProductAttributeStoreOptionsTest.php:38
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/Catalog/ProductAttributeStoreTest.php:35
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/Catalog/Api/ProductAttributeRepositoryTest.php:130
+      notes: Found 29 occurrences
+    - claim: backend
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: backend_type
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: child
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/ConfigurableProduct/ConfigurableProductMultipleStoreViewTest.php:67
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Swatches/Block/Product/Renderer/Configurable/PriceTest.php:94
+      notes: Found 2 occurrences
+    - claim: counter
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: default
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/static/testsuite/Magento/Test/Integrity/App/Language/TranslationFilesTest.php:50
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Checkout/Block/Checkout/LayoutProcessorTest.php:53
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-wishlist/Helper/Data.php:575
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog/Test/Unit/Helper/Product/ProductListTest.php:58
+      notes: Found 4 occurrences
+    - claim: empty
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Bundle/Controller/Adminhtml/Product/DynamicBundleProductTest.php:186
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-config/Test/Unit/Model/Config/StructureTest.php:252
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/App/State/CleanupFiles.php:94
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Encryption/Test/Unit/EncryptorTest.php:238
+      notes: Found 4 occurrences
+    - claim: fields
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Framework/Data/Form/Element/FieldsetTest.php:62
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/UrlRewrite/Block/Edit/FormTest.php:162
+      notes: Found 2 occurrences
+    - claim: getAllOptions
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog-inventory/Model/Source/Stock.php:46
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-bundle/Model/Product/Attribute/Source/Shipment/Type.php:19
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-bundle/Model/Product/Attribute/Source/Price/View.php:37
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Catalog/_files/MultiselectSourceMock.php:16
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-tax/Model/TaxClass/Source/Product.php:70
+      notes: Found 36 occurrences
+    - claim: getAttribute
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-import-export/Model/Import/Entity/AbstractEav.php:201
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-import-export/Model/Import/Entity/AbstractEav.php:240
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-import-export/Model/Import/Entity/AbstractEntity.php:516
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-import-export/Model/Export/Entity/AbstractEav.php:234
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-import-export/Model/Export/Entity/AbstractEav.php:322
+      notes: Found 477 occurrences
+    - claim: getAttributeCode
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/_files/Magento/TestModuleMSC/Model/Data/Eav/AttributeMetadata.php:51
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/Customer/Attribute/AttributesFormTest.php:174
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/_files/Magento/TestModuleExtensionAttributes/Model/FakeAttributeMetadata.php:19
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/_files/Magento/TestModuleExtensionAttributes/Model/Data/FakeAttributeMetadata.php:19
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/SwatchesLayeredNavigation/Block/Navigation/Category/SwatchVisualFilterTest.php:131
+      notes: Found 62 occurrences
+    - claim: getAttributes
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-ui/Component/Control/SplitButton.php:69
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-ui/Component/Control/Button.php:88
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/Customer/Api/AddressMetadataTest.php:292
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/Customer/Api/CustomerMetadataTest.php:262
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Eav/Model/ResourceModel/AttributeLoaderTest.php:60
+      notes: Found 105 occurrences
+    - claim: getData
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-shipping-admin-ui/Ui/DataProvider/SourceSelectionDataProvider.php:115
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Model/SubresourceIntegrityRepository.php:181
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-catalog/Model/UpdateInventory/InventoryData.php:50
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-catalog/Test/Unit/Plugin/InventoryApi/SynchronizeLegacyStockAfterDecrementStockPluginTest.php:228
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-catalog/Test/Unit/Model/SourceItemsSaveSynchronization/SetDataToLegacyCatalogInventoryTest.php:127
+      notes: Found 362 occurrences
+    - claim: getEntityType
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-url-rewrite/Service/V1/Data/UrlRewrite.php:110
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-import-export/Model/Import/EntityInterface.php:35
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-import-export/Model/Import/Entity/AbstractEav.php:189
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-import-export/Model/Import/Entity/AbstractEntity.php:577
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-import-export/Model/Import/Entity/AbstractEntity.php:584
+      notes: Found 74 occurrences
+    - claim: getFrontendLabel
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/_files/Magento/TestModuleExtensionAttributes/Model/FakeAttributeMetadata.php:35
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/_files/Magento/TestModuleExtensionAttributes/Model/Data/FakeAttributeMetadata.php:35
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/_files/Magento/TestModuleExtensionAttributes/Api/Data/FakeAttributeMetadataInterface.php:44
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Model/Data/AttributeMetadata.php:125
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Block/DataProviders/AddressAttributeData.php:51
+      notes: Found 8 occurrences
+    - claim: getIsRequired
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Model/Attribute.php:150
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Model/Entity/Attribute/AbstractAttribute.php:1160
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Api/Data/AttributeInterface.php:119
+      notes: Found 3 occurrences
+    - claim: getSource
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-shipping-admin-ui/Ui/DataProvider/GetSourcesByOrderIdSkuAndQty.php:120
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-shipping-admin-ui/Ui/DataProvider/GetSourcesByStockIdSkuAndQty.php:123
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-shipping-admin-ui/Ui/DataProvider/SourceSelectionDataProvider.php:166
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-shipping-admin-ui/Block/Adminhtml/Shipment/Inventory.php:66
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-shipping-admin-ui/Block/Adminhtml/Shipment/Inventory.php:83
+      notes: Found 146 occurrences
+    - claim: gradient
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: is_array
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/Model/Template/Filter.php:19
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-email/Model/Template/Filter.php:546
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/CatalogImportExport/Model/Import/ProductTestBase.php:164
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/CatalogImportExport/Model/Import/ProductTestBase.php:219
+      notes: Found 8 occurrences
+    - claim: save
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-message-queue/Model/ResourceModel/Lock.php:86
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Model/SubresourceIntegrityRepository.php:123
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Model/SubresourceIntegrityRepository.php:145
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Model/BlockCache.php:100
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-import-export/Model/ResourceModel/Import/Data.php:275
+      notes: Found 594 occurrences
+    - claim: set
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-shipping-admin-ui/Test/Integration/ExportOrderWithAllocatedSource.php:56
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-shipping-admin-ui/Test/Integration/Model/IsOrderSourceManageableTest.php:33
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-shipping-admin-ui/Test/Integration/Model/ResourceModel/GetAllocatedSourcesForOrderTest.php:40
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-message-queue/Model/Lock.php:39
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-message-queue/Model/Lock.php:60
+      notes: Found 13368 occurrences
+    - claim: setData
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-ui/Component/AbstractComponent.php:254
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog-inventory/Test/Unit/Model/Stock/ItemTest.php:162
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog-inventory/Test/Unit/Block/Stockqty/DefaultStockqtyTest.php:199
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-widget/Block/BlockInterface.php:38
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/framework/Magento/TestFramework/App/Config.php:37
+      notes: Found 70 occurrences
+    - claim: setStoreId
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-url-rewrite/Service/V1/Data/UrlRewrite.php:193
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/Helper/Wysiwyg/Images.php:120
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog-inventory/Model/Stock/Item.php:521
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales-rule/Model/Data/RuleLabel.php:37
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales-rule/Api/Data/RuleLabelInterface.php:29
+      notes: Found 68 occurrences
+    - claim: tabs
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: type
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-reports/Test/Unit/Model/ResourceModel/HelperTest.php:128
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-indexer/Test/Unit/Block/Backend/Grid/Column/Renderer/ScheduledTest.php:46
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Interception/Test/Unit/Code/Generator/_files/TSample.php:45
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Interception/Test/Unit/Code/Generator/_files/TSample.php:54
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Reflection/Test/Unit/TypeCasterTest.php:80
+      notes: Found 9 occurrences
+    - claim: value
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/BundleImportExport/Model/Import/Product/Type/BundleTest.php:270
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog-graph-ql/DataProvider/CategoryAttributesMapper.php:86
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-two-factor-auth/Test/Unit/Model/Config/Backend/Duo/ApiHostnameTest.php:43
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-elasticsearch/Test/Unit/SearchAdapter/Query/ValueTransformer/TextTransformerTest.php:71
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-elasticsearch/Test/Unit/SearchAdapter/Query/ValueTransformer/IntegerTransformerTest.php:53
+      notes: Found 6 occurrences
+    - claim: values
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/BundleImportExport/Model/Import/Product/Type/BundleTest.php:270
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-two-factor-auth/Test/Unit/Model/Config/Backend/Duo/ApiHostnameTest.php:43
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-elasticsearch/Test/Unit/SearchAdapter/Query/ValueTransformer/TextTransformerTest.php:71
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-elasticsearch/Test/Unit/SearchAdapter/Query/ValueTransformer/IntegerTransformerTest.php:53
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog-import-export/Test/Unit/Model/Import/ProductTest.php:2220
+      notes: Found 5 occurrences
+    - claim: var
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-email/Model/Template/Filter.php:670
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-variable/Ui/Component/VariablesDataProvider.php:92
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-paypal/Test/Unit/Model/Payflow/Service/Response/Validator/IAVSResponseTest.php:58
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-configurable-product/Test/Unit/Model/Product/Type/VariationMatrixTest.php:45
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/App/DeploymentConfig/Writer/PhpFormatter.php:84
+      notes: Found 6 occurrences
+  events:
+    total: 1
+    found: 1
+    not_found: 0
+    results:
+    - claim: model_save_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Model/AbstractModel.php:863
+      notes: Found 1 references
+  database_tables:
+    total: 5
+    found: 5
+    not_found: 0
+    results:
+    - claim: eav_attribute
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-configurable-import-export/Model/Import/Product/Type/Configurable.php:461
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales-rule/Model/ResourceModel/Rule.php:316
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales-rule/Model/ResourceModel/Rule.php:342
+      notes: Found 233 references
+    - claim: eav_attribute_group
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Setup/EavSetup.php:181
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Setup/EavSetup.php:190
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Setup/EavSetup.php:197
+      notes: Found 14 references
+    - claim: eav_attribute_option_value
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Eav/Setup/AddOptionToAttributeTest.php:71
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Catalog/Controller/Adminhtml/Product/Attribute/Update/AbstractUpdateAttributeTest.php:465
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog-graph-ql/DataProvider/Product/LayeredNavigation/AttributeOptionProvider.php:89
+      notes: Found 26 references
+    - claim: eav_entity_attribute
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Weee/Model/ResourceModel/AttributeTest.php:76
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Weee/Model/ResourceModel/AttributeTest.php:103
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Weee/Model/ResourceModel/AttributeTest.php:116
+      notes: Found 43 references
+    - claim: eav_entity_type
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/setup/src/Magento/Setup/Model/Installer.php:1270
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Setup/EavSetup.php:244
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Setup/EavSetup.php:271
+      notes: Found 22 references
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

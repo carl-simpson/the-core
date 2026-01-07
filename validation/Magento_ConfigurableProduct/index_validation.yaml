@@ -1,0 +1,129 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_ConfigurableProduct/html/index.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os
+summary:
+  total_claims: 13
+  validated: 13
+  found: 8
+  not_found: 5
+  confidence_distribution:
+    high: 0
+    medium: 13
+    low: 0
+results_by_type:
+  php_classes:
+    total: 1
+    found: 1
+    not_found: 0
+    results:
+    - claim: Magento\ConfigurableProduct\Model\Product\Type\Configurable
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-configurable-import-export/Model/Import/Product/Type/Configurable.php:22
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-configurable-import-export/Model/Export/Product/Type/Configurable.php:8
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-configurable-import-export/Test/Unit/Model/Import/Product/Type/ConfigurableTest.php:33
+      notes: Found via pattern search
+  methods:
+    total: 12
+    found: 7
+    not_found: 5
+    results:
+    - claim: child
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/ConfigurableProduct/ConfigurableProductMultipleStoreViewTest.php:67
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Swatches/Block/Product/Renderer/Configurable/PriceTest.php:94
+      notes: Found 2 occurrences
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/Model/Template/Filter.php:19
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-email/Model/Template/Filter.php:546
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/CatalogImportExport/Model/Import/ProductTestBase.php:164
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/CatalogImportExport/Model/Import/ProductTestBase.php:219
+      notes: Found 8 occurrences
+    - claim: modules
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: option
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-import-export/Test/Unit/Model/Import/Source/CsvTest.php:108
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-rule/Test/Unit/Model/Condition/CombineTest.php:91
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/Catalog/Api/ProductCustomOptionRepositoryTest.php:185
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/Catalog/Api/ProductCustomOptionRepositoryTest.php:235
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/Catalog/Api/ProductCustomOptionRepositoryTest.php:446
+      notes: Found 17 occurrences
+    - claim: options
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Catalog/Block/Adminhtml/Category/Tab/ProductTest.php:105
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Framework/Session/ConfigTest.php:130
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Customer/Model/OptionsTest.php:100
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-configurable-product/Test/Unit/Model/AttributeOptionProviderTest.php:232
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Test/Unit/Currency/Data/CurrencyTest.php:39
+      notes: Found 6 occurrences
+    - claim: product_id
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: products
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog-inventory/Test/Unit/Model/StockManagementTest.php:241
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog-inventory/Test/Unit/Model/StockManagementTest.php:281
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog-inventory/Test/Unit/Model/ResourceModel/StockTest.php:198
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/WebapiAsync/Model/AsyncBulkScheduleTest.php:266
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/CatalogRuleConfigurable/Model/Indexer/Product/ProductRuleIndexerTest.php:115
+      notes: Found 6 occurrences
+    - claim: repeat
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: rgba
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: translateY
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: value
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/BundleImportExport/Model/Import/Product/Type/BundleTest.php:270
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog-graph-ql/DataProvider/CategoryAttributesMapper.php:86
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-two-factor-auth/Test/Unit/Model/Config/Backend/Duo/ApiHostnameTest.php:43
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-elasticsearch/Test/Unit/SearchAdapter/Query/ValueTransformer/TextTransformerTest.php:71
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-elasticsearch/Test/Unit/SearchAdapter/Query/ValueTransformer/IntegerTransformerTest.php:53
+      notes: Found 6 occurrences
+    - claim: var
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-email/Model/Template/Filter.php:670
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-variable/Ui/Component/VariablesDataProvider.php:92
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-paypal/Test/Unit/Model/Payflow/Service/Response/Validator/IAVSResponseTest.php:58
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-configurable-product/Test/Unit/Model/Product/Type/VariationMatrixTest.php:45
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/App/DeploymentConfig/Writer/PhpFormatter.php:84
+      notes: Found 6 occurrences
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

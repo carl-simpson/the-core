@@ -1,0 +1,59 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Store/html/plugins-observers.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\Framework\App\Cache\Type\Collection
+  - Magento\Framework\App\Response\HeaderManager
+  - Magento\Framework\Logger\Monolog
+  - Magento\Store\App\FrontController\Plugin\RequestPreprocessor
+  - Magento\Store\Model\Data\StoreConfig
+  - Magento\Store\Model\Group
+  - Magento\Store\Model\GroupRepository
+  - Magento\Store\Model\HeaderProvider\UpgradeInsecure
+  - Magento\Store\Model\Plugin\StoreCookie
+  - Magento\Store\Model\Resolver\Locale
+  - Magento\Store\Model\Resolver\Store
+  - Magento\Store\Model\ResourceModel\Group\Collection\FetchStrategy
+  - Magento\Store\Model\ResourceModel\Store\Collection\FetchStrategy
+  - Magento\Store\Model\ResourceModel\Website\Collection\FetchStrategy
+  - Magento\Store\Model\Service\StoreConfigManager
+  - Magento\Store\Model\Store
+  - Magento\Store\Model\StoreCookieManager
+  - Magento\Store\Model\StoreManager
+  - Magento\Store\Model\StoreRepository
+  - Magento\Store\Model\StoreResolver
+  - Magento\Store\Model\Website
+  - Magento\Store\Model\WebsiteRepository
+  - Magento\Store\Url\Plugin\RouteParamsResolver
+  - Magento\Store\Url\Plugin\SecurityInfo
+  php_interfaces:
+  - Magento\Framework\App\FrontControllerInterface
+  - Magento\Framework\Url\RouteParamsResolverInterface
+  - Magento\Framework\Url\SecurityInfoInterface
+  - Magento\Store\Api\StoreResolverInterface
+  - Magento\Store\Model\StoreManagerInterface
+  methods:
+  - afterDelete
+  - afterSave
+  - child
+  - gradient
+  - invalid
+  - media
+  - operations
+  - repeat
+  - system
+  - var
+  events:
+  - store_delete
+  - store_group_save
+  - website_save_after
+  database_tables: []
+  acl_resources: []
+  config_paths:
+  - event/observer
+  - frontend/admin
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

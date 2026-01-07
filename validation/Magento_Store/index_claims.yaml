@@ -1,0 +1,28 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Store/html/index.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes: []
+  php_interfaces: []
+  methods:
+  - child
+  - gradient
+  - group_id
+  - media
+  - repeat
+  - tier
+  - translateX
+  - var
+  - website_id
+  events: []
+  database_tables: []
+  acl_resources: []
+  config_paths:
+  - cookie/request
+  - currency/locale
+  - store/website/group
+  - store/websites
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

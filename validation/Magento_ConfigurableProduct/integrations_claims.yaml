@@ -1,0 +1,25 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_ConfigurableProduct/html/integrations.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes: []
+  php_interfaces: []
+  methods:
+  - attributes
+  - child
+  - extensions
+  - media
+  - repeat
+  - rgba
+  - var
+  events: []
+  database_tables: []
+  acl_resources: []
+  config_paths:
+  - js/configurable
+  - js/swatch
+  - price/stock
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

@@ -1,0 +1,48 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_ConfigurableProduct/html/architecture.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\ConfigurableProduct\Model\Product\ReadHandler
+  - Magento\ConfigurableProduct\Model\Product\SaveHandler
+  - Magento\Framework\EntityManager\Operation\ExtensionPool
+  php_interfaces:
+  - Magento\Catalog\Api\Data\ProductInterface
+  methods:
+  - cart
+  - catalog_product_entity
+  - child
+  - configurable_product_links
+  - definition
+  - getConfigurableAttributes
+  - getConfigurableOptions
+  - getProductByAttributes
+  - getSelectedAttributesInfo
+  - getUsedProducts
+  - hildren
+  - isSalable
+  - ize
+  - media
+  - objects
+  - olor
+  - prepareForCartAdvanced
+  - price
+  - products
+  - repeat
+  - rgba
+  - roduct
+  - rotate
+  - var
+  events: []
+  database_tables: []
+  acl_resources: []
+  config_paths:
+  - color/size
+  - order/cart
+  - save/load
+  - stock/price
+  - swatch/dropdown
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

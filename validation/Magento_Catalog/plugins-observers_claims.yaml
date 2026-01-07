@@ -1,0 +1,53 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Catalog/html/plugins-observers.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\Catalog\Model\Category\DataProvider
+  - Magento\Catalog\Model\Plugin\Log
+  - Magento\Catalog\Model\Plugin\QuoteItemProductOption
+  - Magento\Catalog\Model\Plugin\SetPageLayoutDefaultValue
+  - Magento\Catalog\Model\Plugin\ShowOutOfStockConfig
+  - Magento\Catalog\Plugin\Block\Topmenu
+  - Magento\Catalog\Plugin\Model\Attribute\Backend\AttributeValidation
+  - Magento\Config\Model\Config
+  - Magento\Customer\Model\ResourceModel\Visitor
+  - Magento\Theme\Block\Html\Topmenu
+  php_interfaces: []
+  methods:
+  - afterClean
+  - afterGetData
+  - afterGetIdentities
+  - areas
+  - aroundConvertItem
+  - aroundSave
+  - aroundValidate
+  - beforeGetHtml
+  - bservers
+  - rea
+  events:
+  - catalog_category_prepare_save
+  - catalog_category_save_after
+  - catalog_product_save_before
+  - catalog_product_save_commit_after
+  - commit_after
+  - magento_catalog_api_data_categoryinterface_delete_after
+  - magento_catalog_api_data_categoryinterface_delete_before
+  - magento_catalog_api_data_categoryinterface_load_after
+  - magento_catalog_api_data_categoryinterface_save_after
+  - magento_catalog_api_data_categoryinterface_save_before
+  - magento_catalog_api_data_productinterface_delete_after
+  - magento_catalog_api_data_productinterface_delete_before
+  - magento_catalog_api_data_productinterface_load_after
+  - magento_catalog_api_data_productinterface_save_after
+  - magento_catalog_api_data_productinterface_save_before
+  - store_save_after
+  database_tables: []
+  acl_resources: []
+  config_paths:
+  - etc/events
+  file_paths:
+  - etc/events.xml
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

@@ -1,0 +1,53 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Catalog/html/known-issues.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\Catalog\Model\Product
+  php_interfaces: []
+  methods:
+  - addAttributeToSelect
+  - addFieldToFilter
+  - addFilter
+  - create
+  - foreach
+  - generate
+  - get
+  - getAmount
+  - getAttribute
+  - getById
+  - getExtensionAttributes
+  - getFinalPrice
+  - getList
+  - getOptions
+  - getPrice
+  - getPriceInfo
+  - getResource
+  - getStockItem
+  - getValue
+  - load
+  - maintenance
+  - move
+  - reindexAll
+  - save
+  - setCurrentStore
+  - setIsInStock
+  - setMediaGalleryEntries
+  - setOptions
+  - setPosition
+  - setQty
+  - setStockItem
+  events: []
+  database_tables: []
+  acl_resources: []
+  config_paths:
+  - bin/magento
+  - catalog/frontend/flat_catalog_category
+  - catalog/frontend/flat_catalog_product
+  - exported/imported
+  - from/to
+  - position/order
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

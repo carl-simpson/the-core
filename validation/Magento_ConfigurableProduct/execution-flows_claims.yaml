@@ -1,0 +1,68 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_ConfigurableProduct/html/execution-flows.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\Catalog\Pricing\Render\FinalPriceBox
+  - Magento\Checkout\Controller\Cart\Add
+  - Magento\ConfigurableProduct\Block\Product\View\Type\Configurable
+  - Magento\ConfigurableProduct\Model\Plugin\ProductRepositorySave
+  - Magento\ConfigurableProduct\Model\ProductOptionProcessor
+  - Magento\ConfigurableProduct\Model\Product\SaveHandler
+  - Magento\ConfigurableProduct\Model\Product\Type\Configurable
+  - Magento\ConfigurableProduct\Pricing\Price\FinalPrice
+  - Magento\Quote\Model\Quote
+  - Magento\Quote\Model\Quote\Item\ToOrderItem
+  php_interfaces: []
+  methods:
+  - addProduct
+  - afterSave
+  - arent
+  - chain
+  - convert
+  - convertToProductOption
+  - execute
+  - filter
+  - filters
+  - getAllowProducts
+  - getJsonConfig
+  - getOptionPrices
+  - getOptions
+  - getPrice
+  - getPriceInfo
+  - getProductByAttributes
+  - getProducts
+  - getSalableUsedProducts
+  - getValue
+  - hild
+  - isSalable
+  - ize
+  - lack
+  - mall
+  - media
+  - olor
+  - options
+  - prepareForCartAdvanced
+  - renderAmount
+  - resolvePrice
+  - rgba
+  - salable
+  - save
+  - var
+  events:
+  - customer_group_id
+  - sales_quote_product_add_after
+  database_tables:
+  - customer_group_id
+  - quote_item_option
+  - sales_quote_product_add_after
+  acl_resources: []
+  config_paths:
+  - attribute/option
+  - js/configurable
+  - media/catalog/product
+  - swatch/dropdown
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

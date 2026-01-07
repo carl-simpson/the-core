@@ -1,0 +1,37 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Shipping/html/known-issues.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes: []
+  php_interfaces: []
+  methods:
+  - catch
+  - collectCarrierRates
+  - composePackagesForCarrier
+  - getResult
+  - incomplete
+  - prepareCarrier
+  - proccessAdditionalValidation
+  - processAdditionalValidation
+  - typo
+  - url
+  - xml
+  events: []
+  database_tables: []
+  acl_resources: []
+  config_paths:
+  - etc/di
+  - log/display
+  - null/false
+  - order/shipment
+  - var/log/shipping
+  file_paths:
+  - Controller/Tracking/Popup.php
+  - Model/Carrier/AbstractCarrierInterface.php
+  - Model/Observer.php
+  - Model/Shipping.php
+  - Model/Shipping/Labels.php
+  - etc/di.xml
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null
