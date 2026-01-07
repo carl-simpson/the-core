@@ -1,0 +1,40 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Payment/html/integrations.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\Checkout\Model
+  php_interfaces: []
+  methods:
+  - authorize
+  - capture
+  - code
+  - create
+  - data
+  - execute
+  - form
+  - getMethod
+  - getPayment
+  - importData
+  - media
+  - place
+  - setMethod
+  - tokens
+  - url
+  - validate
+  events:
+  - customer_id
+  database_tables:
+  - customer_id
+  - quote_id
+  - sales_payment_transaction
+  acl_resources: []
+  config_paths:
+  - carts/mine/payment
+  - carts/mine/selected
+  - customers/me
+  - frontend/di
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

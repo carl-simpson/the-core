@@ -1,0 +1,53 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Payment/html/plugins-observers.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\Checkout\Block\Checkout\LayoutProcessor
+  - Magento\Framework\Config\GenericSchemaLocator
+  - Magento\Framework\Config\Reader\Filesystem
+  - Magento\Framework\Logger\Handler\Base
+  - Magento\Framework\Logger\Monolog
+  - Magento\Payment\Block\Form
+  - Magento\Payment\Block\Form\Container
+  - Magento\Payment\Block\Info
+  - Magento\Payment\Gateway\Command\CommandPool
+  - Magento\Payment\Gateway\Config\ValueHandlerPool
+  - Magento\Payment\Gateway\ErrorMapper\VirtualConfigReader
+  - Magento\Payment\Gateway\ErrorMapper\VirtualSchemaLocator
+  - Magento\Payment\Gateway\ErrorMapper\XmlToArrayConverter
+  - Magento\Payment\Model\Method\Adapter
+  - Magento\Payment\Model\Method\VirtualDebug
+  - Magento\Payment\Model\Method\VirtualLogger
+  - Magento\Payment\Plugin\PaymentConfigurationProcess
+  - Magento\Payment\Plugin\PaymentMethodProcess
+  php_interfaces: []
+  methods:
+  - execute
+  - getEvent
+  - getOrder
+  - getPayment
+  - getState
+  - getStatus
+  - media
+  - url
+  events:
+  - payment_sales_order_save_before
+  - sales_order_save_before
+  database_tables:
+  - sales_order_save_before
+  - sales_order_status_unassign
+  - sales_order_status_update
+  acl_resources: []
+  config_paths:
+  - etc/config
+  - etc/di
+  - frontend/di
+  - payment/method/order_status
+  - var/log/payment
+  file_paths:
+  - etc/config.xml
+  - etc/di.xml
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

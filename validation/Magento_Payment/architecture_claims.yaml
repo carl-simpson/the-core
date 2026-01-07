@@ -1,0 +1,47 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Payment/html/architecture.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\Payment\Block\Form\Cc
+  - Magento\Payment\Block\Info
+  - Magento\Payment\Gateway\Command\CommandPool
+  - Magento\Payment\Gateway\Config\ConfigValueHandler
+  - Magento\Payment\Gateway\Config\ValueHandlerPool
+  - Magento\Payment\Model\Method\Adapter
+  php_interfaces: []
+  methods:
+  - bstractMethod
+  - build
+  - context
+  - dapter
+  - ethodInterface
+  - getCcNumber
+  - getCurrencyCode
+  - getGrandTotalAmount
+  - getOrder
+  - getOrderIncrementId
+  - getPayment
+  - getQuote
+  - media
+  - ontracts
+  - readPayment
+  - ree
+  - uoteAdapterInterface
+  - url
+  events: []
+  database_tables: []
+  acl_resources: []
+  config_paths:
+  - etc/config
+  - etc/di
+  - etc/error_mapping
+  - etc/payment
+  file_paths:
+  - etc/config.xml
+  - etc/di.xml
+  - etc/error_mapping.xml
+  - etc/payment.xml
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

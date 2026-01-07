@@ -1,0 +1,46 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Customer/html/known-issues.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\Customer\Block\Form\Login\Info
+  php_interfaces: []
+  methods:
+  - checkout
+  - colors
+  - confusion
+  - content
+  - ebsite
+  - endpoints
+  - fix
+  - getConfig
+  - highlightAll
+  - idn_to_ascii
+  - isGlobalScopeEnabled
+  - load
+  - lobal
+  - media
+  - operations
+  - seconds
+  - session_start
+  - toHtml
+  - url
+  events:
+  - customer_entity
+  database_tables:
+  - customer_entity
+  acl_resources: []
+  config_paths:
+  - app/design/frontend
+  - bin/magento
+  - block/throttle
+  - customer/account_share/scope
+  - customer/create_account/auto_group_assign
+  - customer/view/frontend
+  - product/customer
+  - templates/form/authentication
+  - vendor/magento/module
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

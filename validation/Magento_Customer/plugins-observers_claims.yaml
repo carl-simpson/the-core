@@ -1,0 +1,71 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Customer/html/plugins-observers.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\Customer\Model\Plugin\CustomerRepository\TransactionWrapper
+  php_interfaces:
+  - Magento\Customer\Api\CustomerRepositoryInterface
+  methods:
+  - areas
+  - call
+  - colors
+  - delete
+  - deleteById
+  - dispatched
+  - epersonalizePlugin
+  - groups
+  - highlightAll
+  - logout
+  - media
+  - pages
+  - plugins
+  - prices
+  - quote
+  - ransactionWrapper
+  - save
+  - sections
+  - transaction
+  - url
+  events:
+  - catalog_rule_collection_load_after
+  - customer_address_save_after
+  - customer_address_save_before
+  - customer_customer_authenticated
+  - customer_data_object_login
+  - customer_email
+  - customer_id
+  - customer_login
+  - customer_logout
+  - customer_save_after_data_object
+  - sales_quote_save_after
+  database_tables:
+  - customer_address_save_after
+  - customer_address_save_before
+  - customer_customer_authenticated
+  - customer_data_object_login
+  - customer_email
+  - customer_id
+  - customer_login
+  - customer_logout
+  - customer_save_after_data_object
+  - sales_order
+  - sales_quote_save_after
+  acl_resources: []
+  config_paths:
+  - bin/magento
+  - customer/section/load
+  - etc/adminhtml/di
+  - etc/di
+  - etc/frontend/di
+  - etc/webapi_rest/di
+  - login/logout
+  - sections/cart
+  file_paths:
+  - etc/adminhtml/di.xml
+  - etc/di.xml
+  - etc/frontend/di.xml
+  - etc/webapi_rest/di.xml
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

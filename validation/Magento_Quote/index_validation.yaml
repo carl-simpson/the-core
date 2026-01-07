@@ -1,0 +1,54 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Quote/html/index.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os
+summary:
+  total_claims: 3
+  validated: 3
+  found: 3
+  not_found: 0
+  confidence_distribution:
+    high: 0
+    medium: 3
+    low: 0
+results_by_type:
+  methods:
+    total: 3
+    found: 3
+    not_found: 0
+    results:
+    - claim: entity
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/_files/Magento/TestModuleDefaultHydrator/Model/Address/Mapper.php:18
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-functional-testing-framework/dev/tests/unit/Magento/FunctionalTestFramework/DataGenerator/Handlers/PersistedObjectHandlerTest.php:516
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-functional-testing-framework/src/Magento/FunctionalTestingFramework/Util/TestGenerator.php:2165
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-functional-testing-framework/src/Magento/FunctionalTestingFramework/StaticCheck/UnusedEntityCheck.php:297
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Model/CustomAttributesMapper.php:58
+      notes: Found 10 occurrences
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/Model/Template/Filter.php:19
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-email/Model/Template/Filter.php:546
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/CatalogImportExport/Model/Import/ProductTestBase.php:164
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/CatalogImportExport/Model/Import/ProductTestBase.php:219
+      notes: Found 8 occurrences
+    - claim: url
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cardinal-commerce/Model/JwtManagement.php:124
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cardinal-commerce/Model/JwtManagement.php:139
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/UrlRewrite/UrlResolverTest.php:108
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/UrlRewrite/RouteTest.php:385
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/PageCache/UrlRewrite/RouteCacheTest.php:379
+      notes: Found 9 occurrences
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head><title>Demo Sample</title></head>
+<body>
+<h1>Sample Documentation</h1>
+
+<p>The Customer module uses <code>Magento\Customer\Api\CustomerRepositoryInterface</code> for data access.</p>
+
+<h2>Events</h2>
+<ul>
+    <li><code>customer_save_after</code> - Fired after customer save</li>
+    <li><code>customer_delete_after</code> - Fired after customer deletion</li>
+    <li><code>customer_login</code> - Fired on customer login</li>
+</ul>
+
+<h2>Methods</h2>
+<pre><code>
+save(CustomerInterface $customer)
+getById($customerId)
+delete(CustomerInterface $customer)
+</code></pre>
+
+</body>
+</html>

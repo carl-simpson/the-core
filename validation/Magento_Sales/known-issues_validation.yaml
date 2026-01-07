@@ -1,0 +1,158 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Sales/html/known-issues.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os
+summary:
+  total_claims: 18
+  validated: 18
+  found: 9
+  not_found: 9
+  confidence_distribution:
+    high: 2
+    medium: 16
+    low: 0
+results_by_type:
+  methods:
+    total: 16
+    found: 7
+    not_found: 9
+    results:
+    - claim: aroundGetStatus
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: directly
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: eneration
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: first
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/setup-integration/testsuite/Magento/Setup/BCMultiModuleTest.php:246
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/setup/src/Magento/Setup/Test/Unit/Module/Di/Code/Reader/FileClassScannerTest.php:214
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-reports/Test/Unit/Model/ResourceModel/Order/CollectionTest.php:468
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Interception/Test/Unit/Code/Generator/_files/Sample.php:33
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-backend/Test/Unit/Model/Auth/SessionTest.php:304
+      notes: Found 5 occurrences
+    - claim: functionality
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: getData
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-shipping-admin-ui/Ui/DataProvider/SourceSelectionDataProvider.php:115
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Model/SubresourceIntegrityRepository.php:181
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-catalog/Model/UpdateInventory/InventoryData.php:50
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-catalog/Test/Unit/Plugin/InventoryApi/SynchronizeLegacyStockAfterDecrementStockPluginTest.php:228
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-catalog/Test/Unit/Model/SourceItemsSaveSynchronization/SetDataToLegacyCatalogInventoryTest.php:127
+      notes: Found 362 occurrences
+    - claim: ile
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/Model/Template/Filter.php:19
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-email/Model/Template/Filter.php:546
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/CatalogImportExport/Model/Import/ProductTestBase.php:164
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/CatalogImportExport/Model/Import/ProductTestBase.php:219
+      notes: Found 8 occurrences
+    - claim: pdate
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: return
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-ui/Component/Control/SplitButton.php:255
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-page-builder/Model/Dom/Adapter/TokenListInterface.php:50
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/_files/Magento/TestModule3/Service/V1/Error.php:93
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/_files/Magento/TestModule3/Service/V1/ErrorInterface.php:45
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/SalesRule/Block/Adminhtml/Promo/Quote/Edit/Tab/Coupons/GridTest.php:86
+      notes: Found 34 occurrences
+    - claim: sales_order_status_history
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: states
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Test/Unit/Model/Order/StatusResolverTest.php:36
+      notes: Found 1 occurrences
+    - claim: tate
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: tatus
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: total
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Test/Unit/Block/Order/Create/TotalsTest.php:109
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-reports/Test/Unit/Model/ResourceModel/Order/CollectionTest.php:496
+      notes: Found 2 occurrences
+    - claim: url
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cardinal-commerce/Model/JwtManagement.php:124
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cardinal-commerce/Model/JwtManagement.php:139
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/UrlRewrite/UrlResolverTest.php:108
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/UrlRewrite/RouteTest.php:385
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/PageCache/UrlRewrite/RouteCacheTest.php:379
+      notes: Found 9 occurrences
+  database_tables:
+    total: 2
+    found: 2
+    not_found: 0
+    results:
+    - claim: sales_order
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-shipping-admin-ui/Plugin/SetAllocatedSourceValueInExportCsv.php:32
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-shipping-admin-ui/Test/Integration/ExportOrderWithAllocatedSource.php:126
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-shipping-admin-ui/Controller/Adminhtml/SourceSelection/Index.php:47
+      notes: Found 374 references
+    - claim: sales_order_status_history
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/setup/src/Magento/Setup/Fixtures/OrdersFixture.php:362
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Setup/SalesSetup.php:94
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Model/ResourceModel/Order/Status/History/Collection.php:25
+      notes: Found 7 references
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+  file_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

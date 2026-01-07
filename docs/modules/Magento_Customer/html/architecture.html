@@ -332,19 +332,19 @@ isEmailAvailable($customerEmail, $websiteId = null): bool</code></pre>
         </div>
 
         <h3 class="text-xl font-semibold text-magento-charcoal mb-3 mt-8">Event-Based Extension Points</h3>
-        <p class="text-magento-charcoal/90 mb-4">The module dispatches <strong>12 core events</strong>:</p>
+        <p class="text-magento-charcoal/90 mb-4">The module dispatches <strong>7 core events</strong>:</p>
 
         <div class="border-l-4 border-magento-orange-500 pl-4">
             <h4 class="text-base font-semibold text-magento-charcoal mb-2">Customer Lifecycle Events:</h4>
             <ul class="space-y-1 text-sm text-magento-charcoal/90">
-                <li class="flex gap-2"><span class="text-magento-orange-500">→</span> customer_save_before</li>
-                <li class="flex gap-2"><span class="text-magento-orange-500">→</span> customer_save_after</li>
-                <li class="flex gap-2"><span class="text-magento-orange-500">→</span> customer_save_after_data_object (Most important)</li>
-                <li class="flex gap-2"><span class="text-magento-orange-500">→</span> customer_delete_before</li>
-                <li class="flex gap-2"><span class="text-magento-orange-500">→</span> customer_delete_after</li>
+                <li class="flex gap-2"><span class="text-magento-orange-500">→</span> customer_save_after_data_object (Primary save event)</li>
+                <li class="flex gap-2"><span class="text-magento-orange-500">→</span> customer_address_save_before</li>
+                <li class="flex gap-2"><span class="text-magento-orange-500">→</span> customer_address_save_after</li>
+                <li class="flex gap-2"><span class="text-magento-orange-500">→</span> customer_customer_authenticated</li>
             </ul>
+            <p class="text-xs text-magento-charcoal/70 mt-2 italic">Note: Customer delete events are not dispatched; use plugins on CustomerRepositoryInterface::delete() instead.</p>
 
-            <h4 class="text-base font-semibold text-magento-charcoal mb-2 mt-4">Authentication Events:</h4>
+            <h4 class="text-base font-semibold text-magento-charcoal mb-2 mt-4">Authentication Events (Frontend):</h4>
             <ul class="space-y-1 text-sm text-magento-charcoal/90">
                 <li class="flex gap-2"><span class="text-magento-orange-500">→</span> customer_login</li>
                 <li class="flex gap-2"><span class="text-magento-orange-500">→</span> customer_logout</li>

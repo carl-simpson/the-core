@@ -1,0 +1,25 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Payment/html/index.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\Payment
+  php_interfaces: []
+  methods:
+  - media
+  - ommands
+  - operation
+  - translateX
+  - url
+  events: []
+  database_tables: []
+  acl_resources: []
+  config_paths:
+  - etc/payment
+  - var/log/payment
+  - vendor/magento/module
+  file_paths:
+  - etc/payment.xml
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

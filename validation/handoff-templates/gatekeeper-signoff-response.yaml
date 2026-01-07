@@ -1,0 +1,170 @@
+# Sign-off Response Template from @validation-gatekeeper-180
+
+handoff_type: signoff_response
+template_version: "1.0"
+response_date: "2026-01-07"
+
+# Fill in below for each sign-off response
+
+module: ""  # e.g., Magento_Customer
+phase: ""  # e.g., "P1 - Initial Validation"
+signoff_id: ""  # Must match signoff_id from request
+response_id: ""  # Unique response identifier
+
+gatekeeper:
+  agent: "@validation-gatekeeper-180"
+  timestamp: ""  # ISO 8601 format
+
+decision: ""  # approved | blocked | conditional_approval
+
+assessment:
+  # Evaluation against pass criteria
+  accuracy_sufficient: false  # Does accuracy meet threshold?
+  critical_errors_acceptable: false  # Zero critical errors?
+  major_errors_acceptable: false  # Within acceptable limit?
+  evidence_quality_acceptable: false  # Evidence meets standards?
+  traceability_complete: false  # All claims traceable to source?
+
+  overall_quality: ""  # excellent | good | acceptable | insufficient
+
+decision_rationale:
+  # Detailed explanation of approval/block decision
+  summary: ""
+
+  strengths: []
+  # Example:
+  # - "Accuracy of 99.2% exceeds 95% threshold"
+  # - "Zero critical errors found"
+  # - "All findings properly documented with source evidence"
+
+  concerns: []
+  # Example:
+  # - "Two major errors in execution flow documentation"
+  # - "Plugin count verification incomplete"
+
+  blocking_issues: []
+  # Only if decision = blocked
+  # Example:
+  # - "Accuracy of 89% below 95% minimum threshold"
+  # - "5 critical errors must be corrected before proceeding"
+
+findings_review:
+  total_claims_reviewed: 0
+  claims_requiring_correction: 0
+  high_confidence_validations: 0
+  low_confidence_validations: 0
+
+  spot_check_results:
+    # Gatekeeper spot-checks sample validations
+    sample_size: 0
+    verified_correct: 0
+    spot_check_accuracy: 0.0
+
+quality_gates_status:
+  # Each quality gate pass/fail
+  - gate: "Minimum accuracy threshold"
+    threshold: ""
+    actual: ""
+    status: ""  # passed | failed
+
+  - gate: "Zero critical errors"
+    threshold: "0"
+    actual: ""
+    status: ""
+
+  - gate: "Evidence traceability"
+    threshold: "100%"
+    actual: ""
+    status: ""
+
+  - gate: "Specialist validation complete"
+    threshold: "@magento-expert sign-off"
+    actual: ""
+    status: ""
+
+next_phase_requirements:
+  # Conditions for proceeding (if approved) or requirements to resubmit (if blocked)
+  - ""
+
+conditions_and_restrictions:
+  # Any conditions attached to approval
+  # Example:
+  # - "Re-validate execution flows after corrections"
+  # - "Document version discrepancies for Sales module differently"
+  - ""
+
+recommendations:
+  immediate_actions: []
+  process_improvements: []
+  future_phase_considerations: []
+
+approval_scope:
+  # What specifically is approved/blocked
+  approved_items: []
+  # Example:
+  # - "Magento_Customer architecture.html validation"
+  # - "Magento_Customer plugins-observers.html validation"
+
+  blocked_items: []
+  # Example:
+  # - "Magento_Customer execution-flows.html - requires correction"
+
+  conditional_items: []
+  # Example:
+  # - "Magento_Customer index.html - approved if component count methodology documented"
+
+sign_off_certificate:
+  # If approved, formal certificate details
+  certificate_id: ""  # e.g., CERT-M_CUSTOMER-P1-20260107
+  issued_to: "@project-orchestrator-180"
+  module_validated: ""
+  accuracy_achieved: ""
+  validation_date: ""
+  gatekeeper_signature: "@validation-gatekeeper-180"
+  certificate_status: ""  # issued | pending | revoked
+
+risk_acceptance:
+  # Any residual risks accepted with this sign-off
+  - risk: ""
+    accepted_by: "@validation-gatekeeper-180"
+    mitigation_plan: ""
+
+resubmission_guidance:
+  # If blocked, what needs to be addressed for resubmission
+  required_corrections: []
+  additional_evidence_needed: []
+  process_changes_required: []
+  estimated_remediation_time: ""
+
+metrics:
+  review_time_hours: 0.0
+  claims_reviewed: 0
+  evidence_items_examined: 0
+  spot_checks_performed: 0
+
+next_steps:
+  for_orchestrator: []
+  for_magento_expert: []
+  for_documentation_team: []
+
+follow_up:
+  next_review_date: ""  # If conditional or requiring re-validation
+  review_trigger: ""  # What triggers next review
+
+attachments:
+  - type: ""
+    filename: ""
+    description: ""
+
+audit_trail:
+  request_received: ""  # ISO 8601
+  review_started: ""
+  review_completed: ""
+  decision_issued: ""
+  decision_communicated: ""
+
+# This response determines:
+# - Whether validation phase can close
+# - Whether correction phase can begin
+# - Whether module is complete and validated
+# - Whether project can proceed to next module

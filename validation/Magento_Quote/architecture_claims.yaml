@@ -1,0 +1,50 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Quote/html/architecture.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\Quote\Model\ValidationRules\QuoteValidationComposite
+  php_interfaces: []
+  methods:
+  - contracts
+  - hipping
+  - iscount
+  - logic
+  - media
+  - ndpoints
+  - nterceptors
+  - observers
+  - otal
+  - setTotalsCollectedFlag
+  - ubtotal
+  - url
+  events:
+  - customer_id
+  database_tables:
+  - customer_id
+  - quote_address
+  - quote_address_id
+  - quote_address_item
+  - quote_id
+  - quote_id_mask
+  - quote_item
+  - quote_item_id
+  - quote_item_option
+  - quote_payment
+  - quote_shipping_rate
+  acl_resources: []
+  config_paths:
+  - add/update/delete
+  - carts/mine
+  - carts/mine/billing
+  - carts/mine/coupons
+  - carts/mine/items
+  - carts/mine/totals
+  - coupon/rules
+  - etc/sales
+  - shipping/billing
+  file_paths:
+  - etc/sales.xml
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

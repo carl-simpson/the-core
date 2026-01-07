@@ -1,0 +1,117 @@
+# Sign-off Request Template for @validation-gatekeeper-180
+
+handoff_type: signoff_request
+template_version: "1.0"
+request_date: "2026-01-07"
+
+# Fill in below for each sign-off request
+
+module: ""  # e.g., Magento_Customer
+phase: ""  # e.g., "P1 - Initial Validation" or "P2 - Final Validation"
+signoff_id: ""  # Unique identifier: VGSO-[MODULE]-[PHASE]-[DATE]
+
+requested_by:
+  agent: "@project-orchestrator-180"
+  timestamp: ""  # ISO 8601 format
+  contact: "Via agent communication"
+
+validation_summary:
+  scope: ""  # What was validated: "All 6 HTML files (index, architecture, execution-flows, plugins-observers, integrations, known-issues)"
+  total_claims: 0
+  validated: 0  # Confirmed correct
+  failed: 0  # Found incorrect
+  corrected: 0  # Fixed after validation
+  accuracy_percentage: 0.0  # (validated / total_claims) * 100
+
+  errors_by_severity:
+    critical: 0  # Factually wrong, high impact
+    major: 0  # Incomplete or misleading
+    minor: 0  # Formatting or minor inaccuracies
+
+  errors_by_category:
+    classes: 0
+    methods: 0
+    plugins: 0
+    observers: 0
+    events: 0
+    dependencies: 0
+    database: 0
+    service_contracts: 0
+
+pass_criteria:
+  # Define what must be true to receive sign-off
+  minimum_accuracy_percentage: 0.0  # e.g., 95% for initial, 99% for final
+  maximum_critical_errors: 0
+  maximum_major_errors: 0  # Or set to null if no limit
+  all_corrections_documented: true
+  evidence_quality: "high"  # high | medium | low
+
+  criteria_met: false  # Overall pass/fail
+
+evidence_package:
+  # Paths to all validation deliverables
+  consolidated_findings: ""
+  accuracy_metrics: ""
+  correction_plan: ""  # If applicable
+  correction_log: ""  # If corrections applied
+  re_validation_results: ""  # If re-validated after corrections
+
+  sample_validations:
+    # Provide 3-5 representative examples
+    # Example:
+    # - claim_id: ARCH-001
+    #   claim: "CustomerRepositoryInterface at Magento\\Customer\\Api"
+    #   validation_status: validated
+    #   source: "vendor/magento/module-customer/Api/CustomerRepositoryInterface.php:20"
+    #   confidence: 100%
+
+    - claim_id: ""
+      claim: ""
+      validation_status: ""
+      source: ""
+      confidence: 0
+
+  sample_corrections:
+    # If corrections applied, show before/after examples
+    # Example:
+    # - claim_id: EXEC-012
+    #   before: "AccountManager::createAccount()"
+    #   after: "AccountManagement::createAccount()"
+    #   source: "vendor/magento/module-customer/Model/AccountManagement.php:156"
+
+    - claim_id: ""
+      before: ""
+      after: ""
+      source: ""
+
+validation_process_quality:
+  specialist_involved: "@magento-expert"
+  validation_methodology: ""  # Brief description
+  evidence_traceability: ""  # high | medium | low
+  source_version: "Magento 2.4.8"
+  validation_completeness: ""  # comprehensive | partial
+
+risks_and_mitigations:
+  # Any remaining risks after validation
+  - risk: ""
+    likelihood: ""  # high | medium | low
+    impact: ""  # high | medium | low
+    mitigation: ""
+
+ask:
+  primary_question: "Please review validation findings and approve progression to next phase if criteria met. Block if quality concerns exist."
+  specific_review_areas: []
+  decision_requested: ""  # e.g., "Approve progression to P2 (corrections)" or "Approve module as complete"
+
+timeline:
+  validation_start: ""  # ISO 8601
+  validation_end: ""  # ISO 8601
+  duration_hours: 0.0
+  signoff_needed_by: ""  # ISO 8601
+
+attachments:
+  - type: ""
+    path: ""
+    description: ""
+
+# Response will be provided in gatekeeper-signoff-response.yaml format

@@ -1,0 +1,76 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Payment/html/index.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os
+summary:
+  total_claims: 6
+  validated: 6
+  found: 3
+  not_found: 3
+  confidence_distribution:
+    high: 0
+    medium: 5
+    low: 1
+results_by_type:
+  php_classes:
+    total: 1
+    found: 0
+    not_found: 1
+    results:
+    - claim: Magento\Payment
+      found: false
+      confidence: low
+      evidence: []
+      notes: Invalid class name format
+  methods:
+    total: 5
+    found: 3
+    not_found: 2
+    results:
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/Model/Template/Filter.php:19
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-email/Model/Template/Filter.php:546
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/CatalogImportExport/Model/Import/ProductTestBase.php:164
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/CatalogImportExport/Model/Import/ProductTestBase.php:219
+      notes: Found 8 occurrences
+    - claim: ommands
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: operation
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Setup/Declaration/Schema/OperationsExecutor.php:164
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-asynchronous-operations/Model/StatusMapper.php:23
+      notes: Found 2 occurrences
+    - claim: translateX
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: url
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cardinal-commerce/Model/JwtManagement.php:124
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cardinal-commerce/Model/JwtManagement.php:139
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/UrlRewrite/UrlResolverTest.php:108
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/UrlRewrite/RouteTest.php:385
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/PageCache/UrlRewrite/RouteCacheTest.php:379
+      notes: Found 9 occurrences
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+  file_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

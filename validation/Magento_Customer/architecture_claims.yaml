@@ -1,0 +1,97 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Customer/html/architecture.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\Customer\Model\AccountManagement
+  - Magento\Customer\Model\ResourceModel\AddressRepository
+  - Magento\Customer\Model\ResourceModel\CustomerRepository
+  php_interfaces:
+  - Magento\Customer\Api\AccountManagementInterface
+  - Magento\Customer\Api\AddressRepositoryInterface
+  - Magento\Customer\Api\CustomerRepositoryInterface
+  - Magento\Customer\Api\GroupRepositoryInterface
+  - Magento\Framework\Encryption\EncryptorInterface
+  methods:
+  - ache
+  - addresses
+  - authenticate
+  - changePassword
+  - colors
+  - createAccount
+  - customer_save_after_data_object
+  - data
+  - delete
+  - deleteById
+  - entity_id
+  - expiration
+  - get
+  - getById
+  - getList
+  - groups
+  - highlightAll
+  - initiatePasswordReset
+  - isEmailAvailable
+  - media
+  - ontracts
+  - ontrol
+  - operations
+  - parent_id
+  - possible
+  - resetPassword
+  - rgon2ID13
+  - save
+  - storage
+  - url
+  events:
+  - customer_address_entity
+  - customer_address_entity_datetime
+  - customer_address_entity_decimal
+  - customer_address_entity_int
+  - customer_data_object_login
+  - customer_delete_after
+  - customer_delete_before
+  - customer_entity
+  - customer_entity_datetime
+  - customer_entity_decimal
+  - customer_entity_int
+  - customer_entity_text
+  - customer_entity_varchar
+  - customer_group
+  - customer_login
+  - customer_logout
+  - customer_save_after
+  - customer_save_after_data_object
+  - customer_save_before
+  database_tables:
+  - customer_address_entity
+  - customer_address_entity_datetime
+  - customer_address_entity_decimal
+  - customer_address_entity_int
+  - customer_data_object_login
+  - customer_delete_after
+  - customer_delete_before
+  - customer_entity
+  - customer_entity_datetime
+  - customer_entity_decimal
+  - customer_entity_int
+  - customer_entity_text
+  - customer_entity_varchar
+  - customer_group
+  - customer_login
+  - customer_logout
+  - customer_save_after
+  - customer_save_after_data_object
+  - customer_save_before
+  acl_resources:
+  - Magento_Customer::customer
+  - Magento_Customer::group
+  - Magento_Customer::manage
+  - Magento_Customer::online
+  config_paths:
+  - etc/acl
+  file_paths:
+  - etc/acl.xml
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

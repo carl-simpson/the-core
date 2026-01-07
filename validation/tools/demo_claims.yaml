@@ -1,0 +1,25 @@
+source_document: demo_sample.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes: []
+  php_interfaces:
+  - Magento\Customer\Api\CustomerRepositoryInterface
+  methods:
+  - delete
+  - getById
+  - save
+  events:
+  - customer_delete_after
+  - customer_login
+  - customer_save_after
+  database_tables:
+  - customer_delete_after
+  - customer_login
+  - customer_save_after
+  acl_resources: []
+  config_paths: []
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

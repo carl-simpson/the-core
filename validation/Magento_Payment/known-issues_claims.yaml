@@ -1,0 +1,36 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Payment/html/known-issues.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\Quote\Model\QuoteManagement
+  php_interfaces: []
+  methods:
+  - beforePlace
+  - catch
+  - change
+  - create
+  - execute
+  - generic
+  - getMethod
+  - getPayment
+  - handle
+  - media
+  - number
+  - ocalizedException
+  - processResponse
+  - setAdditionalInformation
+  - setTransactionId
+  - url
+  events: []
+  database_tables: []
+  acl_resources: []
+  config_paths:
+  - min/max
+  - payment/free/active
+  - payment/method/debug
+  - var/log/payment
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

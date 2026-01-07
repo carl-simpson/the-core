@@ -1,0 +1,207 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Payment/html/architecture.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os
+summary:
+  total_claims: 24
+  validated: 24
+  found: 17
+  not_found: 7
+  confidence_distribution:
+    high: 6
+    medium: 18
+    low: 0
+results_by_type:
+  php_classes:
+    total: 6
+    found: 6
+    not_found: 0
+    results:
+    - claim: Magento\Payment\Block\Form\Cc
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/Block/Form/Cc.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Payment\Block\Info
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/Block/Info.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Payment\Gateway\Command\CommandPool
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/Gateway/Command/CommandPool.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Payment\Gateway\Config\ConfigValueHandler
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/Gateway/Config/ConfigValueHandler.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Payment\Gateway\Config\ValueHandlerPool
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/Gateway/Config/ValueHandlerPool.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Payment\Model\Method\Adapter
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/Model/Method/Adapter.php:1
+      notes: Class file exists and contains class definition
+  methods:
+    total: 18
+    found: 11
+    not_found: 7
+    results:
+    - claim: bstractMethod
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: build
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-grouped-product/Model/Product/CopyConstructor/Grouped.php:37
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-ui/Test/Unit/DataProvider/EavValidationRulesTest.php:66
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-ui/Component/Layout/Tabs.php:54
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-ui/Component/Layout/Tabs.php:134
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-ui/DataProvider/EavValidationRules.php:33
+      notes: Found 301 occurrences
+    - claim: context
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: dapter
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: ethodInterface
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: getCcNumber
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Model/Order/Payment.php:1796
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Api/Data/OrderPaymentInterface.php:456
+      notes: Found 2 occurrences
+    - claim: getCurrencyCode
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-directory/Model/Currency/Import/FixerIoApiLayer.php:247
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-directory/Model/Currency.php:180
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-directory/Model/Currency.php:287
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/Gateway/Data/Quote/QuoteAdapter.php:45
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/Gateway/Data/OrderAdapterInterface.php:20
+      notes: Found 9 occurrences
+    - claim: getGrandTotalAmount
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/Gateway/Data/Quote/QuoteAdapter.php:127
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/Gateway/Data/OrderAdapterInterface.php:69
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/Gateway/Data/Order/OrderAdapter.php:126
+      notes: Found 3 occurrences
+    - claim: getOrder
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-vault/Model/Ui/Adminhtml/TokensConfigProvider.php:271
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-vault/Model/Ui/Adminhtml/TokensConfigProvider.php:302
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-vault/Test/Unit/Model/Ui/Adminhtml/TokensConfigProviderTest.php:532
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-bundle/Model/Product/Type.php:915
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-bundle/Model/Sales/Order/Pdf/Items/AbstractItems.php:223
+      notes: Found 258 occurrences
+    - claim: getOrderIncrementId
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-reservation-cli/Model/SalableQuantityInconsistency.php:126
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-reservation-cli/Model/SalableQuantityInconsistency/LoadExistingReservations.php:105
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/Gateway/Data/Quote/QuoteAdapter.php:55
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/Gateway/Data/OrderAdapterInterface.php:27
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/Gateway/Data/Order/OrderAdapter.php:54
+      notes: Found 5 occurrences
+    - claim: getPayment
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-vault/Observer/AfterPaymentSaveObserver.php:120
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-vault/Model/Ui/Adminhtml/TokensConfigProvider.php:255
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-vault/Model/Ui/Adminhtml/TokensConfigProvider.php:287
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-vault/Model/Ui/Adminhtml/TokensConfigProvider.php:319
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-vault/Model/Method/Vault.php:527
+      notes: Found 102 occurrences
+    - claim: getQuote
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-checkout/Helper/Cart.php:158
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-checkout/Helper/Data.php:112
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-checkout/Model/Cart.php:202
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-checkout/Model/Cart.php:220
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-checkout/Model/Session.php:248
+      notes: Found 138 occurrences
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/Model/Template/Filter.php:19
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-email/Model/Template/Filter.php:546
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/CatalogImportExport/Model/Import/ProductTestBase.php:164
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/CatalogImportExport/Model/Import/ProductTestBase.php:219
+      notes: Found 8 occurrences
+    - claim: ontracts
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: readPayment
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/Observer/AbstractDataAssignObserver.php:46
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/Gateway/Helper/SubjectReader.php:26
+      notes: Found 2 occurrences
+    - claim: ree
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: uoteAdapterInterface
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: url
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cardinal-commerce/Model/JwtManagement.php:124
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cardinal-commerce/Model/JwtManagement.php:139
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/UrlRewrite/UrlResolverTest.php:108
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/UrlRewrite/RouteTest.php:385
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/PageCache/UrlRewrite/RouteCacheTest.php:379
+      notes: Found 9 occurrences
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+  file_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

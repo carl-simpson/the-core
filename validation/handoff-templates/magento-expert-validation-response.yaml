@@ -1,0 +1,133 @@
+# Validation Response Template from @magento-expert
+
+handoff_type: validation_response
+template_version: "1.0"
+response_date: "2026-01-07"
+
+# Fill in below for each validation response
+
+module: ""  # e.g., Magento_Customer
+doc_section: ""  # e.g., architecture.html
+request_id: ""  # Must match request_id from validation request
+response_id: ""  # Unique response identifier
+
+validated_by:
+  agent: "@magento-expert"
+  timestamp: ""  # ISO 8601 format
+  magento_version_used: "2.4.8"  # Version of source code validated against
+
+validation_results:
+  # One entry per claim validated
+  # Example:
+  # - claim_id: ARCH-001
+  #   claim_text: "Magento\\Customer\\Api\\CustomerRepositoryInterface"
+  #   validation_status: validated  # validated | failed | partial | unable_to_verify
+  #   source_reference: "vendor/magento/module-customer/Api/CustomerRepositoryInterface.php:20"
+  #   confidence_level: 100  # 0-100%
+  #   notes: "Exact match found at specified location"
+  #   discrepancies: []
+  #   corrected_value: ""  # Only if validation_status = failed
+
+  - claim_id: ""
+    claim_text: ""
+    validation_status: ""  # validated | failed | partial | unable_to_verify
+    source_reference: ""  # File path and line number
+    confidence_level: 0  # 0-100%
+    notes: ""
+    discrepancies: []  # List any differences found
+    corrected_value: ""  # Provide if claim is incorrect
+
+summary:
+  total_claims_validated: 0
+  validated_count: 0  # Exact matches
+  failed_count: 0  # Incorrect claims
+  partial_count: 0  # Mostly correct but minor issues
+  unable_to_verify_count: 0  # Could not find in source
+  accuracy_percentage: 0.0  # (validated_count / total_claims) * 100
+
+findings_by_category:
+  classes:
+    validated: 0
+    failed: 0
+  methods:
+    validated: 0
+    failed: 0
+  plugins:
+    validated: 0
+    failed: 0
+  observers:
+    validated: 0
+    failed: 0
+  events:
+    validated: 0
+    failed: 0
+  dependencies:
+    validated: 0
+    failed: 0
+  database:
+    validated: 0
+    failed: 0
+  service_contracts:
+    validated: 0
+    failed: 0
+
+critical_findings:
+  # High-priority issues requiring immediate correction
+  # Example:
+  # - claim_id: ARCH-015
+  #   severity: critical  # critical | major | minor
+  #   issue: "Class name completely incorrect"
+  #   impact: "Developers will reference non-existent class"
+  #   recommendation: "Correct to Magento\\Customer\\Model\\ResourceModel\\CustomerRepository"
+
+  - claim_id: ""
+    severity: ""  # critical | major | minor
+    issue: ""
+    impact: ""
+    recommendation: ""
+
+evidence_collected:
+  # Paths to evidence files
+  - type: "source_snippets"
+    path: ""
+    description: ""
+  - type: "xml_configurations"
+    path: ""
+    description: ""
+
+validation_methodology:
+  tools_used: ["ripgrep", "grep", "manual code review"]
+  source_directories_searched: []
+  search_patterns: []
+  verification_steps: []
+
+recommendations:
+  immediate_actions: []  # Must be done before proceeding
+  suggested_improvements: []  # Nice to have
+  process_feedback: ""  # Feedback on validation process
+
+next_steps:
+  - ""
+
+metadata:
+  time_spent_hours: 0.0
+  files_examined: 0
+  lines_of_code_reviewed: 0
+  documentation_pages: 0
+
+attachments:
+  # Evidence files attached to response
+  - type: ""
+    filename: ""
+    path: ""
+    description: ""
+
+quality_metrics:
+  source_code_confidence: ""  # high | medium | low
+  documentation_confidence: ""  # high | medium | low
+  validation_thoroughness: ""  # comprehensive | partial | surface_level
+
+# This response feeds into:
+# - Consolidated findings (P1-T8)
+# - Correction plan generation
+# - Gatekeeper sign-off request

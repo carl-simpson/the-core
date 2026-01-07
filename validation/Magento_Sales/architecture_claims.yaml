@@ -1,0 +1,103 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Sales/html/architecture.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\Sales\Model\OrderRepository
+  - Magento\Sales\Model\Service\OrderService
+  php_interfaces:
+  - Magento\Sales\Api\CreditmemoRepositoryInterface
+  - Magento\Sales\Api\InvoiceRepositoryInterface
+  - Magento\Sales\Api\OrderManagementInterface
+  - Magento\Sales\Api\OrderRepositoryInterface
+  - Magento\Sales\Api\ShipmentRepositoryInterface
+  methods:
+  - actions
+  - addComment
+  - cancel
+  - checkout
+  - configurable
+  - delete
+  - deleteById
+  - fixed
+  - get
+  - getList
+  - getStatus
+  - hold
+  - indexing
+  - item_id
+  - labels
+  - lugins
+  - media
+  - memo
+  - memos
+  - notify
+  - ontracts
+  - ontrol
+  - operations
+  - order
+  - place
+  - sales_order_invoice_process_relation
+  - sales_order_place_after
+  - sales_order_process_relation
+  - sales_order_shipment_process_relation
+  - save
+  - sending
+  - state
+  - status
+  - tables
+  - tate
+  - tatus
+  - unHold
+  - url
+  events:
+  - customer_entity
+  - customer_id
+  - sales_order_invoice_save_after
+  - sales_order_invoice_save_before
+  - sales_order_place_after
+  - sales_order_save_after
+  - sales_order_save_before
+  - sales_order_shipment_save_after
+  - sales_order_shipment_save_before
+  database_tables:
+  - customer_entity
+  - customer_id
+  - sales_creditmemo
+  - sales_creditmemo_grid
+  - sales_invoice
+  - sales_invoice_grid
+  - sales_order
+  - sales_order_grid
+  - sales_order_invoice_process_relation
+  - sales_order_invoice_save_after
+  - sales_order_invoice_save_before
+  - sales_order_item
+  - sales_order_place_after
+  - sales_order_process_relation
+  - sales_order_save_after
+  - sales_order_save_before
+  - sales_order_shipment_process_relation
+  - sales_order_shipment_save_after
+  - sales_order_shipment_save_before
+  - sales_shipment
+  - sales_shipment_grid
+  acl_resources:
+  - Magento_Sales::actions
+  - Magento_Sales::sales
+  - Magento_Sales::sales_creditmemo
+  - Magento_Sales::sales_invoice
+  - Magento_Sales::sales_order
+  - Magento_Sales::sales_shipment
+  config_paths:
+  - authorization/capture
+  - created/customized
+  - created/deleted
+  - etc/acl
+  - filterable/sortable
+  - state/status
+  file_paths:
+  - etc/acl.xml
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

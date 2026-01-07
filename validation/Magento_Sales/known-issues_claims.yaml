@@ -1,0 +1,39 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Sales/html/known-issues.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes: []
+  php_interfaces: []
+  methods:
+  - aroundGetStatus
+  - directly
+  - eneration
+  - first
+  - functionality
+  - getData
+  - ile
+  - media
+  - pdate
+  - return
+  - sales_order_status_history
+  - states
+  - tate
+  - tatus
+  - total
+  - url
+  events: []
+  database_tables:
+  - sales_order
+  - sales_order_status_history
+  acl_resources: []
+  config_paths:
+  - app/code
+  - created/customized
+  - created/deleted
+  file_paths:
+  - Model/Carrier/Validation/IsFulfillable.php
+  - Model/Order/Status/History.php
+  - Plugin/FixStatusUpdate.php
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

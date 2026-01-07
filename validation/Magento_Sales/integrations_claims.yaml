@@ -1,0 +1,50 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Sales/html/integrations.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes: []
+  php_interfaces: []
+  methods:
+  - agento_Inventory
+  - ales
+  - apture
+  - ata
+  - cart
+  - customers
+  - dispatch
+  - efund
+  - efundOrderInventoryObserver
+  - get
+  - media
+  - order
+  - paid
+  - publish
+  - quotes
+  - setName
+  - setPrice
+  - submit
+  - url
+  events:
+  - customer_email
+  - customer_group_id
+  - customer_id
+  - customer_is_guest
+  - sales_order_place_after
+  - sales_order_shipment_save_after
+  database_tables:
+  - customer_email
+  - customer_group_id
+  - customer_id
+  - customer_is_guest
+  - quote_id
+  - sales_order_creditmemo_refund
+  - sales_order_invoice_pay
+  - sales_order_place_after
+  - sales_order_shipment_save_after
+  acl_resources: []
+  config_paths:
+  - name/price
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

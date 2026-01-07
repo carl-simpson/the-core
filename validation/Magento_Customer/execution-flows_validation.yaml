@@ -1,0 +1,862 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Customer/html/execution-flows.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os
+summary:
+  total_claims: 108
+  validated: 108
+  found: 77
+  not_found: 31
+  confidence_distribution:
+    high: 42
+    medium: 66
+    low: 0
+results_by_type:
+  php_classes:
+    total: 3
+    found: 3
+    not_found: 0
+    results:
+    - claim: Magento\Customer\Controller\Account\CreatePost
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Controller/Account/CreatePost.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Customer\Controller\Account\ForgotPasswordPost
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Controller/Account/ForgotPasswordPost.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Customer\Controller\Account\LoginPost
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Controller/Account/LoginPost.php:1
+      notes: Class file exists and contains class definition
+  methods:
+    total: 61
+    found: 35
+    not_found: 26
+    results:
+    - claim: afterSave
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-catalog/Plugin/Catalog/Model/ResourceModel/Product/ProcessSourceItemsPlugin.php:49
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-catalog/Plugin/Catalog/Model/ResourceModel/Product/CreateSourceItemsPlugin.php:60
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-url-rewrite/Model/UrlRewrite.php:233
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-grouped-product/Model/ResourceModel/Product/Link/RelationPersister.php:49
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog-inventory/Model/Indexer/Stock/Plugin/StoreGroup.php:38
+      notes: Found 169 occurrences
+    - claim: algorithm
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: authenticate
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-functional-testing-framework/src/Magento/FunctionalTestingFramework/DataGenerator/Handlers/SecretStorage/VaultStorage.php:157
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-functional-testing-framework/src/Magento/FunctionalTestingFramework/DataGenerator/Handlers/SecretStorage/VaultTokenAuthStrategy.php:39
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Model/Customer.php:418
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Model/AuthenticationInterface.php:55
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Model/AccountManagement.php:630
+      notes: Found 11 occurrences
+    - claim: beforeSave
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/Observer/PageAclPlugin.php:42
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/Model/Block.php:103
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/Model/Page.php:626
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-vault/Plugin/PaymentVaultInformationManagement.php:55
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-grouped-product/Model/Product/Type/Grouped.php:497
+      notes: Found 199 occurrences
+    - claim: constraint
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: cookie
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/framework/Magento/TestFramework/TestCase/HttpClient/CurlClientWithCookies.php:88
+      notes: Found 1 occurrences
+    - claim: createAccount
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Model/AccountManagementApi.php:135
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Model/AccountManagement.php:848
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Model/AccountManagement.php:874
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Api/AccountManagementInterface.php:38
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Api/AccountManagementInterface.php:56
+      notes: Found 6 occurrences
+    - claim: credentials
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Model/EmailNotificationInterface.php:46
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Model/EmailNotification.php:164
+      notes: Found 2 occurrences
+    - claim: customerDataObject
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: customer_address_entity
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: customer_address_entity_varchar
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: customer_entity
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: customer_entity_varchar
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: data
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-catalog/Test/Unit/Plugin/Catalog/Model/ResourceModel/Product/CollectionPluginTest.php:143
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-catalog/Test/Api/StockSourceLink/PreventAssignSourcesToDefaultStockTest.php:90
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-url-rewrite/Test/Unit/Model/ResourceModel/UrlRewriteCollectionTest.php:118
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-url-rewrite/Test/Unit/Model/ResourceModel/UrlRewriteCollectionTest.php:149
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-import-export/Test/Unit/Model/Import/EntityAbstractTest.php:230
+      notes: Found 792 occurrences
+    - claim: database
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/_files/Magento/TestModuleDefaultHydrator/Model/Address/Mapper.php:30
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Model/CustomAttributesMapper.php:81
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/EntityManager/CompositeMapper.php:41
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/EntityManager/Mapper.php:51
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/EntityManager/MapperInterface.php:31
+      notes: Found 6 occurrences
+    - claim: details
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: earchCriteria
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: email
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Framework/Mail/TransportBuilderTest.php:105
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Newsletter/Controller/Subscriber/NewActionTest.php:166
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-contact/Model/Config.php:43
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-contact/Model/Config.php:54
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-contact/Model/Config.php:65
+      notes: Found 11 occurrences
+    - claim: etc
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: execute
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-shipping-admin-ui/Observer/NewShipmentLoadBefore.php:68
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-shipping-admin-ui/Model/IsWebsiteInMultiSourceMode.php:54
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-shipping-admin-ui/Model/IsOrderSourceManageable.php:66
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-shipping-admin-ui/Model/ResourceModel/GetAllocatedSourcesForOrder.php:38
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-shipping-admin-ui/Ui/DataProvider/GetSourcesByOrderIdSkuAndQty.php:84
+      notes: Found 2828 occurrences
+    - claim: exists
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales-rule/Model/ResourceModel/Coupon.php:120
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Framework/Filesystem/Directory/ReadTest.php:223
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-functional-testing-framework/src/Magento/FunctionalTestingFramework/DataGenerator/Objects/EntityDataObject.php:314
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-aws-s3/Test/Mftf/Helper/DummyMetadataCache.php:18
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-open-search/Model/SearchClient.php:279
+      notes: Found 12 occurrences
+    - claim: expired
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: extract
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Helper/InlineUtil.php:111
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Helper/InlineUtil.php:131
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Helper/InlineUtil.php:151
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-url-rewrite/Model/Storage/DbStorage.php:140
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-checkout/Model/Backpressure/WebapiRequestTypeExtractor.php:37
+      notes: Found 176 occurrences
+    - claim: failures
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: fields
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Framework/Data/Form/Element/FieldsetTest.php:62
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/UrlRewrite/Block/Edit/FormTest.php:162
+      notes: Found 2 occurrences
+    - claim: form_key
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: format
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-checkout/Helper/Data.php:123
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales-rule/Model/Converter/ToModel.php:230
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/Quote/Api/CartTotalRepositoryTest.php:220
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/Quote/Api/GuestCartTotalRepositoryTest.php:149
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/static/framework/Magento/PhpStan/Formatters/FilteredErrorFormatter.php:62
+      notes: Found 163 occurrences
+    - claim: getForCustomer
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-quote/Model/QuoteRepository.php:159
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-quote/Test/Unit/Model/QuoteRepositoryTest.php:297
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-quote/Test/Unit/Model/QuoteRepositoryTest.php:375
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-quote/Api/CartRepositoryInterface.php:44
+      notes: Found 4 occurrences
+    - claim: getId
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Model/Policy/SandboxPolicy.php:225
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Model/Policy/FlagPolicy.php:36
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Model/Policy/FetchPolicy.php:133
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Model/Policy/PluginTypesPolicy.php:34
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Api/Data/PolicyInterface.php:24
+      notes: Found 385 occurrences
+    - claim: getList
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/Model/BlockRepository.php:167
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/Model/PageRepository/ValidationComposite.php:85
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/Model/PageRepository.php:237
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/Api/BlockRepositoryInterface.php:40
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/Api/PageRepositoryInterface.php:42
+      notes: Found 207 occurrences
+    - claim: group
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Cron/Observer/ProcessCronQueueObserverTest.php:108
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-tax/Model/ResourceModel/Sales/Order/Relation.php:214
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-sales/Model/GetItemsToCancelFromOrderItem.php:77
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-reports/Model/ResourceModel/Order/Collection.php:738
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Model/ResourceModel/Customer/Collection.php:95
+      notes: Found 12 occurrences
+    - claim: initiatePasswordReset
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Model/AccountManagement.php:647
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Api/AccountManagementInterface.php:142
+      notes: Found 2 occurrences
+    - claim: invalidated
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: login
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/Quote/Customer/CheckoutEndToEndTest.php:145
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Multishipping/Controller/Checkout/AddressesPostTest.php:118
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Multishipping/Controller/Checkout/CheckItemsTest.php:108
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Checkout/Plugin/Model/Quote/ResetQuoteAddressesTest.php:80
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Backend/Model/Auth/SessionTest.php:67
+      notes: Found 23 occurrences
+    - claim: lugin
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: mechanism
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/Model/Template/Filter.php:19
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-email/Model/Template/Filter.php:546
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/CatalogImportExport/Model/Import/ProductTestBase.php:164
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/CatalogImportExport/Model/Import/ProductTestBase.php:219
+      notes: Found 8 occurrences
+    - claim: oSuchEntityException
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: odel
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: origCustomerDataObject
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: password
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Customer/Model/AccountManagement/ResetPasswordTest.php:139
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Customer/Controller/Adminhtml/Index/ResetPasswordTest.php:139
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Model/EmailNotificationInterface.php:59
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Model/EmailNotificationInterface.php:68
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Model/EmailNotification.php:251
+      notes: Found 8 occurrences
+    - claim: pgrade
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: plugin
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/static/testsuite/Magento/Test/Integrity/Di/CompilerTest.php:393
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-multishipping/Test/Unit/Plugin/MultishippingQuoteRepositoryTest.php:295
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-multishipping/Test/Unit/Plugin/DisableMultishippingModeTest.php:95
+      notes: Found 3 occurrences
+    - claim: quote
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-checkout/Test/Unit/Plugin/ResetQuoteAddressesTest.php:200
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-checkout/Test/Unit/Plugin/ResetQuoteAddressesTest.php:223
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Tax/Model/Sales/Total/Quote/SubtotalTest.php:270
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/SalesRule/Plugin/CouponUsagesTest.php:206
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/zend-db/library/Zend/Db/Adapter/Oracle.php:243
+      notes: Found 24 occurrences
+    - claim: rapper
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: reation
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: requests
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: resetPassword
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/User/Controller/Adminhtml/AuthTest.php:228
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/User/Controller/Adminhtml/UserResetPasswordEmailTest.php:359
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Model/AccountManagement.php:706
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Api/AccountManagementInterface.php:156
+      notes: Found 4 occurrences
+    - claim: rows
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: sales_order
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: save
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-message-queue/Model/ResourceModel/Lock.php:86
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Model/SubresourceIntegrityRepository.php:123
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Model/SubresourceIntegrityRepository.php:145
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-csp/Model/BlockCache.php:100
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-import-export/Model/ResourceModel/Import/Data.php:275
+      notes: Found 594 occurrences
+    - claim: service
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/_files/Magento/TestModule3/Service/V1/Error.php:57
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/_files/Magento/TestModule3/Service/V1/ErrorInterface.php:25
+      notes: Found 2 occurrences
+    - claim: setCustomerDataAsLoggedIn
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Model/Session.php:463
+      notes: Found 1 occurrences
+    - claim: setCustomerEmail
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Model/Order.php:4366
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Model/Order/Email/Container/Container.php:119
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Model/Order/Email/Container/IdentityInterface.php:73
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Api/Data/OrderInterface.php:2325
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Test/Unit/Observer/UpgradeOrderCustomerEmailObserverTest.php:172
+      notes: Found 7 occurrences
+    - claim: subscription
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/Customer/Api/CustomerRepositoryTest.php:737
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Newsletter/Controller/Manage/SaveTest.php:80
+      notes: Found 2 occurrences
+    - claim: time
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Profiler/Test/Unit/Driver/Standard/StatTest.php:198
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Profiler/Test/Unit/Driver/Standard/StatTest.php:283
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Stdlib/DateTime/DateTime.php:122
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-captcha/Test/Unit/Cron/DeleteExpiredImagesTest.php:165
+      notes: Found 4 occurrences
+    - claim: timestamp
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Stdlib/DateTime/DateTime.php:122
+      notes: Found 1 occurrences
+    - claim: token
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/static/framework/tests/unit/testsuite/Magento/TestFramework/Integrity/Library/PhpParser/StaticCallsTest.php:80
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/static/framework/tests/unit/testsuite/Magento/TestFramework/Integrity/Library/PhpParser/ThrowsTest.php:73
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Framework/Filter/Template/Tokenizer/ParameterTest.php:63
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/php-compatibility-fork/PHPCompatibility/Sniffs/Interfaces/NewInterfacesSniff.php:387
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/php-compatibility-fork/PHPCompatibility/Sniffs/Classes/NewClassesSniff.php:1221
+      notes: Found 13 occurrences
+    - claim: uniqueness
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: url
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cardinal-commerce/Model/JwtManagement.php:124
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cardinal-commerce/Model/JwtManagement.php:139
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/UrlRewrite/UrlResolverTest.php:108
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/UrlRewrite/RouteTest.php:385
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/PageCache/UrlRewrite/RouteCacheTest.php:379
+      notes: Found 9 occurrences
+    - claim: validateHash
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-store/Model/StoreSwitcher/HashGenerator.php:100
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Encryption/Test/Unit/EncryptorTest.php:178
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Encryption/EncryptorInterface.php:50
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Encryption/EncryptorInterface.php:71
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Encryption/Encryptor.php:280
+      notes: Found 6 occurrences
+  events:
+    total: 22
+    found: 22
+    not_found: 0
+    results:
+    - claim: customer_account_create
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-re-captcha-customer/etc/frontend/events.xml:16
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-persistent/etc/frontend/events.xml:21
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/frontend/page_types.xml:10
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/frontend/page_types.xml:11
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/view/frontend/layout/customer_account_create.xml:14
+      notes: Found 7 references
+    - claim: customer_address_entity
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/_files/Magento/TestModuleDefaultHydrator/etc/di.xml:40
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/di.xml:485
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/di.xml:486
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/di.xml:487
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/db_schema.xml:80
+      notes: Found 21 references
+    - claim: customer_address_entity_int
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/db_schema.xml:189
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/db_schema.xml:202
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/db_schema.xml:205
+      notes: Found 3 references
+    - claim: customer_address_entity_varchar
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/db_schema.xml:246
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/db_schema.xml:259
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/db_schema.xml:262
+      notes: Found 3 references
+    - claim: customer_address_save_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-tax/etc/frontend/events.xml:12
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/events.xml:12
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-weee/etc/frontend/events.xml:13
+      notes: Found 3 references
+    - claim: customer_address_save_before
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/events.xml:9
+      notes: Found 1 references
+    - claim: customer_customer_authenticated
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-persistent/etc/frontend/events.xml:37
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-persistent/etc/webapi_rest/events.xml:18
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-persistent/etc/webapi_soap/events.xml:18
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/events.xml:22
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/frontend/events.xml:28
+      notes: Found 6 references
+    - claim: customer_data_object_login
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-tax/etc/frontend/events.xml:9
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-persistent/etc/frontend/events.xml:9
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-persistent/etc/webapi_rest/events.xml:9
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-persistent/etc/webapi_soap/events.xml:9
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/frontend/events.xml:15
+      notes: Found 6 references
+    - claim: customer_email
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-checkout/etc/fieldset.xml:28
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-checkout/etc/fieldset.xml:82
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-checkout/Test/Mftf/Test/CheckCheckoutSuccessPageTest/CheckCheckoutSuccessPageAsGuestTest.xml:35
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-checkout/Test/Mftf/Test/CheckCheckoutSuccessPageTest/CheckCheckoutSuccessPageAsRegisterCustomerTest.xml:37
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales-analytics/etc/reports.xml:26
+      notes: Found 52 references
+    - claim: customer_entity
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-vault/etc/db_schema.xml:32
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales-rule/etc/db_schema.xml:110
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales-rule/etc/db_schema.xml:129
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/_files/Magento/TestModuleDefaultHydrator/etc/di.xml:35
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/_files/Magento/TestModuleDefaultHydrator/etc/db_schema.xml:19
+      notes: Found 44 references
+    - claim: customer_entity_
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-newsletter-graph-ql/etc/graphql/di.xml:41
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/db_schema.xml:277
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/db_schema.xml:289
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/db_schema.xml:292
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/db_schema.xml:307
+      notes: Found 16 references
+    - claim: customer_entity_int
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/db_schema.xml:338
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/db_schema.xml:351
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/db_schema.xml:354
+      notes: Found 3 references
+    - claim: customer_entity_varchar
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/db_schema.xml:394
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/db_schema.xml:406
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/db_schema.xml:409
+      notes: Found 3 references
+    - claim: customer_group_id
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-checkout/etc/fieldset.xml:31
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog-inventory/view/adminhtml/ui_component/product_form.xml:252
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-catalog-inventory/view/adminhtml/ui_component/product_form.xml:257
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales-rule/etc/di.xml:176
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales-rule/etc/db_schema.xml:170
+      notes: Found 185 references
+    - claim: customer_id
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-vault/etc/db_schema.xml:13
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-vault/etc/db_schema.xml:32
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-vault/etc/db_schema.xml:36
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales-rule/etc/db_schema.xml:98
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales-rule/etc/db_schema.xml:104
+      notes: Found 129 references
+    - claim: customer_log
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-checkout/etc/frontend/events.xml:9
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-checkout/etc/frontend/events.xml:12
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-re-captcha-customer/etc/config.xml:13
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-re-captcha-customer/etc/frontend/di.xml:29
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-re-captcha-customer/etc/frontend/di.xml:53
+      notes: Found 47 references
+    - claim: customer_login
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-checkout/etc/frontend/events.xml:9
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-re-captcha-customer/etc/config.xml:13
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-re-captcha-customer/etc/frontend/di.xml:29
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-re-captcha-customer/etc/frontend/di.xml:53
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-re-captcha-customer/etc/frontend/di.xml:54
+      notes: Found 20 references
+    - claim: customer_logout
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-checkout/etc/frontend/events.xml:12
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-wishlist/etc/frontend/events.xml:12
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-reports/etc/frontend/events.xml:15
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-persistent/etc/frontend/events.xml:12
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-persistent/etc/webapi_rest/events.xml:12
+      notes: Found 10 references
+    - claim: customer_register_success
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-persistent/etc/frontend/events.xml:52
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-persistent/etc/webapi_rest/events.xml:27
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-persistent/etc/webapi_soap/events.xml:27
+      notes: Found 3 references
+    - claim: customer_save_after_data_object
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/etc/events.xml:54
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/events.xml:18
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-quote/etc/adminhtml/events.xml:9
+      notes: Found 3 references
+    - claim: customer_visitor
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/di.xml:355
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/events.xml:16
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/frontend/events.xml:10
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/frontend/events.xml:13
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/frontend/events.xml:16
+      notes: Found 8 references
+    - claim: last_login_at
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/etc/db_schema.xml:536
+      notes: Found 1 references
+  database_tables:
+    total: 22
+    found: 17
+    not_found: 5
+    results:
+    - claim: customer_account_create
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Customer/Model/FormTest.php:20
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-persistent/Observer/SetRememberMeCheckedStatusObserver.php:76
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Setup/CustomerSetup.php:105
+      notes: Found 12 references
+    - claim: customer_address_entity
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Customer/Model/ForgotPasswordToken/ConfirmCustomerByTokenTest.php:87
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/framework/Magento/TestFramework/ApplicationStateComparator/_files/state-skip-list.php:372
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/setup/src/Magento/Setup/Model/FixtureGenerator/CustomerGenerator.php:68
+      notes: Found 8 references
+    - claim: customer_address_entity_int
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Table not found in core
+    - claim: customer_address_entity_varchar
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Table not found in core
+    - claim: customer_address_save_after
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Table not found in core
+    - claim: customer_address_save_before
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Table not found in core
+    - claim: customer_customer_authenticated
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Captcha/Observer/ResetAttemptForFrontendObserverTest.php:49
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Model/AccountManagement/Authenticate.php:108
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Model/Customer.php:434
+      notes: Found 3 references
+    - claim: customer_data_object_login
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Model/AccountManagement/Authenticate.php:112
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Model/Session.php:453
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Model/Session.php:474
+      notes: Found 5 references
+    - claim: customer_email
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/LoginAsCustomerGraphQl/GenerateLoginCustomerTokenTest.php:178
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Wishlist/Controller/Index/AddTest.php:210
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Wishlist/Controller/Index/AddTest.php:211
+      notes: Found 51 references
+    - claim: customer_entity
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer-import-export/Model/Import/Address.php:661
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer-import-export/Model/Import/CustomerComposite.php:207
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer-import-export/Model/Import/CustomerComposite.php:208
+      notes: Found 56 references
+    - claim: customer_entity_
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Customer/Model/ResourceModel/CustomerRepositoryTest.php:284
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Model/Attribute.php:30
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Test/Unit/Helper/DataTest.php:77
+      notes: Found 4 references
+    - claim: customer_entity_int
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Table not found in core
+    - claim: customer_entity_varchar
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Customer/Model/ResourceModel/CustomerRepositoryTest.php:284
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Test/Unit/Helper/DataTest.php:77
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Test/Unit/Helper/DataTest.php:88
+      notes: Found 3 references
+    - claim: customer_group_id
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-advanced-search/Model/ResourceModel/Index.php:110
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-advanced-search/Model/ResourceModel/Index.php:123
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-advanced-search/Test/Unit/Model/ResourceModel/IndexTest.php:148
+      notes: Found 584 references
+    - claim: customer_id
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-vault/Model/ResourceModel/PaymentToken.php:65
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-vault/Model/ResourceModel/PaymentToken.php:67
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-vault/Model/ResourceModel/PaymentToken.php:88
+      notes: Found 526 references
+    - claim: customer_log
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-re-captcha-migration/Setup/Patch/Data/MigrateConfigToRecaptchaModules.php:193
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-re-captcha-store-pickup/Block/LayoutProcessor/Checkout/Onepage.php:46
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-re-captcha-customer/Observer/AjaxLoginObserver.php:88
+      notes: Found 61 references
+    - claim: customer_login
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-re-captcha-migration/Setup/Patch/Data/MigrateConfigToRecaptchaModules.php:193
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-re-captcha-store-pickup/Block/LayoutProcessor/Checkout/Onepage.php:46
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-re-captcha-customer/Observer/AjaxLoginObserver.php:88
+      notes: Found 46 references
+    - claim: customer_logout
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Customer/Model/VisitorTest.php:49
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Customer/Model/VisitorTest.php:57
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Observer/LogLastLogoutAtObserver.php:34
+      notes: Found 5 references
+    - claim: customer_register_success
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Controller/Account/CreatePost.php:383
+      notes: Found 1 references
+    - claim: customer_save_after_data_object
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Sales/Observer/Backend/CustomerQuoteTest.php:49
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Sales/Observer/Backend/CustomerQuoteTest.php:60
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Model/ResourceModel/CustomerRepository.php:300
+      notes: Found 5 references
+    - claim: customer_visitor
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-reports/Model/ResourceModel/Product/Index/AbstractIndex.php:162
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-reports/Model/ResourceModel/Event.php:187
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-customer/Setup/Patch/Data/SessionIDColumnCleanUp.php:62
+      notes: Found 11 references
+    - claim: sales_order
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-shipping-admin-ui/Plugin/SetAllocatedSourceValueInExportCsv.php:32
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-shipping-admin-ui/Test/Integration/ExportOrderWithAllocatedSource.php:126
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-shipping-admin-ui/Controller/Adminhtml/SourceSelection/Index.php:47
+      notes: Found 374 references
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

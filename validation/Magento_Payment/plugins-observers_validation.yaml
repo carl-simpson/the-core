@@ -1,0 +1,270 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Payment/html/plugins-observers.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os
+summary:
+  total_claims: 31
+  validated: 31
+  found: 26
+  not_found: 5
+  confidence_distribution:
+    high: 17
+    medium: 14
+    low: 0
+results_by_type:
+  php_classes:
+    total: 18
+    found: 14
+    not_found: 4
+    results:
+    - claim: Magento\Checkout\Block\Checkout\LayoutProcessor
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-checkout/Block/Checkout/LayoutProcessor.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Framework\Config\GenericSchemaLocator
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Config/GenericSchemaLocator.php:15
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Config/Test/Unit/GenericSchemaLocatorTest.php:19
+      notes: Found via pattern search
+    - claim: Magento\Framework\Config\Reader\Filesystem
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Framework/App/ObjectManager/ConfigWriter/FilesystemTest.php:11
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Framework/Backup/FilesystemTest.php:11
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Framework/Filesystem/FilesystemTest.php:20
+      notes: Found via pattern search
+    - claim: Magento\Framework\Logger\Handler\Base
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/Catalog/Api/BasePriceStorageTest.php:22
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/Webapi/Routing/BaseService.php:14
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Analytics/Model/Plugin/BaseUrlConfigPluginTest.php:21
+      notes: Found via pattern search
+    - claim: Magento\Framework\Logger\Monolog
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Logger/Monolog.php:16
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/framework/Logger/Test/Unit/MonologTest.php:16
+      notes: Found via pattern search
+    - claim: Magento\Payment\Block\Form
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/Block/Form.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Payment\Block\Form\Container
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/Block/Form/Container.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Payment\Block\Info
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/Block/Info.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Payment\Gateway\Command\CommandPool
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/Gateway/Command/CommandPool.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Payment\Gateway\Config\ValueHandlerPool
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/Gateway/Config/ValueHandlerPool.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Payment\Gateway\ErrorMapper\VirtualConfigReader
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/Gateway/ErrorMapper/VirtualConfigReader.php
+        does not exist
+    - claim: Magento\Payment\Gateway\ErrorMapper\VirtualSchemaLocator
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/Gateway/ErrorMapper/VirtualSchemaLocator.php
+        does not exist
+    - claim: Magento\Payment\Gateway\ErrorMapper\XmlToArrayConverter
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/Gateway/ErrorMapper/XmlToArrayConverter.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Payment\Model\Method\Adapter
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/Model/Method/Adapter.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Payment\Model\Method\VirtualDebug
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/Model/Method/VirtualDebug.php
+        does not exist
+    - claim: Magento\Payment\Model\Method\VirtualLogger
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/Model/Method/VirtualLogger.php
+        does not exist
+    - claim: Magento\Payment\Plugin\PaymentConfigurationProcess
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/Plugin/PaymentConfigurationProcess.php:1
+      notes: Class file exists and contains class definition
+    - claim: Magento\Payment\Plugin\PaymentMethodProcess
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-vault/Plugin/PaymentMethodProcess.php:14
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-vault/Test/Unit/Plugin/PaymentMethodProcessTest.php:19
+      notes: Found via pattern search
+  methods:
+    total: 8
+    found: 8
+    not_found: 0
+    results:
+    - claim: execute
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-shipping-admin-ui/Observer/NewShipmentLoadBefore.php:68
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-shipping-admin-ui/Model/IsWebsiteInMultiSourceMode.php:54
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-shipping-admin-ui/Model/IsOrderSourceManageable.php:66
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-shipping-admin-ui/Model/ResourceModel/GetAllocatedSourcesForOrder.php:38
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-shipping-admin-ui/Ui/DataProvider/GetSourcesByOrderIdSkuAndQty.php:84
+      notes: Found 2828 occurrences
+    - claim: getEvent
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/setup/src/Magento/Setup/Module/DataSetup.php:180
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Model/AbstractModel.php:55
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Model/Order/Item.php:1034
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Api/Data/OrderItemInterface.php:633
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-catalog-admin-ui/Test/Integration/Observer/ProcessSourceItemsObserverTest.php:129
+      notes: Found 21 occurrences
+    - claim: getOrder
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-vault/Model/Ui/Adminhtml/TokensConfigProvider.php:271
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-vault/Model/Ui/Adminhtml/TokensConfigProvider.php:302
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-vault/Test/Unit/Model/Ui/Adminhtml/TokensConfigProviderTest.php:532
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-bundle/Model/Product/Type.php:915
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-bundle/Model/Sales/Order/Pdf/Items/AbstractItems.php:223
+      notes: Found 258 occurrences
+    - claim: getPayment
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-vault/Observer/AfterPaymentSaveObserver.php:120
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-vault/Model/Ui/Adminhtml/TokensConfigProvider.php:255
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-vault/Model/Ui/Adminhtml/TokensConfigProvider.php:287
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-vault/Model/Ui/Adminhtml/TokensConfigProvider.php:319
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-vault/Model/Method/Vault.php:527
+      notes: Found 102 occurrences
+    - claim: getState
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-layered-navigation/Block/Navigation.php:103
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Model/Order.php:3354
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Model/Order/Creditmemo.php:465
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Model/Order/Creditmemo.php:484
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Model/Order/Creditmemo.php:1119
+      notes: Found 44 occurrences
+    - claim: getStatus
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-catalog/Test/Integration/CatalogInventory/Api/StockRegistry/GetProductStockStatusTest.php:112
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-catalog/Test/Integration/CatalogInventory/Api/StockRegistry/GetStockStatusBySkuTest.php:109
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-catalog/Test/Integration/CatalogInventory/Api/StockRegistry/GetProductStockStatusOnDefaultStockTest.php:83
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-catalog/Test/Integration/CatalogInventory/Api/StockRegistry/GetStockStatusTest.php:118
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-inventory-catalog/Test/Integration/CatalogInventory/Api/StockRegistry/GetProductStockStatusBySkuTest.php:103
+      notes: Found 86 occurrences
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/Model/Template/Filter.php:19
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-email/Model/Template/Filter.php:546
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/CatalogImportExport/Model/Import/ProductTestBase.php:164
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/CatalogImportExport/Model/Import/ProductTestBase.php:219
+      notes: Found 8 occurrences
+    - claim: url
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cardinal-commerce/Model/JwtManagement.php:124
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cardinal-commerce/Model/JwtManagement.php:139
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/UrlRewrite/UrlResolverTest.php:108
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/UrlRewrite/RouteTest.php:385
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/PageCache/UrlRewrite/RouteCacheTest.php:379
+      notes: Found 9 occurrences
+  events:
+    total: 2
+    found: 2
+    not_found: 0
+    results:
+    - claim: payment_sales_order_save_before
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/etc/events.xml:10
+      notes: Found 1 references
+    - claim: sales_order_save_before
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/etc/events.xml:9
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-payment/etc/events.xml:10
+      notes: Found 2 references
+  database_tables:
+    total: 3
+    found: 2
+    not_found: 1
+    results:
+    - claim: sales_order_save_before
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Model/Order.php:58
+      notes: Found 1 references
+    - claim: sales_order_status_unassign
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Model/Order/Status.php:120
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Test/Unit/Model/Order/StatusTest.php:82
+      notes: Found 2 references
+    - claim: sales_order_status_update
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Table not found in core
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+  file_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []

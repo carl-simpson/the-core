@@ -1,0 +1,92 @@
+source_document: demo_sample.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/magento-core
+summary:
+  total_claims: 10
+  validated: 10
+  found: 3
+  not_found: 7
+  confidence_distribution:
+    high: 4
+    medium: 6
+    low: 0
+results_by_type:
+  php_interfaces:
+    total: 1
+    found: 0
+    not_found: 1
+    results:
+    - claim: Magento\Customer\Api\CustomerRepositoryInterface
+      found: false
+      confidence: high
+      evidence: []
+      notes: Expected path /home/carl/Documents/magento-core/vendor/magento/module-customer/Api/CustomerRepositoryInterface.php
+        does not exist
+  methods:
+    total: 3
+    found: 0
+    not_found: 3
+    results:
+    - claim: delete
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: getById
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: save
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+  events:
+    total: 3
+    found: 3
+    not_found: 0
+    results:
+    - claim: customer_delete_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/magento-core/vendor/magento/module-customer/etc/events.xml:8
+      - /home/carl/Documents/magento-core/vendor/magento/module-customer/etc/events.xml:9
+      notes: Found 2 references
+    - claim: customer_login
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/magento-core/vendor/magento/module-customer/etc/events.xml:12
+      - /home/carl/Documents/magento-core/vendor/magento/module-customer/etc/events.xml:13
+      - /home/carl/Documents/magento-core/vendor/magento/module-customer/etc/events.xml:14
+      notes: Found 3 references
+    - claim: customer_save_after
+      found: true
+      confidence: high
+      evidence:
+      - /home/carl/Documents/magento-core/vendor/magento/module-customer/etc/events.xml:3
+      - /home/carl/Documents/magento-core/vendor/magento/module-customer/etc/events.xml:4
+      notes: Found 2 references
+  database_tables:
+    total: 3
+    found: 0
+    not_found: 3
+    results:
+    - claim: customer_delete_after
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Table not found in core
+    - claim: customer_login
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Table not found in core
+    - claim: customer_save_after
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Table not found in core
+detailed_results: []

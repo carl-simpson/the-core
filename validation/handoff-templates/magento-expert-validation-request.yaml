@@ -1,0 +1,79 @@
+# Validation Request Template for @magento-expert
+
+handoff_type: validation_request
+template_version: "1.0"
+created_date: "2026-01-07"
+
+# Fill in below for each validation request
+
+module: ""  # e.g., Magento_Customer
+doc_section: ""  # e.g., architecture.html
+request_id: ""  # e.g., VR-CUSTOMER-ARCH-001
+priority: ""  # high, medium, low
+
+context:
+  description: ""  # 1-2 sentences about what needs validation
+  doc_file_path: ""  # Full path to documentation file
+  focus_areas: []  # e.g., ["service contracts", "database schema", "events"]
+
+claims_to_validate:
+  # List all claims that need validation
+  # Example:
+  # - claim_id: ARCH-001
+  #   claim_text: "Magento\\Customer\\Api\\CustomerRepositoryInterface"
+  #   claim_type: class  # class, method, plugin, observer, event, dependency, database, service_contract
+  #   doc_line: 187
+  #   context: "Claim states this is the main repository interface for customers"
+
+  - claim_id: ""
+    claim_text: ""
+    claim_type: ""  # class | method | plugin | observer | event | dependency | database | service_contract
+    doc_line: 0
+    context: ""
+
+source_paths:
+  module_root: "/home/carl/Documents/mastra-agents/mastra-agent-system/training-sandbox/src/vendor/magento/module-XXXXX/"
+  api_dir: "Api/"
+  model_dir: "Model/"
+  etc_dir: "etc/"
+  view_dir: "view/"
+
+specific_questions:
+  # Questions requiring expert validation
+  # Example:
+  # - "Does the CustomerRepositoryInterface exist at the claimed namespace?"
+  # - "Are there exactly 19 plugins as claimed in the documentation?"
+
+  - ""
+
+evidence_requirements:
+  # What evidence is needed for each validation
+  # Example:
+  # - "File path and line number for each class"
+  # - "Method signature with exact parameters and return types"
+  # - "XML snippets for plugin configurations"
+
+  - ""
+
+validation_criteria:
+  # Define what constitutes a successful validation
+  exact_match_required: true  # Does claim need to match source exactly?
+  version_specific: false  # Is this specific to Magento 2.4.8?
+  allow_minor_variations: false  # Allow whitespace/formatting differences?
+
+deadline: ""  # ISO 8601 format: 2026-01-08T17:00:00Z
+estimated_effort_hours: 0
+
+attachments:
+  # Supporting materials
+  - type: "claims_inventory"
+    path: ""
+  - type: "documentation_file"
+    path: ""
+
+requestor:
+  name: "@project-orchestrator-180"
+  contact: "Via agent communication"
+  requested_at: ""  # ISO 8601 timestamp
+
+# Response will be provided in magento-expert-validation-response.yaml format

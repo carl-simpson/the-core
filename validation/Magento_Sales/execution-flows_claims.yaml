@@ -1,0 +1,63 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Sales/html/execution-flows.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes:
+  - Magento\Checkout\Model\Type\Onepage
+  - Magento\Quote\Model\QuoteManagement
+  - Magento\Quote\Model\Quote\Address\ToOrder
+  - Magento\Sales\Controller\Adminhtml\Order\Create\Save
+  - Magento\Sales\Model\OrderRepository
+  php_interfaces: []
+  methods:
+  - addFilter
+  - cart
+  - convert
+  - create
+  - dispatch
+  - fields
+  - getId
+  - getList
+  - gradient
+  - hold
+  - idx_created_at
+  - idx_customer_email
+  - media
+  - placeOrder
+  - rgba
+  - save
+  - saveOrder
+  - submit
+  - tates
+  - tatuses
+  - translateX
+  - url
+  - validateQuote
+  - var
+  events:
+  - checkout_submit_all_after
+  - checkout_submit_before
+  - customer_email
+  - idx_customer_email
+  - quote_submit_before
+  - sales_model_service_quote_submit_before
+  database_tables:
+  - customer_email
+  - quote_submit_before
+  - sales_model_service_quote_submit_before
+  - sales_model_service_quote_submit_success
+  - sales_order
+  - sales_order_address
+  - sales_order_grid
+  - sales_order_item
+  - sales_order_payment
+  - sales_order_status_history
+  acl_resources: []
+  config_paths:
+  - carts/mine/order
+  - image/svg
+  - shipped/delivered
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

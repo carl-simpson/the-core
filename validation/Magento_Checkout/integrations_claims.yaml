@@ -1,0 +1,32 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Checkout/html/integrations.html
+extracted_at: '2025-01-07'
+claims:
+  php_classes: []
+  php_interfaces: []
+  methods:
+  - ales
+  - aymentInterface
+  - ependency
+  - forms
+  - getLastOrderId
+  - getLastRealOrderId
+  - getLastSuccessQuoteId
+  - media
+  - nly
+  - nventory
+  - placeOrder
+  - uote
+  - url
+  events: []
+  database_tables: []
+  acl_resources: []
+  config_paths:
+  - carts/mine/payment
+  - carts/mine/set
+  - carts/mine/shipping
+  - carts/mine/totals
+  file_paths: []
+validation_status:
+  validated: false
+  validation_date: null
+  validator: null

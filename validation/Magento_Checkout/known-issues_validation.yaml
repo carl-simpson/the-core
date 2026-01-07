@@ -1,0 +1,119 @@
+source_document: /home/carl/Documents/the-core/docs/modules/Magento_Checkout/html/known-issues.html
+validation_date: '2025-01-07'
+magento_root: /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os
+summary:
+  total_claims: 14
+  validated: 14
+  found: 7
+  not_found: 7
+  confidence_distribution:
+    high: 0
+    medium: 14
+    low: 0
+results_by_type:
+  methods:
+    total: 14
+    found: 7
+    not_found: 7
+    results:
+    - claim: backend
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: checkout
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: frontend
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-eav/Model/Entity/Increment/AbstractIncrement.php:69
+      notes: Found 1 occurrences
+    - claim: handlers
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: indicator
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: media
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cms/Model/Template/Filter.php:19
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-email/Model/Template/Filter.php:546
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-widget/Model/Template/Filter.php:176
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/CatalogImportExport/Model/Import/ProductTestBase.php:164
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/CatalogImportExport/Model/Import/ProductTestBase.php:219
+      notes: Found 8 occurrences
+    - claim: placeOrder
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-checkout/Test/Unit/Model/GuestPaymentInformationManagementTest.php:337
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-checkout/Test/Unit/Model/PaymentInformationManagementTest.php:286
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/Quote/Guest/CheckoutEndToEndTest.php:378
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/Quote/Customer/CheckoutEndToEndTest.php:431
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/Sales/RetrieveOrdersByOrderNumberTest.php:1327
+      notes: Found 19 occurrences
+    - claim: requests
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: returns
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-ui/Component/Control/SplitButton.php:255
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-page-builder/Model/Dom/Adapter/TokenListInterface.php:50
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/SalesRule/Block/Adminhtml/Promo/Quote/Edit/Tab/Coupons/GridTest.php:86
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/integration/testsuite/Magento/Newsletter/Block/Adminhtml/Subscriber/GridTest.php:66
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/setup/src/Magento/Setup/Test/Unit/Module/Di/Code/Reader/FileScannerTest.php:57
+      notes: Found 20 occurrences
+    - claim: service
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/_files/Magento/TestModule3/Service/V1/Error.php:57
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/_files/Magento/TestModule3/Service/V1/ErrorInterface.php:25
+      notes: Found 2 occurrences
+    - claim: ssues
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: stopLoader
+      found: false
+      confidence: medium
+      evidence: []
+      notes: Method not found in core
+    - claim: totals
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-sales/Test/Unit/Block/Order/Create/TotalsTest.php:109
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-reports/Test/Unit/Model/ResourceModel/Order/CollectionTest.php:496
+      notes: Found 2 occurrences
+    - claim: url
+      found: true
+      confidence: medium
+      evidence:
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cardinal-commerce/Model/JwtManagement.php:124
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/module-cardinal-commerce/Model/JwtManagement.php:139
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/UrlRewrite/UrlResolverTest.php:108
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/UrlRewrite/RouteTest.php:385
+      - /home/carl/Documents/_ParkedProjects/magento/src/vendor/mage-os/magento2-base/dev/tests/api-functional/testsuite/Magento/GraphQl/PageCache/UrlRewrite/RouteCacheTest.php:379
+      notes: Found 9 occurrences
+  config_paths:
+    total: 0
+    found: 0
+    not_found: 0
+    results: []
+detailed_results: []
