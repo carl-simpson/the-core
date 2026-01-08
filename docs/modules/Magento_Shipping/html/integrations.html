@@ -10,11 +10,26 @@
             theme: {
                 extend: {
                     colors: {
-                        bauhaus: {
-                            orange: '#F26423',
-                            yellow: '#F1BC1B',
-                            charcoal: '#2C2C2C',
-                            cream: '#FAF8F5'
+                        'magento-orange': {
+                            DEFAULT: '#f26423',
+                            50: '#fef5ee', 100: '#fee9d6', 200: '#fbd0ad', 300: '#f9ae78',
+                            400: '#f58242', 500: '#f26423', 600: '#e34613', 700: '#bc3312',
+                            800: '#962a16', 900: '#792515', 950: '#411009'
+                        },
+                        'magento-gold': {
+                            DEFAULT: '#f1bc1b',
+                            50: '#fffdeb', 100: '#fdf9c8', 200: '#fbf38c', 300: '#f8e651',
+                            400: '#f7d728', 500: '#f1bc1b', 600: '#d5900a', 700: '#b1670c',
+                            800: '#8e5210', 900: '#744312', 950: '#432209'
+                        },
+                        'magento-charcoal': {
+                            DEFAULT: '#2c2c2c',
+                            50: '#f6f6f6', 100: '#e7e7e7', 200: '#d1d1d1', 300: '#b0b0b0',
+                            400: '#888888', 500: '#6d6d6d', 600: '#5d5d5d', 700: '#4f4f4f',
+                            800: '#454545', 900: '#3d3d3d', 950: '#2c2c2c'
+                        },
+                        'magento-cream': {
+                            DEFAULT: '#faf8f5'
                         }
                     }
                 }
@@ -26,22 +41,22 @@
         body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
-<body class="bg-bauhaus-cream text-bauhaus-charcoal">
+<body class="bg-magento-cream text-magento-charcoal">
     <!-- Navigation -->
-    <nav class="bg-bauhaus-charcoal text-white py-4 sticky top-0 z-50 shadow-lg">
+    <nav class="bg-magento-charcoal text-white py-4 sticky top-0 z-50 shadow-lg">
         <div class="container mx-auto px-6 flex items-center justify-between">
-            <a href="../../../index.html" class="text-xl font-bold hover:text-bauhaus-yellow transition-colors">
+            <a href="../../../index.html" class="text-xl font-bold hover:text-magento-gold-500 transition-colors">
                 Magento Core Docs
             </a>
             <div class="flex items-center space-x-6">
-                <a href="index.html" class="hover:text-bauhaus-yellow transition-colors">Magento_Shipping</a>
-                <span class="text-bauhaus-yellow font-medium">Integrations</span>
+                <a href="index.html" class="hover:text-magento-gold-500 transition-colors">Magento_Shipping</a>
+                <span class="text-magento-gold-500 font-medium">Integrations</span>
             </div>
         </div>
     </nav>
 
     <!-- Page Header -->
-    <header class="bg-bauhaus-charcoal text-white py-12">
+    <header class="bg-magento-charcoal text-white py-12">
         <div class="container mx-auto px-6">
             <h1 class="text-4xl font-bold mb-2">Integrations</h1>
             <p class="text-gray-300">Module dependencies, carrier integrations, and cross-module relationships</p>
@@ -54,8 +69,8 @@
         <!-- Module Dependency Diagram -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-6">Module Dependency Map</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
-                <div class="bg-bauhaus-charcoal text-white p-6 rounded-lg font-mono text-xs overflow-x-auto">
+            <div class="bg-white shadow-md p-8">
+                <div class="bg-magento-charcoal text-white p-6 font-mono text-xs overflow-x-auto">
 <pre>
                             CARRIER MODULES
           +-------+-------+-------+-------+-------+
@@ -104,7 +119,7 @@
         <!-- Quote Module Integration -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-6">Quote Module Integration</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="bg-white shadow-md p-8">
                 <p class="mb-6">
                     The Quote module is the primary consumer of shipping rate collection. During checkout,
                     the quote address triggers rate collection through the RateCollectorInterface.
@@ -112,7 +127,7 @@
 
                 <h3 class="font-bold text-lg mb-4">Integration Points</h3>
                 <table class="w-full mb-6">
-                    <thead class="bg-bauhaus-charcoal text-white">
+                    <thead class="bg-magento-charcoal text-white">
                         <tr>
                             <th class="p-3 text-left">Quote Class</th>
                             <th class="p-3 text-left">Shipping Class</th>
@@ -139,7 +154,7 @@
                 </table>
 
                 <h3 class="font-bold text-lg mb-4">Rate Request Data Flow</h3>
-                <div class="bg-bauhaus-charcoal text-white p-6 rounded-lg font-mono text-sm overflow-x-auto">
+                <div class="bg-magento-charcoal text-white p-6 font-mono text-sm overflow-x-auto">
 <pre>// Quote\Model\Quote\Address::collectShippingRates()
 
 $request = $this->rateRequestFactory->create();
@@ -163,7 +178,7 @@ $result = $this->rateCollector->collectRates($request)->getResult();</pre>
         <!-- Sales Module Integration -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-6">Sales Module Integration</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="bg-white shadow-md p-8">
                 <p class="mb-6">
                     The Sales module handles order shipments. Shipping provides controllers and blocks
                     for shipment management in the admin area.
@@ -171,7 +186,7 @@ $result = $this->rateCollector->collectRates($request)->getResult();</pre>
 
                 <h3 class="font-bold text-lg mb-4">Shipment-Related Tables</h3>
                 <table class="w-full mb-6">
-                    <thead class="bg-bauhaus-charcoal text-white">
+                    <thead class="bg-magento-charcoal text-white">
                         <tr>
                             <th class="p-3 text-left">Table</th>
                             <th class="p-3 text-left">Purpose</th>
@@ -209,7 +224,7 @@ $result = $this->rateCollector->collectRates($request)->getResult();</pre>
 
                 <h3 class="font-bold text-lg mb-4">Admin Controllers</h3>
                 <div class="grid md:grid-cols-2 gap-4">
-                    <div class="p-4 bg-gray-50 rounded">
+                    <div class="p-4 bg-gray-50">
                         <h4 class="font-semibold mb-2">Controller\Adminhtml\Order\Shipment\</h4>
                         <ul class="text-sm space-y-1">
                             <li>NewAction - Create shipment form</li>
@@ -222,7 +237,7 @@ $result = $this->rateCollector->collectRates($request)->getResult();</pre>
                             <li>Email - Send shipment email</li>
                         </ul>
                     </div>
-                    <div class="p-4 bg-gray-50 rounded">
+                    <div class="p-4 bg-gray-50">
                         <h4 class="font-semibold mb-2">Mass Actions</h4>
                         <ul class="text-sm space-y-1">
                             <li>Pdfshipments - Generate PDF</li>
@@ -237,7 +252,7 @@ $result = $this->rateCollector->collectRates($request)->getResult();</pre>
         <!-- Carrier Module Integration -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-6">Carrier Module Integration</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="bg-white shadow-md p-8">
                 <p class="mb-6">
                     Each carrier module extends the shipping framework by registering a carrier model
                     and implementing the required interfaces.
@@ -245,7 +260,7 @@ $result = $this->rateCollector->collectRates($request)->getResult();</pre>
 
                 <h3 class="font-bold text-lg mb-4">Core Carrier Modules</h3>
                 <table class="w-full mb-6">
-                    <thead class="bg-bauhaus-charcoal text-white">
+                    <thead class="bg-magento-charcoal text-white">
                         <tr>
                             <th class="p-3 text-left">Module</th>
                             <th class="p-3 text-left">Carrier Code</th>
@@ -288,7 +303,7 @@ $result = $this->rateCollector->collectRates($request)->getResult();</pre>
                 </table>
 
                 <h3 class="font-bold text-lg mb-4">Carrier Registration Pattern</h3>
-                <div class="bg-bauhaus-charcoal text-white p-6 rounded-lg font-mono text-sm overflow-x-auto">
+                <div class="bg-magento-charcoal text-white p-6 font-mono text-sm overflow-x-auto">
 <pre>&lt;!-- module-ups/etc/config.xml --&gt;
 &lt;config&gt;
     &lt;default&gt;
@@ -315,14 +330,14 @@ $result = $this->rateCollector->collectRates($request)->getResult();</pre>
         <!-- Checkout Integration -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-6">Checkout Integration</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="bg-white shadow-md p-8">
                 <p class="mb-6">
                     During checkout, shipping rates are displayed for customer selection. The integration
                     flows through the Quote module's shipping address.
                 </p>
 
                 <h3 class="font-bold text-lg mb-4">Checkout Flow</h3>
-                <div class="bg-bauhaus-charcoal text-white p-6 rounded-lg font-mono text-xs overflow-x-auto mb-6">
+                <div class="bg-magento-charcoal text-white p-6 font-mono text-xs overflow-x-auto mb-6">
 <pre>
 CHECKOUT SHIPPING STEP
 ======================
@@ -372,7 +387,7 @@ CHECKOUT SHIPPING STEP
 
                 <h3 class="font-bold text-lg mb-4">REST API Endpoints</h3>
                 <table class="w-full">
-                    <thead class="bg-bauhaus-charcoal text-white">
+                    <thead class="bg-magento-charcoal text-white">
                         <tr>
                             <th class="p-3 text-left">Endpoint</th>
                             <th class="p-3 text-left">Method</th>
@@ -403,7 +418,7 @@ CHECKOUT SHIPPING STEP
         <!-- MSI Integration -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-6">Multi-Source Inventory (MSI) Integration</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="bg-white shadow-md p-8">
                 <p class="mb-6">
                     When MSI is enabled, the shipping module integrates with inventory source selection
                     during shipment creation.
@@ -411,7 +426,7 @@ CHECKOUT SHIPPING STEP
 
                 <h3 class="font-bold text-lg mb-4">MSI Modules</h3>
                 <table class="w-full mb-6">
-                    <thead class="bg-bauhaus-charcoal text-white">
+                    <thead class="bg-magento-charcoal text-white">
                         <tr>
                             <th class="p-3 text-left">Module</th>
                             <th class="p-3 text-left">Integration Type</th>
@@ -437,11 +452,11 @@ CHECKOUT SHIPPING STEP
                     </tbody>
                 </table>
 
-                <div class="p-4 bg-bauhaus-yellow bg-opacity-20 rounded-lg">
+                <div class="p-4 bg-magento-gold-500 bg-opacity-20">
                     <h4 class="font-bold mb-2">MSI Controller Override</h4>
                     <p class="text-sm">
-                        When MSI is installed, <code class="bg-gray-100 px-1 rounded">Controller\Adminhtml\Order\Shipment\NewAction</code>
-                        is replaced with <code class="bg-gray-100 px-1 rounded">InventoryShipping\Controller\...\NewAction</code>
+                        When MSI is installed, <code class="bg-gray-100 px-1">Controller\Adminhtml\Order\Shipment\NewAction</code>
+                        is replaced with <code class="bg-gray-100 px-1">InventoryShipping\Controller\...\NewAction</code>
                         via DI preference. This enables source selection during shipment creation.
                     </p>
                 </div>
@@ -451,13 +466,13 @@ CHECKOUT SHIPPING STEP
         <!-- Event Integration -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-6">Events Related to Shipping</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="bg-white shadow-md p-8">
                 <p class="mb-6">
                     While Magento_Shipping doesn't define its own events, it integrates with Sales module events:
                 </p>
 
                 <table class="w-full">
-                    <thead class="bg-bauhaus-charcoal text-white">
+                    <thead class="bg-magento-charcoal text-white">
                         <tr>
                             <th class="p-3 text-left">Event</th>
                             <th class="p-3 text-left">Source Module</th>
@@ -488,14 +503,14 @@ CHECKOUT SHIPPING STEP
         <!-- Navigation -->
         <section class="mt-16 pt-8 border-t border-gray-200">
             <div class="flex justify-between items-center">
-                <a href="plugins-observers.html" class="text-bauhaus-orange hover:underline">&larr; DI &amp; Config</a>
-                <a href="known-issues.html" class="text-bauhaus-orange hover:underline">Known Issues &rarr;</a>
+                <a href="plugins-observers.html" class="text-magento-orange-500 hover:underline">&larr; DI &amp; Config</a>
+                <a href="known-issues.html" class="text-magento-orange-500 hover:underline">Known Issues &rarr;</a>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-bauhaus-charcoal text-white py-8 mt-16">
+    <footer class="bg-magento-charcoal text-white py-8 mt-16">
         <div class="container mx-auto px-6 text-center">
             <p class="text-gray-400">Magento Core Documentation Project</p>
             <p class="text-sm text-gray-500 mt-2">Magento_Shipping - Integrations</p>

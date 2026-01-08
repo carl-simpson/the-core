@@ -10,11 +10,26 @@
             theme: {
                 extend: {
                     colors: {
-                        bauhaus: {
-                            orange: '#F26423',
-                            yellow: '#F1BC1B',
-                            charcoal: '#2C2C2C',
-                            cream: '#FAF8F5'
+                        'magento-orange': {
+                            DEFAULT: '#f26423',
+                            50: '#fef5ee', 100: '#fee9d6', 200: '#fbd0ad', 300: '#f9ae78',
+                            400: '#f58242', 500: '#f26423', 600: '#e34613', 700: '#bc3312',
+                            800: '#962a16', 900: '#792515', 950: '#411009'
+                        },
+                        'magento-gold': {
+                            DEFAULT: '#f1bc1b',
+                            50: '#fffdeb', 100: '#fdf9c8', 200: '#fbf38c', 300: '#f8e651',
+                            400: '#f7d728', 500: '#f1bc1b', 600: '#d5900a', 700: '#b1670c',
+                            800: '#8e5210', 900: '#744312', 950: '#432209'
+                        },
+                        'magento-charcoal': {
+                            DEFAULT: '#2c2c2c',
+                            50: '#f6f6f6', 100: '#e7e7e7', 200: '#d1d1d1', 300: '#b0b0b0',
+                            400: '#888888', 500: '#6d6d6d', 600: '#5d5d5d', 700: '#4f4f4f',
+                            800: '#454545', 900: '#3d3d3d', 950: '#2c2c2c'
+                        },
+                        'magento-cream': {
+                            DEFAULT: '#faf8f5'
                         }
                     }
                 }
@@ -26,22 +41,22 @@
         body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
-<body class="bg-bauhaus-cream text-bauhaus-charcoal">
+<body class="bg-magento-cream text-magento-charcoal">
     <!-- Navigation -->
-    <nav class="bg-bauhaus-charcoal text-white py-4 sticky top-0 z-50 shadow-lg">
+    <nav class="bg-magento-charcoal text-white py-4 sticky top-0 z-50 shadow-lg">
         <div class="container mx-auto px-6 flex items-center justify-between">
-            <a href="../../../index.html" class="text-xl font-bold hover:text-bauhaus-yellow transition-colors">
+            <a href="../../../index.html" class="text-xl font-bold hover:text-magento-gold-500 transition-colors">
                 Magento Core Docs
             </a>
             <div class="flex items-center space-x-6">
-                <a href="index.html" class="hover:text-bauhaus-yellow transition-colors">Magento_Shipping</a>
-                <span class="text-bauhaus-yellow font-medium">Execution Flows</span>
+                <a href="index.html" class="hover:text-magento-gold-500 transition-colors">Magento_Shipping</a>
+                <span class="text-magento-gold-500 font-medium">Execution Flows</span>
             </div>
         </div>
     </nav>
 
     <!-- Page Header -->
-    <header class="bg-bauhaus-charcoal text-white py-12">
+    <header class="bg-magento-charcoal text-white py-12">
         <div class="container mx-auto px-6">
             <h1 class="text-4xl font-bold mb-2">Execution Flows</h1>
             <p class="text-gray-300">Rate calculation, shipment creation, tracking, and label generation</p>
@@ -54,12 +69,12 @@
         <!-- Flow 1: Rate Collection -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-6">1. Rate Collection (Checkout)</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="bg-white shadow-md p-8">
                 <p class="mb-6">
                     During checkout, shipping rates are collected when the customer enters their shipping address.
                     This flow is triggered by the Quote module's address rate request.
                 </p>
-                <div class="bg-bauhaus-charcoal text-white p-6 rounded-lg font-mono text-xs overflow-x-auto mb-6">
+                <div class="bg-magento-charcoal text-white p-6 font-mono text-xs overflow-x-auto mb-6">
 <pre>
 CHECKOUT SHIPPING STEP
 =======================
@@ -115,9 +130,9 @@ Customer enters address
                 <h3 class="font-bold text-lg mb-4">Key Method: Shipping::collectRates()</h3>
                 <ol class="list-decimal list-inside space-y-2 text-sm">
                     <li>Sets origin address from store config if not provided in request</li>
-                    <li>Gets list of enabled carriers from <code class="bg-gray-100 px-1 rounded">carriers/*</code> config</li>
-                    <li>Iterates through carriers, calling <code class="bg-gray-100 px-1 rounded">collectCarrierRates()</code></li>
-                    <li>For each carrier: validates country availability, creates via factory, calls <code class="bg-gray-100 px-1 rounded">collectRates()</code></li>
+                    <li>Gets list of enabled carriers from <code class="bg-gray-100 px-1">carriers/*</code> config</li>
+                    <li>Iterates through carriers, calling <code class="bg-gray-100 px-1">collectCarrierRates()</code></li>
+                    <li>For each carrier: validates country availability, creates via factory, calls <code class="bg-gray-100 px-1">collectRates()</code></li>
                     <li>Aggregates all rate results into CarrierResult</li>
                     <li>Returns aggregated result to Quote for display</li>
                 </ol>
@@ -127,8 +142,8 @@ Customer enters address
         <!-- Flow 2: Carrier Rate Request -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-6">2. Single Carrier Rate Request</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
-                <div class="bg-bauhaus-charcoal text-white p-6 rounded-lg font-mono text-xs overflow-x-auto mb-6">
+            <div class="bg-white shadow-md p-8">
+                <div class="bg-magento-charcoal text-white p-6 font-mono text-xs overflow-x-auto mb-6">
 <pre>
 Shipping::collectCarrierRates($carrierCode, $request)
                    |
@@ -211,12 +226,12 @@ Shipping::collectCarrierRates($carrierCode, $request)
         <!-- Flow 3: Shipment Creation -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-6">3. Shipment Creation (Admin)</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="bg-white shadow-md p-8">
                 <p class="mb-6">
                     Shipments are created from the admin order view. This flow handles the creation of the
                     shipment record and optionally generates shipping labels.
                 </p>
-                <div class="bg-bauhaus-charcoal text-white p-6 rounded-lg font-mono text-xs overflow-x-auto mb-6">
+                <div class="bg-magento-charcoal text-white p-6 font-mono text-xs overflow-x-auto mb-6">
 <pre>
 ADMIN: Order View -> Ship
 =========================
@@ -297,12 +312,12 @@ ADMIN: Order View -> Ship
         <!-- Flow 4: Tracking Lookup -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-6">4. Tracking Lookup (Frontend)</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="bg-white shadow-md p-8">
                 <p class="mb-6">
                     Customers can view tracking information via a popup window accessed from their order
                     confirmation email or account order history.
                 </p>
-                <div class="bg-bauhaus-charcoal text-white p-6 rounded-lg font-mono text-xs overflow-x-auto mb-6">
+                <div class="bg-magento-charcoal text-white p-6 font-mono text-xs overflow-x-auto mb-6">
 <pre>
 TRACKING POPUP
 ==============
@@ -375,7 +390,7 @@ Customer clicks tracking link
 
                 <h3 class="font-bold text-lg mb-4">Tracking Status Fields</h3>
                 <div class="grid md:grid-cols-2 gap-4">
-                    <div class="p-4 bg-gray-50 rounded">
+                    <div class="p-4 bg-gray-50">
                         <h4 class="font-semibold mb-2">Basic Info</h4>
                         <ul class="text-sm space-y-1">
                             <li><code class="bg-gray-200 px-1 rounded">tracking</code> - Tracking number</li>
@@ -384,7 +399,7 @@ Customer clicks tracking link
                             <li><code class="bg-gray-200 px-1 rounded">url</code> - Carrier tracking URL</li>
                         </ul>
                     </div>
-                    <div class="p-4 bg-gray-50 rounded">
+                    <div class="p-4 bg-gray-50">
                         <h4 class="font-semibold mb-2">Delivery Info</h4>
                         <ul class="text-sm space-y-1">
                             <li><code class="bg-gray-200 px-1 rounded">status</code> - Current status</li>
@@ -400,12 +415,12 @@ Customer clicks tracking link
         <!-- Flow 5: Label Generation -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-6">5. Shipping Label Generation</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="bg-white shadow-md p-8">
                 <p class="mb-6">
                     Shipping labels are generated during shipment creation when the carrier supports labels.
                     This requires integration with the carrier's API.
                 </p>
-                <div class="bg-bauhaus-charcoal text-white p-6 rounded-lg font-mono text-xs overflow-x-auto mb-6">
+                <div class="bg-magento-charcoal text-white p-6 font-mono text-xs overflow-x-auto mb-6">
 <pre>
 LABEL GENERATION FLOW
 =====================
@@ -471,12 +486,12 @@ LABEL GENERATION FLOW
 </pre>
                 </div>
 
-                <div class="p-4 bg-bauhaus-yellow bg-opacity-20 rounded-lg">
+                <div class="p-4 bg-magento-gold-500 bg-opacity-20">
                     <h4 class="font-bold mb-2">Label Data Storage</h4>
                     <p class="text-sm">
-                        Labels are stored as binary data in <code class="bg-gray-100 px-1 rounded">sales_shipment.shipping_label</code>.
+                        Labels are stored as binary data in <code class="bg-gray-100 px-1">sales_shipment.shipping_label</code>.
                         The format (PDF, PNG, GIF) depends on the carrier's response.
-                        Use <code class="bg-gray-100 px-1 rounded">Shipment::getShippingLabel()</code> to retrieve.
+                        Use <code class="bg-gray-100 px-1">Shipment::getShippingLabel()</code> to retrieve.
                     </p>
                 </div>
             </div>
@@ -485,11 +500,11 @@ LABEL GENERATION FLOW
         <!-- Flow 6: Report Aggregation -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-6">6. Shipment Report Aggregation (Cron)</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="bg-white shadow-md p-8">
                 <p class="mb-6">
                     A daily cron job aggregates shipment data for reporting. This runs at midnight.
                 </p>
-                <div class="bg-bauhaus-charcoal text-white p-6 rounded-lg font-mono text-sm overflow-x-auto mb-6">
+                <div class="bg-magento-charcoal text-white p-6 font-mono text-sm overflow-x-auto mb-6">
 <pre>&lt;!-- etc/crontab.xml --&gt;
 &lt;job name="aggregate_sales_report_shipment_data"
      instance="Magento\Shipping\Model\Observer"
@@ -497,7 +512,7 @@ LABEL GENERATION FLOW
     &lt;schedule&gt;0 0 * * *&lt;/schedule&gt;
 &lt;/job&gt;</pre>
                 </div>
-                <div class="bg-bauhaus-charcoal text-white p-6 rounded-lg font-mono text-xs overflow-x-auto">
+                <div class="bg-magento-charcoal text-white p-6 font-mono text-xs overflow-x-auto">
 <pre>
 CRON: aggregate_sales_report_shipment_data
 ==========================================
@@ -534,9 +549,9 @@ CRON: aggregate_sales_report_shipment_data
         <!-- Error Handling -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-6">Error Handling Patterns</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="bg-white shadow-md p-8">
                 <div class="grid md:grid-cols-2 gap-6">
-                    <div class="p-4 border-l-4 border-bauhaus-orange">
+                    <div class="p-4 border-l-4 border-magento-orange-500">
                         <h4 class="font-bold mb-2">Rate Collection Errors</h4>
                         <p class="text-sm text-gray-600 mb-2">
                             When a carrier fails during rate collection, an Error result is appended:
@@ -549,7 +564,7 @@ CRON: aggregate_sales_report_shipment_data
                             return $error;
                         </div>
                     </div>
-                    <div class="p-4 border-l-4 border-bauhaus-yellow">
+                    <div class="p-4 border-l-4 border-magento-gold-500">
                         <h4 class="font-bold mb-2">Country Restriction</h4>
                         <p class="text-sm text-gray-600 mb-2">
                             When destination country is not allowed, carrier is skipped:
@@ -595,14 +610,14 @@ CRON: aggregate_sales_report_shipment_data
         <!-- Navigation -->
         <section class="mt-16 pt-8 border-t border-gray-200">
             <div class="flex justify-between items-center">
-                <a href="architecture.html" class="text-bauhaus-orange hover:underline">&larr; Architecture</a>
-                <a href="plugins-observers.html" class="text-bauhaus-orange hover:underline">DI &amp; Config &rarr;</a>
+                <a href="architecture.html" class="text-magento-orange-500 hover:underline">&larr; Architecture</a>
+                <a href="plugins-observers.html" class="text-magento-orange-500 hover:underline">DI &amp; Config &rarr;</a>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-bauhaus-charcoal text-white py-8 mt-16">
+    <footer class="bg-magento-charcoal text-white py-8 mt-16">
         <div class="container mx-auto px-6 text-center">
             <p class="text-gray-400">Magento Core Documentation Project</p>
             <p class="text-sm text-gray-500 mt-2">Magento_Shipping - Execution Flows</p>

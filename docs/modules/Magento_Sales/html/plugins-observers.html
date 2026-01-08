@@ -110,10 +110,10 @@
 
             <p class="text-gray-700 mb-6">The Magento_Sales module implements <strong>16 plugins</strong> to intercept and modify behavior at critical execution points in the order management lifecycle.</p>
 
-            <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
-                <p class="text-sm font-semibold text-blue-800 mb-2">Plugin Naming Convention</p>
-                <p class="text-sm text-blue-700"><strong>Pattern:</strong> Plugins use descriptive names that reflect their purpose (e.g., <code class="bg-blue-100 px-2 py-0.5 ">authentication</code>, <code class="bg-blue-100 px-2 py-0.5 ">addressUpdate</code>, <code class="bg-blue-100 px-2 py-0.5 ">authorization</code>).</p>
-                <p class="text-sm text-blue-700 mt-2"><strong>Why:</strong> Core Magento code predates strict naming conventions. Third-party modules should follow the "Extend" suffix pattern.</p>
+            <div class="bg-magento-gold-500 bg-opacity-10 border-l-4 border-magento-gold-500 p-4 mb-6">
+                <p class="text-sm font-semibold text-magento-charcoal mb-2">Plugin Naming Convention</p>
+                <p class="text-sm text-magento-charcoal"><strong>Pattern:</strong> Plugins use descriptive names that reflect their purpose (e.g., <code class="bg-magento-gold-500 bg-opacity-20 px-2 py-0.5 ">authentication</code>, <code class="bg-magento-gold-500 bg-opacity-20 px-2 py-0.5 ">addressUpdate</code>, <code class="bg-magento-gold-500 bg-opacity-20 px-2 py-0.5 ">authorization</code>).</p>
+                <p class="text-sm text-magento-charcoal mt-2"><strong>Why:</strong> Core Magento code predates strict naming conventions. Third-party modules should follow the "Extend" suffix pattern.</p>
             </div>
 
             <h3 class="text-xl font-semibold text-magento-orange-800 mb-3">Plugin Execution Priority</h3>
@@ -257,7 +257,7 @@ GET /sales/order/view/order_id/124  → 404 Not Found ✓</code></pre>
         <!-- Global Plugins -->
         <section class="bg-white p-8 border-t-4 border-magento-gold-500 shadow-sm mb-8">
             <h2 class="text-2xl font-semibold text-magento-charcoal mb-4">Global Plugins</h2>
-            <div class="inline-flex items-center px-3 py-1 -full text-xs font-semibold bg-blue-100 text-blue-800 mb-4">Global</div>
+            <div class="inline-flex items-center px-3 py-1 -full text-xs font-semibold bg-magento-gold-500 bg-opacity-20 text-magento-charcoal mb-4">Global</div>
 
             <p class="text-gray-700 mb-6">These plugins are registered in <code class="bg-gray-100 px-2 py-0.5 ">etc/di.xml</code> and apply across all areas (frontend, admin, API).</p>
 
@@ -281,7 +281,7 @@ GET /sales/order/view/order_id/124  → 404 Not Found ✓</code></pre>
                 </div>
 
                 <!-- ConvertBlobToString Plugin -->
-                <div class="border-l-4 border-blue-500 pl-4">
+                <div class="border-l-4 border-magento-gold-500 pl-4">
                     <h3 class="text-lg font-semibold text-magento-orange-800 mb-2">15. ConvertBlobToString Plugin (Shipping Labels)</h3>
 
                     <p class="text-gray-700 mb-3"><strong>Intercepts:</strong> <code class="bg-gray-100 px-2 py-0.5 ">Magento\Sales\Api\ShipmentRepositoryInterface</code></p>
@@ -321,9 +321,9 @@ GET /sales/order/view/order_id/124  → 404 Not Found ✓</code></pre>
 
             <p class="text-gray-700 mb-6">The Magento_Sales module implements <strong>25 observers</strong> that react to events dispatched during sales operations.</p>
 
-            <div class="bg-blue-50 border-l-4 border-blue-500 p-4">
-                <p class="text-sm font-semibold text-blue-800 mb-2">Observer Execution</p>
-                <ul class="text-sm text-blue-700 space-y-1">
+            <div class="bg-magento-gold-500 bg-opacity-10 border-l-4 border-magento-gold-500 p-4">
+                <p class="text-sm font-semibold text-magento-charcoal mb-2">Observer Execution</p>
+                <ul class="text-sm text-magento-charcoal space-y-1">
                     <li><strong>Synchronous:</strong> Observers execute immediately when event is dispatched (blocking)</li>
                     <li><strong>Transaction Safety:</strong> Most observers run inside database transactions, so exceptions rollback entire operation</li>
                     <li><strong>Performance:</strong> Grid sync observers are the most performance-sensitive (run on every order save)</li>
@@ -373,9 +373,9 @@ GET /sales/order/view/order_id/124  → 404 Not Found ✓</code></pre>
                 </table>
             </div>
 
-            <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
-                <p class="text-sm font-semibold text-blue-800 mb-2">Why Needed</p>
-                <p class="text-sm text-blue-700">Admin order grid queries <code class="bg-blue-100 px-2 py-0.5 ">sales_order_grid</code> instead of <code class="bg-blue-100 px-2 py-0.5 ">sales_order</code> for performance. Grid tables contain denormalized data optimized for fast filtering and sorting.</p>
+            <div class="bg-magento-gold-500 bg-opacity-10 border-l-4 border-magento-gold-500 p-4 mb-6">
+                <p class="text-sm font-semibold text-magento-charcoal mb-2">Why Needed</p>
+                <p class="text-sm text-magento-charcoal">Admin order grid queries <code class="bg-magento-gold-500 bg-opacity-20 px-2 py-0.5 ">sales_order_grid</code> instead of <code class="bg-magento-gold-500 bg-opacity-20 px-2 py-0.5 ">sales_order</code> for performance. Grid tables contain denormalized data optimized for fast filtering and sorting.</p>
             </div>
 
             <h3 class="text-xl font-semibold text-magento-orange-800 mb-3">Performance Comparison</h3>

@@ -10,11 +10,26 @@
             theme: {
                 extend: {
                     colors: {
-                        bauhaus: {
-                            orange: '#F26423',
-                            yellow: '#F1BC1B',
-                            charcoal: '#2C2C2C',
-                            cream: '#FAF8F5'
+                        'magento-orange': {
+                            DEFAULT: '#f26423',
+                            50: '#fef5ee', 100: '#fee9d6', 200: '#fbd0ad', 300: '#f9ae78',
+                            400: '#f58242', 500: '#f26423', 600: '#e34613', 700: '#bc3312',
+                            800: '#962a16', 900: '#792515', 950: '#411009'
+                        },
+                        'magento-gold': {
+                            DEFAULT: '#f1bc1b',
+                            50: '#fffdeb', 100: '#fdf9c8', 200: '#fbf38c', 300: '#f8e651',
+                            400: '#f7d728', 500: '#f1bc1b', 600: '#d5900a', 700: '#b1670c',
+                            800: '#8e5210', 900: '#744312', 950: '#432209'
+                        },
+                        'magento-charcoal': {
+                            DEFAULT: '#2c2c2c',
+                            50: '#f6f6f6', 100: '#e7e7e7', 200: '#d1d1d1', 300: '#b0b0b0',
+                            400: '#888888', 500: '#6d6d6d', 600: '#5d5d5d', 700: '#4f4f4f',
+                            800: '#454545', 900: '#3d3d3d', 950: '#2c2c2c'
+                        },
+                        'magento-cream': {
+                            DEFAULT: '#faf8f5'
                         }
                     }
                 }
@@ -26,22 +41,22 @@
         body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
-<body class="bg-bauhaus-cream text-bauhaus-charcoal">
+<body class="bg-magento-cream text-magento-charcoal">
     <!-- Navigation -->
-    <nav class="bg-bauhaus-charcoal text-white py-4 sticky top-0 z-50 shadow-lg">
+    <nav class="bg-magento-charcoal text-white py-4 sticky top-0 z-50 shadow-lg">
         <div class="container mx-auto px-6 flex items-center justify-between">
-            <a href="../../../index.html" class="text-xl font-bold hover:text-bauhaus-yellow transition-colors">
+            <a href="../../../index.html" class="text-xl font-bold hover:text-magento-gold-500 transition-colors">
                 Magento Core Docs
             </a>
             <div class="flex items-center space-x-6">
-                <a href="index.html" class="hover:text-bauhaus-yellow transition-colors">Magento_Shipping</a>
-                <span class="text-bauhaus-yellow font-medium">DI &amp; Config</span>
+                <a href="index.html" class="hover:text-magento-gold-500 transition-colors">Magento_Shipping</a>
+                <span class="text-magento-gold-500 font-medium">DI &amp; Config</span>
             </div>
         </div>
     </nav>
 
     <!-- Page Header -->
-    <header class="bg-bauhaus-charcoal text-white py-12">
+    <header class="bg-magento-charcoal text-white py-12">
         <div class="container mx-auto px-6">
             <h1 class="text-4xl font-bold mb-2">DI &amp; Configuration</h1>
             <p class="text-gray-300">Dependency injection preferences, virtual types, and configuration</p>
@@ -53,7 +68,7 @@
 
         <!-- Overview Note -->
         <section class="mb-12">
-            <div class="bg-bauhaus-yellow bg-opacity-20 border-l-4 border-bauhaus-yellow p-6 rounded-r-lg">
+            <div class="bg-magento-gold-500 bg-opacity-20 border-l-4 border-magento-gold-500 p-6 rounded-r-lg">
                 <h3 class="font-bold text-lg mb-2">Module Characteristics</h3>
                 <p>
                     The Magento_Shipping module has a notably <strong>minimal plugin footprint</strong>.
@@ -71,10 +86,10 @@
         <!-- DI Preferences - Global -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-6">DI Preferences (Global)</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="bg-white shadow-md p-8">
                 <p class="mb-4 text-sm text-gray-600">Source: etc/di.xml</p>
                 <table class="w-full">
-                    <thead class="bg-bauhaus-charcoal text-white">
+                    <thead class="bg-magento-charcoal text-white">
                         <tr>
                             <th class="p-3 text-left">Interface</th>
                             <th class="p-3 text-left">Implementation</th>
@@ -84,17 +99,17 @@
                     <tbody>
                         <tr class="border-b">
                             <td class="p-3 font-mono text-sm">Quote\Model\Quote\Address\<br>RateCollectorInterface</td>
-                            <td class="p-3 font-mono text-sm text-bauhaus-orange">Shipping\Model\Shipping</td>
+                            <td class="p-3 font-mono text-sm text-magento-orange-500">Shipping\Model\Shipping</td>
                             <td class="p-3">Main rate collection implementation</td>
                         </tr>
                         <tr class="border-b bg-gray-50">
                             <td class="p-3 font-mono text-sm">Shipping\Model\<br>CarrierFactoryInterface</td>
-                            <td class="p-3 font-mono text-sm text-bauhaus-orange">Shipping\Model\CarrierFactory</td>
+                            <td class="p-3 font-mono text-sm text-magento-orange-500">Shipping\Model\CarrierFactory</td>
                             <td class="p-3">Creates carrier instances by code</td>
                         </tr>
                         <tr class="border-b">
                             <td class="p-3 font-mono text-sm">Shipping\Model\Carrier\<br>Source\GenericInterface</td>
-                            <td class="p-3 font-mono text-sm text-bauhaus-orange">Shipping\Model\Carrier\<br>Source\GenericDefault</td>
+                            <td class="p-3 font-mono text-sm text-magento-orange-500">Shipping\Model\Carrier\<br>Source\GenericDefault</td>
                             <td class="p-3">Generic config source model</td>
                         </tr>
                     </tbody>
@@ -105,10 +120,10 @@
         <!-- DI Preferences - Admin -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-6">DI Preferences (Admin Area)</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="bg-white shadow-md p-8">
                 <p class="mb-4 text-sm text-gray-600">Source: etc/adminhtml/di.xml</p>
                 <table class="w-full">
-                    <thead class="bg-bauhaus-charcoal text-white">
+                    <thead class="bg-magento-charcoal text-white">
                         <tr>
                             <th class="p-3 text-left">Interface</th>
                             <th class="p-3 text-left">Implementation</th>
@@ -118,17 +133,17 @@
                     <tbody>
                         <tr class="border-b">
                             <td class="p-3 font-mono text-sm">Shipping\Model\Shipping</td>
-                            <td class="p-3 font-mono text-sm text-bauhaus-orange">Shipping\Model\Shipping\Labels</td>
+                            <td class="p-3 font-mono text-sm text-magento-orange-500">Shipping\Model\Shipping\Labels</td>
                             <td class="p-3">Adds label generation capabilities in admin</td>
                         </tr>
                         <tr class="border-b bg-gray-50">
                             <td class="p-3 font-mono text-sm">Shipping\Model\<br>ShipmentProviderInterface</td>
-                            <td class="p-3 font-mono text-sm text-bauhaus-orange">Shipping\Model\<br>ShipmentProvider</td>
+                            <td class="p-3 font-mono text-sm text-magento-orange-500">Shipping\Model\<br>ShipmentProvider</td>
                             <td class="p-3">Provides current shipment in admin context</td>
                         </tr>
                     </tbody>
                 </table>
-                <div class="mt-6 p-4 bg-gray-50 rounded">
+                <div class="mt-6 p-4 bg-gray-50">
                     <h4 class="font-bold mb-2">Why Admin-Only Labels?</h4>
                     <p class="text-sm text-gray-600">
                         The <code class="bg-gray-200 px-1 rounded">Shipping\Labels</code> class extends the base
@@ -144,14 +159,14 @@
         <!-- Virtual Types -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-6">Virtual Types</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="bg-white shadow-md p-8">
                 <p class="mb-6">
                     The module defines virtual types for carrier-specific logging:
                 </p>
 
                 <div class="mb-6">
                     <h3 class="font-bold text-lg mb-4">Carrier Debug Handler</h3>
-                    <div class="bg-bauhaus-charcoal text-white p-6 rounded-lg font-mono text-sm overflow-x-auto">
+                    <div class="bg-magento-charcoal text-white p-6 font-mono text-sm overflow-x-auto">
 <pre>&lt;virtualType name="Magento\Shipping\Model\Carrier\VirtualDebug"
              type="Magento\Framework\Logger\Handler\Base"&gt;
     &lt;arguments&gt;
@@ -165,7 +180,7 @@
 
                 <div class="mb-6">
                     <h3 class="font-bold text-lg mb-4">Carrier Virtual Logger</h3>
-                    <div class="bg-bauhaus-charcoal text-white p-6 rounded-lg font-mono text-sm overflow-x-auto">
+                    <div class="bg-magento-charcoal text-white p-6 font-mono text-sm overflow-x-auto">
 <pre>&lt;virtualType name="Magento\Shipping\Model\Method\VirtualLogger"
              type="Magento\Framework\Logger\Monolog"&gt;
     &lt;arguments&gt;
@@ -181,7 +196,7 @@
 
                 <div>
                     <h3 class="font-bold text-lg mb-4">Logger Injection into Carriers</h3>
-                    <div class="bg-bauhaus-charcoal text-white p-6 rounded-lg font-mono text-sm overflow-x-auto">
+                    <div class="bg-magento-charcoal text-white p-6 font-mono text-sm overflow-x-auto">
 <pre>&lt;type name="Magento\Shipping\Model\Carrier\AbstractCarrier"&gt;
     &lt;arguments&gt;
         &lt;argument name="logger" xsi:type="object"&gt;
@@ -201,9 +216,9 @@
         <!-- Type Arguments -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-6">Type Argument Configuration</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="bg-white shadow-md p-8">
                 <p class="mb-4 text-sm text-gray-600">Source: etc/adminhtml/di.xml</p>
-                <div class="bg-bauhaus-charcoal text-white p-6 rounded-lg font-mono text-sm overflow-x-auto">
+                <div class="bg-magento-charcoal text-white p-6 font-mono text-sm overflow-x-auto">
 <pre>&lt;type name="Magento\Shipping\Helper\Data"&gt;
     &lt;arguments&gt;
         &lt;!-- Use frontend URL model in admin context --&gt;
@@ -223,12 +238,12 @@
         <!-- Plugins FROM Other Modules -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-6">Plugins Targeting Shipping Classes</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="bg-white shadow-md p-8">
                 <p class="mb-6">
                     While Magento_Shipping defines no plugins itself, other modules extend its functionality:
                 </p>
                 <table class="w-full">
-                    <thead class="bg-bauhaus-charcoal text-white">
+                    <thead class="bg-magento-charcoal text-white">
                         <tr>
                             <th class="p-3 text-left">Source Module</th>
                             <th class="p-3 text-left">Target Class</th>
@@ -274,9 +289,9 @@
         <!-- Preferences FROM Other Modules -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-6">Preferences Overriding Shipping Classes</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="bg-white shadow-md p-8">
                 <table class="w-full">
-                    <thead class="bg-bauhaus-charcoal text-white">
+                    <thead class="bg-magento-charcoal text-white">
                         <tr>
                             <th class="p-3 text-left">Source Module</th>
                             <th class="p-3 text-left">Original Class</th>
@@ -287,11 +302,11 @@
                         <tr class="border-b">
                             <td class="p-3 font-mono text-sm">Magento_Inventory<br>Shipping</td>
                             <td class="p-3 font-mono text-sm">Controller\Adminhtml\<br>Order\Shipment\NewAction</td>
-                            <td class="p-3 font-mono text-sm text-bauhaus-orange">InventoryShipping\<br>Controller\...\NewAction</td>
+                            <td class="p-3 font-mono text-sm text-magento-orange-500">InventoryShipping\<br>Controller\...\NewAction</td>
                         </tr>
                     </tbody>
                 </table>
-                <div class="mt-6 p-4 bg-bauhaus-yellow bg-opacity-20 rounded">
+                <div class="mt-6 p-4 bg-magento-gold-500 bg-opacity-20">
                     <p class="text-sm">
                         <strong>MSI Override:</strong> When Multi-Source Inventory is enabled, the shipment
                         creation controller is replaced to support source selection during shipping.
@@ -303,9 +318,9 @@
         <!-- Cron Configuration -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-6">Cron Configuration</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="bg-white shadow-md p-8">
                 <p class="mb-4 text-sm text-gray-600">Source: etc/crontab.xml</p>
-                <div class="bg-bauhaus-charcoal text-white p-6 rounded-lg font-mono text-sm overflow-x-auto mb-6">
+                <div class="bg-magento-charcoal text-white p-6 font-mono text-sm overflow-x-auto mb-6">
 <pre>&lt;config&gt;
     &lt;group id="default"&gt;
         &lt;job name="aggregate_sales_report_shipment_data"
@@ -317,7 +332,7 @@
 &lt;/config&gt;</pre>
                 </div>
                 <table class="w-full">
-                    <thead class="bg-bauhaus-charcoal text-white">
+                    <thead class="bg-magento-charcoal text-white">
                         <tr>
                             <th class="p-3 text-left">Job Name</th>
                             <th class="p-3 text-left">Schedule</th>
@@ -338,9 +353,9 @@
         <!-- ACL Configuration -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-6">ACL Configuration</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="bg-white shadow-md p-8">
                 <p class="mb-4 text-sm text-gray-600">Source: etc/acl.xml</p>
-                <div class="bg-bauhaus-charcoal text-white p-6 rounded-lg font-mono text-sm overflow-x-auto">
+                <div class="bg-magento-charcoal text-white p-6 font-mono text-sm overflow-x-auto">
 <pre>&lt;acl&gt;
     &lt;resources&gt;
         &lt;resource id="Magento_Backend::admin"&gt;
@@ -361,11 +376,11 @@
 &lt;/acl&gt;</pre>
                 </div>
                 <div class="mt-6 grid md:grid-cols-2 gap-4">
-                    <div class="p-4 bg-gray-50 rounded">
+                    <div class="p-4 bg-gray-50">
                         <h4 class="font-bold mb-2">config_shipping</h4>
                         <p class="text-sm text-gray-600">Controls access to Shipping Settings (origin address, policy)</p>
                     </div>
-                    <div class="p-4 bg-gray-50 rounded">
+                    <div class="p-4 bg-gray-50">
                         <h4 class="font-bold mb-2">carriers</h4>
                         <p class="text-sm text-gray-600">Controls access to Shipping Methods configuration</p>
                     </div>
@@ -376,35 +391,35 @@
         <!-- Extension Best Practices -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-6">Extension Best Practices</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="bg-white shadow-md p-8">
                 <div class="grid md:grid-cols-2 gap-8">
                     <div>
-                        <h3 class="font-bold text-lg mb-4 text-bauhaus-orange">DO</h3>
+                        <h3 class="font-bold text-lg mb-4 text-magento-orange-500">DO</h3>
                         <ul class="space-y-3">
                             <li class="flex items-start">
-                                <span class="text-green-600 mr-2">&#10004;</span>
+                                <span class="text-magento-orange-500 mr-2">&#10004;</span>
                                 <span>Create new carriers by extending AbstractCarrier or AbstractCarrierOnline</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-green-600 mr-2">&#10004;</span>
+                                <span class="text-magento-orange-500 mr-2">&#10004;</span>
                                 <span>Register carriers via config.xml under carriers/[code]/model</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-green-600 mr-2">&#10004;</span>
+                                <span class="text-magento-orange-500 mr-2">&#10004;</span>
                                 <span>Use plugins on Block\DataProviders classes for tracking customization</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-green-600 mr-2">&#10004;</span>
+                                <span class="text-magento-orange-500 mr-2">&#10004;</span>
                                 <span>Log carrier debug output using $this->_debug($debugData)</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-green-600 mr-2">&#10004;</span>
+                                <span class="text-magento-orange-500 mr-2">&#10004;</span>
                                 <span>Return proper Error objects when carrier is unavailable</span>
                             </li>
                         </ul>
                     </div>
                     <div>
-                        <h3 class="font-bold text-lg mb-4 text-bauhaus-orange">DON'T</h3>
+                        <h3 class="font-bold text-lg mb-4 text-magento-orange-500">DON'T</h3>
                         <ul class="space-y-3">
                             <li class="flex items-start">
                                 <span class="text-gray-500 mr-2">&#10006;</span>
@@ -435,14 +450,14 @@
         <!-- Navigation -->
         <section class="mt-16 pt-8 border-t border-gray-200">
             <div class="flex justify-between items-center">
-                <a href="execution-flows.html" class="text-bauhaus-orange hover:underline">&larr; Execution Flows</a>
-                <a href="integrations.html" class="text-bauhaus-orange hover:underline">Integrations &rarr;</a>
+                <a href="execution-flows.html" class="text-magento-orange-500 hover:underline">&larr; Execution Flows</a>
+                <a href="integrations.html" class="text-magento-orange-500 hover:underline">Integrations &rarr;</a>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-bauhaus-charcoal text-white py-8 mt-16">
+    <footer class="bg-magento-charcoal text-white py-8 mt-16">
         <div class="container mx-auto px-6 text-center">
             <p class="text-gray-400">Magento Core Documentation Project</p>
             <p class="text-sm text-gray-500 mt-2">Magento_Shipping - DI &amp; Configuration</p>

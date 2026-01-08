@@ -10,11 +10,26 @@
             theme: {
                 extend: {
                     colors: {
-                        bauhaus: {
-                            orange: '#F26423',
-                            yellow: '#F1BC1B',
-                            charcoal: '#2C2C2C',
-                            cream: '#FAF8F5'
+                        'magento-orange': {
+                            DEFAULT: '#f26423',
+                            50: '#fef5ee', 100: '#fee9d6', 200: '#fbd0ad', 300: '#f9ae78',
+                            400: '#f58242', 500: '#f26423', 600: '#e34613', 700: '#bc3312',
+                            800: '#962a16', 900: '#792515', 950: '#411009'
+                        },
+                        'magento-gold': {
+                            DEFAULT: '#f1bc1b',
+                            50: '#fffdeb', 100: '#fdf9c8', 200: '#fbf38c', 300: '#f8e651',
+                            400: '#f7d728', 500: '#f1bc1b', 600: '#d5900a', 700: '#b1670c',
+                            800: '#8e5210', 900: '#744312', 950: '#432209'
+                        },
+                        'magento-charcoal': {
+                            DEFAULT: '#2c2c2c',
+                            50: '#f6f6f6', 100: '#e7e7e7', 200: '#d1d1d1', 300: '#b0b0b0',
+                            400: '#888888', 500: '#6d6d6d', 600: '#5d5d5d', 700: '#4f4f4f',
+                            800: '#454545', 900: '#3d3d3d', 950: '#2c2c2c'
+                        },
+                        'magento-cream': {
+                            DEFAULT: '#faf8f5'
                         }
                     }
                 }
@@ -24,25 +39,25 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
-        .gradient-border { background: linear-gradient(135deg, #F26423 0%, #F1BC1B 100%); }
+        .gradient-border { background: linear-gradient(135deg, #f26423 0%, #f1bc1b 100%); }
     </style>
 </head>
-<body class="bg-bauhaus-cream text-bauhaus-charcoal">
+<body class="bg-magento-cream text-magento-charcoal">
     <!-- Navigation -->
-    <nav class="bg-bauhaus-charcoal text-white py-4 sticky top-0 z-50 shadow-lg">
+    <nav class="bg-magento-charcoal text-white py-4 sticky top-0 z-50 shadow-lg">
         <div class="container mx-auto px-6 flex items-center justify-between">
-            <a href="../../../index.html" class="text-xl font-bold hover:text-bauhaus-yellow transition-colors">
+            <a href="../../../index.html" class="text-xl font-bold hover:text-magento-gold-500 transition-colors">
                 Magento Core Docs
             </a>
             <div class="flex items-center space-x-6">
-                <a href="index.html" class="hover:text-bauhaus-yellow transition-colors">Magento_Shipping</a>
-                <span class="text-bauhaus-yellow font-medium">Architecture</span>
+                <a href="index.html" class="hover:text-magento-gold-500 transition-colors">Magento_Shipping</a>
+                <span class="text-magento-gold-500 font-medium">Architecture</span>
             </div>
         </div>
     </nav>
 
     <!-- Page Header -->
-    <header class="bg-bauhaus-charcoal text-white py-12">
+    <header class="bg-magento-charcoal text-white py-12">
         <div class="container mx-auto px-6">
             <h1 class="text-4xl font-bold mb-2">Architecture</h1>
             <p class="text-gray-300">Carrier abstraction, rate collection, and class hierarchy</p>
@@ -55,13 +70,13 @@
         <!-- Carrier Pattern Overview -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-6">Carrier Abstraction Pattern</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="bg-white shadow-md p-8">
                 <p class="mb-6">
                     Magento's shipping architecture uses a carrier abstraction pattern that separates rate collection
                     logic from specific carrier implementations. This allows new carriers to be added without modifying
                     core shipping code.
                 </p>
-                <div class="bg-bauhaus-charcoal text-white p-6 rounded-lg font-mono text-xs overflow-x-auto">
+                <div class="bg-magento-charcoal text-white p-6 font-mono text-xs overflow-x-auto">
 <pre>
                     +------------------+
                     | RateRequest      |
@@ -107,8 +122,8 @@
         <!-- Class Hierarchy -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-6">Carrier Class Hierarchy</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
-                <div class="bg-bauhaus-charcoal text-white p-6 rounded-lg font-mono text-xs overflow-x-auto mb-6">
+            <div class="bg-white shadow-md p-8">
+                <div class="bg-magento-charcoal text-white p-6 font-mono text-xs overflow-x-auto mb-6">
 <pre>
 AbstractCarrierInterface (interface)
     |
@@ -127,7 +142,7 @@ AbstractCarrierInterface (interface)
 </pre>
                 </div>
                 <div class="grid md:grid-cols-2 gap-6">
-                    <div class="p-4 border-l-4 border-bauhaus-orange">
+                    <div class="p-4 border-l-4 border-magento-orange-500">
                         <h4 class="font-bold mb-2">AbstractCarrier</h4>
                         <p class="text-sm text-gray-600">
                             Base class providing configuration access, handling fee calculation,
@@ -135,7 +150,7 @@ AbstractCarrierInterface (interface)
                             offline carriers (flat rate, table rate, free shipping).
                         </p>
                     </div>
-                    <div class="p-4 border-l-4 border-bauhaus-yellow">
+                    <div class="p-4 border-l-4 border-magento-gold-500">
                         <h4 class="font-bold mb-2">AbstractCarrierOnline</h4>
                         <p class="text-sm text-gray-600">
                             Extends AbstractCarrier with API integration features: shipping labels,
@@ -150,10 +165,10 @@ AbstractCarrierInterface (interface)
         <!-- Rate Collection Flow -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-6">Rate Collection Architecture</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="bg-white shadow-md p-8">
                 <h3 class="font-bold text-lg mb-4">Shipping::collectRates()</h3>
                 <p class="mb-4">The main orchestration method that iterates through all enabled carriers:</p>
-                <div class="bg-bauhaus-charcoal text-white p-6 rounded-lg font-mono text-sm overflow-x-auto mb-6">
+                <div class="bg-magento-charcoal text-white p-6 font-mono text-sm overflow-x-auto mb-6">
 <pre>public function collectRates(RateRequest $request)
 {
     // Set origin from store config if not provided
@@ -182,7 +197,7 @@ AbstractCarrierInterface (interface)
 
                 <h3 class="font-bold text-lg mb-4">collectCarrierRates()</h3>
                 <p class="mb-4">Prepares and invokes a single carrier:</p>
-                <div class="bg-bauhaus-charcoal text-white p-6 rounded-lg font-mono text-sm overflow-x-auto">
+                <div class="bg-magento-charcoal text-white p-6 font-mono text-sm overflow-x-auto">
 <pre>public function collectCarrierRates($carrierCode, $request)
 {
     // Create carrier via factory
@@ -213,9 +228,9 @@ AbstractCarrierInterface (interface)
         <!-- Rate Result Classes -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-6">Rate Result Classes</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="bg-white shadow-md p-8">
                 <table class="w-full">
-                    <thead class="bg-bauhaus-charcoal text-white">
+                    <thead class="bg-magento-charcoal text-white">
                         <tr>
                             <th class="p-3 text-left">Class</th>
                             <th class="p-3 text-left">Path</th>
@@ -256,12 +271,12 @@ AbstractCarrierInterface (interface)
         <!-- Carrier Factory -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-6">Carrier Factory</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="bg-white shadow-md p-8">
                 <p class="mb-4">
                     The <code class="bg-gray-100 px-2 py-1 rounded">CarrierFactory</code> creates carrier instances
                     based on configuration. Each carrier is registered in its module's <code>config.xml</code>:
                 </p>
-                <div class="bg-bauhaus-charcoal text-white p-6 rounded-lg font-mono text-sm overflow-x-auto mb-6">
+                <div class="bg-magento-charcoal text-white p-6 font-mono text-sm overflow-x-auto mb-6">
 <pre>&lt;!-- Example: module-ups/etc/config.xml --&gt;
 &lt;config&gt;
     &lt;default&gt;
@@ -276,7 +291,7 @@ AbstractCarrierInterface (interface)
     &lt;/default&gt;
 &lt;/config&gt;</pre>
                 </div>
-                <div class="bg-bauhaus-charcoal text-white p-6 rounded-lg font-mono text-sm overflow-x-auto">
+                <div class="bg-magento-charcoal text-white p-6 font-mono text-sm overflow-x-auto">
 <pre>// CarrierFactory::create()
 public function create($carrierCode, $storeId = null)
 {
@@ -299,8 +314,8 @@ public function create($carrierCode, $storeId = null)
         <!-- Tracking Architecture -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-6">Tracking Architecture</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
-                <div class="bg-bauhaus-charcoal text-white p-6 rounded-lg font-mono text-xs overflow-x-auto mb-6">
+            <div class="bg-white shadow-md p-8">
+                <div class="bg-magento-charcoal text-white p-6 font-mono text-xs overflow-x-auto mb-6">
 <pre>
 +-------------------+     +-------------------+     +-------------------+
 |  Tracking/Popup   | --> |  AbstractCarrier  | --> |  Carrier API      |
@@ -347,12 +362,12 @@ public function create($carrierCode, $storeId = null)
         <!-- Shipping Labels -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-6">Shipping Label Architecture</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="bg-white shadow-md p-8">
                 <p class="mb-4">
                     Shipping labels are generated via the <code class="bg-gray-100 px-2 py-1 rounded">Shipping\Labels</code>
                     class (admin area only). This class extends the base Shipping class and adds label creation.
                 </p>
-                <div class="bg-bauhaus-charcoal text-white p-6 rounded-lg font-mono text-sm overflow-x-auto mb-6">
+                <div class="bg-magento-charcoal text-white p-6 font-mono text-sm overflow-x-auto mb-6">
 <pre>// adminhtml/di.xml preference
 &lt;preference for="Magento\Shipping\Model\Shipping"
             type="Magento\Shipping\Model\Shipping\Labels" /&gt;
@@ -380,7 +395,7 @@ public function requestToShipment(Shipment $orderShipment, Request $request)
     return $result;
 }</pre>
                 </div>
-                <div class="p-4 bg-bauhaus-yellow bg-opacity-20 rounded-lg">
+                <div class="p-4 bg-magento-gold-500 bg-opacity-20">
                     <p class="text-sm">
                         <strong>Note:</strong> Only carriers extending <code>AbstractCarrierOnline</code> support
                         shipping labels. The <code>isShippingLabelsAvailable()</code> method must return true.
@@ -392,12 +407,12 @@ public function requestToShipment(Shipment $orderShipment, Request $request)
         <!-- Package Composition -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-6">Package Composition</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="bg-white shadow-md p-8">
                 <p class="mb-4">
                     When a carrier has <code>shipment_requesttype</code> enabled, items are composed into packages
                     using a first-fit decreasing (FFD) bin-packing algorithm:
                 </p>
-                <div class="bg-bauhaus-charcoal text-white p-6 rounded-lg font-mono text-sm overflow-x-auto">
+                <div class="bg-magento-charcoal text-white p-6 font-mono text-sm overflow-x-auto">
 <pre>// Shipping::composePackagesForCarrier()
 public function composePackagesForCarrier($carrier, $request)
 {
@@ -448,8 +463,8 @@ protected function _makePieces(array $items, float $maxWeight): array
         <!-- Directory Structure -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-6">Directory Structure</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
-                <div class="bg-bauhaus-charcoal text-white p-6 rounded-lg font-mono text-xs overflow-x-auto">
+            <div class="bg-white shadow-md p-8">
+                <div class="bg-magento-charcoal text-white p-6 font-mono text-xs overflow-x-auto">
 <pre>module-shipping/
 +-- Block/
 |   +-- Adminhtml/
@@ -511,14 +526,14 @@ protected function _makePieces(array $items, float $maxWeight): array
         <!-- Navigation -->
         <section class="mt-16 pt-8 border-t border-gray-200">
             <div class="flex justify-between items-center">
-                <a href="index.html" class="text-bauhaus-orange hover:underline">&larr; Back to Overview</a>
-                <a href="execution-flows.html" class="text-bauhaus-orange hover:underline">Execution Flows &rarr;</a>
+                <a href="index.html" class="text-magento-orange-500 hover:underline">&larr; Back to Overview</a>
+                <a href="execution-flows.html" class="text-magento-orange-500 hover:underline">Execution Flows &rarr;</a>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-bauhaus-charcoal text-white py-8 mt-16">
+    <footer class="bg-magento-charcoal text-white py-8 mt-16">
         <div class="container mx-auto px-6 text-center">
             <p class="text-gray-400">Magento Core Documentation Project</p>
             <p class="text-sm text-gray-500 mt-2">Magento_Shipping - Architecture</p>
