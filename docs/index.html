@@ -118,36 +118,178 @@
                     </div>
                 </div>
                 <div class="hidden lg:block">
-                    <svg viewBox="0 0 400 300" class="w-full h-auto" aria-hidden="true">
-                        <!-- Magento Core Architecture Visualization -->
-                        <!-- Central Hexagon representing Core -->
-                        <polygon points="200,20 250,50 250,110 200,140 150,110 150,50" fill="#f26423" opacity="0.2" stroke="#f26423" stroke-width="3"/>
-                        <text x="200" y="75" text-anchor="middle" fill="#f26423" font-size="12" font-weight="bold">MAGENTO</text>
-                        <text x="200" y="92" text-anchor="middle" fill="#818181" font-size="9">CORE</text>
-                        <!-- Customer Module (left) -->
-                        <rect x="20" y="70" width="80" height="50" fill="#2c2c2c" stroke="#f1bc1b" stroke-width="2"/>
-                        <text x="60" y="92" text-anchor="middle" fill="#f1bc1b" font-size="9" font-weight="bold">Customer</text>
-                        <text x="60" y="107" text-anchor="middle" fill="#818181" font-size="8">499 nodes</text>
-                        <line x1="100" y1="95" x2="150" y2="80" stroke="#f1bc1b" stroke-width="2"/>
-                        <!-- Sales Module (right) -->
-                        <rect x="300" y="70" width="80" height="50" fill="#2c2c2c" stroke="#f26423" stroke-width="2"/>
-                        <text x="340" y="92" text-anchor="middle" fill="#f26423" font-size="9" font-weight="bold">Sales</text>
-                        <text x="340" y="107" text-anchor="middle" fill="#818181" font-size="8">861 nodes</text>
-                        <line x1="300" y1="95" x2="250" y2="80" stroke="#f26423" stroke-width="2"/>
-                        <!-- Catalog Module (center-bottom) -->
-                        <rect x="160" y="150" width="80" height="50" fill="#2c2c2c" stroke="#f1bc1b" stroke-width="2"/>
-                        <text x="200" y="172" text-anchor="middle" fill="#f1bc1b" font-size="9" font-weight="bold">Catalog</text>
-                        <text x="200" y="187" text-anchor="middle" fill="#818181" font-size="8">2120 nodes</text>
-                        <line x1="200" y1="150" x2="200" y2="140" stroke="#f1bc1b" stroke-width="2"/>
-                        <!-- Documentation layer -->
-                        <rect x="80" y="220" width="240" height="60" fill="#2c2c2c" stroke="#f26423" stroke-width="2"/>
-                        <text x="200" y="242" text-anchor="middle" fill="#f26423" font-size="11" font-weight="bold">DOCUMENTATION</text>
-                        <text x="200" y="258" text-anchor="middle" fill="#818181" font-size="9">Architecture · Flows · Integrations · Issues</text>
-                        <text x="200" y="272" text-anchor="middle" fill="#818181" font-size="8">Plugins · Observers · Anti-patterns</text>
-                        <!-- Connecting lines -->
-                        <line x1="60" y1="120" x2="100" y2="220" stroke="#f1bc1b" stroke-width="1" stroke-dasharray="4"/>
-                        <line x1="340" y1="120" x2="300" y2="220" stroke="#f26423" stroke-width="1" stroke-dasharray="4"/>
-                        <line x1="200" y1="200" x2="200" y2="220" stroke="#f1bc1b" stroke-width="2"/>
+                    <svg viewBox="0 0 400 320" class="w-full h-auto" aria-hidden="true">
+                        <defs>
+                            <!-- Gradients -->
+                            <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#f26423"/>
+                                <stop offset="100%" stop-color="#bc3312"/>
+                            </linearGradient>
+                            <linearGradient id="yellowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#f1bc1b"/>
+                                <stop offset="100%" stop-color="#d5900a"/>
+                            </linearGradient>
+                            <linearGradient id="flowGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#f26423" stop-opacity="1"/>
+                                <stop offset="100%" stop-color="#f26423" stop-opacity="0.3"/>
+                            </linearGradient>
+                            <!-- Glow filter for active paths -->
+                            <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                                <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                            <!-- Animated dash pattern -->
+                            <style>
+                                @keyframes flowPulse {
+                                    0% { stroke-dashoffset: 20; }
+                                    100% { stroke-dashoffset: 0; }
+                                }
+                                .flow-line { animation: flowPulse 1s linear infinite; }
+                            </style>
+                        </defs>
+
+                        <!-- Background grid -->
+                        <g opacity="0.08">
+                            <line x1="0" y1="50" x2="400" y2="50" stroke="#818181" stroke-width="1"/>
+                            <line x1="0" y1="100" x2="400" y2="100" stroke="#818181" stroke-width="1"/>
+                            <line x1="0" y1="150" x2="400" y2="150" stroke="#818181" stroke-width="1"/>
+                            <line x1="0" y1="200" x2="400" y2="200" stroke="#818181" stroke-width="1"/>
+                            <line x1="0" y1="250" x2="400" y2="250" stroke="#818181" stroke-width="1"/>
+                            <line x1="100" y1="0" x2="100" y2="320" stroke="#818181" stroke-width="1"/>
+                            <line x1="200" y1="0" x2="200" y2="320" stroke="#818181" stroke-width="1"/>
+                            <line x1="300" y1="0" x2="300" y2="320" stroke="#818181" stroke-width="1"/>
+                        </g>
+
+                        <!-- FLOW PATHS (behind nodes) -->
+                        <!-- Main happy path - thick orange -->
+                        <path d="M200 35 L200 65 L200 95 L200 125 L200 155 L200 185 L200 215 L200 245 L200 275"
+                              stroke="#f26423" stroke-width="4" fill="none" opacity="0.3"/>
+
+                        <!-- Animated flow on happy path -->
+                        <path d="M200 35 L200 65 L200 95 L200 125 L200 155 L200 185 L200 215 L200 245 L200 275"
+                              stroke="#f26423" stroke-width="4" fill="none"
+                              stroke-dasharray="10 10" class="flow-line" filter="url(#glow)"/>
+
+                        <!-- Event dispatch branches (yellow) -->
+                        <!-- From Router to Event -->
+                        <path d="M200 80 L280 80 L280 110" stroke="#f1bc1b" stroke-width="2" fill="none" opacity="0.6"/>
+                        <!-- From Controller to Event -->
+                        <path d="M200 140 L320 140 L320 170" stroke="#f1bc1b" stroke-width="2" fill="none" opacity="0.6"/>
+                        <!-- From Service to Event -->
+                        <path d="M200 200 L340 200 L340 230" stroke="#f1bc1b" stroke-width="2" fill="none" opacity="0.6"/>
+
+                        <!-- Plugin interception branches (orange, dashed) -->
+                        <!-- Before Plugin -->
+                        <path d="M200 110 L100 110 L100 140" stroke="#f26423" stroke-width="2" fill="none"
+                              stroke-dasharray="4 2" opacity="0.5"/>
+                        <!-- Around Plugin -->
+                        <path d="M200 170 L80 170 L80 200" stroke="#f26423" stroke-width="2" fill="none"
+                              stroke-dasharray="4 2" opacity="0.5"/>
+                        <!-- After Plugin -->
+                        <path d="M200 230 L60 230 L60 260" stroke="#f26423" stroke-width="2" fill="none"
+                              stroke-dasharray="4 2" opacity="0.5"/>
+
+                        <!-- Terminal branches -->
+                        <!-- To Database -->
+                        <path d="M200 260 L120 285" stroke="#474747" stroke-width="2" fill="none" opacity="0.4"/>
+                        <!-- To Cache -->
+                        <path d="M200 260 L280 285" stroke="#474747" stroke-width="2" fill="none" opacity="0.4"/>
+
+                        <!-- ENTRY POINT -->
+                        <g>
+                            <rect x="150" y="8" width="100" height="28" fill="url(#orangeGradient)"/>
+                            <text x="200" y="27" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="Inter Tight, sans-serif">HTTP REQUEST</text>
+                            <!-- Down arrow -->
+                            <polygon points="200,36 194,44 206,44" fill="#f26423"/>
+                        </g>
+
+                        <!-- MAIN FLOW NODES -->
+                        <!-- Router -->
+                        <g>
+                            <rect x="155" y="55" width="90" height="26" fill="#1c1c1c" stroke="#f26423" stroke-width="2"/>
+                            <text x="200" y="73" text-anchor="middle" fill="#f26423" font-size="10" font-weight="600" font-family="Inter Tight, sans-serif">ROUTER</text>
+                        </g>
+
+                        <!-- Controller -->
+                        <g>
+                            <rect x="155" y="115" width="90" height="26" fill="#1c1c1c" stroke="#f26423" stroke-width="2"/>
+                            <text x="200" y="133" text-anchor="middle" fill="#f26423" font-size="10" font-weight="600" font-family="Inter Tight, sans-serif">CONTROLLER</text>
+                        </g>
+
+                        <!-- Service Layer -->
+                        <g>
+                            <rect x="155" y="175" width="90" height="26" fill="#1c1c1c" stroke="#f26423" stroke-width="2"/>
+                            <text x="200" y="193" text-anchor="middle" fill="#f26423" font-size="10" font-weight="600" font-family="Inter Tight, sans-serif">SERVICE</text>
+                        </g>
+
+                        <!-- Model/Repository -->
+                        <g>
+                            <rect x="155" y="235" width="90" height="26" fill="#1c1c1c" stroke="#f26423" stroke-width="2"/>
+                            <text x="200" y="253" text-anchor="middle" fill="#f26423" font-size="10" font-weight="600" font-family="Inter Tight, sans-serif">REPOSITORY</text>
+                        </g>
+
+                        <!-- EVENT DISPATCH NODES (right side, yellow) -->
+                        <g>
+                            <rect x="260" y="100" width="70" height="22" fill="url(#yellowGradient)"/>
+                            <text x="295" y="115" text-anchor="middle" fill="#2c2c2c" font-size="8" font-weight="600" font-family="Inter Tight, sans-serif">dispatch()</text>
+                        </g>
+                        <g>
+                            <rect x="300" y="160" width="70" height="22" fill="url(#yellowGradient)"/>
+                            <text x="335" y="175" text-anchor="middle" fill="#2c2c2c" font-size="8" font-weight="600" font-family="Inter Tight, sans-serif">dispatch()</text>
+                        </g>
+                        <g>
+                            <rect x="320" y="220" width="70" height="22" fill="url(#yellowGradient)"/>
+                            <text x="355" y="235" text-anchor="middle" fill="#2c2c2c" font-size="8" font-weight="600" font-family="Inter Tight, sans-serif">dispatch()</text>
+                        </g>
+
+                        <!-- PLUGIN INTERCEPTION NODES (left side) -->
+                        <g>
+                            <rect x="55" y="130" width="65" height="20" fill="#262626" stroke="#f26423" stroke-width="1"/>
+                            <text x="87" y="144" text-anchor="middle" fill="#818181" font-size="7" font-weight="500" font-family="Inter Tight, sans-serif">beforeSave</text>
+                        </g>
+                        <g>
+                            <rect x="35" y="190" width="65" height="20" fill="#262626" stroke="#f26423" stroke-width="1"/>
+                            <text x="67" y="204" text-anchor="middle" fill="#818181" font-size="7" font-weight="500" font-family="Inter Tight, sans-serif">aroundGet</text>
+                        </g>
+                        <g>
+                            <rect x="15" y="250" width="65" height="20" fill="#262626" stroke="#f26423" stroke-width="1"/>
+                            <text x="47" y="264" text-anchor="middle" fill="#818181" font-size="7" font-weight="500" font-family="Inter Tight, sans-serif">afterDelete</text>
+                        </g>
+
+                        <!-- TERMINAL NODES -->
+                        <!-- Database -->
+                        <g>
+                            <rect x="85" y="282" width="70" height="24" fill="#262626" stroke="#474747" stroke-width="1"/>
+                            <text x="120" y="298" text-anchor="middle" fill="#818181" font-size="9" font-weight="500" font-family="Inter Tight, sans-serif">DATABASE</text>
+                        </g>
+                        <!-- Response -->
+                        <g>
+                            <rect x="165" y="282" width="70" height="24" fill="url(#orangeGradient)"/>
+                            <text x="200" y="298" text-anchor="middle" fill="#fff" font-size="9" font-weight="600" font-family="Inter Tight, sans-serif">RESPONSE</text>
+                        </g>
+                        <!-- Cache -->
+                        <g>
+                            <rect x="245" y="282" width="70" height="24" fill="#262626" stroke="#474747" stroke-width="1"/>
+                            <text x="280" y="298" text-anchor="middle" fill="#818181" font-size="9" font-weight="500" font-family="Inter Tight, sans-serif">CACHE</text>
+                        </g>
+
+                        <!-- LEGEND -->
+                        <g transform="translate(335, 8)">
+                            <rect x="0" y="0" width="60" height="52" fill="#1c1c1c" stroke="#474747" stroke-width="1"/>
+                            <line x1="5" y1="12" x2="20" y2="12" stroke="#f26423" stroke-width="2"/>
+                            <text x="24" y="15" fill="#818181" font-size="6" font-family="Inter Tight, sans-serif">Flow</text>
+                            <line x1="5" y1="26" x2="20" y2="26" stroke="#f1bc1b" stroke-width="2"/>
+                            <text x="24" y="29" fill="#818181" font-size="6" font-family="Inter Tight, sans-serif">Events</text>
+                            <line x1="5" y1="40" x2="20" y2="40" stroke="#f26423" stroke-width="2" stroke-dasharray="4 2"/>
+                            <text x="24" y="43" fill="#818181" font-size="6" font-family="Inter Tight, sans-serif">Plugins</text>
+                        </g>
+
+                        <!-- Corner accents -->
+                        <polygon points="0,0 25,0 0,25" fill="#f26423"/>
+                        <polygon points="400,320 375,320 400,295" fill="#f1bc1b"/>
                     </svg>
                 </div>
             </div>
